@@ -1,0 +1,180 @@
+namespace = ef_misc
+
+planet_event = {
+    id = ef_misc.1
+    hide_window = yes
+    is_triggered_only = yes
+
+    # Density 500 gives us level 1
+    # Density 600 gives us level 2
+    # Density 700 gives us ecu city textures. (level 3)
+    # Density 800 gives us an ecu
+
+    trigger = {
+        not = { has_planet_flag = ef_recently_increased_urban_level}
+        ef_is_majority_urban = yes
+        ef_has_population_density = { DENSITY = 500 }
+        ef_is_valid_for_urbanisation = yes
+    }
+
+    immediate = {
+        if = {
+            limit = {
+                ef_has_population_density = { DENSITY = 500 }
+                ef_is_majority_urban = yes
+                NOR = {
+                    has_modifier = ef_urban_level_1
+                    has_modifier = ef_urban_level_2
+                    has_modifier = ef_urban_level_3
+                }
+            }
+            planet_event = { id = ef_misc.2 }
+        }
+        if = {
+            limit = {
+                ef_has_population_density = { DENSITY = 600 }
+                ef_is_majority_urban = yes
+                has_modifier = ef_urban_level_1
+            }
+            planet_event = { id = ef_misc.3 }
+        }
+        if = {
+            limit = {
+                ef_has_population_density = { DENSITY = 700 }
+                ef_is_majority_urban = yes
+                has_modifier = ef_urban_level_2
+            }
+            planet_event = { id = ef_misc.4 }
+        }
+        if = {
+            limit = {
+                ef_has_population_density = { DENSITY = 800 }
+                ef_is_majority_urban = yes
+                has_modifier = ef_urban_level_3
+                not = { has_planet_flag = ef_rejected_ecu_upgrade}
+            }
+            # Offer to upgrade to ecu
+            planet_event = { id = ef_misc.5 }
+        }
+    }
+}
+
+# Level one urbanisation
+planet_event = {
+    id = ef_misc.2
+    title = ef_misc.2.name
+    desc = ef_misc.2.desc
+	picture  = GFX_evt_busy_spaceport
+	location = root
+	is_triggered_only = yes
+
+    option = {
+        name = ef_misc.2.a
+        add_modifier = { modifier = ef_urban_level_1 }
+        hidden_effect = {
+            set_timed_planet_flag = { flag = ef_recently_increased_urban_level years = 15 }
+        }
+    }
+}
+
+# Level two urbanisation
+planet_event = {
+    id = ef_misc.3
+    title = ef_misc.3.name
+    desc = ef_misc.3.desc
+	picture  = GFX_evt_ef_towers
+	location = root
+	is_triggered_only = yes
+
+    option = {
+        name = ef_misc.3.a
+        remove_modifier = ef_urban_level_1
+        add_modifier = { modifier = ef_urban_level_2 }
+        hidden_effect = {
+            set_timed_planet_flag = { flag = ef_recently_increased_urban_level years = 15 }
+        }
+    }
+}
+
+planet_event = {
+    id = ef_misc.4
+    title = ef_misc.4.name
+    desc = ef_misc.4.desc
+	picture  = GFX_evt_metropolis
+	location = root
+	is_triggered_only = yes
+
+    option = {
+        name = ef_misc.4.a
+        remove_modifier = ef_urban_level_2
+        add_modifier = { modifier = ef_urban_level_3 }
+        set_timed_planet_flag = { flag = ef_recently_increased_urban_level years = 15 }
+    }
+}
+
+# Offer to turn planet into ecu
+planet_event = {
+    id = ef_misc.5
+    title = ef_misc.5.name
+    desc = ef_misc.5.desc
+	picture  = GFX_evt_city_planet
+	location = root
+	is_triggered_only = yes
+
+    trigger = {
+        owner = {
+            NOT = { has_country_flag = ef_recent_free_ecu }
+        }
+    }
+
+    option = {
+        name = ef_misc.5.a
+        custom_tooltip = ef_misc.5.a.tooltip
+        hidden_effect = {
+            ef_grow_ecu = yes
+            owner = {
+                set_timed_country_flag = {
+                    flag = ef_recent_free_ecu
+                    years = 15
+                }
+            }
+        }
+    }
+    option = {
+        name = ef_misc.5.b
+        custom_tooltip = ef_misc.5.b.tooltip
+        hidden_effect = {
+            set_timed_planet_flag= {
+                flag = ef_rejected_ecu_upgrade
+                years = 20
+            }
+        }
+        ai_chance = { base = 0 }
+    }
+    option = {
+        name = ef_misc.5.c
+        custom_tooltip = ef_misc.5.c.tooltip
+        hidden_effect = {
+            set_planet_flag = ef_rejected_ecu_upgrade
+        }
+        ai_chance = { base = 0 }
+    }
+}
+
+# Offer to turn planet into ecu
+planet_event = {
+    id = ef_misc.6
+    title = ef_misc.6.name
+    desc = ef_misc.6.desc
+	picture  = GFX_evt_city_planet
+	location = root
+	is_triggered_only = yes
+
+    option = {
+        name = ef_misc.6.a
+
+        hidden_effect = {
+            set_timed_planet_flag = { flag = ef_recently_increased_urban_level years = 15 }
+        }
+    }
+}

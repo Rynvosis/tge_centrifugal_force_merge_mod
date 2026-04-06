@@ -1,0 +1,1507 @@
+namespace = pf_content
+
+planet_event = {
+    id = pf_content.10
+	title = pf_content.10.name
+	desc = "pf_content.10.desc"
+	picture  = GFX_evt_alien_nature
+	location = this
+    is_triggered_only = yes
+
+	option = {
+		name = pf_content.10.a
+		remove_modifier = pf_pm_multi_planetary_ecosystem
+	}
+}
+
+planet_event = {
+    id = pf_content.20
+	title = pf_content.20.name
+	desc = "pf_content.20.desc"
+	picture  = GFX_evt_asteroid_approaching_planet
+	location = this
+    is_triggered_only = yes
+
+	option = {
+		name = pf_content.20.a
+		remove_modifier = pf_pm_recent_asteroid_impact
+		add_modifier = { modifier = pf_pm_asteroid_impact }
+	}
+}
+
+ship_event = {
+	id = pf_content.100
+	title = pf_content.100.name
+	desc = "pf_content.100.desc"
+	picture  = GFX_evt_infested
+	location = this
+    is_triggered_only = yes
+
+	trigger = {
+		solar_system = {
+			has_star_flag = pf_hive_star_system
+		}
+		owner = {
+			not = { has_country_flag = pf_has_encountered_hive_stars}
+		}
+	}
+
+	immediate = {
+		owner = {
+			set_country_flag = pf_has_encountered_hive_stars
+			establish_communications_no_message = event_target:pf_straggler_swarms_country
+		}
+	}
+
+	option = {
+		name = pf_content.100.a
+		owner = {
+			add_resource = { society_research = 500 }
+		}
+	}
+}
+
+ship_event = {
+	id = pf_content.101
+    is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		solar_system = {
+			has_star_flag = pf_hive_star_system
+		}
+		# From = planet that was surveyed
+		from = {
+			is_planet_class = pc_infested
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				owner = {
+					not = { has_country_flag = pf_has_surveyed_hive_star_planet}
+				}
+			}
+			owner = {
+				set_country_flag = pf_has_surveyed_hive_star_planet
+			}
+			solar_system = {
+				save_event_target_as = pf_first_hive_star_system_surveyed
+			}
+		}
+
+		else = {
+			if = {
+				limit = {
+					owner = {
+						not = { has_country_flag = pf_has_surveyed_second_hive_star_planet }
+					}
+				}
+				from = {
+					save_event_target_as = pf_second_infested_world_surveyed
+				}
+				ship_event = { id = pf_content.102 }
+				owner = {
+					set_country_flag = pf_has_surveyed_second_hive_star_planet
+				}
+			}
+		}
+	}
+}
+
+ship_event = {
+	id = pf_content.102
+	title = pf_content.102.name
+	desc = "pf_content.102.desc"
+	picture  = GFX_evt_infested
+	location = this
+    is_triggered_only = yes
+
+	option = {
+		name = pf_content.102.a
+		owner = {
+			add_resource = { society_research = 500 }
+		}
+	}
+}
+
+planet_event = {
+    id = pf_content.110
+    hide_window = yes
+    is_triggered_only = yes
+
+    immediate = {
+		if = {
+			limit = {
+				has_modifier = unstable_tectonics
+			}
+			random_list = {
+				1 = { planet_event = { id = pf_content.111 }}
+				1 = {}
+			}
+		}
+    }
+}
+
+planet_event = {
+	id = pf_content.111
+	title = pf_content.111.name
+	desc = pf_content.111.desc
+	picture  = GFX_evt_mining_operations
+	location = this
+    is_triggered_only = yes
+
+	option = {
+		name = pf_content.111.a
+		allow = {
+			owner = {
+				resource_stockpile_compare = {
+					resource = energy
+					value > 2000
+				}
+			}
+		}
+		owner = {
+			add_resource = {
+				energy = -2000
+			}
+		}
+		add_deposit = d_pf_geothermic_extraction_sites
+	}
+	option = {
+		name = pf_content.111.b
+		hidden_effect = {
+			set_planet_flag = pf_geothermic_extraction_decision_allowed
+		}
+	}
+}
+
+
+
+# Initial Roll for Static Sandstorm modifiers
+planet_event = {
+	id = pf_content.120
+    hide_window = yes
+    is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					is_planet_class = pc_desert
+					is_planet_class = pc_arid
+					is_planet_class = pc_savannah
+				}
+			}
+			random_list = {
+				30 = {}
+				1 = {
+					planet_event = { id = pf_content.121 }
+					modifier = {
+						mult = 2
+						is_planet_class = pc_arid
+					}
+					modifier = {
+						mult = 3
+						is_planet_class = pc_desert
+					}
+					# Make it a bit kinder for desert dwelling empires
+					modifier = {
+						mult = 0.75
+						is_ideal_planet_class = {
+							who = owner
+							status = yes
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# Engine event for static sandstorm world modifiers
+planet_event = {
+	id = pf_content.121
+    hide_window = yes
+    is_triggered_only = yes
+
+	immediate = {
+		if = {
+			# Lets us stop the random event silently when flag is cleared
+			limit = { NOT = { has_planet_flag =  pf_removed_static_sandstorm_world } }
+			set_planet_flag = pf_static_sandstorm_world
+			random_list = {
+				50 = { }
+				50 = { planet_event = { id = pf_content.122 }}
+			}
+			# Queue up the next dice roll
+			planet_event = { id = pf_content.121 years = 10 }
+		}
+	}
+}
+
+planet_event = {
+	id = pf_content.122
+	title = pf_content.122.name
+	desc = pf_content.122.desc
+	picture  = GFX_evt_strange_sands
+	location = this
+    is_triggered_only = yes
+
+	option = {
+		name = pf_content.122.a
+		random_list = {
+			1 = { add_modifier = { modifier = pf_pm_harsh_static_storms years = 5 } }
+			3 = { add_modifier = { modifier = pf_pm_static_storms years = 5 } }
+			2 = { add_modifier = { modifier = pf_pm_mild_static_storms years = 5 } }
+		}
+	}
+}
+
+# Check for sandstorm planet and remove effects if planet class has changed
+planet_event = {
+    id = pf_content.123
+    hide_window = yes
+    is_triggered_only = yes
+
+    immediate = {
+		if = {
+			limit = { has_planet_flag = pf_static_sandstorm_world }
+			planet_event = { id = pf_content.124 }
+		}
+    }
+}
+
+# Planet class has changed so we remove all the sandstorm nonsense.
+planet_event = {
+	id = pf_content.124
+	title = pf_content.124.name
+	desc = pf_content.124.desc
+	picture  = GFX_evt_pf_planet_space
+	location = this
+    is_triggered_only = yes
+
+	immediate = {
+		set_planet_flag = pf_removed_static_sandstorm_world
+		remove_planet_flag = pf_static_sandstorm_world
+	}
+
+	option = {
+		name = pf_content.124.a
+		if = {
+			limit = { has_modifier = pf_pm_harsh_static_storms }
+			remove_modifier = pf_pm_harsh_static_storms
+		}
+		if = {
+			limit = { has_modifier = pf_pm_static_storms }
+			remove_modifier = pf_pm_static_storms
+		}
+		if = {
+			limit = { has_modifier = pf_pm_mild_static_storms }
+			remove_modifier = pf_pm_mild_static_storms
+		}
+	}
+}
+
+# Hyperbloom gatekeeper
+planet_event = {
+    id = pf_content.130
+    hide_window = yes
+    is_triggered_only = yes
+
+	trigger = {
+		has_modifier = pf_pm_overgrown
+	}
+
+    immediate = {
+		# Will it trigger at all
+		random_list = {
+			10 = {}
+			5 = {
+				# When will the next one trigger
+				random_list = {
+					1 = { planet_event = { id = pf_content.131 years = 5 }}
+					2 = { planet_event = { id = pf_content.131 years = 10 }}
+					2 = { planet_event = { id = pf_content.131 years = 15 }}
+					1 = { planet_event = { id = pf_content.131 years = 20 }}
+				}
+			}
+		}
+    }
+}
+
+# Hyperbloom
+planet_event = {
+    id = pf_content.131
+	title = pf_content.131.name
+	desc = pf_content.131.desc
+	picture  = GFX_evt_alien_nature
+	location = this
+    is_triggered_only = yes
+
+	trigger = {
+		has_modifier = pf_pm_overgrown
+	}
+
+    immediate = {
+		hidden_effect = {
+			# Trigger the next bloom
+			random_list = {
+				1 = { planet_event = { id = pf_content.131 years = 5 }}
+				2 = { planet_event = { id = pf_content.131 years = 10 }}
+				2 = { planet_event = { id = pf_content.131 years = 15 }}
+				2 = { planet_event = { id = pf_content.131 years = 20 }}
+				1 = { planet_event = { id = pf_content.131 years = 25 }}
+			}
+		}
+    }
+
+	option = {
+		name = pf_content.131.a
+			random_list = {
+				1 = { add_modifier = { modifier = pf_pm_hyperbloom years = 5 }}
+				1 = { add_modifier = { modifier = pf_pm_hyperbloom years = 10 }}
+				1 = { add_modifier = { modifier = pf_pm_hyperbloom years = 15 }}
+			}
+
+	}
+}
+
+# Blizzards gatekeeper
+planet_event = {
+    id = pf_content.140
+    hide_window = yes
+    is_triggered_only = yes
+
+	trigger = {
+		has_modifier = pf_pm_ice_age
+		NOT = { has_planet_flag = pf_blizzard_prevention_complete} # You shouldn't really have it here
+	}
+
+    immediate = {
+		# Will it trigger at all
+		random_list = {
+			10 = {}
+			5 = {
+				# When will the next one trigger
+				random_list = {
+					1 = { planet_event = { id = pf_content.141 years = 5 }}
+					2 = { planet_event = { id = pf_content.141 years = 10 }}
+					2 = { planet_event = { id = pf_content.141 years = 15 }}
+					1 = { planet_event = { id = pf_content.141 years = 20 }}
+				}
+			}
+		}
+    }
+}
+
+# First blizzard
+planet_event = {
+    id = pf_content.141
+	title = pf_content.141.name
+	desc = pf_content.141.desc
+	picture  = GFX_evt_pf_alpine_highlands
+	location = this
+    is_triggered_only = yes
+
+	trigger = {
+		has_modifier = pf_pm_ice_age
+		NOT = { has_planet_flag = pf_blizzard_prevention_complete} # You shouldn't really have it here
+	}
+
+    immediate = {
+		hidden_effect = {
+			# Trigger the next bloom
+			random_list = {
+				1 = { planet_event = { id = pf_content.142 years = 5 }}
+				2 = { planet_event = { id = pf_content.142 years = 10 }}
+				2 = { planet_event = { id = pf_content.142 years = 15 }}
+				2 = { planet_event = { id = pf_content.142 years = 20 }}
+				1 = { planet_event = { id = pf_content.142 years = 25 }}
+			}
+		}
+    }
+
+	option = {
+		name = pf_content.141.a
+		add_planet_devastation = 25
+	}
+}
+
+# Next blizzard - do something!
+planet_event = {
+    id = pf_content.142
+	title = pf_content.142.name
+	desc = pf_content.142.desc
+	picture  = GFX_evt_weather_manipulators
+	location = this
+    is_triggered_only = yes
+
+	trigger = {
+		has_modifier = pf_pm_ice_age
+		NOT = { has_planet_flag = pf_blizzard_prevention_complete} # You shouldn't really have it here
+	}
+
+    immediate = {
+		hidden_effect = {
+			# Trigger the next blizzard
+			random_list = {
+				1 = { planet_event = { id = pf_content.143 years = 5 }}
+				2 = { planet_event = { id = pf_content.143 years = 10 }}
+				2 = { planet_event = { id = pf_content.143 years = 15 }}
+				2 = { planet_event = { id = pf_content.143 years = 20 }}
+				1 = { planet_event = { id = pf_content.143 years = 25 }}
+			}
+		}
+    }
+
+	option = {
+		name = pf_content.142.a
+		enable_special_project = { name = pf_hyper_blizzards_prevention }
+		add_planet_devastation = 25
+	}
+}
+
+# Repeatable blizzard until you do the special project
+planet_event = {
+    id = pf_content.143
+	title = pf_content.143.name
+	desc = pf_content.143.desc
+	picture  = GFX_evt_weather_manipulators
+	location = this
+    is_triggered_only = yes
+
+	trigger = {
+		has_modifier = pf_pm_ice_age
+		NOT = { has_planet_flag = pf_blizzard_prevention_complete}
+	}
+
+    immediate = {
+		hidden_effect = {
+			# Trigger the next bloom
+			random_list = {
+				1 = { planet_event = { id = pf_content.143 years = 5 }}
+				2 = { planet_event = { id = pf_content.143 years = 10 }}
+				2 = { planet_event = { id = pf_content.143 years = 15 }}
+				2 = { planet_event = { id = pf_content.143 years = 20 }}
+				1 = { planet_event = { id = pf_content.143 years = 25 }}
+			}
+		}
+    }
+
+	option = {
+		name = pf_content.143.a
+		add_planet_devastation = 25
+	}
+}
+
+# We fixed the blizzards
+planet_event = {
+    id = pf_content.144
+	title = pf_content.144.name
+	desc = pf_content.144.desc
+	picture  = GFX_evt_pf_planet_space
+	location = this
+    is_triggered_only = yes
+
+    immediate = {
+		set_planet_flag = pf_blizzard_prevention_complete
+    }
+
+	option = {
+		name = pf_content.143.a
+		owner = {
+			add_monthly_resource_mult = {
+				resource = physics_research
+				value = @tier1researchreward
+				min = @tier1researchmin
+				max = @tier1researchmax
+			}
+		}
+	}
+}
+
+ship_event = {
+	id = pf_content.200
+	title = pf_content.200.name
+	desc = "pf_content.200.desc"
+	location = this
+    is_triggered_only = yes
+
+	trigger = { from = { has_planet_flag = pf_luxury_resource_homeworld } }
+
+	inline_script = {
+		script = planet_flavour/pf_rare_resource_event_picture_art
+		PLANET_SCOPE = FROM
+	}
+
+	option = {
+		name = pf_content.200.a
+		owner = {
+			add_resource = { society_research = 500 }
+		}
+	}
+}
+
+# Engine event for generic colony events
+planet_event = {
+	id = pf_content.300
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		random_list = {
+			150 = {}
+			2 = { planet_event = { id = pf_content.310 }}		# Colonists find ruins in the desert
+			2 = { planet_event = { id = pf_content.330 }}  	# Colonists find habitable caves
+			2 = { planet_event = { id = pf_content.340 }}  	# Colonists find evidence of ancient neutron sweep
+			2 = { planet_event = { id = pf_content.350 }}  	# Deep sea mining opportunities
+			4 = { planet_event = { id = pf_content.470 }} # Maritime Culture event.
+			2 = { planet_event = { id = pf_content.480 }}  	# Podracing
+			4 = { planet_event = { id = pf_content.490 }}		# Imperial Palace
+		}
+	}
+}
+
+# Colonists find ruins in the desert
+planet_event = {
+	id = pf_content.310
+	title = pf_content.310.name
+	desc = "pf_content.310.desc"
+	show_sound = pc_desert
+	picture  = GFX_evt_pf_dry_highlands
+	location = this
+    is_triggered_only = yes
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		is_ai = no
+		has_ground_combat = no
+		is_capital = no
+		is_occupied_flag = no
+	}
+
+	trigger = {
+		is_dry = yes
+		NOR = {
+			has_planet_flag = colony_event
+			owner = { has_country_flag = pf_presapient_research_facility_event }
+		}
+	}
+
+	immediate = {
+		set_planet_flag = colony_event
+		owner = { set_country_flag = pf_presapient_research_facility_event }
+	}
+
+	option = {
+		name = pf_content.310.a
+		add_deposit = d_pf_mysterious_ruins
+		enable_special_project = { name = pf_presapients_research_facility }
+	}
+	option = {
+		name = pf_content.310.b
+		add_deposit = d_pf_mysterious_ruins
+		owner = {
+			add_monthly_resource_mult = {
+				resource = engineering_research
+				value = @tier1researchreward
+				min = @tier1researchmin
+				max = @tier1researchmax
+			}
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier1researchreward
+				min = @tier1researchmin
+				max = @tier1researchmax
+			}
+		}
+	}
+}
+
+# We've investigate the pre-sapient research facility
+planet_event = {
+	id = pf_content.311
+	title = pf_content.311.name
+	desc = "pf_content.311.desc"
+	picture  = GFX_evt_society_research
+	location = this
+    is_triggered_only = yes
+
+	option = {
+		name = pf_content.311.a
+		custom_tooltip = pf_content.311.a.tt
+		owner = {
+			add_tech_option_or_research_effect = {
+				CATEGORY = society_research
+				TECH = tech_epigenetic_triggers
+				PROGRESS = 0.1
+			}
+		}
+		hidden_effect = {
+			save_event_target_as = pre_sapient_planet
+			spawn_presapient_species_randomizer_effect = yes
+		}
+	}
+}
+
+# Tomb world colony event gatekeeper
+# TODO: This can use a lot more content
+planet_event = {
+	id = pf_content.320
+	hide_window = yes
+    is_triggered_only = yes
+
+	trigger = {
+		is_planet_class = pc_nuked
+	}
+
+	immediate = {
+		if = {
+			limit = { has_modifier = pf_pm_nuclear_exchange }
+			random_list = {
+				1 = {
+					random_list = {
+						1 = { planet_event = { id = pf_content.321 }}
+						1 = { planet_event = { id = pf_content.323 }}
+					}
+				}
+				4 = {} # Nothing
+			}
+		}
+		else_if = {
+			limit = { has_modifier = pf_pm_glassed_world }
+			random_list = {
+				1 = {
+					random_list = {
+						1 = { planet_event = { id = pf_content.323 }}
+						1 = { planet_event = { id = pf_content.322 }}
+					}
+				}
+				4 = {} # Nothing
+			}
+		}
+		else_if = {
+			limit = { has_modifier = pf_pm_recovering_biosphere }
+			random_list = {
+				1 = {
+					random_list = {
+						4 = { planet_event = { id = pf_content.323 }}
+						1 = {}
+					}
+				}
+				4 = {} # Nothing
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_modifier = pf_pm_asteroid_impact
+					has_modifier = pf_pm_recent_asteroid_impact
+				}
+			}
+			random_list = {
+				1 = {
+					random_list = {
+						1 = { planet_event = { id = pf_content.323 }}
+					}
+				}
+				4 = {} # Nothing
+			}
+		}
+	}
+}
+
+# Rad storms
+planet_event = {
+	id = pf_content.321
+	title = pf_content.321.name
+	desc = "pf_content.321.desc"
+	picture  = GFX_evt_kaleidoscopic_lights
+	location = this
+    is_triggered_only = yes
+
+	option = {
+		name = pf_content.321.a
+		add_blocker = {
+			type = d_pf_radstorms
+			blocked_deposit = random
+		}
+		add_planet_devastation = 20
+	}
+	option = {
+		name = pf_content.321.b
+		trigger = {
+			owner = { has_toxic_baths = yes }
+		}
+		owner = {
+			add_resource = {
+				energy = 4000
+			}
+		}
+	}
+}
+
+# Machinery breakdown
+planet_event = {
+	id = pf_content.322
+	title = pf_content.322.name
+	desc = "pf_content.322.desc"
+	picture  = GFX_evt_poor_stormshelter
+	show_sound = event_wind_ruins
+	location = this
+    is_triggered_only = yes
+
+	option = {
+		name = pf_content.322.a
+		add_modifier = {
+			modifier = pf_pm_silica_storms
+		}
+	}
+}
+
+# Blooming wastelands
+planet_event = {
+	id = pf_content.323
+	title = pf_content.323.name
+	desc = "pf_content.323.desc"
+	picture  = GFX_evt_animal_wildlife
+	show_sound = event_alien_nature
+	location = this
+    is_triggered_only = yes
+
+	option = {
+		name = pf_content.323.a
+		add_modifier = {
+			modifier = pf_pm_ecosystem_reconstitution
+		}
+	}
+}
+
+# Colonists find habitable caves
+planet_event = {
+	id = pf_content.330
+	title = pf_content.330.name
+	desc = "pf_content.330.desc"
+	picture  = GFX_evt_in_the_dark
+	location = this
+    is_triggered_only = yes
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		is_ai = no
+		has_ground_combat = no
+		is_capital = no
+		is_occupied_flag = no
+	}
+
+	trigger = {
+		NOR = {
+			has_planet_flag = colony_event
+			owner = { has_country_flag = pf_habitable_caves_found }
+		}
+	}
+
+	immediate = {
+		set_planet_flag = colony_event
+		owner = { set_country_flag = pf_habitable_caves_found }
+	}
+
+	option = {
+		name = pf_content.330.a
+		add_deposit = d_pf_habitable_caves
+	}
+	option = {
+		name = pf_content.330.b
+		trigger = { owner = { is_subterranean_empire = yes } }
+		add_deposit = d_pf_habitable_caves_large
+	}
+}
+
+# Colonists find evidence of ancient neutron sweep
+planet_event = {
+	id = pf_content.340
+	title = pf_content.340.name
+	desc = "pf_content.340.desc"
+	picture  = GFX_evt_alien_wildlife
+	location = this
+    is_triggered_only = yes
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		is_ai = no
+		has_ground_combat = no
+		is_capital = no
+		is_occupied_flag = no
+	}
+
+	trigger = {
+		NOR = {
+			has_planet_flag = colony_event
+			owner = { has_country_flag = pf_ancient_neutron_sweep }
+		}
+	}
+
+	immediate = {
+		set_planet_flag = colony_event
+		owner = { set_country_flag = pf_ancient_neutron_sweep }
+	}
+
+	option = {
+		name = pf_content.340.a
+		enable_special_project = { name = pf_ancient_neutron_sweep_investigation }
+	}
+}
+
+# We find out about the neutron sweep
+planet_event = {
+	id = pf_content.341
+	title = pf_content.341.name
+	desc = "pf_content.341.desc"
+	picture  = GFX_evt_planet_beam
+	location = this
+    is_triggered_only = yes
+
+	option = {
+		name = pf_content.341.a
+		add_modifier = {
+			modifier = pf_pm_ancient_fossil_strata
+		}
+	}
+
+	option = {
+		name = pf_content.341.b
+		trigger = {
+			owner = {
+				has_technology = tech_pk_neutron
+			}
+		}
+		owner = {
+			add_resource = {
+				physics_research = 10000
+			}
+		}
+	}
+
+	option = {
+		name = pf_content.341.c
+		trigger = {
+			owner = {
+				has_ascension_perk = ap_colossus
+				NOT = { has_technology = tech_pk_neutron }
+			}
+		}
+		owner = {
+			add_research_option = tech_pk_neutron
+		}
+	}
+}
+
+# Colonists find deep sea mineral beds
+planet_event = {
+	id = pf_content.350
+	title = pf_content.350.name
+	desc = "pf_content.350.desc"
+	picture  = GFX_evt_ocean
+	location = this
+    is_triggered_only = yes
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		is_ai = no
+		has_ground_combat = no
+		is_capital = no
+		is_occupied_flag = no
+	}
+
+	trigger = {
+		NOR = {
+			has_planet_flag = colony_event
+			owner = { has_country_flag = pf_deep_sea_mining_opportunities }
+		}
+	}
+
+	immediate = {
+		set_planet_flag = colony_event
+		owner = { set_country_flag = pf_deep_sea_mining_opportunities }
+	}
+
+	option = {
+		name = pf_content.340.a
+		add_modifier = { modifier = pf_pm_deep_sea_mineral_beds }
+	}
+}
+
+
+# Supervolcano discovered
+#TODO: add event that has bombardment trigger the supervolcano
+planet_event = {
+	id = pf_content.360
+	title = pf_content.360.name
+	desc = "pf_content.360.desc"
+	picture  = GFX_evt_molten
+	location = this
+    is_triggered_only = yes
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		is_ai = no
+		has_ground_combat = no
+		is_capital = no
+		is_occupied_flag = no
+	}
+
+	trigger = {
+		NOR = {
+			has_planet_flag = colony_event
+			owner = { has_country_flag = pf_supervolcano_found }
+		}
+	}
+
+	immediate = {
+		set_planet_flag = colony_event
+		set_planet_flag = pf_has_supervolcano
+		owner = { set_country_flag = pf_supervolcano_found }
+	}
+
+	option = {
+		name = pf_content.360.a
+		add_deposit = d_pf_unstable_ground
+	}
+}
+
+# Add anomaly for ruined subspace observation post
+ship_event = {
+	id = pf_content.400
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		from = {
+			has_planet_flag = pf_observation_station_planet
+		}
+	}
+
+	immediate = {
+		from = { # Planet
+			add_anomaly = {
+				category = pf_abandoned_telescope_station
+				target = prev.owner
+			}
+		}
+	}
+}
+
+# Ancient Rim Telescope
+ship_event = {
+	id = pf_content.401
+	title = pf_content.401.name
+	desc = "pf_content.401.desc"
+	picture  = GFX_evt_physics_research
+	location = this
+    is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			owner = {
+				country_event = { id = story.5 days = 30 }
+			}
+		}
+	}
+
+	option = {
+		name = pf_content.401.a
+		owner = {
+			add_tech_option_or_research_effect = {
+				TECH = tech_sensors_3
+				CATEGORY = physics_research
+				PROGRESS = 0.25
+			}
+		}
+		hidden_effect = {
+			# If the Prethoryn are coming and have not arrived yet.
+			if = {
+				limit = {
+					AND = {
+						is_crises_allowed = yes
+						OR = {
+							allowed_crisis_type = all
+							allowed_crisis_type = prethoryn
+						}
+						NOT = { has_global_flag = prethoryn_invasion_happened}
+					}
+				}
+				ship_event = {
+					id = pf_content.402
+					days = 360
+				}
+			}
+		}
+	}
+}
+
+ship_event = {
+	id = pf_content.402
+	title = pf_content.402.name
+	desc = "pf_content.402.desc"
+	picture  = GFX_evt_glitchy_matrix
+	location = this
+    is_triggered_only = yes
+
+	option = {
+		name = pf_content.402.a
+		owner = {
+			add_resource = {
+				physics_research = 6000
+			}
+		}
+	}
+}
+
+# Icy Terraforming World
+ship_event = {
+	id = pf_content.410
+	title = "pf_content.410.name"
+	desc = "pf_content.410.desc"
+	picture = GFX_evt_frozen
+	show_sound = event_machinery
+	location = FROM
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			owner = {
+				country_event = { id = story.5 days = 30 }
+			}
+			from = {
+				create_ambient_object = {
+					type = pf_ancient_terraforming_station
+					location = this
+				}
+				last_created_ambient_object = {
+					set_ambient_object_flag = pf_ancient_terraforming_station
+				}
+			}
+		}
+	}
+
+	option = {
+		name = pf_content.410.a
+		allow = {
+			owner = {
+				resource_stockpile_compare = {
+					resource = energy
+					value >= 5000
+				}
+			}
+		}
+		owner = {
+			add_resource = { 
+				energy = -5000
+			}
+		}
+		from = {
+			enable_special_project = {
+				name = pf_fix_frozen_terraforming_equipment
+				location = this
+			}
+		}
+	}
+
+	option = {
+		name = pf_content.410.b
+		owner = {
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier3researchreward
+				min = @tier3researchmin
+				max = @tier3researchmax
+			}
+		}
+	}
+}
+
+planet_event = {
+	id = pf_content.411
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		change_pc = pc_arctic
+		reroll_deposits = yes
+
+		add_modifier = { modifier = pf_pm_recovering_biosphere }
+
+		solar_system = {
+			random_system_ambient_object = {
+				limit = { has_ambient_object_flag = pf_ancient_terraforming_station }
+				destroy_ambient_object = this
+			}
+		}
+	}
+}
+
+# Strange heat emissions - we've discovered the server rooms
+ship_event = {
+	id = pf_content.420
+	title = "pf_content.420.name"
+	desc = "pf_content.420.desc"
+	picture = GFX_evt_ancient_databank
+	show_sound = event_machinery
+	location = FROM
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			owner = {
+				country_event = { id = story.5 days = 30 }
+			}
+		}
+	}
+
+	option = {
+		name = pf_content.420.a
+		owner = {
+			add_resource = {
+				society_research = 500
+			}
+		}
+		from = {
+			add_deposit = d_pf_ancient_databanks
+		}
+	}
+}
+
+# Ancient Battlefield first encounter event
+ship_event = {
+	id = pf_content.430
+	title = pf_content.430.name
+	desc = "pf_content.430.desc"
+	picture  = GFX_evt_space_debris
+	location = this
+    is_triggered_only = yes
+
+	trigger = {
+		solar_system = {
+			has_star_flag = pf_ancient_battlefield_system
+		}
+		owner = {
+			not = { has_country_flag = pf_has_encountered_ancient_battlefield}
+		}
+	}
+
+	immediate = {
+		owner = {
+			set_country_flag = pf_has_encountered_ancient_battlefield
+		}
+		hidden_effect = {
+			owner = {
+				country_event = { id = story.5 days = 30 }
+			}
+		}
+	}
+
+	option = {
+		name = pf_content.430.a
+		owner = {
+			add_resource = { engineering_research = 500 }
+		}
+	}
+}
+
+# Ancient Gas Mines anomaly
+ship_event = {
+	id = pf_content.440
+	title = "pf_content.440.name"
+	desc = "pf_content.440.desc"
+	picture = GFX_evt_gas_giant_station
+	show_sound = event_machinery
+	location = FROM
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			owner = {
+				country_event = { id = story.5 days = 30 }
+			}
+		}
+	}
+
+	option = {
+		name = pf_content.440.a
+		# Planet scope
+		from = {
+			add_deposit = d_exotic_gases_5
+		}
+	}
+
+	option = {
+		name = pf_content.440.b
+		owner = {
+			add_resource = {
+				engineering_research = 2000
+				minor_artifacts = 50
+			}
+		}
+	}
+}
+
+# Add anomaly for desert relic ruins
+ship_event = {
+	id = pf_content.450
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		from = {
+			has_planet_flag = pf_desert_relic_world
+			# If we somehow find this planet abandoned we don't want the event to pop
+			is_planet_class = pc_desert
+		}
+	}
+
+	immediate = {
+		from = { # Planet
+			add_anomaly = {
+				category = pf_desert_relic_ruins
+				target = prev.owner
+			}
+		}
+	}
+}
+
+# Desert Relic Ruins Anomaly Completed
+ship_event = {
+	id = pf_content.451
+	title = "pf_content.451.name"
+	desc = "pf_content.451.desc"
+	picture = GFX_evt_relic_world_street
+	show_sound = pc_desert
+	location = FROM
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			owner = {
+				country_event = { id = story.5 days = 30 }
+			}
+		}
+	}
+
+	option = {
+		name = pf_content.451.a
+		allow = {
+			owner = {
+				resource_stockpile_compare = {
+					resource = minerals
+					value >= 5000
+				}
+				resource_stockpile_compare = {
+					resource = influence
+					value >= 200
+				}
+			}
+		}
+
+		owner = {
+			add_resource = { minerals = -5000 }
+			add_resource = { influence = -200 }
+		}
+		from = {
+			change_pc = pc_relic
+			set_planet_entity = { entity = pf_desert_relic_entity}
+		}
+	}
+
+	option = {
+		name = pf_content.451.b
+		hidden_effect = {
+			from = {
+				set_planet_flag = pf_desert_relic_transform_decision_allowed
+			}
+		}
+	}
+}
+
+# Seed World Anomaly Completed
+ship_event = {
+	id = pf_content.460
+	title = "pf_content.460.name"
+	desc = "pf_content.460.desc"
+	picture = GFX_evt_pf_planet_space
+	location = FROM
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			owner = {
+				country_event = { id = story.5 days = 30 }
+			}
+		}
+	}
+
+	option = {
+		name = pf_content.460.a
+
+		owner = {
+			add_modifier = { modifier = pf_pm_seed_world }
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier3researchreward
+				min = @tier3researchmin
+				max = @tier3researchmax
+			}
+		}
+	}
+}
+
+# Maritime society event
+planet_event = {
+	id = pf_content.470
+	title = pf_content.470.name
+	desc = "pf_content.470.desc"
+	picture  = GFX_evt_ocean
+	location = this
+    is_triggered_only = yes
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		is_ai = no
+		has_ground_combat = no
+		is_capital = no
+		is_occupied_flag = no
+	}
+
+	trigger = {
+		is_planet_class = pc_ocean
+		NOR = {
+			has_planet_flag = colony_event
+			owner = { has_country_flag = pf_maritime_society }
+			owner = { is_gestalt = no }
+		}
+	}
+
+	immediate = {
+		set_planet_flag = colony_event
+		owner = { set_country_flag = pf_maritime_society }
+	}
+
+	option = {
+		name = pf_content.470.a
+		add_modifier = { modifier = pf_pm_deep_sea_mineral_beds }
+	}
+}
+
+# Podracers event
+planet_event = {
+	id = pf_content.480
+	title = pf_content.480.name
+	desc = "pf_content.480.desc"
+	picture  = GFX_evt_pf_dry_highlands
+	location = this
+    is_triggered_only = yes
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		is_ai = no
+		has_ground_combat = no
+		is_capital = no
+		is_occupied_flag = no
+	}
+
+	trigger = {
+		is_dry = yes
+		NOR = {
+			has_planet_flag = colony_event
+			owner = { has_country_flag = pf_podracing }
+			owner = { is_gestalt = no }
+		}
+	}
+
+	immediate = {
+		set_planet_flag = colony_event
+		owner = { set_country_flag = pf_podracing }
+	}
+
+	option = {
+		name = pf_content.480.a
+		add_modifier = {
+			modifier = "pf_pm_race_circuit"
+			days = -1
+		}
+	}
+
+	option = {
+		name = pf_content.480.b
+		add_modifier = {
+			modifier = "pf_pm_race_circuit_shut_down"
+			days = 3600
+		}
+	}
+}
+
+# Imperial palace
+planet_event = {
+	id = pf_content.490
+	title = pf_content.490.name
+	desc = "pf_content.490.desc"
+	picture  = GFX_evt_medieval_alien_civilization
+	location = this
+    is_triggered_only = yes
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		is_ai = no
+		has_ground_combat = no
+		is_capital = no
+		is_occupied_flag = no
+	}
+
+	trigger = {
+		is_dry = yes
+		NOR = {
+			has_planet_flag = colony_event
+			owner = { has_country_flag = pf_podracing }
+			owner = { is_gestalt = no }
+			owner = { is_imperial_authority = yes}
+		}
+	}
+
+	immediate = {
+		set_planet_flag = colony_event
+		owner = { set_country_flag = pf_imperial_palace }
+	}
+
+	option = {
+		name = pf_content.490.a
+		add_deposit = d_pf_imperial_palace
+	}
+
+	option = {
+		name = pf_content.490.b
+		owner = { add_resource = { influence = 100 }}
+	}
+}

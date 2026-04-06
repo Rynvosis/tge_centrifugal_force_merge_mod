@@ -1,0 +1,374 @@
+namespace = better_colony_dates
+
+event = {
+    id = better_colony_dates.0
+    hide_window = yes
+
+    is_triggered_only = yes
+
+    # This is only run at game start
+    immediate = {
+        every_galaxy_planet = {
+            limit = { is_colony = yes }
+            planet_event = { id = better_colony_dates.1 }
+        }
+        # This event catches any planets that were spawned by event during game start, as they'll slip through.
+        # Not actually a planet events, works scopelessly. Just done like this to let the simulation tick a day.
+        random_galaxy_planet = {
+            planet_event = { id = better_colony_dates.6 days = 1 }
+        }
+    }
+}
+
+planet_event = {
+    id = better_colony_dates.1
+    hide_window = yes
+
+    is_triggered_only = yes
+
+    # This is only run at game start
+    immediate = {
+       if = {
+           limit = { owner = { is_country_type = default } }
+            planet_event = { id = better_colony_dates.2 }
+       }
+        else_if = {
+           limit = { owner = { is_country_type = fallen_empire } }
+            planet_event = { id = better_colony_dates.3 }
+        }
+        else_if = {
+           limit = { owner = { is_country_type = primitive } }
+            planet_event = { id = better_colony_dates.4 }
+        }
+        # I have absolutely no idea what might be caught here, but it's good to have a catchall.
+        else = {
+            planet_event = { id = better_colony_dates.5 }
+        }
+    }
+}
+
+# Default empire planet
+planet_event = {
+    id = better_colony_dates.2
+    hide_window = yes
+
+    is_triggered_only = yes
+
+    # This is only run at game start
+    immediate = {
+        if = {
+           limit = { owner = { has_country_flag = is_advanced_start_AI } }
+            # Homeworlds should be decently older than a typical tag to justify having colonies
+            if = {
+                limit = {  is_homeworld = yes }
+                bcfd_change_colony_date_range = {
+                    MAX_YEARS = -6000
+                    MIN_YEARS = -12000
+                }
+            }
+            # Advanced Empire Colonies
+            else = {
+                # Lost colony shouldn't be that old - UNE shouldn't have colonies from the 1600s
+                if = {
+                    limit = { owner = { has_country_flag = lost_colony_parent } }
+                    bcfd_change_colony_date_range = {
+                        MAX_YEARS = -80
+                        MIN_YEARS = -150
+                    }
+                }
+                # Normal advanced empire
+                else = {
+                    bcfd_change_colony_date_range = {
+                        MAX_YEARS = -150
+                        MIN_YEARS = -600
+                    }
+                }
+            }
+        }
+        else_if = {
+           limit = { owner = { has_origin = origin_lost_colony } }
+            bcfd_change_colony_date_range = {
+                MAX_YEARS = -75
+                MIN_YEARS = -175
+            }
+        }
+        else_if = {
+           limit = { owner = { has_origin = origin_shattered_ring } }
+            bcfd_change_colony_date_range = {
+                MAX_YEARS = -8000
+                MIN_YEARS = -12000
+            }
+        }
+        else_if = {
+           limit = { owner = { has_origin = origin_remnants } }
+            bcfd_change_colony_date_range = {
+                MAX_YEARS = -8000
+                MIN_YEARS = -12000
+            }
+        }
+        else_if = {
+           limit = { owner = { has_origin = origin_hegemon_npc } }
+            # A little bit less than the base homeworld option as the overlord would have been more advanced to subjugate.
+            bcfd_change_colony_date_range = {
+                MAX_YEARS = -5000
+                MIN_YEARS = -6000
+            }
+        }
+        else_if = {
+           limit = {
+               AND = {
+                   owner = { has_origin = origin_toxic_knights }
+                   is_artificial = yes
+               }
+           }
+            # Toxic god stations should be a bit younger.
+            bcfd_change_colony_date_range = {
+                MAX_YEARS = -200
+                MIN_YEARS = -300
+            }
+        }
+        # PD Domed Hab Start Compatibility
+        else_if = {
+            limit = { has_planet_flag = pd_habitat_start_colony  }
+            bcfd_change_colony_date_range = {
+                MAX_YEARS = -40
+                MIN_YEARS = -120
+            }
+        }
+        # Catches habs + any other potential artificial starts
+        else_if = {
+           limit = { is_artificial = yes }
+            bcfd_change_colony_date_range = {
+                MAX_YEARS = -400
+                MIN_YEARS = -2000
+            }
+        }
+        else = {
+            # Default option for homeworlds
+            if = {
+                limit = { is_homeworld = yes }
+                bcfd_change_colony_date_range = {
+                    MAX_YEARS = -6000
+                    MIN_YEARS = -10000
+                }
+            }
+            # Final Catchall
+            else = {
+                bcfd_change_colony_date_range = {
+                    MAX_YEARS = -100
+                    MIN_YEARS = -500
+                }
+            }
+        }
+    }
+}
+
+# Fallen empire planet
+planet_event = {
+    id = better_colony_dates.3
+    hide_window = yes
+
+    is_triggered_only = yes
+
+    # This is only run at game start
+    immediate = {
+        if = {
+            # For the ringworld starts
+            limit = { is_artificial = yes }
+            bcfd_change_colony_date_range = {
+                MAX_YEARS = -30000
+                MIN_YEARS = -40000
+            }
+        }
+        else = {
+            # Default option for homeworlds
+            if = {
+                limit = { is_capital = yes }
+                bcfd_change_colony_date_range = {
+                    MAX_YEARS = -20000
+                    MIN_YEARS = -30000
+                }
+            }
+            # Final Catchall
+            else = {
+                bcfd_change_colony_date_range = {
+                    MAX_YEARS = -9000
+                    MIN_YEARS = -20000
+                }
+            }
+        }
+    }
+}
+
+# Pre-ftl planet
+planet_event = {
+    id = better_colony_dates.4
+    hide_window = yes
+
+    is_triggered_only = yes
+
+    # This is only run at game start
+    immediate = {
+        if = {
+            limit = { colony_type = col_pre_ftl_early_space }
+            bcfd_change_colony_date_range = {
+                MAX_YEARS = -2800
+                MIN_YEARS = -3000
+            }
+        }
+        else_if = {
+            limit = { colony_type = col_pre_ftl_atomic }
+            bcfd_change_colony_date_range = {
+                MAX_YEARS = -2600
+                MIN_YEARS = -2800
+            }
+        }
+        else_if = {
+            limit = { colony_type = col_pre_ftl_machine }
+            bcfd_change_colony_date_range = {
+                MAX_YEARS = -2400
+                MIN_YEARS = -2600
+            }
+        }
+        else_if = {
+            limit = { colony_type = col_pre_ftl_industrial }
+            bcfd_change_colony_date_range = {
+                MAX_YEARS = -2200
+                MIN_YEARS = -2400
+            }
+        }
+        else_if = {
+            limit = { colony_type = col_pre_ftl_steam }
+            bcfd_change_colony_date_range = {
+                MAX_YEARS = -2000
+                MIN_YEARS = -2200
+            }
+        }
+        else_if = {
+            limit = { colony_type = col_pre_ftl_renaissance }
+            bcfd_change_colony_date_range = {
+                MAX_YEARS = -1600
+                MIN_YEARS = -2000
+            }
+        }
+        else_if = {
+            limit = { colony_type = col_pre_ftl_medieval }
+            bcfd_change_colony_date_range = {
+                MAX_YEARS = -1400
+                MIN_YEARS = -1600
+            }
+        }
+        else_if = {
+            limit = { colony_type = col_pre_ftl_iron }
+            bcfd_change_colony_date_range = {
+                MAX_YEARS = -1200
+                MIN_YEARS = -1400
+            }
+        }
+        else_if = {
+            limit = { colony_type = col_pre_ftl_bronze }
+            bcfd_change_colony_date_range = {
+                MAX_YEARS = -600
+                MIN_YEARS = -1200
+            }
+        }
+        else_if = {
+            limit = { colony_type = col_pre_ftl_stone }
+            bcfd_change_colony_date_range = {
+                MAX_YEARS = -100
+                MIN_YEARS = -400
+            }
+        }
+        else = {
+            # Default option for homeworlds
+            if = {
+                limit = { is_homeworld = yes }
+                bcfd_change_colony_date_range = {
+                    MAX_YEARS = -2200
+                    MIN_YEARS = -2400
+                }
+            }
+        }
+
+        # Add some extra allowance for being nuked - it doesnt reset so we can apply this on top of the other effects
+        if = {
+            limit = { is_planet_class = pc_nuked }
+            bcfd_change_colony_date_range = {
+                MAX_YEARS = -500
+                MIN_YEARS = -1500
+            }
+        }
+
+        # Shattered rings should feel ancient
+        if = {
+            limit = { is_planet_class = pc_shattered_ring_habitable }
+            bcfd_change_colony_date_range = {
+                MAX_YEARS = -3000
+                MIN_YEARS = -4000
+            }
+        }
+
+        # The sanctuary primitives should be old
+        if = {
+            limit = { solar_system = { has_star_flag = sanctuary_system} }
+            bcfd_change_colony_date_range = {
+                MAX_YEARS = -8000
+                MIN_YEARS = -12000
+            }
+        }
+    }
+}
+
+# Final catchall
+planet_event = {
+    id = better_colony_dates.5
+    hide_window = yes
+
+    is_triggered_only = yes
+
+    # This is only run at game start
+    immediate = {
+        # This is a catchall - we have no idea what the planet might be like, so this seem generically reasonable
+        bcfd_change_colony_date_range = {
+            MAX_YEARS = -1000
+            MIN_YEARS = -5000
+        }
+    }
+}
+
+# Not really a planet event, actually works as scopeless. Just done this way for performance reasons.
+planet_event = {
+    id = better_colony_dates.6
+    hide_window = yes
+
+    is_triggered_only = yes
+
+    # This is only run at game start
+    immediate = {
+        every_galaxy_planet = {
+            limit = { is_colony = yes }
+            planet_event = { id = better_colony_dates.7 }
+        }
+    }
+}
+
+# Catches any planets spawned by event during game start that may have slipped through. Bespoke for the types, not generic.
+planet_event = {
+    id = better_colony_dates.7
+    hide_window = yes
+
+    is_triggered_only = yes
+
+    # This is only run at game start
+    immediate = {
+        # Distant Origin Vestigial Colony Compatibility
+        if = {
+            limit = { has_planet_flag = vestigial_colony  }
+            bcfd_reset_colony_date = yes
+            bcfd_change_colony_date_range = {
+                MAX_YEARS = -2000
+                MIN_YEARS = -6000
+            }
+        }
+    }
+}

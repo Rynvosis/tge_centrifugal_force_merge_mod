@@ -1,0 +1,9 @@
+is_gestalt_mgd = {
+	hidden_trigger = {
+		exists = from
+	}
+	from = {
+		has_ethic = ethic_gestalt_consciousness
+	}
+}
+

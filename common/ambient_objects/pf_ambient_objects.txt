@@ -1,0 +1,28 @@
+# Derelict Station
+ambient_object = {
+	name = "pf_derelict_particle_accelerator"
+	entity = "sensor_station_01_entity"
+	selectable = yes
+	show_name = yes
+	tooltip = "pf_derelict_particle_accelerator_desc"
+	description = "pf_derelict_particle_accelerator_desc"
+}
+
+ambient_object = {
+	name = "pf_ancient_terraforming_station"
+	entity = "reptilian_01_terraform_station_entity"
+	selectable = yes
+	show_name = yes
+	tooltip = "pf_ancient_terraforming_station_desc"
+	description = "pf_ancient_terraforming_station_desc"
+}
+
+# Derelict Ship
+ambient_object = {
+	name = "pf_derelict_ship_object"
+	entity = "abandoned_ship_destroyed_entity"
+	selectable = yes
+	show_name = yes
+	tooltip = "pf_derelict_ship_object_desc"
+	description = "pf_derelict_ship_object_desc"
+}

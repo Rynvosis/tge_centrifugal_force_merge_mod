@@ -1,0 +1,283 @@
+room_selector = {
+	#point to textures that end with "_room.dds" but remove the file ending
+	
+	default = "default_room"	# changed in loadlast file ...
+	#default = "no_video_error_room" 	# fallback room to use in case of failure
+
+	# will run with a limited country scope. species and government is set but the country does not actually exist
+	# items marked with an ending # were vanilla rooms, marked with a * were also unlocked/not ai bound
+	# because this file begins with an 'a' it is loaded before the vanilla 'room_textures' file
+	# and as the list does NOT load duplicates, this instead moves and groups the vanilla rooms together
+	
+	# mod should work with other new rooms mods .. in which case it'll be first mod to load wins positioning
+	# my game STILL had things after this list, which I can only assume come from either DLC or other mods.
+
+	# the vanilla 'room_textures' handles all the ai empires getting rooms based on conditional statements
+	# I don't know how to add these newer rooms to the Ai but I wish i could ...
+	
+	game_setup = {
+		"default_room"											= { always = yes } # *
+		"grey_room"										  		= { always = yes } # - essentially a clone of default room without bars
+		"ethic_ai_room"								  	 	    = { always = yes } # * exterminators
+		"ethic_ai_blue_room"						    		= { always = yes }
+		"ethic_ai_green_room"						    		= { always = yes }
+		"ethic_ai_purple_room"						    		= { always = yes }
+		"ethic_ai_red_room"									    = { always = yes }
+		"ethic_ai_white_room"						  	 	    = { always = yes }
+		"ethic_ai_yellow_room"								    = { always = yes }
+		"ethic_spaceship_room"								    = { always = yes } # - solid background
+		"ethic_spaceship_open_room"							    = { always = yes } 
+		"ethic_spaceship_open_red_room"						    = { always = yes } 
+		"ethic_spaceship_open_pink_room"					    = { always = yes } 
+		"ethic_spaceship_open_purple_room"					    = { always = yes } 
+		"ethic_spaceship_open_green_room"					    = { always = yes } 
+		"ethic_spaceship_open_teal_room"					    = { always = yes } 
+		"gilded_room"											= { always = yes } # * origin_imperial_vassal_overlord
+		"gilded_blue_room"										= { always = yes }
+		"gilded_green_room"										= { always = yes }
+		"gilded_pink_room"										= { always = yes }
+		"gilded_red_room"										= { always = yes }
+		"gilded_purple_room"									= { always = yes }
+		"lithoid_room"											= { always = yes } # * lithoids_portrait
+		"lithoid_cyan_room"										= { always = yes }
+		"lithoid_green_room"									= { always = yes }
+		"lithoid_lime_room"										= { always = yes }
+		"lithoid_orange_room"									= { always = yes }
+		"lithoid_purple_room"									= { always = yes }
+		"lithoid_red_room"										= { always = yes }
+		"lithoid_yellow_room"									= { always = yes }
+		"machine_room"											= { always = yes } # * auth_machine_intelligence
+		"machine_blue_room"										= { always = yes }
+		"machine_green_room"									= { always = yes }
+		"machine_orange_room"									= { always = yes }
+		"machine_purple_room"									= { always = yes }
+		"machine_red_room"										= { always = yes }
+		"machine_yellow_room"									= { always = yes }
+		"synthetics_room"										= { always = yes } # * synthetic_portrait
+		"synthetics_blue_room"									= { always = yes }
+		"synthetics_green_room"									= { always = yes }
+		"synthetics_purple_room"								= { always = yes }
+		"synthetics_red_room"									= { always = yes }
+		"synthetics_yellow_room"								= { always = yes }
+		"synthetics_white_room"									= { always = yes }
+		"necroids_room"											= { always = yes } # * necroids_portrait
+		"necroids_dark_blue_room"								= { always = yes }
+		"necroids_green_room"									= { always = yes }
+		"necroids_red_room"										= { always = yes }
+		"necroids_yellow_room"									= { always = yes }
+		"necroids_white_room"									= { always = yes }
+		"wilderness_room"										= { always = yes } # * graphical_culture = wilderness_01
+		"biogenesis_01_room"									= { always = yes } # * graphical_culture = biogenesis_01
+		"biogenesis_01_green_room"								= { always = yes }
+		"biogenesis_01_blue_room"								= { always = yes }
+		"biogenesis_01_purple_room"								= { always = yes }
+		"biogenesis_02_room"									= { always = yes } # * graphical_culture = biogenesis_02
+		"biogenesis_02_purple_room"								= { always = yes }
+		"organic_room"											= { always = yes } # * devouring_swarm
+		"organic_green_room"									= { always = yes }
+		"organic_yellow_room"									= { always = yes }
+		"organic_purple_room"									= { always = yes }
+		"organic_cyan_room"										= { always = yes }
+		"personality_ruthless_capitalists_room" 				= { always = yes } # * ruthless_capitalists
+		"personality_migrating_flock_room" 						= { always = yes } # * migrating_flock
+		"personality_honorbound_warriors_room" 					= { always = yes } # * honorbound_warriors
+		"personality_honorbound_warriors_blue_room" 			= { always = yes }
+		"personality_honorbound_warriors_green_room" 			= { always = yes }
+		"personality_honorbound_warriors_purple_room"			= { always = yes }
+		"personality_honorbound_warriors_white_room" 			= { always = yes }
+		"personality_xenophobic_isolationists_room" 			= { always = yes } # * xenophobic_isolationists
+		"personality_xenophobic_isolationists_green_room" 		= { always = yes }
+		"personality_xenophobic_isolationists_purple_room"		= { always = yes }
+		"personality_xenophobic_isolationists_red_room" 		= { always = yes }
+		"personality_xenophobic_isolationists_yellow_room"		= { always = yes }
+		"personality_peaceful_traders_room" 					= { always = yes } # * peaceful_traders
+		"personality_peaceful_traders_green_room"				= { always = yes }
+		"personality_peaceful_traders_purple_room"				= { always = yes }
+		"personality_peaceful_traders_red_room"					= { always = yes }
+		"personality_harmonious_hierarchy_room" 				= { always = yes } # * harmonious_hierarchy
+		"personality_harmonious_hierarchy_silver_room"			= { always = yes }
+		"personality_harmonious_hierarchy_bronze_room"			= { always = yes }
+		"personality_evangelizing_zealots_room" 				= { always = yes } # * evangelising_zealots
+		"personality_evangelizing_zealots_blue_room"			= { always = yes }
+		"personality_evangelizing_zealots_purple_room"			= { always = yes }
+		"personality_evangelizing_zealots_red_room"				= { always = yes }
+		"personality_decadent_hierarchy_room" 					= { always = yes } # * decadent_hierarchy
+		"personality_decadent_hierarchy_cyan_room"				= { always = yes }
+		"personality_decadent_hierarchy_green_room"				= { always = yes }
+		"personality_decadent_hierarchy_purple_room"			= { always = yes }
+		"personality_decadent_hierarchy_pink_room"				= { always = yes }
+		"personality_decadent_hierarchy_red_room"				= { always = yes }
+		"personality_decadent_hierarchy_white_room"				= { always = yes }
+		"personality_decadent_hierarchy_stone_room"				= { always = yes }
+		"personality_democratic_crusaders_room" 				= { always = yes } # * democratic_crusaders
+		"personality_democratic_crusaders_blue_room"			= { always = yes }
+		"personality_democratic_crusaders_dark_room"			= { always = yes }
+		"personality_democratic_crusaders_green_room"			= { always = yes }
+		"personality_democratic_crusaders_orange_room"			= { always = yes }
+		"personality_democratic_crusaders_purple_room"			= { always = yes }
+		"personality_erudite_explorers_room" 					= { always = yes } # * erudite_explorers
+		"personality_erudite_explorers_blue_room"				= { always = yes }
+		"personality_erudite_explorers_green_room"				= { always = yes }
+		"personality_erudite_explorers_purple_room"				= { always = yes }
+		"personality_erudite_explorers_red_room"				= { always = yes }
+		"personality_fallen_empire_blue_room"					= { always = yes } # fallen_empire_xenophile
+		"personality_fallen_empire_cyan_room"					= { always = yes } # fallen_empire_materialist
+		"personality_fallen_empire_machine_room"				= { always = yes } # fallen_empire_machine
+		"personality_fallen_empire_red_room"					= { always = yes } # fallen_empire_xenophobe
+		"personality_fallen_empire_teal_room"					= { always = yes } # fallen_empire_spiritualist
+		"personality_fallen_empire_yellow_room"					= { always = yes } 
+		"personality_fallen_empire_purple_room"					= { always = yes } 
+		"fe_hive_1_room"										= { always = yes } # fallen_empire_hive_war
+		"fe_hive_2_room"										= { always = yes } # fallen_empire_hive_growth
+		"fe_hive_3_room"										= { always = yes } # fallen_empire_hive_control
+		"personality_hive_mind_room" 							= { always = yes } # * hive_mind
+		"personality_hive_mind_yellow_room"						= { always = yes }
+		"personality_hive_mind_green_room"						= { always = yes }
+		"personality_hive_mind_orange_room"						= { always = yes }
+		"personality_hive_mind_purple_room"						= { always = yes }
+		"personality_hive_mind_red_room"						= { always = yes }
+		"personality_fanatic_purifier_room" 					= { always = yes } # * fanatic_purifiers
+		"personality_fanatic_purifier_blue_room"				= { always = yes }
+		"personality_fanatic_purifier_green_room"				= { always = yes }
+		"personality_fanatic_purifier_orange_room"				= { always = yes }
+		"personality_fanatic_purifier_purple_room"				= { always = yes }
+		"personality_fanatic_purifier_yellow_room"				= { always = yes }
+		"personality_federation_builders_room" 					= { always = yes } # * federation_builders
+		"personality_federation_builders_blue_room"				= { always = yes }
+		"personality_federation_builders_green_room"			= { always = yes }
+		"personality_federation_builders_purple_room"			= { always = yes }
+		"personality_federation_builders_red_room"				= { always = yes }
+		"personality_hegemonic_imperialists_room" 				= { always = yes } # * hegemonic_imperialists
+		"personality_hegemonic_imperialists_green_room"			= { always = yes }
+		"personality_hegemonic_imperialists_orange_room"		= { always = yes }
+		"personality_hegemonic_imperialists_red_room"			= { always = yes }
+		"personality_slaving_despots_room" 						= { always = yes } # * slaving_despots
+		"personality_slaving_despots_blue_room"					= { always = yes }
+		"personality_slaving_despots_cyan_room"					= { always = yes }
+		"personality_slaving_despots_green_room"				= { always = yes }
+		"personality_slaving_despots_pink_room"					= { always = yes }
+		"personality_slaving_despots_purple_room"				= { always = yes }
+		"personality_slaving_despots_yellow_room"				= { always = yes }
+		"personality_spiritual_seekers_room" 					= { always = yes } # * spiritual_seekers
+		"personality_spiritual_seekers_blue_room"				= { always = yes }
+		"personality_spiritual_seekers_purple_room"				= { always = yes }
+		"personality_spiritual_seekers_red_room"				= { always = yes }
+		"personality_spiritual_seekers_green_room"				= { always = yes }
+		"pre_ftl_ancient_room"									= { always = yes } # pre-ftl
+		"pre_ftl_medieval_room"									= { always = yes } # pre-ftl
+		"pre_ftl_medieval_purple_room"							= { always = yes }
+		"pre_ftl_medieval_red_room"								= { always = yes }
+		"pre_ftl_victorian_room"								= { always = yes } # pre-ftl
+		"pre_ftl_victorian_blue_room"							= { always = yes }
+		"pre_ftl_victorian_green_room"							= { always = yes }
+		"pre_ftl_victorian_purple_room"							= { always = yes }
+		"pre_ftl_victorian_pink_room"							= { always = yes }
+		"pre_ftl_victorian_red_room"							= { always = yes }
+		"pre_ftl_modern_room"									= { always = yes } # pre-ftl
+		"pre_ftl_modern_blue_room"								= { always = yes }
+		"pre_ftl_modern_green_room"								= { always = yes }
+		"pre_ftl_modern_purple_room"							= { always = yes }
+		"pre_ftl_modern_pink_room"								= { always = yes }
+		"pre_ftl_modern_woodoak_room"							= { always = yes }
+		#"andrdlogo_room"										= { always = yes } # no .. self insert modern ftl room
+		"observation_post_room"									= { always = yes } # pre-ftl observation
+		"observation_post_cracked_room"							= { always = yes }
+		"xcom_avengerbridge_room"								= { always = yes } # original easter egg
+		"xcom_avengerchamber_room"								= { always = yes } # original easter egg
+		"enclave_artist_room"									= { always = yes } # - solid background
+		"enclave_artist_open_room"								= { always = yes }
+		"personality_fanatic_befrienders_room" 					= { always = yes } # * fanatic_befrienders .. open artists room
+		"enclave_curator_room"									= { always = yes } # - solid background
+		"enclave_curator_open_room"								= { always = yes }
+		"enclave_curator_open_blue_room"						= { always = yes }
+		"enclave_curator_open_green_room"						= { always = yes }
+		"enclave_curator_open_purple_room"						= { always = yes }
+		"enclave_curator_open_red_room"							= { always = yes }
+		"crystalline_room"										= { always = yes } # *
+		"crystalline_green_room"								= { always = yes }
+		"crystalline_teal_room"									= { always = yes }
+		"crystalline_white_room"								= { always = yes }
+		"crystalline_red_room"									= { always = yes }
+		"crystalline_purple_room"								= { always = yes }
+		"cosmogenesis_room"										= { always = yes } # cosmogenesis_world_built - solid background
+		"cosmogenesis_open_room"								= { always = yes }
+		"cosmogenesis_open_blue_room"							= { always = yes }
+		"cosmogenesis_open_yellow_room"							= { always = yes }
+		"cosmogenesis_open_purple_room"							= { always = yes }
+		"cybernetics_room"										= { always = yes } # * cybernetic_portrait
+		"cybernetics_green_room"								= { always = yes }
+		"cybernetics_yellow_room"								= { always = yes }
+		"cybernetics_red_room"									= { always = yes }
+		"cybernetics_purple_room"								= { always = yes }
+		"runic_room"											= { always = yes } # *
+		"runic_blue_room"										= { always = yes }
+		"runic_green_room"										= { always = yes }
+		"runic_purple_room"										= { always = yes }
+		"runic_yellow_room"										= { always = yes }
+		"psionic_room"											= { always = yes } # * graphical_culture = psionic_01
+		"psionic_red_room"										= { always = yes }
+		"psionic_green_room"									= { always = yes }
+		"psionic_white_room"									= { always = yes }
+		"technosphere_room"										= { always = yes } # * - solid background .. ship room
+		"ship_room"												= { always = yes } #
+		"ship_green_room"										= { always = yes }
+		"ship_cyan_room"										= { always = yes }
+		"ship_blue_room"										= { always = yes }
+		"ship_purple_room"										= { always = yes }
+		"ship_red_room"											= { always = yes }
+		"solarpunk_room"										= { always = yes } # * has_country_flag = solarpunk_country
+		"solarpunk_blue_room"									= { always = yes } 
+		"solarpunk_purple_room"									= { always = yes } 
+		"solarpunk_red_room"									= { always = yes } 
+		"specialist_bulwark_room"								= { always = yes } # is_specialist_subject_type = { TYPE = bulwark }
+		"specialist_bulwark_blue_room"							= { always = yes }
+		"specialist_bulwark_cyan_room"							= { always = yes }
+		"specialist_bulwark_green_room"							= { always = yes }
+		"specialist_bulwark_orange_room"						= { always = yes }
+		"specialist_bulwark_pink_room"							= { always = yes }
+		"specialist_bulwark_purple_room"						= { always = yes }
+		"specialist_bulwark_red_room"							= { always = yes }
+		"specialist_prospectorium_room"							= { always = yes } # is_specialist_subject_type = { TYPE = prospectorium }
+		"specialist_prospectorium_blue_room"					= { always = yes }
+		"specialist_scholarium_room"							= { always = yes } # is_specialist_subject_type = { TYPE = scholarium }
+		"specialist_scholarium_yellow_room"						= { always = yes }
+		"scrappy_room"											= { always = yes } # * has_country_flag = ratling_country
+		"toxoids_room"											= { always = yes } # * toxoids_portrait
+		"toxoids_blue_room"										= { always = yes }
+		"toxoids_cyan_room"										= { always = yes }
+		"toxoids_green_room"									= { always = yes }
+		"toxoids_orange_room"									= { always = yes }
+		"toxoids_pink_room"										= { always = yes }
+		"toxoids_purple_room"									= { always = yes }
+		"toxoids_red_room"										= { always = yes }
+		"aquatics_room"											= { always = yes } # * aquatics_portrait
+		"aquatics_green_room"									= { always = yes }
+		"aquatics_purple_room"									= { always = yes }
+		"aquatics_red_room"										= { always = yes }
+		"aquatics_white_room"									= { always = yes }
+		"infernal_room"											= { always = yes } # * infernal species
+		"infernal_blue_room"									= { always = yes } 
+		"infernal_green_room"									= { always = yes } 
+		"infernal_purple_room"									= { always = yes }
+		"personality_metalheads_room" 							= { always = yes } # * metalhead .. open traders room
+		"enclave_trader_room"									= { always = yes } # - solid background .. open is metalheads
+		"enclave_mindwarden_room"								= { always = yes } # - solid background
+		"galactic_emperor_room"									= { always = yes } # - solid background .. galactic_emperor
+		"galactic_custodian_room"								= { always = yes } # - solid background .. galactic_custodian
+		"slaver_room"											= { always = yes } # - solid background .. has_origin = origin_slavers
+		"mercenary_enclave_room"								= { always = yes } # - solid background
+		"salvagers_room"										= { always = yes } # - solid background
+		"crisis_room"											= { always = yes } # - solid background
+		"swarm_room"											= { always = yes } # - solid background
+		"shroud_room"											= { always = yes } # - solid background
+		"shroudwalkers_room"									= { always = yes } # - solid background
+		"extradimensional_blue_room"							= { always = yes } # no - solid background
+		"extradimensional_formless_room"						= { always = yes } # no - solid background
+		"extradimensional_green_room"							= { always = yes } # no - solid background
+		"extradimensional_orange_room"							= { always = yes } # no - solid background
+		"paragon_azaryn_room"									= { always = yes } # no - solid background
+		"paragon_skrand_room"									= { always = yes } # no - solid background
+		"paragon_keides_room"									= { always = yes } # no - solid background .. required opening with no mipmaps .. personality_hedgemonic_imperialists
+		#"synth_queen_room"										= { always = yes } # no - ?not in vanilla files?
+	}
+}

@@ -1,0 +1,98 @@
+######################## Mute Extended Species Sets ###########################
+
+### Cunning Trait ### 
+ ### Cunning ### 
+  leader_trait_mgd_cunning = {
+	inline_script = {
+		script = trait/icon
+		CLASS = leader
+		ICON = GFX_leader_trait_ambassador_bully
+		RARITY = common
+		COUNCIL = yes
+		TIER = none
+	}
+	leader_class = all
+	initial = no
+	randomized = no
+	notify_on_gained = no
+
+	councilor_modifier = {
+		diplo_action_acceptance_add = 1
+		intel_gain_speed = 0.10
+	}
+}
+
+### Diplomatic Trait ### 
+ ### Diplomat ### 
+  leader_trait_mgd_diplomat = {
+	inline_script = {
+		script = trait/icon
+		CLASS = official
+		ICON = GFX_leader_trait_federal_greeter
+		RARITY = common
+		COUNCIL = yes
+		TIER = none
+	}
+	leader_class = { official }
+	initial = no
+	randomized = no
+	notify_on_gained = no
+
+	councilor_modifier = {
+		country_trust_growth = 0.10
+	}
+
+	galcom_modifier = {
+		diplo_weight_mult = 0.10
+	}
+
+}
+
+
+### Cowards Traits ### 
+ ### Wary ### 
+  leader_trait_mgd_wary = {
+	inline_script = {
+		script = trait/icon
+		CLASS = leader
+		ICON = GFX_leader_trait_roamer
+		RARITY = common
+		COUNCIL = no
+		TIER = none
+	}
+	leader_class = all
+	initial = no
+	randomized = no
+	leader_trait_type = negative
+	notify_on_gained = no
+
+	fleet_modifier = { 
+		ship_speed_mult = -0.15
+		ship_disengage_chance_mult = 0.05
+	}
+
+}
+
+### Insidious Trait ### 
+ ### Schemer ### 
+  leader_trait_mgd_schemer = {
+	inline_script = {
+		script = trait/icon
+		CLASS = leader
+		ICON = GFX_leader_trait_paranoid
+		RARITY = common
+		COUNCIL = yes
+		TIER = none
+	}
+	leader_class = { official }
+	initial = no
+	randomized = no
+	leader_trait_type = negative
+	notify_on_gained = no
+
+	councilor_modifier = {
+		country_trust_growth = -0.15
+		spy_network_daily_value_mult = 0.05
+	}
+
+}

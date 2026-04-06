@@ -1,0 +1,67 @@
+# Wet Modifiers
+pf_pm_rare_wood_homeworld = {
+	planet_jobs_trade_produces_mult = 0.1
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_overgrowth.dds"
+	icon_frame = 1
+}
+
+pf_pm_iridescent_pearls_homeworld = {
+	planet_jobs_trade_produces_mult = 0.1
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_coral_ecosystems.dds"
+	icon_frame = 1
+}
+
+pf_pm_sea_ferns_homeworld = {
+	planet_jobs_trade_produces_mult = 0.1
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_sea_ferns.dds"
+	icon_frame = 1
+}
+
+
+# Dry Modifiers
+pf_pm_rare_spices_homeworld = {
+	planet_jobs_trade_produces_mult = 0.1
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_rare_spices.dds"
+	icon_frame = 1
+}
+
+pf_pm_desert_silks_homeworld = {
+	planet_jobs_trade_produces_mult = 0.1
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_desert_silks.dds"
+	icon_frame = 1
+}
+
+pf_pm_amberfruit_homeworld = {
+	planet_jobs_trade_produces_mult = 0.1
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_amberfruit.dds"
+	icon_frame = 1
+}
+
+# Cold Modifiers
+pf_pm_mountain_flowers_homeworld = {
+	planet_jobs_trade_produces_mult = 0.1
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_mountain_flowers.dds"
+	icon_frame = 1
+}
+
+pf_pm_fungal_caves_homeworld = {
+	planet_jobs_trade_produces_mult = 0.1
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_fungal_world.dds"
+	icon_frame = 1
+}
+
+pf_pm_marsh_roots_homeworld = {
+	planet_jobs_trade_produces_mult = 0.1
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_swamp_world.dds"
+	icon_frame = 1
+}
+

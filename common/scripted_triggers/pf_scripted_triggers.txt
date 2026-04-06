@@ -1,0 +1,96 @@
+pf_is_valid_planet_for_extraplanetary_life = {
+    pf_is_habitable_planet = yes
+    is_artificial = no
+    is_colony = no
+
+    NOR = {
+        is_planet_class = pc_nuked
+        is_planet_class = pc_city
+        is_planet_class = pc_relic
+        is_planet_class = pc_hive
+        is_planet_class = pc_machine
+        is_planet_class = pc_volcanic
+    }
+}
+
+pf_is_world_with_ecosystems = {
+    pf_is_habitable_planet = yes
+    is_artificial = no
+
+    NOR = {
+        is_planet_class = pc_nuked
+        is_planet_class = pc_city
+        is_planet_class = pc_relic
+        is_planet_class = pc_hive
+        is_planet_class = pc_machine
+        is_planet_class = pc_volcanic
+    }
+}
+
+pf_is_habitable_planet = {
+    OR = {
+        is_colonizable = yes
+        is_colony = yes
+    }
+}
+
+pf_is_dry_not_volcanic = {
+    is_dry = yes
+    NOT = { is_planet_class = pc_volcanic }
+}
+
+# Luxuries
+
+pf_is_luxury_world = {
+    OR = {
+        pf_is_rare_wood_world = yes
+        pf_is_iridescent_pearls_world = yes
+        pf_is_sea_ferns_world = yes
+
+        pf_is_desert_silks_world = yes
+        pf_is_rare_spices_world = yes
+        pf_is_amberfruit_world = yes
+
+        pf_is_mountain_flowers_world = yes
+        pf_is_fungal_caves_world = yes
+        pf_is_marsh_roots_world = yes
+    }
+}
+
+# Done this way so we can add secondary plantations elsewhere if we want to
+
+pf_is_rare_wood_world = {
+    has_planet_flag = pf_pm_rare_wood_homeworld
+}
+
+pf_is_iridescent_pearls_world = {
+    has_planet_flag = pf_pm_iridescent_pearls_homeworld
+}
+
+pf_is_sea_ferns_world = {
+    has_planet_flag = pf_pm_sea_ferns_homeworld
+}
+
+pf_is_rare_spices_world = {
+    has_planet_flag = pf_pm_rare_spices_homeworld
+}
+
+pf_is_desert_silks_world = {
+    has_planet_flag = pf_pm_desert_silks_homeworld
+}
+
+pf_is_amberfruit_world = {
+    has_planet_flag = pf_pm_amberfruit_homeworld
+}
+
+pf_is_mountain_flowers_world = {
+    has_planet_flag = pf_pm_mountain_flowers_homeworld
+}
+
+pf_is_fungal_caves_world = {
+    has_planet_flag = pf_pm_fungal_caves_homeworld
+}
+
+pf_is_marsh_roots_world = {
+    has_planet_flag = pf_pm_marsh_roots_homeworld
+}

@@ -1,0 +1,127 @@
+# Planet Scope
+defined_text = {
+	name = pf_planet_type
+    random = no
+	text = {
+		trigger = { is_moon = yes }
+		localization_key = pf_moon_name
+	}
+	text = {
+		trigger = { is_ringworld = yes }
+		localization_key = pf_ring_name
+	}
+	text = {
+		trigger = { is_artificial = yes }
+		localization_key = pf_station_name
+	}
+	text = {
+		trigger = { is_asteroid = yes }
+		localization_key = pf_asteroid_name
+	}
+	text = {
+		trigger = { is_star = yes }
+		localization_key = pf_star_name
+	}
+	text = {
+		trigger = { is_planet_class = pc_gas_giant }
+		localization_key = pf_gas_giant_name
+	}
+    default = pf_planet_name
+}
+
+# Planet Scope
+defined_text = {
+	name = pf_planet_surface
+    random = no
+	text = {
+		trigger = { is_planet_class = pc_relic }
+		localization_key = pf_relic_surface
+	}
+
+	text = {
+		trigger = { is_planet_class = pc_ocean }
+		localization_key = pf_ocean_surface
+	}
+	text = {
+		trigger = { is_planet_class = pc_continental }
+		localization_key = pf_continental_surface
+	}
+	text = {
+		trigger = { is_planet_class = pc_tropical }
+		localization_key = pf_tropical_surface
+	}
+
+	text = {
+		trigger = { is_planet_class = pc_arid }
+		localization_key = pf_arid_surface
+	}
+	text = {
+		trigger = { is_planet_class = pc_desert }
+		localization_key = pf_desert_surface
+	}
+	text = {
+		trigger = { is_planet_class = pc_savannah }
+		localization_key = pf_savannah_surface
+	}
+
+	text = {
+		trigger = { is_planet_class = pc_arctic }
+		localization_key = pf_arctic_surface
+	}
+	text = {
+		trigger = { is_planet_class = pc_alpine }
+		localization_key = pf_alpine_surface
+	}
+	text = {
+		trigger = { is_planet_class = pc_tundra }
+		localization_key = pf_tundra_surface
+	}
+    default = pf_generic_surface
+}
+
+# Planet Scope
+defined_text = {
+	name = pf_luxury_resource
+    random = no
+
+	text = {
+		trigger = { pf_is_rare_wood_world = yes }
+		localization_key = pf_rare_wood_resource
+	}
+	text = {
+		trigger = { pf_is_iridescent_pearls_world = yes }
+		localization_key = pf_iridescent_pearls_resource
+	}
+	text = {
+		trigger = { pf_is_sea_ferns_world = yes }
+		localization_key = pf_sea_ferns_resource
+	}
+
+	text = {
+		trigger = { pf_is_rare_spices_world = yes }
+		localization_key = pf_rare_spices_resource
+	}
+	text = {
+		trigger = { pf_is_desert_silks_world = yes }
+		localization_key = pf_desert_silks_resource
+	}
+	text = {
+		trigger = { pf_is_amberfruit_world = yes }
+		localization_key = pf_amberfruit_resource
+	}
+
+	text = {
+		trigger = { pf_is_mountain_flowers_world = yes }
+		localization_key = pf_mountain_flowers_resource
+	}
+	text = {
+		trigger = { pf_is_fungal_caves_world = yes }
+		localization_key = pf_fungal_caves_resource
+	}
+	text = {
+		trigger = { pf_is_marsh_roots_world = yes }
+		localization_key = pf_marsh_roots_resource
+	}
+
+    default = pf_generic_luxury_resource
+}

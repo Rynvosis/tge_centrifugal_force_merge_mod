@@ -1,0 +1,8 @@
+planet_anglers = {
+	parent = planet_farmers
+
+	generate_add_modifiers = {
+		produces
+	}
+	modifier_category = pop_job
+}

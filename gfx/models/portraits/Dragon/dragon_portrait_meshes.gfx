@@ -1,0 +1,10 @@
+objectTypes = {
+		pdxmesh = {
+		name = "draconic_dragon_mesh"
+		file = "gfx/models/portraits/Dragon/draconic_dragon.mesh"
+		animation = { id = "idle"	type = "draconic_dragon_idle01_animation" }
+		animation = { id = "idle2"	type = "draconic_dragon_idle02_animation" }
+		animation = { id = "idle3"	type = "draconic_dragon_idle03_animation" }
+		scale = 1.32
+	}
+}

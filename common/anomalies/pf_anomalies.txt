@@ -1,0 +1,106 @@
+pf_abandoned_telescope_station = {
+	desc = "pf_abandoned_telescope_station_desc"
+	picture = "GFX_evt_space_station"
+	level = 2
+
+	spawn_chance = {
+        base = 0
+	}
+
+	on_success = pf_content.401
+}
+
+pf_churning_beneath_the_ice = {
+	desc = "pf_churning_beneath_the_ice_desc"
+	picture = "GFX_evt_frozen"
+	level = 5
+
+	spawn_chance = {
+        base = 0
+
+		modifier = {
+			add = 2
+			OR = {
+				is_planet_class = pc_frozen
+			}
+			has_any_strategic_resource = no
+		}
+	}
+
+	on_success = pf_content.410
+}
+
+pf_strange_heat_emissions = {
+	desc = "pf_strange_heat_emissions_desc"
+	picture = "GFX_evt_pf_alpine_highlands"
+	level = 3
+
+	spawn_chance = {
+        base = 0
+
+		modifier = {
+			add = 3
+			is_planet_class = pc_alpine
+		}
+	}
+
+	on_success = pf_content.420
+}
+
+pf_ancient_gas_mines = {
+	desc = "pf_ancient_gas_mines_desc"
+	picture = "GFX_evt_gas_giant"
+	level = 4
+
+	spawn_chance = {
+        base = 0
+
+		modifier = {
+			add = 3
+			is_planet_class = pc_gas_giant
+		}
+	}
+
+	on_success = pf_content.440
+}
+
+pf_desert_relic_ruins = {
+	desc = "pf_desert_relic_ruins_desc"
+	picture = "GFX_evt_pf_dry_highlands"
+	level = 4
+
+	spawn_chance = {
+        base = 0
+	}
+
+	on_success = pf_content.451
+}
+
+pf_discovered_seed_world = {
+	desc = "pf_discovered_seed_world_desc"
+	picture = "GFX_evt_pf_glowing_nature"
+	level = 6
+
+	spawn_chance = {
+        base = 0
+
+		modifier = {
+			add = 3
+			is_planet_class = pc_alpine
+		}
+		modifier = {
+			add = 3
+			is_planet_class = pc_arid
+		}
+		modifier = {
+			add = 3
+			is_planet_class = pc_ocean
+		}
+		modifier = {
+			add = 3
+			is_planet_class = pc_continental
+		}
+	}
+
+	on_success = pf_content.460
+}

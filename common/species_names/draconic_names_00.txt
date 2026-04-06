@@ -1,0 +1,49 @@
+Draconic =  {
+	Drakkari =  {
+        name = "Drakkari"
+        plural = "Drakkari"
+        home_planet = "Ralgakthys"
+        home_system = "The Eye of Ildramak"
+        name_list =  "REP1"
+    }
+
+	Yrvaakki =  {
+        name = "Yrvaaki"
+        plural = "Yrvaakis"
+        home_planet = "Kromotiark"
+        home_system = "Kromostathis-ahk"
+        name_list =  "REP2"
+    }
+
+	WyrStehl =  {
+        name = "WyrStehl"
+        plural = "WyrStehli"
+        home_planet = "The Goldhome"
+        home_system = "Dawnbringer"
+        name_list =  "REP3"
+    }
+
+	Urudrahv =  {
+        name = "Urudrahv"
+        plural = "Urudrahvi"
+        home_planet = "Alzari"
+        home_system = "Ishdazja"
+        name_list =  "REP4"
+    }
+	
+	Lindraiocht =  {
+        name = "lindraiocht"
+        plural = "lindraiochts"
+        home_planet = "Aislinghearth"
+        home_system = "Suaimhneas"
+        name_list =  "REP3"
+    }
+	
+	Xerekar =  {
+        name = "Xerekar"
+        plural = "Xerekari"
+        home_planet = "Rexaragiris"
+        home_system = "The Dragonstar"
+        name_list =  "REP4"
+    }
+}

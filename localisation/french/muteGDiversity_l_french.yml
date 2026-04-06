@@ -1,0 +1,307 @@
+﻿l_french: 
+
+################
+### Concepts ###
+################
+
+ concept_muteGDiversity:0 "From Galactic Diversity"
+ concept_muteGDiversity_desc:0 "This was added by the Galactic Diversity Mod.\nGalactic Diversity adds Traits, Origins & more."
+
+ concept_muteGDiversity_generic_traits:0 "Generic Trait"
+ concept_muteGDiversity_generic_traits_desc:0 "Generic Traits are available to all Species:\n- ['trait:trait_mgd_competitive']\n- ['trait:trait_mgd_anxious']\n- ['trait:trait_mgd_territorial']\n- ['trait:trait_mgd_carnivorous']\n- ['trait:trait_mgd_militant']\n- ['trait:trait_mgd_peaceful']\n- ['trait:trait_mgd_rebellious']\n- ['trait:trait_mgd_patriotic']\n\n['concept_muteGDiversity']"
+ concept_muteGDiversity_planetary_traits:0 "Planetary Trait"
+ concept_muteGDiversity_planetary_traits_desc:0 "Planetary Traits are available based on homeworld planet class:\n- ['trait:trait_mgd_amphibious']\n- ['trait:trait_mgd_climate_flexibility']\n- ['trait:trait_mgd_surefooted']\n\n['concept_muteGDiversity']"
+ concept_muteGDiversity_common_traits:0 "Common Trait"
+ concept_muteGDiversity_common_traits_desc:0 "Common Traits are available to Humanoids and one more phenotype:\n- ['trait:trait_mgd_natural_musicians']\n- ['trait:trait_mgd_cooperative']\n- ['trait:trait_mgd_stubborn']\n- ['trait:trait_mgd_resourceful']\n- ['trait:trait_mgd_environmentalists']\n- ['trait:trait_mgd_tinkerers']\n- ['trait:trait_mgd_gifted']\n\n['concept_muteGDiversity']"
+ concept_muteGDiversity_exclusive_traits:0 "Exclusive Trait"
+ concept_muteGDiversity_exclusive_traits_desc:0 "Exclusive Traits are available to only one phenotype each:\n- ['trait:trait_mgd_fungoid']\n- ['trait:trait_mgd_plantoid']\n\n['concept_muteGDiversity']"
+ concept_muteGDiversity_sapient_traits:0 "Sapient Trait"
+ concept_muteGDiversity_sapient_traits_desc:0 "Sapient Traits are available to Humanoids, Mammalians, Necroids and Avians:\n- ['trait:trait_mgd_prideful']\n- ['trait:trait_mgd_pretentious']\n- ['trait:trait_mgd_cunning']\n- ['trait:trait_mgd_diplomatic']\n- ['trait:trait_mgd_ambitious']\n- ['trait:trait_mgd_disciplined']\n- ['trait:trait_mgd_scholarly']\n- ['trait:trait_mgd_natural_artisans']\n- ['trait:trait_mgd_natural_blacksmiths']\n- ['trait:trait_mgd_cowards']\n\n['concept_muteGDiversity']"
+ concept_muteGDiversity_marine_traits:0 "Marine Trait"
+ concept_muteGDiversity_marine_traits_desc:0 "Marine Traits are available to Aquatics, Molluscoids, Reptilians and Arthropoids:\n\n['concept_muteGDiversity']"
+ concept_muteGDiversity_blighted_traits:0 "Blighted Trait"
+ concept_muteGDiversity_blighted_traits_desc:0 "Blighted Traits are available to Toxoids, Fungoids, Lithoids and Molluscoids:\n- ['trait:trait_mgd_nihilists']\n- ['trait:trait_mgd_addicts']\n\n['concept_muteGDiversity']"
+ concept_muteGDiversity_quasiorganic_traits:0 "Quasiorganic Trait"
+ concept_muteGDiversity_quasiorganic_traits_desc:0 "Quasiorganic Traits are available to Plantoids, Lithoids, Machines:\n\n['concept_muteGDiversity']"
+ concept_muteGDiversity_botanic_traits:0 "Botanic Trait"
+ concept_muteGDiversity_botanic_traits_desc:0 "Botanic Traits are available to Plantoids and Fungoids:\n- ['trait:trait_mgd_autotrophic']\n- ['trait:trait_mgd_saprotrophic']\n- ['trait:trait_mgd_xerophytic']\n- ['trait:trait_mgd_cryophytic']\n- ['trait:trait_mgd_delicate_sprout']\n- ['trait:trait_mgd_thorned']\n- ['trait:trait_mgd_lignified']\n- ['trait:trait_mgd_sprawling']\n- ['trait:trait_mgd_lush']\n- ['trait:trait_mgd_blooming']\n- ['trait:trait_mgd_sporulating']\n\n['concept_muteGDiversity']"
+ concept_muteGDiversity_revenant_traits:0 "Revenant Trait"
+ concept_muteGDiversity_revenant_traits_desc:0 "Revenant Traits are available to Necroids and Toxoids:\n- ['trait:trait_mgd_disfigured']\n- ['trait:trait_mgd_insidious']\n- ['trait:trait_mgd_gluttonous']\n- ['trait:trait_mgd_abstinent']\n- ['trait:trait_mgd_dysfunctional']\n- ['trait:trait_mgd_ritualists']\n- ['trait:trait_mgd_thanatophilic']\n\n['concept_muteGDiversity']"
+ concept_muteGDiversity_saurian_traits:0 "Saurian Trait"
+ concept_muteGDiversity_saurian_traits_desc:0 "Saurian Traits are available to Reptilians and Avians:\n\n['concept_muteGDiversity']"
+ concept_muteGDiversity_scoial_traits:0 "Social Trait"
+ concept_muteGDiversity_scoial_traits_desc:0 "Social Traits are available to Mammalians and Aquatics:\n\n['concept_muteGDiversity']"
+ concept_muteGDiversity_swarm_traits:0 "Swarm Trait"
+ concept_muteGDiversity_swarm_traits_desc:0 "Swarm Traits are available to Arthropoids and Hiveminds:\n- ['trait:trait_mgd_pollinators']\n\n['concept_muteGDiversity']"
+ concept_muteGDiversity_artificial_traits:0 "Artificial Trait"
+ concept_muteGDiversity_artificial_traits_desc:0 "Artificial Traits are available to Machines and Robots:\n\n['concept_muteGDiversity']"
+
+ SPECIES_TRAIT_MUTEGDIVERSITY_GENERIC:0 "['concept_muteGDiversity_generic_traits']"
+ SPECIES_TRAIT_MUTEGDIVERSITY_PLANETARY:0 "['concept_muteGDiversity_planetary_traits']"
+ SPECIES_TRAIT_MUTEGDIVERSITY_COMMON:0 "['concept_muteGDiversity_common_traits']"
+ SPECIES_TRAIT_MUTEGDIVERSITY_EXCLUSIVE:0 "['concept_muteGDiversity_exclusive_traits']"
+ SPECIES_TRAIT_MUTEGDIVERSITY_SAPIENT:0 "['concept_muteGDiversity_sapient_traits']"
+ SPECIES_TRAIT_MUTEGDIVERSITY_MARINE:0 "['concept_muteGDiversity_marine_traits']"
+ SPECIES_TRAIT_MUTEGDIVERSITY_BLIGHTED:0 "['concept_muteGDiversity_blighted_traits']"
+ SPECIES_TRAIT_MUTEGDIVERSITY_QUASIORGANIC:0 "['concept_muteGDiversity_quasiorganic_traits']"
+ SPECIES_TRAIT_MUTEGDIVERSITY_BOTANIC:0 "['concept_muteGDiversity_botanic_traits']"
+ SPECIES_TRAIT_MUTEGDIVERSITY_REVENANT:0 "['concept_muteGDiversity_revenant_traits']"
+ SPECIES_TRAIT_MUTEGDIVERSITY_SAURIAN:0 "['concept_muteGDiversity_saurian_traits']"
+ SPECIES_TRAIT_MUTEGDIVERSITY_SOCIAL:0 "['concept_muteGDiversity_social_traits']"
+ SPECIES_TRAIT_MUTEGDIVERSITY_SWARM:0 "['concept_muteGDiversity_swarm_traits']"
+ SPECIES_TRAIT_MUTEGDIVERSITY_ARTIFICIAL:0 "['concept_muteGDiversity_artificial_traits']"
+
+##############
+### Traits ###
+##############
+
+### Generic Traits Set ###
+ trait_mgd_competitive:0 "Competitive"
+ trait_mgd_competitive_desc:0 "This species has a natural drive for competition. Everything is a contest to them, and they strive to win."
+ trait_mgd_competitive_effects:0 "$BONUS_WORKFORCE_FOR$ $SPECIALISTS$ per Rival: §G+5%§!"
+
+ trait_mgd_anxious:0 "Anxious"
+ trait_mgd_anxious_desc:0 "They are easily affected by stress, and are prone to panic attacks."
+ trait_mgd_anxious_effects:0 "$MOD_POP_BONUS_WORKFORCE_MULT$ During War and Crisis: §R-10%§!"
+
+ trait_mgd_territorial:0 "Territorial"
+ trait_mgd_territorial_desc:0 "This species is fierce and does not tolerate intruders, happiest when left to themselves with space to spare."
+ trait_mgd_territorial_effects:0 "Pop Happiness per 1000 available Housing: §G+0.5%§!\n    - Pop Happiness per closed Border: §G+0.5%§!"
+
+ trait_mgd_carnivorous:0 "Carnivorous"
+ trait_mgd_carnivorous_desc:0 "For members of this species, meat is not a preference, it is a need."
+ trait_mgd_carnivorous_effects:0 "Pop Growth Speed: §G+30%§! while living on a planet with £job_livestock£ §Y$job_livestock$§! and a local $r_food$ §GProduction Surplus§!\n    - Pop Food Upkeep: §R+50%§! while living on a planet with no £job_livestock£ §Y$job_livestock$§!"
+
+
+ trait_mgd_militant:0 "Militant"
+ trait_mgd_militant_desc:0 "Conflict is viewed as the natural state of affairs, and these people are ever-ready for war."
+ trait_mgd_militant_effects:0 "Pop Happiness: §R-10%§! while not at war"
+
+ trait_mgd_peaceful:0 "Peaceful"
+ trait_mgd_peaceful_desc:0 "They value harmony above strife, preferring negotiation and stability to the chaos of war."
+ trait_mgd_peaceful_effects:0 "Pop Happiness: §R-10%§! while at war"
+
+ trait_mgd_rebellious:0 "Rebellious"
+ trait_mgd_rebellious_desc:0 "This species instinctively pushes back against any form of control."
+
+ trait_mgd_patriotic:0 "Patriotic"
+ trait_mgd_patriotic_desc:0 "Loyalty to their state runs deep, with individuals willing to sacrifice much for the greater good."
+
+### Planetary Traits Set ### 
+ trait_mgd_amphibious:0 "Amphibious"
+ trait_mgd_amphibious_desc:0 "Thriving at the edge of land and sea, this species relies on shallow waters as a source of nourishment and protection."
+ trait_mgd_amphibious_effects:0 "Pop Growth Speed on §YTropical§! planets: §G+10%§!\n    - Pop Growth Speed on other §Ywet§! planets: §G+5%§!\n    - Pop Growth Speed on §Ynon-wet§! planets: §R-10%§!"
+
+ trait_mgd_climate_flexibility:0 "Climate Flexibility"
+ trait_mgd_climate_flexibility_desc:0 "Thanks to the varied continental nature of their homeworld, they have adapted to - and can survive in - many climates; so long as conditions remain somewhat moderate."
+
+ trait_mgd_natural_mariners:0 "Natural Mariners"
+ trait_mgd_natural_mariners_desc:0 "Born of the seas, they wield generations of maritime knowledge in exploration, logistics, and naval command."
+ trait_mgd_natural_mariners_effects:0 "Unlocks unique leader traits: "
+
+ trait_mgd_surefooted:0 "Sure-footed"
+ trait_mgd_surefooted_desc:0 "Built for crags and crevices, this species leaps, climbs, and nests on sheer rock faces with ease. They make full use of the vertical terrain of their homeworld."
+ trait_mgd_surefooted_effects:0 "$BONUS_WORKFORCE_FOR$ $WORKERS$ on §YAlpine§! planets: §G+2.5%§!\n    - Pop Housing Usage on §YAlpine§! planets: §G-10%§!"
+
+### Common Traits Set ### 
+ trait_mgd_natural_musicians:0 "Natural Musicians"
+ trait_mgd_natural_musicians_desc:0 "Members of this species have a natural talent for creating music, be that chirping, singing or playing an instrument."
+
+ trait_mgd_cooperative:0 "Cooperative"
+ trait_mgd_cooperative_desc:0 "Individuals see the bigger picture, and solidarily take on tasks to make quick work out of it."
+ trait_mgd_cooperative_effects:0 "$BONUS_WORKFORCE_FOR$ $WORKERS$ per 1000 §YCooperative§! $WORKERS$: §G+1%§! (up to §G+10%§!)"
+
+ trait_mgd_stubborn:0 "Stubborn"
+ trait_mgd_stubborn_desc:0 "Stoneheaded, difficult to work with and seemingly resistant to admitting, or learning from, their mistakes."
+
+ trait_mgd_resourceful:0 "Resourceful"
+ trait_mgd_resourceful_desc:0 "This species can make the most of the resources available to them."
+
+ trait_mgd_environmentalists:0 "Environmentalists"
+ trait_mgd_environmentalists_desc:0 "This species is naturally driven to keep the ecosystems around them in pristine condition."
+ trait_mgd_environmentalists_effects:0 "Happiness per uncleared Blocker: §G+1%§!"
+
+ trait_mgd_tinkerers:0 "Tinkerers"
+ trait_mgd_tinkerers_desc:0 "Engineering is the main point of interest for members of this species, as they have a strange attraction to all things mechanical."
+
+ trait_mgd_gifted:0 "Gifted"
+ trait_mgd_gifted_desc:0 "Members of this species develop early and often show great potential."
+
+
+### Exclusive Traits Set ###
+ trait_mgd_fungoid:0 "Fungoid"
+ trait_mgd_fungoid_desc:0 "This species is capable of feeding on decaying matter for nutrients. They form a symbiotic relationship with Plantoids."
+ trait_mgd_fungoid_effects:0 "Mineral upkeep per devastation on planet: §G-1%§!\n    - Based on the §HPlantoid-Fungoid-Ratio§!:\n        - Food Upkeep: up to §G-25%§!\n        - Habitability: up to §G+5%§!\n\n    - If ['trait:trait_plantoid_radiotrophic']: Effects also apply to §HEnergy Upkeep§!"
+
+ trait_mgd_plantoid:0 "Plantoid"
+ trait_mgd_plantoid_desc:0 "Unlike most lifeforms, this species has pronounced plant biology, utilizing unusual survival strategies. They form a symbiotic relationship with Fungoids, who break down minerals into nutrients for shared benefit."
+ trait_mgd_plantoid_effects:0 "Food upkeep on §YWet§! worlds: §G-25%§!\n    - Based on the §HFungoid-Plantoid-Ratio§!:\n        - Food Upkeep: up to §G-25%§! \n        - Habitability: up to §G+5%§!\n\n    - If ['trait:trait_plantoid_phototrophic']: Effects also apply to §HEnergy Upkeep§!"
+
+### Sapien Traits Set ###
+ trait_mgd_prideful:0 "Prideful"
+ trait_mgd_prideful_desc:0 "This species arrogantly believes themselves to be superior to others."
+ trait_mgd_prideful_effects:0 "Pop Happiness while Vassalized: §R-10%§!"
+
+ trait_mgd_pretentious:0 "Pretentious"
+ trait_mgd_pretentious_desc:0 "Members of this species tend to value status over genuine skilla nd often have an inflated sense of self-importance."
+
+ trait_mgd_cunning:0 "Cunning"
+ trait_mgd_cunning_desc:0 "They are quick-witted and eloquent, members of this species have a natural talent for persuasion."
+ trait_mgd_cunning_effects:0 "Leaders: §S25% Chance§! to be ['leader_trait:leader_trait_mgd_cunning']"
+
+ trait_mgd_diplomatic:0 "Diplomatic"
+ trait_mgd_diplomatic_desc:0 "Expert Negotiators, individuals of this species naturally seek common ground and mutual benefit. They excel at building positive relations."
+ trait_mgd_diplomatic_effects:0 "Officials: §S50% Chance§! to be ['leader_trait:leader_trait_mgd_diplomat']"
+
+ trait_mgd_ambitious:0 "Ambitious"
+ trait_mgd_ambitious_desc:0 "They are driven by a relentless desire for achievement and power."
+
+ trait_mgd_disciplined:0 "Disciplined"
+ trait_mgd_disciplined_desc:0 "Their way of life is centered around order and routine."
+
+ trait_mgd_scholarly:0 "Scholarly"
+ trait_mgd_scholarly_desc:0 "Members of this species are devoted to learning and discovering."
+
+ trait_mgd_natural_artisans:0 "Natural Artisans"
+ trait_mgd_natural_artisans_desc:0 "This species is naturally gifted with artistic talent."
+ trait_mgd_gifted_portrait_override_tt:0 "Requires a Psionic Species."
+
+ trait_mgd_natural_blacksmiths:0 "Natural Blacksmiths"
+ trait_mgd_natural_blacksmiths_desc:0 "Metalwork comes natural to this species."
+
+ trait_mgd_cowards:0 "Cowards"
+ trait_mgd_cowards_desc:0 "Generations of falling prey to others have left this species with an instinct to avoid confrontation."
+ trait_mgd_cowards_effects:0 "Leaders: §S25% Chance§! to be ['leader_trait:leader_trait_mgd_wary']"
+
+### Marine Traits Set ###
+
+
+### Blighted Traits ###
+ trait_mgd_nihilists:0 "Nihilists"
+ trait_mgd_nihilists_desc:0 "This species instinctively rejects religious and spiritual ideologies."
+ trait_mgd_nihilists_effects:0 "Unity Upkeep per 100 Pops: §R+1§!"
+
+ trait_mgd_addicts:0 "Addicts"
+ trait_mgd_addicts_desc:0 "Members of this species have a strong predisposition to addiction. Their withdrawal symptoms are more severe than those of other species."
+ trait_mgd_addicts_effects:0 "Pop Amenities Usage without §YChemical Bliss§!: §R+25%§!\n    - Pop Consumer Goods Upkeep without §YChemical Bliss§!: §R+50%§!"
+
+### Quasiorganic Traits ###
+
+### Botanic Traits ###
+ trait_mgd_saprotrophic:0 "Saprotrophic"
+ trait_mgd_saprotrophic_desc:0 "This species feeds on decaying organic matter, converting waste into nutrients and enriching the soil."
+ trait_mgd_saprotrophic_effects:0 "Mineral upkeep per 100 Pops: §R+25§!\n    - Mineral upkeep per devastation on planet: §G-1%§!\n    - counts as a ['trait:trait_mgd_fungoid'] unless ['trait:trait_mgd_plantoid'] or ['trait:trait_mgd_autotrophic']"
+
+ trait_mgd_autotrophic:0 "Autotrophic"
+ trait_mgd_autotrophic_desc:0 "This species is capable of producing its own nutrition through photosynthesis or chemosynthesis."
+ trait_mgd_autotrophic_effects:0 "Food upkeep on §YWet§! worlds: §G-25%§!\n    - Counts as ['trait:trait_mgd_plantoid'] unless ['trait:trait_mgd_fungoid'] or ['trait:trait_mgd_saprotrophic']"
+
+ trait_mgd_xerophytic:0 "Xerophytic"
+ trait_mgd_xerophytic_desc:0 "This botanical species is adapted to living in dry climates."
+ trait_mgd_xerophytic_effects:0 "Dry Habitability §G+10%§!\n    - Cold Habitability §R-20%§!\n    - ['trait:trait_mgd_plantoid'] or ['trait:trait_mgd_autotrophic'] effect applies on §YDry§! worlds"
+
+ trait_mgd_cryophytic:0 "Cryophytic"
+ trait_mgd_cryophytic_desc:0 "This botanical species is adapted to living in cold climates."
+ trait_mgd_cryophytic_effects:0 "Cold Habitability §G+10%§!\n    - Dry Habitability §R-20%§!\n    - ['trait:trait_mgd_plantoid'] or ['trait:trait_mgd_autotrophic'] effect applies on §YCold§! worlds"
+
+ trait_mgd_delicate_sprout:0 "Delicate Sprout"
+ trait_mgd_delicate_sprout_desc:0 "This species requires unusually specific conditions to thrive."
+ trait_mgd_delicate_sprout_effects:0 "Habitability on non-§Yideal§! worlds: §R-25%§!"
+
+ trait_mgd_thorned:0 "Thorned"
+ trait_mgd_thorned_desc:0 "This species developed thorns to deter predators."
+
+ trait_mgd_lignified:0 "Lignified"
+ trait_mgd_lignified_desc:0 "Their tissue becomes fibrous and woody with time, granting extra durability."
+
+ trait_mgd_sprawling:0 "Sprawling"
+ trait_mgd_sprawling_desc:0 "They extend long vines and creeping branches that can overtake terrain."
+
+ trait_mgd_lush:0 "Lush"
+ trait_mgd_lush_desc:0 "§LThis botanic species is especially verdant and can absorb more direct energy from sunlight.§!"
+
+ trait_mgd_blooming:0 "Blooming"
+ trait_mgd_blooming_desc:0 "They can only reproduce with the help of pollinators, which they attract with their fragrant flowers."
+ trait_mgd_blooming_effects:0 "Pop Growth Speed: §R-1%§! per §HBlooming-Pollinator-Ratio§! (max §R-30%§!)"
+
+ trait_mgd_sporulating:0 "Sporulating"
+ trait_mgd_sporulating_desc:0 "They reproduce by releasing vast clouds of spores that drift on wind currents."
+
+### Revenant Traits ###
+ trait_mgd_disfigured:0 "Disfigured"
+ trait_mgd_disfigured_desc:0 "Their appearance is considered to be shameful and repulsive."
+ trait_mgd_disfigured_portrait_override_tt:0 "Requires any Revenant Species."
+
+ trait_mgd_insidious:0 "Insidious"
+ trait_mgd_insidious_desc:0 "Members of this species are known to be deceitful and manipulative."
+ trait_mgd_insidious_effects:0 "Leaders: §S25% Chance§! to be ['leader_trait:leader_trait_mgd_schemer']"
+ trait_mgd_insidious_portrait_override_tt:0 "Requires any Revenant Species."
+
+ trait_mgd_gluttonous:0 "Gluttonous"
+ trait_mgd_gluttonous_desc:0 "§LThis species is plagued by a hunger that can never be satisfied.§!"
+ trait_mgd_gluttonous_portrait_override_tt:0 "Requires any Revenant Species."
+
+ trait_mgd_abstinent:0 "Abstinent"
+ trait_mgd_abstinent_desc:0 "This species practices restraint and moderation, shunning excess and indulgences in all aspects of life."
+ trait_mgd_abstinent_portrait_override_tt:0 "Requires any Revenant Species."
+
+ trait_mgd_dysfunctional:0 "Dysfunctional"
+ trait_mgd_dysfunctional_desc:0 "Members of this species are prone to spiraling out of control."
+ trait_mgd_dysfunctional_effects:0 "$MOD_POP_BONUS_WORKFORCE_MULT$ per negative trait: §R-2.5%§!"
+ trait_mgd_dysfunctional_portrait_override_tt:0 "Requires any Revenant Species."
+
+ trait_mgd_ritualists:0 "Ritualists"
+ trait_mgd_ritualists_desc:0 "§LMembers of this species are united by their psychological need to honor traditions.§!"
+ trait_mgd_ritualists_effects:0 "Unity Production per 100 Pops: §G+1§! per §YAscension Perk§!"
+ trait_mgd_ritualists_portrait_override_tt:0 "Requires any Revenant Species."
+
+ trait_mgd_thanatophilic:0 "Thanatophilic"
+ trait_mgd_thanatophilic_desc:0 "Memento Mori. This species is innately aware of the fleeting nature of life, feeling a strange attraction towards dead civilizations and ages past."
+ trait_mgd_thanatophilic_effects:0 "Pop Happiness on §YTomb§! and §YRelic§! worlds: §G+10%§!\n    - $BONUS_WORKFORCE_FOR$ Researchers on §YTomb§! and §YRelic§! worlds: §G+10%§!"
+ trait_mgd_thanatophilic_portrait_override_tt:0 "Requires any Revenant Species."
+
+### Saurian Traits ###
+
+
+### Social Traits ###
+
+
+### Swarm Traits ###
+ trait_mgd_pollinators:0 "Pollinators"
+ trait_mgd_pollinators_desc:0 "Critters coevolved to transfer pollen, greatly boosting any blooming crop."
+
+
+### Artificial Traits ###
+ trait_mgd_horticultural_engines:0 "Horti-Engine"
+ trait_mgd_horticultural_engines_desc:0 "Machines designed to cultivate and tend gardens."
+
+#####################
+### Leader Traits ###
+#####################
+
+ leader_trait_mgd_cunning:0 "Cunning"
+ leader_trait_mgd_cunning_desc:0 "This leader is known for their cunning."
+
+ leader_trait_mgd_diplomat:0 "Diplomat"
+ leader_trait_mgd_diplomat_desc:0 "A seasoned negotiator who excels at fostering cooperation."
+
+ leader_trait_mgd_wary:0 "Wary"
+ leader_trait_mgd_wary_desc:0 "Cautious by nature, this leader is ever-alert to threats and hesitant to take risks."
+
+ leader_trait_mgd_schemer:0 "Schemer"
+ leader_trait_mgd_schemer_desc:0 "This leader is a known schemer, ever plotting to outwit rivals."
+
+
+#################
+### Modifiers ###
+#################
+
+ mod_planet_pops_energy_upkeep_mult:0 "Pops Energy Upkeep"
+ mod_planet_pops_minerals_upkeep_mult:0 "Pops Minerals Upkeep"
+ mod_planet_pops_food_upkeep_mult:0 "Pops Food Upkeep"
+
+ mod_pop_physicist_workforce_mult:0 "Job Efficiency for Physicists"
+ mod_pop_biologist_workforce_mult:0 "Job Efficiency for Biologists"
+ mod_pop_clerk_bonus_workforce_mult:0 "Job Efficiency for Clerks"
+
+ mod_pop_criminal_bonus_workforce_mult:0 "Job Efficiency for §PCriminals§!"

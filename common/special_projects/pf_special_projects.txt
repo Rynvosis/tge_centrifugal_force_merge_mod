@@ -1,0 +1,63 @@
+special_project = {
+    key = pf_presapients_research_facility
+	days_to_research = 360
+	tech_department = society_technology
+	picture = GFX_evt_pf_dry_highlands
+	icon = "gfx/interface/icons/situation_log/situation_log_quest.dds"
+
+	event_scope = planet_event
+
+	location = yes
+
+	on_success = {
+		planet_event = { id = pf_content.311 }
+	}
+}
+
+special_project = {
+    key = pf_hyper_blizzards_prevention
+	tech_department = physics_technology
+	cost = 1000
+	picture = GFX_evt_pf_planet_space
+	icon = "gfx/interface/icons/situation_log/situation_log_quest.dds"
+
+	event_scope = planet_event
+
+	location = yes
+
+	on_success = {
+		planet_event = { id = pf_content.144 }
+	}
+}
+
+special_project = {
+    key = pf_ancient_neutron_sweep_investigation
+	tech_department = society_technology
+	cost = 1000
+	picture = GFX_evt_archaeological_dig
+	icon = "gfx/interface/icons/situation_log/situation_log_quest.dds"
+
+	event_scope = planet_event
+
+	location = yes
+
+	on_success = {
+		planet_event = { id = pf_content.144 }
+	}
+}
+
+special_project = {
+    key = pf_fix_frozen_terraforming_equipment
+	tech_department = engineering_technology
+	cost = 4000
+	picture = GFX_evt_arctic
+	icon = "gfx/interface/icons/situation_log/situation_log_quest.dds"
+
+	event_scope = planet_event
+
+	location = yes
+
+	on_success = {
+		planet_event = { id = pf_content.411 }
+	}
+}

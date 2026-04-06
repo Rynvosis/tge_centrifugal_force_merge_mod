@@ -1,0 +1,257 @@
+portraits = {
+	mammale14 = {	entity = "portrait_newcat_male_14_entity"	clothes_selector = "newcat_male_massive_clothes_14" hair_selector = "no_texture" greeting_sound = "mammalian_01_greetings"
+			character_textures = {
+					"gfx/models/portraits/newcat/newcat_massive_14_beige.dds"
+					"gfx/models/portraits/newcat/newcat_massive_14_white.dds"
+					"gfx/models/portraits/newcat/newcat_massive_14_grey.dds"
+					"gfx/models/portraits/newcat/newcat_massive_14_black.dds"
+					"gfx/models/portraits/newcat/newcat_massive_14_brown.dds"
+					"gfx/models/portraits/newcat/newcat_massive_14_orange.dds"
+					"gfx/models/portraits/newcat/newcat_massive_14_red.dds"
+				}
+
+		portrait_evolution = {
+			variants = {
+				{
+					# Cyborg 1
+					value = {
+						{
+							decal = "gfx/models/portraits/newcat/newcat_male_body_cybernetics_01.tga"
+							mask = "gfx/models/portraits/newcat/newcat_uni_body_cybernetics_01_mask.tga"
+						}
+					}
+
+					trigger = {
+						has_cybernetization_stage_1 = yes
+					}
+				}
+				{
+					# Cyborg 2
+					value = {
+						{
+							decal = "gfx/models/portraits/newcat/newcat_male_body_cybernetics_02.tga"
+							mask = "gfx/models/portraits/newcat/newcat_uni_body_cybernetics_02_mask.tga"
+						}
+					}
+
+					trigger = {
+						has_cybernetization_stage_2 = yes
+					}
+				}
+				{
+					# Psionic
+					value = {
+						{
+							decal = "gfx/models/portraits/newcat/newcat_uni_body_psionic_01.tga"
+							mask = "gfx/models/portraits/newcat/newcat_uni_body_psionic_01_mask.tga"		
+						}
+					}
+
+					trigger = {
+						has_become_psionic = yes
+					}
+				}
+				{
+					# Biogenesis 1
+					value = {
+						{
+							decal = "gfx/models/portraits/newcat/newcat_male_body_biogenetics_01.tga"
+							mask = "gfx/models/portraits/newcat/newcat_male_body_biogenetics_01_mask.tga"
+						}
+					}
+
+					trigger = {
+						#has_biogenesis_evolution_stage_1 = yes
+						OR = {
+							AND = {
+								is_scope_type = leader
+								species = { has_trait = trait_adaptive_mutations }
+							}
+							AND = {
+								OR = {
+									is_scope_type = pop
+									is_scope_type = pop_group
+									is_scope_type = species
+								}
+								has_trait = trait_adaptive_mutations
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	mamfem14 = {	entity = "portrait_newcat_female_14_entity"	clothes_selector = "newcat_female_massive_clothes_14" hair_selector = "no_texture" greeting_sound = "mammalian_01_greetings"
+			character_textures = {
+					"gfx/models/portraits/newcat/newcat_female_massive_14_beige.tga"
+					"gfx/models/portraits/newcat/newcat_female_massive_14_white.tga"
+					"gfx/models/portraits/newcat/newcat_female_massive_14_grey.tga"
+					"gfx/models/portraits/newcat/newcat_female_massive_14_black.tga"
+					"gfx/models/portraits/newcat/newcat_female_massive_14_brown.tga"
+					"gfx/models/portraits/newcat/newcat_female_massive_14_orange.tga"
+					"gfx/models/portraits/newcat/newcat_female_massive_14_red.tga"
+				}
+
+		portrait_evolution = {
+			variants = {
+				{
+					# Cyborg 1
+					value = {
+						{
+							decal = "gfx/models/portraits/newcat/newcat_female_body_cybernetics_01.tga"
+							mask = "gfx/models/portraits/newcat/newcat_uni_body_cybernetics_01_mask.tga"
+						}
+					}
+
+					trigger = {
+						has_cybernetization_stage_1 = yes
+					}
+				}
+				{
+					# Cyborg 2
+					value = {
+						{
+							decal = "gfx/models/portraits/newcat/newcat_female_body_cybernetics_02.tga"
+							mask = "gfx/models/portraits/newcat/newcat_uni_body_cybernetics_02_mask.tga"
+						}
+					}
+
+					trigger = {
+						has_cybernetization_stage_2 = yes
+					}
+				}
+				{
+					# Psionic
+					value = {
+						{
+							decal = "gfx/models/portraits/newcat/newcat_uni_body_psionic_01.tga"
+							mask = "gfx/models/portraits/newcat/newcat_uni_body_psionic_01_mask.tga"		
+						}
+					}
+
+					trigger = {
+						has_become_psionic = yes
+					}
+				}
+				{
+					# Biogenesis 1
+					value = {
+						{
+							decal = "gfx/models/portraits/newcat/newcat_female_body_biogenetics_01.tga"
+							mask = "gfx/models/portraits/newcat/newcat_female_body_biogenetics_01_mask.tga"
+						}
+					}
+
+					trigger = {
+						#has_biogenesis_evolution_stage_1 = yes
+						OR = {
+							AND = {
+								is_scope_type = leader
+								species = { has_trait = trait_adaptive_mutations }
+							}
+							AND = {
+								OR = {
+									is_scope_type = pop
+									is_scope_type = pop_group
+									is_scope_type = species
+								}
+								has_trait = trait_adaptive_mutations
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+portrait_groups = {
+	mam14 = {
+		
+		default = mammale14
+		game_setup = { #will run with a limited country scope. species and government is set but the country does not actually exist
+			add = {
+				trigger = {
+					ruler = { gender = male }
+				}
+				portraits = {
+					mammale14
+
+				}
+			}
+			add = {
+				trigger = {
+					ruler = { gender = female }
+				}
+				portraits = {
+					mamfem14
+				}
+			}
+		}		
+		
+		#species scope
+		species = { #generic portrait for a species
+			add = {
+				portraits = {
+					mamfem14
+					mammale14
+				}
+			}
+		}		
+		
+		#pop scope
+		pop = { #for a specific pop
+			add = {
+				portraits = {
+					mamfem14
+					mammale14
+				}
+			}
+		}
+		
+		#leader scope
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+					mamfem14
+
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+					mammale14
+
+				}
+			}		
+		}
+
+			
+		#leader scope 
+		ruler = {
+			add = {
+				trigger = {
+					gender = female
+				}
+				portraits = {
+					mamfem14
+
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+				}
+				portraits = {
+					mammale14
+
+				}
+			}
+		}
+	}
+}

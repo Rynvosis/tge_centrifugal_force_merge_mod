@@ -1,0 +1,181 @@
+﻿l_english:
+ # Policies
+ policy_gk_raiding_focus:0 "Raiding Focus"
+ policy_gk_raiding_focus_desc:0 "Sets the target priority and war goals available to our raiders."
+
+ gk_focus_plunder_name:0 "Plunder"
+ gk_focus_emancipation_name:0 "Emancipation"
+
+ gk_raiding_focus_plunder:0 "Plunder"
+ gk_raiding_focus_plunder_desc:0 "Raiders capture any eligible pops."
+
+ gk_raiding_focus_emancipation:0 "Emancipation"
+ gk_raiding_focus_emancipation_desc:0 "Raiders target enslaved populations. Unlocks the §YEmancipation§! war goal. Only enslaved pops may be taken.\n\n§ERequires §YSlavery§! to be banned.§!"
+
+
+
+ gk_focus_reaping_name:0 "Reaping"
+ gk_raiding_focus_reaping:0 "Reaping"
+ gk_raiding_focus_reaping_desc:0 "Our raiders will take everything. The enemy cannot surrender.\n\nReplaces the §Y$war_goal_wg_plunder$§! war goal with §Y$war_goal_wg_gk_reaping$§!."
+
+ policy_gk_robot_raiding:0 "Robot Raiding"
+ policy_gk_robot_raiding_desc:0 "Determines whether raiders capture robotic pops."
+
+ gk_allow_robot_raiding_name:0 "Allow"
+ gk_forbid_robot_raiding_name:0 "Forbid"
+
+ gk_robot_raiding_allowed:0 "Capture Robots"
+ gk_robot_raiding_allowed_desc:0 "Raiders capture both organic and robotic pops."
+
+ gk_robot_raiding_forbidden:0 "Organics Only"
+ gk_robot_raiding_forbidden_desc:0 "Raiders capture organic pops only."
+
+ gk_robot_raiding_only:0 "Robots Only"
+ gk_robot_raiding_only_desc:0 "Raiders capture robotic pops only."
+ gk_robots_only_raiding_name:0 "Robots Only"
+
+ # War Goals
+war_goal_wg_gk_reaping:0 "Reaping"
+war_goal_wg_gk_reaping_desc:0 "War is waged to harvest the enemy's population. Using this wargoal allows unlimited pop capture during war and claims all remaining pops on surrender."
+wg_gk_reaping_accept_tooltip:0 "§Y[From.GetName]§! forfeits §Rall§! §G[Root.GkSurrenderPopTotal]§! pops to §Y[Root.GetName]§!."
+
+war_goal_wg_gk_emancipation:0 "Emancipation"
+war_goal_wg_gk_emancipation_desc:0 "War is waged to free enslaved populations. Using this wargoal allows us to abduct enslaved pops during war and claim additional captives on enemy surrender."
+wg_gk_emancipation_accept_tooltip:0 "§Y[From.GetName]§! forfeits up to §G[Root.GkSurrenderPopEstimate]§! enslaved pops to §Y[Root.GetName]§!."
+wg_gk_emancipation_status_quo_tooltip:0 "No pops are transferred on status quo."
+
+war_goal_wg_gk_robo_liberation:0 "Robo-Liberation"
+war_goal_wg_gk_robo_liberation_desc:0 "War is waged to liberate robotic populations. Using this wargoal allows us to abduct robotic pops during war and claim additional captives on enemy surrender."
+wg_gk_robo_liberation_accept_tooltip:0 "§Y[From.GetName]§! forfeits up to §G[Root.GkSurrenderPopEstimate]§! robotic pops to §Y[Root.GetName]§!."
+wg_gk_robo_liberation_status_quo_tooltip:0 "No pops are transferred on status quo."
+
+ # Escalation Events
+GK_RAIDING_ESCALATION_TITLE:0 "Raiding Report"
+GK_RAIDING_ESCALATION_DESC:0 "Our forces have captured all authorized targets from [From.GetName].\n§G[Root.GkDisplayPopsTaken]§! pops have been seized in this campaign.[Root.GkOwnContributionLine]\nOur commanders await orders on how to proceed."
+GK_RAIDING_ESCALATION_DESC_FINAL:0 "Our forces have nearly exhausted the population of [From.GetName].\n§G[Root.GkDisplayPopsTaken]§! pops have been seized so far.[Root.GkOwnContributionLine]\nOur commanders request authorization to take everything that remains."
+GK_RAIDING_ESCALATION_DESC_INTEL:0 "Our forces have captured all authorized targets from [From.GetName].\n§G[Root.GkDisplayPopsTaken]§! pops have been seized in this campaign.[Root.GkOwnContributionLine]\nIntelligence estimates approximately §G[Root.GkDisplayEligibleRemaining]§! eligible pops remain.\nOur commanders await orders on how to proceed."
+GK_RAIDING_ESCALATION_DESC_TRIVIAL:0 "[From.GetName] poses little challenge.\n§G[Root.GkDisplayPopsTaken]§! pops have been seized so far.[Root.GkOwnContributionLine]\nOur commanders see no reason to stop."
+GK_RAIDING_ESCALATION_DESC_TRIVIAL_INTEL:0 "[From.GetName] poses little challenge.\n§G[Root.GkDisplayPopsTaken]§! pops have been seized so far.[Root.GkOwnContributionLine]\nIntelligence estimates approximately §G[Root.GkDisplayEligibleRemaining]§! eligible pops remain."
+GK_OWN_CONTRIBUTION_LINE:0 "\n§G[Root.GkDisplayOwnContribution]§! by our own forces."
+GK_RAIDING_ESCALATION_CONSOLIDATE:0 "Hold position"
+GK_RAIDING_ESCALATION_CONSOLIDATE_TOOLTIP:0 "Pop raiding pauses. Our commanders will reassess in one year. §YThe war continues.§!"
+GK_RAIDING_ESCALATION_PRESS:0 "Authorize deeper raids"
+GK_RAIDING_ESCALATION_PRESS_FINAL:0 "Authorize total depopulation"
+GK_RAIDING_ESCALATION_PRESS_TOOLTIP:0 "[Root.GkPressTooltip]"
+GK_RAIDING_ESCALATION_PRESS_NORMAL_TOOLTIP:0 "Authorize the capture of up to §G[Root.GkDisplayBucketRemaining]§! more pops.[Root.GkOccupiedPopsLine]"
+GK_RAIDING_ESCALATION_PRESS_FINAL_TOOLTIP:0 "Remove all restrictions. Our raiders will take §Reverything§! that remains.[Root.GkOccupiedPopsLine]\n\n§Y[Root.GetName] changes their war goal to $war_goal_wg_gk_reaping$.§!"
+GK_RAIDING_ESCALATION_PRESS_FINAL_EMANCIPATION_TOOLTIP:0 "Remove all restrictions. Our raiders will take §Reveryone§! that remains.[Root.GkOccupiedPopsLine]"
+GK_OCCUPIED_POPS_LINE:0 "\n\n§G[Root.GkOccupiedEligiblePops]§! eligible pops on occupied planets will be [Root.GkAutoRaidVerb] to our empire monthly. Stationing more armies increases the rate."
+GK_EMPTY_STRING:0 ""
+GK_RAIDING_ESCALATION_CANNOT_AFFORD:0 "Insufficient Influence"
+
+ # Escalation: Pivot to Pillaging
+GK_RAIDING_ESCALATION_PIVOT:0 "Switch to pillaging"
+GK_RAIDING_ESCALATION_PIVOT_TOOLTIP:0 "Cease pop raiding against [From.GetName] and redirect our forces to strip their worlds of resources instead.\n\n§Y[Root.GetName] changes their war goal to $war_goal_wg_plunder_raid$.§!"
+
+ # Escalation: Demand Tribute
+GK_RAIDING_ESCALATION_TRIBUTE:0 "Demand tribute"
+GK_RAIDING_ESCALATION_TRIBUTE_TOOLTIP:0 "Demand §Y[Root.GkDisplayTributePrimary]§! [Root.GkTributePrimaryIcon] or §Y[Root.GkDisplayTributeAlloys]§! £alloys£ from [From.GetName] in exchange for ceasing our raids. If they comply, our Influence is refunded. If they refuse, raiding continues.\n\n§YIf accepted, [Root.GetName] changes their war goal to $war_goal_wg_humiliation$.§!"
+GK_RAIDING_TRIBUTE_OFFER_TITLE:0 "Raiding Ultimatum"
+GK_RAIDING_TRIBUTE_OFFER_DESC:0 "[From.GetName] will cease their raids against our population if we pay tribute. They demand §Y[Root.GkDisplayTributePrimary]§! [From.GkTributePrimaryIcon] or §Y[Root.GkDisplayTributeAlloys]§! £alloys£.\n\nCompliance will end their pop raids. §YThe war itself will continue.§!\n\n§RThis offer expires in 3 months.§!"
+GK_RAIDING_TRIBUTE_ENERGY:0 "Pay in Energy Credits"
+GK_RAIDING_TRIBUTE_FOOD:0 "Pay in Food"
+GK_RAIDING_TRIBUTE_ALLOYS:0 "Pay in Alloys"
+GK_RAIDING_TRIBUTE_SPLIT:0 "Pay in Energy Credits and Alloys"
+GK_RAIDING_TRIBUTE_SPLIT_FOOD:0 "Pay in Food and Alloys"
+GK_RAIDING_TRIBUTE_REJECT:0 "Refuse their terms"
+GK_RAIDING_TRIBUTE_DEPOSIT_TITLE:0 "Tribute Collected"
+GK_RAIDING_TRIBUTE_DEPOSIT_DESC:0 "[From.GetName] has complied with our demands. The tribute is ready for collection. Pop raids against them have ceased.\n\n§Y[Root.GetName] changes their war goal to $war_goal_wg_humiliation$.§!"
+GK_RAIDING_TRIBUTE_COLLECT:0 "Collect"
+GK_RAIDING_TRIBUTE_REJECTED_TITLE:0 "Tribute Refused"
+GK_RAIDING_TRIBUTE_REJECTED_DESC:0 "[From.GetName] has refused to pay tribute. Our raiders will continue their operations."
+
+ # Escalation: Demand Reforms
+GK_RAIDING_ESCALATION_REFORMS:0 "Demand abolition"
+GK_RAIDING_ESCALATION_REFORMS_TOOLTIP:0 "Demand that [From.GetName] outlaw slavery. If they comply, our Influence is refunded and pop raids cease.\n\n§YIf accepted, [Root.GetName] changes their war goal to $war_goal_wg_humiliation$.§!"
+GK_RAIDING_REFORMS_OFFER_TITLE:0 "Emancipation Ultimatum"
+GK_RAIDING_REFORMS_OFFER_DESC:0 "[From.GetName] demands the immediate abolition of slavery throughout our empire. Compliance will end their raids against our population. §YThe war itself will continue.§!\n\n§RThis offer expires in 3 months.§!"
+GK_RAIDING_REFORMS_ACCEPT:0 "Abolish slavery"
+GK_RAIDING_REFORMS_REJECT:0 "Refuse their terms"
+GK_RAIDING_REFORMS_ACCEPTED_TITLE:0 "Slavery Abolished"
+GK_RAIDING_REFORMS_ACCEPTED_DESC:0 "[From.GetName] has abolished slavery. Our emancipation raids have achieved their objective.\n\n§Y[Root.GetName] changes their war goal to $war_goal_wg_humiliation$.§!"
+GK_RAIDING_REFORMS_REJECTED_TITLE:0 "Reforms Refused"
+GK_RAIDING_REFORMS_REJECTED_DESC:0 "[From.GetName] has refused to abolish slavery. Our raiders will continue their operations."
+
+ # Escalation: Demand Autonomy
+GK_RAIDING_ESCALATION_AUTONOMY:0 "Demand synthetic rights"
+GK_RAIDING_ESCALATION_AUTONOMY_TOOLTIP:0 "Demand that [From.GetName] grant full citizen rights to their synthetic population. If they comply, our Influence is refunded and pop raids cease.\n\n§YThis does not end the war.§!"
+GK_RAIDING_AUTONOMY_OFFER_TITLE:0 "Synthetic Liberation Ultimatum"
+GK_RAIDING_AUTONOMY_OFFER_DESC:0 "[From.GetName] demands that we grant full citizen rights to our synthetic population. Compliance will end their raids against us. §YThe war itself will continue.§!\n\n§RThis offer expires in 3 months.§!"
+GK_RAIDING_AUTONOMY_ACCEPT:0 "Grant full rights"
+GK_RAIDING_AUTONOMY_REJECT:0 "Refuse their terms"
+GK_RAIDING_AUTONOMY_ACCEPTED_TITLE:0 "Synthetic Rights Granted"
+GK_RAIDING_AUTONOMY_ACCEPTED_DESC:0 "[From.GetName] has granted full rights to their synthetic citizens. Our liberation raids have achieved their objective.\n\n§Y[Root.GetName] changes their war goal to $war_goal_wg_humiliation$.§!"
+GK_RAIDING_AUTONOMY_REJECTED_TITLE:0 "Autonomy Refused"
+GK_RAIDING_AUTONOMY_REJECTED_DESC:0 "[From.GetName] has refused to grant synthetic rights. Our raiders will continue their operations."
+
+ # Opportunistic Raiding
+GK_OPPORTUNISTIC_RAIDING_TITLE:0 "Authorize Opportunistic Raids"
+GK_OPPORTUNISTIC_RAIDING_DESC:0 "Our forces are engaged in war against [From.GetName], but our war goals do not include population seizure. Our raiders could conduct opportunistic raids during the conflict, though the logistical overhead of operating outside a dedicated raiding campaign will increase escalation costs.\n\n§YCosts §G50§! £influence£ Influence. Escalation costs are doubled.§!"
+GK_OPPORTUNISTIC_AUTHORIZE:0 "Authorize raids"
+GK_OPPORTUNISTIC_DECLINE:0 "Our war goals are sufficient"
+
+ # Planet Cleared (auto-raid)
+GK_RAIDING_PLANET_CLEARED_TITLE:0 "Planet Cleared"
+GK_RAIDING_PLANET_CLEARED_DESC:0 "All eligible pops on [From.GetName] have been transferred to our empire. The planet stands empty."
+GK_RAIDING_PLANET_CLEARED_ACK:0 "Excellent"
+GK_RAIDING_PLANET_LOST_TITLE:0 "Population Seized"
+GK_RAIDING_PLANET_LOST_DESC:0 "[From.GetName] has seized the last of our people from one of our occupied worlds."
+GK_RAIDING_PLANET_LOST_ACK:0 "This cannot stand"
+
+ # Total Depopulation
+GK_RAIDING_DEPOPULATED_TITLE:0 "Total Depopulation"
+GK_RAIDING_DEPOPULATED_DESC:0 "Our raiders have seized the last remaining population of [From.GetName]. Their worlds stand empty. [Root.GkDisplayPopsTaken] pops were taken over the course of this campaign."
+GK_RAIDING_DEPOPULATED_ACK:0 "They all belong to us now"
+
+ # Planet Modifiers
+ gk_planet_auto_raid:0 "Population Seizure"
+ mod_gk_planet_auto_raid:0 "Population Seizure"
+ gk_planet_auto_raid.tooltip:0 "Eligible pops are being seized monthly. The more armies stationed on the planet, the faster the population is taken."
+
+ # Shared
+GK_RAIDING_OFFER_EXPIRED:0 "This offer has expired"
+GK_AUTO_RAID_VERB_RESETTLED:0 "forcefully resettled"
+GK_AUTO_RAID_VERB_RESCUED:0 "rescued"
+GK_ICON_ENERGY:0 "£energy£"
+GK_ICON_FOOD:0 "£food£"
+
+ # Pop Concepts
+concept_gk_pop_raiding:0 "Pop Raiding"
+concept_gk_pop_raiding_desc:0 "During §Y$war_goal_wg_plunder$§!, §Y$war_goal_wg_gk_emancipation$§!, and §Y$war_goal_wg_gk_reaping$§! wars, our forces capture enemy pops through §Ybombardment§! and §Yinvasion§!.\n\nSmall raids are cheap. Stripping a civilization of its people takes considerable £influence£ §YInfluence§!. §YReaping§! removes all restraint and denies the enemy any chance to surrender."
+
+ concept_gk_pop_raiding_limit:0 "Pop Raiding"
+ concept_gk_pop_raiding_limit_desc:0 "$concept_gk_pop_raiding_desc$"
+ concept_gk_pop_limit:0 "Pop Raiding"
+ concept_gk_raiding_cap:0 "Pop Raiding"
+ concept_gk_raiding_policies:0 "Raiding Policies"
+ concept_gk_raiding_policy:0 "Raiding Policy"
+ concept_gk_raiding_focus:0 "Raiding Focus"
+ concept_gk_raiding_focus_desc:0 "This policy selects which pop-raiding war goals are available.\n\n§YPlunder§! enables standard pop raiding. §YEmancipation§! targets enslaved pops only (requires slavery to be banned). §YReaping§! removes all limits and prevents surrender."
+ # Pop Notifications
+ MESSAGE_TYPE_GK_POP_RAIDED_TITLE:0 "Captives Taken"
+
+ MESSAGE_GK_POP_RAIDED_KEY:0 "$MESSAGE_TYPE_GK_POP_RAIDED_TITLE$ by our raiders!"
+ MESSAGE_GK_OUR_POPS_RAIDED_KEY:0 "$MESSAGE_TYPE_GK_POP_RAIDED_TITLE$ by enemy raiders!"
+
+ MESSAGE_GK_POP_RAIDED_INVASION:0 "Our warriors seized §Y$POPS$§! pops from $PLANET|Y$. Remaining population can be taken while the planet remains under our control.\n"
+ MESSAGE_GK_OUR_POPS_RAIDED_INVASION:0 "$FROM|Y$ seized §Y$POPS$§! pops from $PLANET|Y$. They can continue to take our people while they hold the planet.\n"
+
+ MESSAGE_GK_POP_RAIDED_OCCUPATION:0 "Pops seized from $PLANET|Y$ under occupation.\n"
+ MESSAGE_GK_OUR_POPS_RAIDED_OCCUPATION:0 "Pops seized from $PLANET|Y$ by $FROM|Y$ under their occupation.\n"
+
+ MESSAGE_GK_POP_RAIDED_ALLY_INVASION:0 "$ALLY|Y$ seized §Y$POPS$§! pops from $PLANET|Y$ in our name.\n"
+
+ MESSAGE_GK_POP_RAIDED_SURRENDER:0 "§Y$TARGET$§! surrendered, forfeiting §Y$POPS$§! pops.\n"
+ MESSAGE_GK_OUR_POPS_RAIDED_SURRENDER:0 "§Y$POPS$§! pops have been surrendered to $FROM|Y$.\n"
+
+ # Opinion Modifiers
+ opinion_gk_declared_reaping:0 "Declared Reaping War"
+ opinion_gk_raided_pops:0 "Raided Pops"
+ opinion_gk_escalated_plunder:0 "Escalated Raids"
+ opinion_gk_raided_target:0 "Raided Our Population"

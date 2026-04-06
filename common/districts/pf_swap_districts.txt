@@ -1,0 +1,175 @@
+district_pf_fungal_sanctuaries = {
+	icon = district_pf_fungal_sanctuaries
+
+	zone_slots = {
+		slot_empty
+	}
+
+	show_on_uncolonized = {
+		always = no
+	}
+
+	potential = {
+		always = no
+	}
+
+	triggered_name = {
+		text = district_pf_fungal_sanctuaries_0
+	}
+
+}
+
+district_pf_fungal_groves = {
+	icon = district_pf_fungal_groves
+
+	zone_slots = {
+		slot_empty
+	}
+
+	show_on_uncolonized = {
+		always = no
+	}
+
+	potential = {
+		always = no
+	}
+
+	triggered_name = {
+		text = district_pf_fungal_groves_0
+	}
+}
+
+district_pf_plantations = {
+	icon = district_pf_plantations
+
+	zone_slots = {
+		slot_empty
+	}
+
+	show_on_uncolonized = {
+		always = no
+	}
+
+	potential = {
+		always = no
+	}
+
+	triggered_name = {
+		trigger = {
+			pf_is_rare_wood_world = yes
+		}
+		text = district_pf_plantations_rare_wood
+	}
+	triggered_name = {
+		trigger = {
+			pf_is_iridescent_pearls_world = yes
+		}
+		text = district_pf_plantations_iridescent_pearls
+	}
+	triggered_name = {
+		trigger = {
+			pf_is_sea_ferns_world = yes
+		}
+		text = district_pf_plantations_sea_ferns
+	}
+
+	triggered_name = {
+		trigger = {
+			pf_is_desert_silks_world = yes
+		}
+		text = district_pf_plantations_desert_silks
+	}
+	triggered_name = {
+		trigger = {
+			pf_is_rare_spices_world = yes
+		}
+		text = district_pf_plantations_rare_spices
+	}
+	triggered_name = {
+		trigger = {
+			pf_is_amberfruit_world = yes
+		}
+		text = district_pf_plantations_amberfruit
+	}
+
+	triggered_name = {
+		trigger = {
+			pf_is_mountain_flowers_world = yes
+		}
+		text = district_pf_plantations_mountain_flowers
+	}
+	triggered_name = {
+		trigger = {
+			pf_is_fungal_caves_world = yes
+		}
+		text = district_pf_plantations_fungal_caves
+	}
+	triggered_name = {
+		trigger = {
+			pf_is_marsh_roots_world = yes
+		}
+		text = district_pf_plantations_marsh_roots
+	}
+
+	# Descriptions
+	triggered_flavor_desc = {
+		trigger = {
+			pf_is_rare_wood_world = yes
+		}
+		text = district_pf_plantations_rare_wood_desc
+	}
+	triggered_flavor_desc = {
+		trigger = {
+			pf_is_iridescent_pearls_world = yes
+		}
+		text = district_pf_plantations_iridescent_pearls_desc
+	}
+	triggered_flavor_desc = {
+		trigger = {
+			pf_is_sea_ferns_world = yes
+		}
+		text = district_pf_plantations_sea_ferns_desc
+	}
+
+	triggered_flavor_desc = {
+		trigger = {
+			pf_is_desert_silks_world = yes
+		}
+		text = district_pf_plantations_desert_silks_desc
+	}
+	triggered_flavor_desc = {
+		trigger = {
+			pf_is_rare_spices_world = yes
+		}
+		text = district_pf_plantations_rare_spices_desc
+	}
+	triggered_flavor_desc = {
+		trigger = {
+			pf_is_amberfruit_world = yes
+		}
+		text = district_pf_plantations_amberfruit_desc
+	}
+
+	triggered_flavor_desc = {
+		trigger = {
+			pf_is_mountain_flowers_world = yes
+		}
+		text = district_pf_plantations_mountain_flowers_desc
+	}
+	triggered_flavor_desc = {
+		trigger = {
+			pf_is_fungal_caves_world = yes
+		}
+		text = district_pf_plantations_fungal_caves_desc
+	}
+	triggered_flavor_desc = {
+		trigger = {
+			pf_is_marsh_roots_world = yes
+		}
+		text = district_pf_plantations_marsh_roots_desc
+	}
+
+	triggered_name = {
+		text = district_pf_plantations_default
+	}
+}

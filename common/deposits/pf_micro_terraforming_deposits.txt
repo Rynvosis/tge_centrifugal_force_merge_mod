@@ -1,0 +1,132 @@
+d_pf_geothermal_taps = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	icon = d_geothermal_vent
+
+	potential = {
+		always = no
+	}
+
+	planet_modifier = {
+		district_generator_max_add = 4
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_pf_exposed_ore_veins = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	icon = d_prospectorium_strip_mine
+
+	potential = {
+		always = no
+	}
+
+	planet_modifier = {
+		district_mining_max_add = 4
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_pf_organised_fields = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	icon = d_bountiful_plains
+
+	potential = {
+		always = no
+	}
+
+	planet_modifier = {
+		district_farming_max_add = 4
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_pf_environmental_enhancements_wet = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	icon = d_lush_jungle
+
+	potential = {
+		always = no
+	}
+
+	planet_modifier = {
+		pop_environment_tolerance = 0.1
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_pf_environmental_enhancements_dry = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	icon = d_alien_wildlife
+
+	potential = {
+		always = no
+	}
+
+	planet_modifier = {
+		pop_environment_tolerance = 0.1
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_pf_environmental_enhancements_cold = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	icon = d_forgiving_tundra
+
+	potential = {
+		always = no
+	}
+
+	planet_modifier = {
+		pop_environment_tolerance = 0.1
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_pf_geothermic_extraction_sites = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	icon = d_pf_drilling_for_gas
+
+	potential = {
+		always = no
+	}
+
+	planet_modifier = {
+		planet_miners_energy_produces_add = 2
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}

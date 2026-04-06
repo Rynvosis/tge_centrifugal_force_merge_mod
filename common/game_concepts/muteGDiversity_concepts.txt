@@ -1,0 +1,60 @@
+concept_muteGDiversity = {
+
+}
+
+
+concept_muteGDiversity_generic_traits = {
+
+}
+
+concept_muteGDiversity_planetary_traits = {
+
+}
+
+concept_muteGDiversity_common_traits = {
+
+}
+
+concept_muteGDiversity_exclusive_traits = {
+
+}
+
+concept_muteGDiversity_sapient_traits = {
+
+}
+
+concept_muteGDiversity_marine_traits = {
+
+}
+
+concept_muteGDiversity_blighted_traits = {
+
+}
+
+concept_muteGDiversity_quasiorganic_traits = {
+
+}
+
+concept_muteGDiversity_botanic_traits = {
+
+}
+
+concept_muteGDiversity_revenant_traits = {
+
+}
+
+concept_muteGDiversity_saurian_traits = {
+
+}
+
+concept_muteGDiversity_scoial_traits = {
+
+}
+
+concept_muteGDiversity_swarm_traits = {
+
+}
+
+concept_muteGDiversity_artificial_traits = {
+
+}

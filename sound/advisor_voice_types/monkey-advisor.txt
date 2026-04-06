@@ -1,0 +1,8 @@
+monkey-advisor = {
+	name = "SETTINGS_VOICE_TYPE_monkey-advisor"
+    icon = "gfx/interface/icons/monkey-advisor.dds"
+	
+	weight = {
+		base = 0
+	}
+}

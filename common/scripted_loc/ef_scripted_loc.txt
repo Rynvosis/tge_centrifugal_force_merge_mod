@@ -1,0 +1,17 @@
+defined_text = {
+	name = ef_get_length_of_habitation
+	text = {
+		trigger = {
+            or = {
+                any_galaxy_species = { home_planet = { is_same_value = prevprev } }
+                colony_age > 200
+            }
+        }
+		localization_key = ef_centuries
+	}
+	text = {
+		trigger = { colony_age > 20}
+		localization_key = ef_decades
+	}
+    default = ef_years
+}

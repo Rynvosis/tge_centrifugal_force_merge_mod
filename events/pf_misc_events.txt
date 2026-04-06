@@ -1,0 +1,76 @@
+namespace = pf_misc
+
+# Hive Stars spawn system
+system_event = {
+	id = pf_misc.100
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		create_species = {
+			name = "NAME_Prethoryn"
+			class = SWARM
+			namelist = Prethoryn
+			portrait = random
+			traits = random
+			immortal = yes
+
+			effect = { save_event_target_as = pf_straggler_prethoryn_species }
+		}
+
+		create_country = {
+			name = "NAME_pf_straggler_swarms"
+			type = pf_straggler_swarm
+
+			flag = {
+				icon= {
+					category = "special"
+					file = "the_swarm.dds"
+				}
+				background= {
+					category = "backgrounds"
+					file = "new_dawn.dds"
+				}
+				colors={
+					"grey"
+					"orange"
+					"null"
+					"null"
+				}
+			}
+			effect = {
+				set_graphical_culture = swarm_01
+				set_country_flag = pf_straggler_swarms
+				save_global_event_target_as = pf_straggler_swarms_country
+			}
+		}
+
+		spawn_system = {
+			min_distance >= 90
+			max_distance <= 100
+			direction = rimwards
+			initializer = pf_hive_stars_core_initializer
+			hyperlane = no
+		}
+	}
+}
+
+# Random content spawner
+event = {
+	id = pf_misc.110
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		random_list = {
+			3 = { } # nothing
+			1 = { # Hive stars
+				random_rim_system = {
+					system_event = { id = pf_misc.100 }
+				}
+			}
+		}
+		# Create the observation system
+		pf_create_galactic_rim_observation_station = yes
+	}
+}

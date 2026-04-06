@@ -1,0 +1,12 @@
+objectTypes = {
+    pdxmesh = {
+		name = "pf_protoplanet_rings"
+		file = "gfx/models/planets/black_hole_rings.mesh"
+		scale = 1
+		cull_distance = 99999999.0f
+		meshsettings = {
+			texture_diffuse = "pf_protoplanet_rings_diffuse.dds"
+			shader = PdxMeshAlphaAdditiveAnimateUVNoDissolve
+		}
+	}
+}

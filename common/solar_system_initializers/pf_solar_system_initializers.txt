@@ -1,0 +1,1959 @@
+@distance = 50
+@base_moon_distance = 10
+@jumps = 3
+
+
+### Zolqhast System
+pf_zolqhast_initializer = {
+	name = "NAME_pf_Zolqhast"
+
+	class = "sc_g"
+
+	spawn_chance = 250
+	usage_odds = {
+		base = 100
+		modifier = {
+			factor = 0
+			has_paragon_dlc = no
+		}
+		modifier = {
+			factor = 0
+			is_fe_cluster = yes
+		}
+		modifier = {
+			factor = 0
+			has_star_flag = empire_cluster
+		}
+	}
+
+	usage = misc_system_init
+	max_instances = 1
+
+	planet = {
+		name = "NAME_pf_Zolqhast"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 30
+		has_ring = no
+	}
+
+	planet = {
+		class = "pc_molten"
+		orbit_distance = 40
+		orbit_angle = 15
+		size = 10
+		has_ring = no
+	}
+
+	planet = {
+		class = "pc_toxic"
+		orbit_distance = 25
+		orbit_angle = 97
+		size = 17
+		has_ring = no
+	}
+
+	planet = {
+		class = "pc_barren"
+		orbit_distance = 25
+		orbit_angle = 128
+		size = 13
+		has_ring = no
+	}
+
+	planet = {
+		class = "pc_gas_giant"
+		orbit_distance = 40
+		orbit_angle = -208
+		size = 35
+		has_ring = no
+		change_orbit = 6
+
+		moon = {
+			class = "pc_tropical"
+			size = 12
+			orbit_distance = 10
+			orbit_angle = 110
+			has_ring = no
+
+			init_effect = {
+				clear_planet_modifiers = yes
+				add_modifier = { modifier = pf_pm_multi_planetary_ecosystem }
+			}
+		}
+		moon = {
+			class = "pc_tropical"
+			size = 15
+			orbit_distance = 2.5
+			orbit_angle = 190
+			has_ring = no
+
+			init_effect = {
+				clear_planet_modifiers = yes
+				add_modifier = { modifier = pf_pm_multi_planetary_ecosystem }
+			}
+		}
+		moon = {
+			class = "pc_tropical"
+			size = 10
+			orbit_distance = 2.5
+			orbit_angle = 80
+			has_ring = no
+
+			init_effect = {
+				clear_planet_modifiers = yes
+				add_modifier = { modifier = pf_pm_multi_planetary_ecosystem }
+			}
+		}
+		moon = {
+			class = "pc_frozen"
+			size = 7
+			orbit_distance = 2.5
+			orbit_angle = -155
+			has_ring = no
+		}
+	}
+
+	planet = {
+		class = "pc_gas_giant"
+		orbit_distance = 25
+		orbit_angle = -170
+		size = 30
+		has_ring = yes
+		change_orbit = 7
+
+		moon = {
+			class = "pc_frozen"
+			size = 8
+			orbit_distance = 12
+			orbit_angle = 320
+			has_ring = no
+		}
+	}
+
+	planet = {
+		class = "pc_gas_giant"
+		orbit_distance = 25
+		orbit_angle = 195
+		size = 20
+		has_ring = no
+		change_orbit = 4
+
+		moon = {
+			class = "pc_frozen"
+			size = 6
+			orbit_distance = 7
+			orbit_angle = 247
+			has_ring = no
+		}
+	}
+}
+
+pf_hive_stars_core_initializer = {
+	class = "sc_g"
+
+	flags = {
+		pf_hive_star_system
+		pf_hive_star_system_core
+		crisis_spawn_exclude
+	}
+
+	spawn_chance = 0
+	usage_odds = {
+		base = 0
+	}
+
+	usage = misc_system_init
+	max_instances = 1
+
+	init_effect = {
+		set_spawn_system_batch = begin
+		spawn_system = {
+			min_distance >= 15
+			max_distance <= 30
+			initializer = pf_hive_stars_battlefield_initializer
+			hyperlane = no
+
+			effect = {
+				set_star_flag = pf_hive_star_system
+				set_star_flag = crisis_spawn_exclude
+				add_hyperlane = {
+					from = this
+					to = prev
+				}
+				save_event_target_as = first_neighbor
+			}
+		}
+		while = {
+			count = 3
+			spawn_system = {
+				min_distance >= 10
+				max_distance <= 25
+				initializer = pf_hive_stars_generic_initializer
+				hyperlane = no
+				effect = {
+					set_star_flag = pf_hive_star_system
+					set_star_flag = crisis_spawn_exclude
+					add_hyperlane = {
+						from = this
+						to = prev
+					}
+					add_hyperlane = {
+						from = this
+						to = event_target:first_neighbor
+					}
+				}
+			}
+		}
+		set_spawn_system_batch = end
+		create_nebula = {
+			radius = 30
+			name = NAME_pf_hive_star_nebula
+		}
+		star = {
+			create_ambient_object = {
+				type = "swarm_1"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_ambient_object_flag = swarm_system_effect
+				set_location = {
+					target = prev
+					distance = 0
+					angle = random
+				}
+			}
+			pf_spawn_straggler_swarm_fleet_medium = yes
+		}
+	}
+
+	planet = {
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 30
+		has_ring = no
+	}
+
+	planet = {
+		class = "pc_molten"
+		orbit_distance = 40
+		orbit_angle = 15
+		size = 10
+		has_ring = no
+	}
+
+	planet = {
+		class = "pc_barren"
+		orbit_distance = 20
+		orbit_angle = 200
+		size = 13
+		has_ring = no
+	}
+
+	planet = {
+		class = "pc_toxic"
+		orbit_distance = 30
+		orbit_angle = 125
+		size = 11
+		has_ring = no
+	}
+
+	planet = {
+		class = "pc_infested"
+		orbit_distance = 30
+		orbit_angle = 75
+		size = 16
+		has_ring = yes
+		init_effect = {
+			set_owner = event_target:pf_straggler_swarms_country
+			set_planet_flag = pf_hive_star_world
+		}
+	}
+
+	planet = {
+		class = "pc_gas_giant"
+		orbit_distance = 30
+		orbit_angle = 125
+		size = 30
+		has_ring = yes
+	}
+}
+
+pf_hive_stars_generic_initializer = {
+	class = "rl_standard_stars"
+
+	flags = {
+		pf_hive_star_system
+		crisis_spawn_exclude
+	}
+
+	spawn_chance = 0
+	usage_odds = {
+		base = 0
+	}
+
+	usage = misc_system_init
+	max_instances = 3
+
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+	}
+
+	change_orbit = 45
+
+	planet = {
+		count = { min = 1 max = 4 }
+		orbit_distance = 20
+		orbit_angle = { min = 90 max = 270 }
+		class = random_non_colonizable
+
+		change_orbit = @base_moon_distance
+
+		moon = {
+			count = { min = 0 max = 2 }
+			class = random_non_colonizable
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+		}
+	}
+
+	planet = {
+		class = "pc_infested"
+		orbit_distance = 60
+		orbit_angle = 75
+		size = 16
+		has_ring = no
+		init_effect = {
+			set_owner = event_target:pf_straggler_swarms_country
+			set_planet_flag = pf_hive_star_world
+		}
+	}
+
+	planet = {
+		count = { min = 0 max = 3 }
+		orbit_distance = 20
+		orbit_angle = { min = 90 max = 270 }
+		class = random_non_colonizable
+
+		change_orbit = @base_moon_distance
+
+		moon = {
+			count = { min = 0 max = 2 }
+			class = random_non_colonizable
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+		}
+	}
+
+	init_effect = {
+		star = {
+			create_ambient_object = {
+				type = "swarm_1"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_ambient_object_flag = swarm_system_effect
+				set_location = {
+					target = prev
+					distance = 0
+					angle = random
+				}
+			}
+			random_list = {
+				5 = { pf_spawn_straggler_swarm_fleet_large = yes }
+				10 = { pf_spawn_straggler_swarm_fleet_medium = yes }
+				5 = { pf_spawn_straggler_swarm_fleet_small = yes }
+				5 = { }
+			}
+		}
+	}
+}
+
+pf_hive_stars_battlefield_initializer = {
+	class = "rl_standard_stars"
+
+	flags = {
+		pf_hive_star_system
+		crisis_spawn_exclude
+	}
+
+	spawn_chance = 0
+	usage_odds = {
+		base = 0
+	}
+
+	usage = misc_system_init
+	max_instances = 3
+
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+
+		init_effect = {
+			prevent_anomaly = yes
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 37
+					angle = 30
+				}
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 40
+					angle = 30
+				}
+				save_global_event_target_as = debris_field_01
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 43
+					angle = 30
+				}
+			}
+			while = {
+				count = 2
+				create_ambient_object = {
+					type = "large_debris_object"
+					location = this
+				}
+				last_created_ambient_object = {
+					set_location = {
+						target = prev
+						distance = 65
+						angle = random
+					}
+				}
+			}
+			while = {
+				count = 1
+				create_ambient_object = {
+					type = "ancient_battlefield_object"
+					location = this
+				}
+				last_created_ambient_object = {
+					set_location = {
+						target = prev
+						distance = 65
+						angle = random
+					}
+					save_global_event_target_as = debris_field_02
+				}
+			}
+			create_ambient_object = {
+				type = "derelict_ship_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 80
+					angle = random
+				}
+			}
+			while = {
+				count = 3
+				create_ambient_object = {
+					type = "medium_debris_01_object"
+					location = this
+				}
+				last_created_ambient_object = {
+					set_location = {
+						target = prev
+						distance = 80
+						angle = random
+					}
+				}
+			}
+			while = {
+				count = 4
+				create_ambient_object = {
+					type = "small_debris_object"
+					location = this
+				}
+				last_created_ambient_object = {
+					set_location = {
+						target = prev
+						distance = 90
+						angle = random
+					}
+				}
+			}
+			while = {
+				count = 3
+				create_ambient_object = {
+					type = "large_debris_object"
+					location = this
+				}
+				last_created_ambient_object = {
+					set_location = {
+						target = prev
+						distance = 100
+						angle = random
+					}
+				}
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 97
+					angle = 270
+				}
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 100
+					angle = 265
+				}
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 100
+					angle = 270
+				}
+				save_global_event_target_as = debris_field_03
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 100
+					angle = 275
+				}
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 103
+					angle = 270
+				}
+			}
+			while = {
+				count = 2
+				create_ambient_object = {
+					type = "abandoned_ship_2_object"
+					location = this
+				}
+				last_created_ambient_object = {
+					set_location = {
+						target = prev
+						distance = 100
+						angle = random
+					}
+				}
+			}
+			create_ambient_object = {
+				type = "derelict_ship_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 110
+					angle = random
+				}
+			}
+			while = {
+				count = 4
+				create_ambient_object = {
+					type = "medium_debris_01_object"
+					location = solar_system
+				}
+				last_created_ambient_object = {
+					set_location = {
+						target = prev
+						distance = 110
+						angle = random
+					}
+				}
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 117
+					angle = 180
+				}
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 120
+					angle = 175
+				}
+			}
+			while = {
+				count = 4
+				create_ambient_object = {
+					type = "large_debris_object"
+					location = this
+				}
+				last_created_ambient_object = {
+					set_location = {
+						target = prev
+						distance = 120
+						angle = random
+					}
+				}
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 120
+					angle = 180
+				}
+				save_global_event_target_as = debris_field_04
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 120
+					angle = 185
+				}
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 123
+					angle = 180
+				}
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 115
+					angle = 0
+				}
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 117
+					angle = 350
+				}
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 117
+					angle = 0
+				}
+				save_global_event_target_as = debris_field_05
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 117
+					angle = 10
+				}
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 120
+					angle = 0
+				}
+			}
+		}
+	}
+
+	change_orbit = 45
+
+	planet = {
+		count = { min = 1 max = 4 }
+		orbit_distance = 20
+		orbit_angle = { min = 90 max = 270 }
+		class = random_non_colonizable
+
+		change_orbit = @base_moon_distance
+
+		moon = {
+			count = { min = 0 max = 2 }
+			class = random_non_colonizable
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+		}
+	}
+
+	planet = {
+		count = { min = 0 max = 4 }
+		orbit_distance = 20
+		orbit_angle = { min = 90 max = 270 }
+		class = random_non_colonizable
+
+		change_orbit = @base_moon_distance
+
+		moon = {
+			count = { min = 0 max = 2 }
+			class = random_non_colonizable
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+		}
+	}
+
+	init_effect = {
+		spawn_system = {
+			min_distance >= 5
+			max_distance <= 10
+			direction = rimwards
+			initializer = pf_hive_stars_last_stand_initializer
+			hyperlane = no
+			effect = {
+				set_star_flag = pf_hive_star_system
+				set_star_flag = crisis_spawn_exclude
+				add_hyperlane = {
+					from = this
+					to = prev
+				}
+			}
+		}
+		star = {
+			create_ambient_object = {
+				type = "swarm_1"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_ambient_object_flag = swarm_system_effect
+				set_location = {
+					target = prev
+					distance = 0
+					angle = random
+				}
+			}
+			pf_spawn_straggler_swarm_fleet_large = yes
+		}
+	}
+}
+
+pf_hive_stars_last_stand_initializer = {
+	class = "sc_k"
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 95
+	}
+
+	flags = {
+		pf_hive_star_system
+		crisis_spawn_exclude
+	}
+
+	spawn_chance = 0
+	usage_odds = {
+		base = 0
+	}
+
+	usage = misc_system_init
+	max_instances = 1
+
+	planet = {
+		count = 1
+		class = pc_k_star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+	}
+
+	change_orbit = 30
+
+	planet = {
+		count = 2
+		orbit_distance = 20
+		orbit_angle = { min = 90 max = 270 }
+	}
+
+	change_orbit = 25
+
+	planet = {
+		count = { min = 1 max = 4 }
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 90 max = 270 }
+	}
+
+	planet = {
+		class = "pc_relic"
+		orbit_distance = 60
+		orbit_angle = 75
+		size = 16
+		has_ring = no
+		init_effect = {
+			relic_world_deposits = yes
+			add_modifier = { modifier = pf_pm_infested_world }
+			add_blocker = { type = d_pf_biomass_infestation }
+			set_planet_flag = pf_hive_stars_infested_relic_world
+			set_planet_entity = {
+				entity = planet_flavour_infested_relic_planet_entity
+			}
+		}
+	}
+
+	planet = {
+		count = { min = 0 max = 3 }
+		orbit_distance = 20
+		orbit_angle = { min = 90 max = 270 }
+		class = random_non_colonizable
+
+		change_orbit = @base_moon_distance
+
+		moon = {
+			count = { min = 0 max = 2 }
+			class = random_non_colonizable
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+		}
+	}
+
+	init_effect = {
+		star = {
+			create_ambient_object = {
+				type = "swarm_1"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_ambient_object_flag = swarm_system_effect
+				set_location = {
+					target = prev
+					distance = 0
+					angle = random
+				}
+			}
+			pf_spawn_straggler_swarm_fleet_large = yes
+		}
+	}
+}
+
+
+# Protoplanet system
+pf_basic_proto_system_01 = {
+	class = "rl_pf_proto_stars"
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 50
+	}
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 80
+	}
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 110
+	}
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 140
+	}
+
+	usage = misc_system_init
+	usage_odds = 2
+
+	flags = {  pf_proto_system }
+
+	init_effect = {
+		# Add protoplanetary debris modifier
+		add_modifier = { modifier = pf_pm_protoplanetary_system }
+		# Create nebula effect
+		create_ambient_object = {
+			type = "nebula_L4_entity"
+			entity_offset_height = -5
+			location = this
+		}
+		last_created_ambient_object = {
+			set_location = {
+				target = prev
+				distance = 0
+				angle = random
+			}
+		}
+		# Create protoplanet disk effect
+		star = {
+			if = {
+				limit = { is_planet_class = pc_k_star }
+				set_planet_entity = { entity = pf_proto_k_star_class_star_entity }
+			}
+			if = {
+				limit = { is_planet_class = pc_g_star }
+				set_planet_entity = { entity = pf_proto_g_star_class_star_entity }
+			}
+			add_modifier = { modifier = pf_pm_protoplanetary_disk }
+		}
+	}
+
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+	}
+
+	change_orbit = 50
+
+	planet = {
+		count = { min = 1 max = 2 }
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 90 max = 270 }
+	}
+
+	change_orbit = 30
+
+	planet = {
+		count = { min = 2 max = 3 }
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 90 max = 270 }
+	}
+
+	change_orbit = 30
+
+	planet = {
+		count = { min = 3 max = 4 }
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 90 max = 270 }
+	}
+
+	change_orbit = 30
+
+	planet = {
+		count = { min = 4 max = 5 }
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 90 max = 270 }
+	}
+}
+
+# Protoplanet system
+pf_basic_proto_system_02 = {
+	class = "rl_pf_proto_stars"
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 50
+	}
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 120
+	}
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 150
+	}
+
+	usage = misc_system_init
+	usage_odds = 2
+
+	flags = {  pf_proto_system }
+
+	init_effect = {
+		# Add protoplanetary debris modifier
+		add_modifier = { modifier = pf_pm_protoplanetary_system }
+		# Create nebula effect
+		create_ambient_object = {
+			type = "nebula_L4_entity"
+			entity_offset_height = -5
+			location = this
+		}
+		last_created_ambient_object = {
+			set_location = {
+				target = prev
+				distance = 0
+				angle = random
+			}
+		}
+		# Create protoplanet disk effect
+		star = {
+			if = {
+				limit = { is_planet_class = pc_k_star }
+				set_planet_entity = { entity = pf_proto_k_star_class_star_entity }
+			}
+			if = {
+				limit = { is_planet_class = pc_g_star }
+				set_planet_entity = { entity = pf_proto_g_star_class_star_entity }
+			}
+			add_modifier = { modifier = pf_pm_protoplanetary_disk }
+		}
+	}
+
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+	}
+
+	change_orbit = 50
+
+	planet = {
+		count = { min = 1 max = 2 }
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 90 max = 270 }
+	}
+
+	planet = {
+		count = { min = 2 max = 2 }
+		class = pc_molten
+		orbit_distance = 20
+		orbit_angle = { min = 90 max = 270 }
+		init_effect = {
+			clear_planet_modifiers = yes
+			add_modifier = { modifier = pf_pm_asteroid_bombardment }
+		}
+	}
+
+	change_orbit = 30
+
+	planet = {
+		count = { min = 3 max = 4 }
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 90 max = 270 }
+	}
+
+	change_orbit = 30
+
+	planet = {
+		count = { min = 4 max = 5 }
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 90 max = 270 }
+	}
+}
+
+# Protoplanet system nebula-core. Same as 01 but spawns a nebula + neighbours
+pf_basic_proto_system_03 = {
+	class = "rl_pf_proto_stars"
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 50
+	}
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 80
+	}
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 110
+	}
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 140
+	}
+
+	usage = misc_system_init
+	usage_odds = 1
+	max_instances = 5
+	scaled_spawn_chance = 8
+
+	flags = { pf_stellar_nursery_system pf_proto_system }
+
+	init_effect = {
+		# Add protoplanetary debris modifier
+		add_modifier = { modifier = pf_pm_protoplanetary_system }
+
+		pf_create_stellar_nursery_nebula = yes
+
+		# Create protoplanet disk effect
+		star = {
+			if = {
+				limit = { is_planet_class = pc_k_star }
+				set_planet_entity = { entity = pf_proto_k_star_class_star_entity }
+			}
+			if = {
+				limit = { is_planet_class = pc_g_star }
+				set_planet_entity = { entity = pf_proto_g_star_class_star_entity }
+			}
+			add_modifier = { modifier = pf_pm_protoplanetary_disk }
+		}
+	}
+
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+	}
+
+	change_orbit = 50
+
+	planet = {
+		count = { min = 1 max = 2 }
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 90 max = 270 }
+	}
+
+	change_orbit = 30
+
+	planet = {
+		count = { min = 2 max = 3 }
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 90 max = 270 }
+	}
+
+	change_orbit = 30
+
+	planet = {
+		count = { min = 3 max = 4 }
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 90 max = 270 }
+	}
+
+	change_orbit = 30
+
+	planet = {
+		count = { min = 4 max = 5 }
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 90 max = 270 }
+	}
+
+	neighbor_system = {
+		hyperlane_jumps = { min = 1 max = 1 }
+		initializer = "pf_basic_proto_system_01"
+	}
+	neighbor_system = {
+		hyperlane_jumps = { min = 1 max = 1 }
+		initializer = "pf_basic_proto_system_01"
+	}
+	neighbor_system = {
+		hyperlane_jumps = { min = 1 max = 1 }
+		initializer = "pf_basic_proto_system_02"
+	}
+	neighbor_system = {
+		hyperlane_jumps = { min = 1 max = 1 }
+		initializer = "pf_basic_proto_system_02"
+	}
+}
+
+pf_ancient_battlefield_system = {
+	class = sc_m_giant
+	prevent_anomalies = yes
+	usage = misc_system_init
+
+	usage_odds = {
+		base = @spawn_system_common
+		modifier = {
+			factor = 0
+			has_distar = no
+		}
+		modifier = {
+			factor = 0
+			is_fe_cluster = yes
+		}
+		modifier = {
+			factor = 0
+			has_star_flag = empire_cluster
+		}
+	}
+
+	max_instances = 4
+	scaled_spawn_chance = 8
+
+	flags = { pf_ancient_battlefield_system }
+
+	planet = {
+		class = star
+		orbit_distance = 0
+		init_effect = {
+			prevent_anomaly = yes
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 37
+					angle = 30
+				}
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 40
+					angle = 30
+				}
+				save_global_event_target_as = debris_field_01
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 43
+					angle = 30
+				}
+			}
+			while = {
+				count = 2
+				create_ambient_object = {
+					type = "large_debris_object"
+					location = this
+				}
+				last_created_ambient_object = {
+					set_location = {
+						target = prev
+						distance = 65
+						angle = random
+					}
+				}
+			}
+			while = {
+				count = 1
+				create_ambient_object = {
+					type = "ancient_battlefield_object"
+					location = this
+				}
+				last_created_ambient_object = {
+					set_location = {
+						target = prev
+						distance = 65
+						angle = random
+					}
+					save_global_event_target_as = debris_field_02
+				}
+			}
+			while = {
+				count = 3
+				create_ambient_object = {
+					type = "medium_debris_01_object"
+					location = this
+				}
+				last_created_ambient_object = {
+					set_location = {
+						target = prev
+						distance = 80
+						angle = random
+					}
+				}
+			}
+			while = {
+				count = 4
+				create_ambient_object = {
+					type = "small_debris_object"
+					location = this
+				}
+				last_created_ambient_object = {
+					set_location = {
+						target = prev
+						distance = 90
+						angle = random
+					}
+				}
+			}
+			while = {
+				count = 3
+				create_ambient_object = {
+					type = "large_debris_object"
+					location = this
+				}
+				last_created_ambient_object = {
+					set_location = {
+						target = prev
+						distance = 100
+						angle = random
+					}
+				}
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 97
+					angle = 270
+				}
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 100
+					angle = 265
+				}
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 100
+					angle = 270
+				}
+				save_global_event_target_as = debris_field_03
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 100
+					angle = 275
+				}
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 103
+					angle = 270
+				}
+			}
+			while = {
+				count = 2
+				create_ambient_object = {
+					type = "abandoned_ship_2_object"
+					location = this
+				}
+				last_created_ambient_object = {
+					set_location = {
+						target = prev
+						distance = 100
+						angle = random
+					}
+				}
+			}
+			while = {
+				count = 4
+				create_ambient_object = {
+					type = "medium_debris_01_object"
+					location = solar_system
+				}
+				last_created_ambient_object = {
+					set_location = {
+						target = prev
+						distance = 110
+						angle = random
+					}
+				}
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 117
+					angle = 180
+				}
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 120
+					angle = 175
+				}
+			}
+			while = {
+				count = 4
+				create_ambient_object = {
+					type = "large_debris_object"
+					location = this
+				}
+				last_created_ambient_object = {
+					set_location = {
+						target = prev
+						distance = 120
+						angle = random
+					}
+				}
+			}
+			create_ambient_object = {
+				type = "pf_derelict_ship_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 83
+					angle = random
+				}
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 120
+					angle = 180
+				}
+				save_global_event_target_as = debris_field_04
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 120
+					angle = 185
+				}
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 123
+					angle = 180
+				}
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 115
+					angle = 0
+				}
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 117
+					angle = 350
+				}
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 117
+					angle = 0
+				}
+				save_global_event_target_as = debris_field_05
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 117
+					angle = 10
+				}
+			}
+			create_ambient_object = {
+				type = "large_debris_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 120
+					angle = 0
+				}
+			}
+			create_ambient_object = {
+				type = "pf_derelict_ship_object"
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 43
+					angle = random
+				}
+			}
+		}
+	}
+
+	change_orbit = 45
+
+	planet = {
+		count = { min = 4 max = 6 }
+		orbit_distance = 20
+		orbit_angle = { min = 90 max = 270 }
+
+		change_orbit = @base_moon_distance
+
+		moon = {
+			count = { min = 0 max = 1 }
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+		}
+		init_effect = {
+			switch = {
+				trigger = is_planet_class
+				pc_frozen = { add_deposit = d_pf_preserved_bases }
+				pc_barren_cold = { add_deposit = d_pf_crashed_starships }
+				pc_barren = { add_deposit = d_pf_crashed_starships }
+				pc_gas_giant = { add_deposit = d_pf_ring_of_debris }
+				default = {  }
+			}
+
+			create_ambient_object = {
+				type = "large_debris_object"
+				entity_offset_height = { min = -0 max = -25 }
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 15
+					angle = random
+				}
+			}
+			create_ambient_object = {
+				type = "medium_debris_01_object"
+				entity_offset_height = { min = -0 max = -25 }
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 15
+					angle = random
+				}
+			}
+			create_ambient_object = {
+				type = "medium_debris_02_object"
+				entity_offset_height = { min = -0 max = -25 }
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 15
+					angle = random
+				}
+			}
+			create_ambient_object = {
+				type = "small_debris_object"
+				entity_offset_height = { min = -0 max = -25 }
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 15
+					angle = random
+				}
+			}
+		}
+	}
+}
+
+# Betharian Primitives
+pf_betharian_primitives = {
+	class = "rl_standard_stars"
+
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 120
+	}
+
+	usage = misc_system_init
+	usage_odds = {
+		base = @spawn_system_common
+		inline_script = "solar_system_initializers/initializer_modifiers_habitable_world_systems"
+	}
+	primitive_system = yes
+	scaled_spawn_chance = 8
+	max_instances = 1
+
+	flags = { pf_betharian_primitives_system }
+
+	planet = {
+		class = star
+		orbit_distance = 0
+	}
+
+	change_orbit = 30
+
+	planet = {
+		count = 2
+		class = "rl_unhabitable_planets"
+		orbit_distance = 30
+		orbit_angle = { min = 90 max = 270 }
+		size = { min = 10 max = 16 }
+	}
+
+	change_orbit = 30
+
+	planet = {
+		count = { min = 1 max = 4 }
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 90 max = 270 }
+	}
+
+	change_orbit = 20
+
+	planet = {
+		count = 1
+		class = pc_gas_giant
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+		size = { min = 20 max = 30 }
+		has_ring = no
+
+		change_orbit = @base_moon_distance
+
+		moon = {
+			class = "pc_tropical"
+			size = 12
+			orbit_distance = 10
+			orbit_angle = 70
+			has_ring = no
+
+			init_effect = {
+				clear_planet_modifiers = yes
+				create_species = {
+					name = random
+					class = REP
+					portrait = rep1
+					homeworld = THIS
+					namelist = "REP2"
+					traits = {
+						trait = "trait_docile"
+						trait = "trait_communal"
+						trait = "trait_slow_learners"
+						trait = "trait_pc_tropical_preference"
+					}
+				}
+				create_country = {
+					name = random
+					authority = auth_democratic
+					civics = {
+						civic = civic_secret_of_fire
+						civic = civic_the_wheel
+					}
+					species = last_created_species
+					ethos = {
+						ethic = "ethic_fanatic_pacifist"
+						ethic = "ethic_spiritualist"
+					}
+					origin = "origin_default"
+					flag = {
+						icon = {
+							category = "pre_ftl"
+							file = "preftl_stone_age.dds"
+						}
+						background= {
+							category = "backgrounds"
+							file = "new_dawn.dds"
+						}
+						colors={
+							"turquoise"
+							"green"
+							"null"
+							"null"
+						}
+					}
+					type = primitive
+				}
+				last_created_country = {
+					set_country_flag = stone_age
+					set_pre_ftl_age = stone_age
+					set_graphical_culture = preindustrial_01
+				}
+				set_owner = last_created_country
+				set_capital = yes
+				every_deposit = {
+					limit = { is_deposit_type = d_dangerous_wildlife_blocker }
+					clear_blocker = yes
+				}
+				while = {
+					count = 4
+					create_pop_group = {
+						species = last_created_species
+					}
+				}
+				add_building = building_crude_huts
+				remove_building = building_colony_shelter
+
+				# Planet Stuff now
+				add_modifier = { modifier = pf_pm_arboreal_ecosystem }
+				add_modifier = { modifier = pf_pm_betharian_world }
+				add_deposit = d_betharian_deposit
+			}
+		}
+
+		moon = {
+			count = { min = 0 max = 3 }
+			size = { min = 6 max = 12 }
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 7
+		}
+	}
+}
+
+
+pf_desert_relic_system = {
+	class = "rl_binary_stars"
+	asteroid_belt = {
+		type = icy_asteroid_belt
+		radius = 168
+	}
+
+	usage = misc_system_init
+
+	usage_odds = {
+		base = @spawn_system_common
+		modifier = {
+			factor = 0
+			is_bottleneck_system = yes
+		}
+		 modifier = {
+			factor = 0
+			has_ancrel = no
+		}
+		inline_script = {
+			script = solar_system_initializers/initializer_modifiers_habitable_world_systems_mult
+			VALUE = 0.4 # e.g. 0.5x habitable = factor of 0.2; 5x habitable worlds = factor of 2
+		}
+	}
+
+	max_instances = 1
+	scaled_spawn_chance = 4
+
+	flags = { pf_desert_relic_system }
+
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 25
+		orbit_angle = 0
+		size = { min = 30 max = 35 }
+		has_ring = no
+	}
+
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		size = { min = 15 max = 25 }
+		has_ring = no
+	}
+
+	change_orbit = 45
+
+	planet = {
+		class = pc_molten
+		size = 13
+		orbit_angle = { min = 90 max = 270 }
+	}
+
+	planet = {
+		class = pc_molten
+		size = 9
+		orbit_distance = 25
+		orbit_angle = { min = 90 max = 270 }
+	}
+
+	planet = {
+		class = pc_molten
+		size = 17
+		orbit_distance = 25
+		orbit_angle = { min = 90 max = 270 }
+
+		moon = {
+			class = "pc_barren"
+			orbit_distance = 12
+			size = 10
+			orbit_angle = { min = 90 max = 270 }
+		}
+	}
+
+	change_orbit = 30
+
+	planet = {
+		count = { min = 2 max = 3 }
+		class = pc_ice_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 90 max = 270 }
+	}
+
+	change_orbit = 35
+
+	planet = {
+		class = pc_toxic
+		size = 26
+		orbit_angle = { min = 90 max = 270 }
+	}
+
+	change_orbit = 30
+
+	planet = {
+		class = pc_desert
+		size = 20
+		has_ring = no
+		orbit_angle = { min = 90 max = 270 }
+		flags = { pf_desert_relic_world }
+
+		init_effect = {
+			prevent_anomaly = yes
+			set_planet_entity = {
+				entity = pf_desert_relic_entity
+			}
+		}
+
+		moon = {
+			class = "pc_barren_cold"
+			orbit_distance = 12
+			size = 10
+			has_ring = no
+			orbit_angle = { min = 90 max = 270 }
+
+			init_effect = { prevent_anomaly = yes }
+		}
+	}
+
+	planet = {
+		class = pc_gas_giant
+		size = 22
+		orbit_distance = 30
+		orbit_angle = { min = 90 max = 270 }
+
+		moon = {
+			class = "pc_barren_cold"
+			orbit_distance = 14
+			orbit_angle = { min = 90 max = 270 }
+		}
+
+		moon = {
+			class = "pc_barren_cold"
+			orbit_distance = 6
+			orbit_angle = { min = 90 max = 270 }
+		}
+
+		moon = {
+			class = "pc_frozen"
+			orbit_distance = 6
+			orbit_angle = { min = 90 max = 270 }
+		}
+	}
+}

@@ -1,0 +1,49 @@
+spriteTypes = {	
+
+	spriteType = {
+		name = "GFX_evt_pf_kelp_forest"
+		texturefile = "gfx/event_pictures/pf_kelp_forest.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		allwaystransparent = yes	
+	}
+
+	spriteType = {
+		name = "GFX_evt_pf_arid_wetlands"
+		texturefile = "gfx/event_pictures/pf_arid_wetlands.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		allwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_evt_pf_alpine_highlands"
+		texturefile = "gfx/event_pictures/pf_alpine_highlands.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		allwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_evt_pf_glowing_nature"
+		texturefile = "gfx/event_pictures/pf_glowing_nature.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		allwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_evt_pf_purple_planet"
+		texturefile = "gfx/event_pictures/pf_purple_planet.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		allwaystransparent = yes	
+	}
+	spriteType = {
+		name = "GFX_evt_pf_planet_space"
+		texturefile = "gfx/event_pictures/pf_planet_space.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_pf_dry_highlands"
+		texturefile = "gfx/event_pictures/pf_dry_highlands.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		allwaystransparent = yes
+	}
+}

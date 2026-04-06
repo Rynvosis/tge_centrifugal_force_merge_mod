@@ -1,0 +1,113 @@
+######################################
+### Mute Galactic Diversity Traits ###
+######################################
+
+### Cooperative Trait ###
+counter_mgd_cooperative = {
+	complex_trigger_modifier = {
+		trigger = count_owned_pop_amount
+		parameters = {
+			limit = {
+				OR = {
+					is_pop_category = worker
+					is_pop_category = simple_drone	
+				}
+				has_trait = trait_mgd_cooperative
+			}
+		}
+		mode = add
+	}
+	max = 10000
+}
+
+### Fungoid - Plantoid Symbiose ### 
+counter_mgd_fungoids = {
+	complex_trigger_modifier = {
+		trigger = count_owned_pop_amount
+		parameters = {
+			limit = {
+				NOR = {
+					has_trait = trait_mgd_plantoid
+					has_trait = trait_mgd_autotrophic
+				}
+				OR = {
+					has_trait = trait_mgd_saprotrophic
+					has_trait = trait_mgd_fungoid
+				}
+			}
+		}
+		mode = add
+	}
+	min = 1
+}
+
+counter_mgd_plantoids = {
+	complex_trigger_modifier = {
+		trigger = count_owned_pop_amount
+		parameters = {
+			limit = {
+				NOR = {
+					has_trait = trait_mgd_saprotrophic
+					has_trait = trait_mgd_fungoid	
+				}
+				OR = {
+					has_trait = trait_mgd_plantoid
+					has_trait = trait_mgd_autotrophic
+				}
+			}
+		}
+		mode = add
+	}
+	min = 1
+}
+
+counter_mgd_fungoids_symbiosis_effect = {
+	add = value:counter_mgd_plantoids
+	divide = value:counter_mgd_fungoids
+	min = 0
+	max = 1
+}
+
+counter_mgd_plantoids_symbiosis_effect = {
+	add = value:counter_mgd_fungoids
+	divide = value:counter_mgd_plantoids
+	min = 0
+	max = 1
+}
+
+### Blooming Symbiose ### 
+counter_mgd_blooming = {
+	complex_trigger_modifier = {
+		trigger = count_owned_pop_amount
+		parameters = {
+			limit = {
+				has_trait = trait_mgd_blooming
+			}
+		}
+		mode = add
+	}
+	min = 1
+}
+
+counter_mgd_pollinators = {
+	complex_trigger_modifier = {
+		trigger = count_owned_pop_amount
+		parameters = {
+			limit = {
+				OR = {
+					has_trait = trait_mgd_pollinators
+					has_trait = trait_mgd_horticultural_engines
+				}
+			}
+		}
+		mode = add
+	}
+	min = 1
+}
+
+counter_mgd_blooming_symbiosis_effect = {
+	add = value:counter_mgd_blooming
+	divide = value:counter_mgd_pollinators
+	min = 0
+	max = 30
+}

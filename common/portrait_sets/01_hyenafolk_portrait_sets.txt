@@ -1,0 +1,6 @@
+mammalians = {
+	species_class = MAM
+	portraits = {
+		"hyenafolk"
+	}
+}

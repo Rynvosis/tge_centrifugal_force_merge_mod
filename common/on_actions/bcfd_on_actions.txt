@@ -1,0 +1,5 @@
+on_game_start = {
+    events = {
+        better_colony_dates.0       # Initiate the date setting for all settled worlds.
+    }
+}

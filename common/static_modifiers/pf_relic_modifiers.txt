@@ -1,0 +1,6 @@
+pf_pm_infested_world = {
+	pop_environment_tolerance = -0.50
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_infested_world.dds"
+	icon_frame = 3
+}

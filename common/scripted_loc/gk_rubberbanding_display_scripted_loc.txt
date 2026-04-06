@@ -1,0 +1,69 @@
+####################################
+# Tech Rubberbanding Display Rows  #
+####################################
+
+defined_text = {
+	name = GKRBTechPhysicsResearchRow
+	text = {
+		trigger = {
+			check_variable = {
+				which = gkrb_tech_physics_research_adjust
+				value >= 0.1
+			}
+		}
+		localization_key = "GKRB_ROW_TECH_PHYSICS_RESEARCH_UPKEEP"
+	}
+	text = {
+		trigger = {
+			check_variable = {
+				which = gkrb_tech_physics_research_adjust
+				value < 0.1
+			}
+		}
+		localization_key = "GKRB_EMPTY"
+	}
+}
+
+defined_text = {
+	name = GKRBTechSocietyResearchRow
+	text = {
+		trigger = {
+			check_variable = {
+				which = gkrb_tech_society_research_adjust
+				value >= 0.1
+			}
+		}
+		localization_key = "GKRB_ROW_TECH_SOCIETY_RESEARCH_UPKEEP"
+	}
+	text = {
+		trigger = {
+			check_variable = {
+				which = gkrb_tech_society_research_adjust
+				value < 0.1
+			}
+		}
+		localization_key = "GKRB_EMPTY"
+	}
+}
+
+defined_text = {
+	name = GKRBTechEngineeringResearchRow
+	text = {
+		trigger = {
+			check_variable = {
+				which = gkrb_tech_engineering_research_adjust
+				value >= 0.1
+			}
+		}
+		localization_key = "GKRB_ROW_TECH_ENGINEERING_RESEARCH_UPKEEP"
+	}
+	text = {
+		trigger = {
+			check_variable = {
+				which = gkrb_tech_engineering_research_adjust
+				value < 0.1
+			}
+		}
+		localization_key = "GKRB_EMPTY"
+	}
+}

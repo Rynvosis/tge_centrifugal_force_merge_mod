@@ -1,0 +1,27 @@
+pf_pm_maritime_society = {
+	planet_housing_add = 400
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_tropical_island.dds"
+	icon_frame = 1
+}
+
+pf_pm_floating_cities = {
+	planet_housing_add = 800
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_resort.dds"
+	icon_frame = 1
+}
+
+pf_pm_race_circuit = {
+	planet_jobs_engineering_research_produces_mult = 0.1
+	pop_happiness = 0.05
+	planet_crime_add = 10
+	icon = "gfx/interface/icons/planet_modifiers/pm_colony_settlement.dds"
+	icon_frame = 1
+}
+
+pf_pm_race_circuit_shut_down = {
+	pop_happiness = -0.1
+	icon = "gfx/interface/icons/planet_modifiers/pm_colony_settlement.dds"
+	icon_frame = 3
+}

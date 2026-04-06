@@ -1,0 +1,11 @@
+
+entity = {
+	name = "draconic_dragon_entity"
+	pdxmesh = "draconic_dragon_mesh"
+	
+	default_state = "idle"
+	state = { name = "idle"		animation = "idle"	chance = 4.0 looping = no next_state = idle}
+    state = { name = "idle"		animation = "idle2"	chance = 2.5 looping = no next_state = idle}
+	state = { name = "idle"		animation = "idle3"	chance = 2.5 looping = no next_state = idle}
+    scale = 1.32
+}

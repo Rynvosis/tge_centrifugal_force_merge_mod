@@ -1,0 +1,7 @@
+random_list = {
+	name = "rl_pf_proto_stars"
+	stars = {
+		"sc_g"
+		"sc_k"
+	}
+}

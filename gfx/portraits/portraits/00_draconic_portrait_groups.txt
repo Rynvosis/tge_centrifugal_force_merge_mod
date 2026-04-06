@@ -1,0 +1,14 @@
+portraits = {
+	# Draconic
+	dragon = {
+		entity = "draconic_dragon_entity" clothes_selector = "no_texture" attachment_selector = "no_texture" greeting_sound = "necroid_portrait_02_mummalien" 
+		character_textures = { 
+			"gfx/models/portraits/Dragon/draconic_dragon_red.dds"
+			"gfx/models/portraits/Dragon/draconic_dragon_purple.dds"
+			"gfx/models/portraits/Dragon/draconic_dragon_red_black.dds"
+			"gfx/models/portraits/Dragon/draconic_dragon_purple_black.dds"
+			"gfx/models/portraits/Dragon/draconic_dragon_purple_green.dds"
+			"gfx/models/portraits/Dragon/draconic_dragon_yellow.dds"
+		}
+	}
+}

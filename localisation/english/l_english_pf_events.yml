@@ -1,0 +1,148 @@
+﻿l_english:
+  pf_content.10.name: "Paradise Lost"
+  pf_content.10.desc: "With the radical transformation of many of [This.GetName]'s sister moons, the shared environments of the moons have diverged too greatly to continue to support their common life forms.\n\nWhile the moons may continue to intersect their orbits, the surviving species of each world will keep to their homeworlds alone."
+  pf_content.10.a: "An unfortunate outcome."
+
+  pf_content.20.name: "After the Ashes"
+  pf_content.20.desc: "Decades after the dramatic meteor strike that devastated [This.GetName], the worst affects are abating.\n\nThe choking dust clouds are fading and the biosphere has begun to re-establish itself. It will take thousands of years before the climate stabilises, but as [This.GetName] no longer resembles the [This.Owner.GetSpeciesName] underworld, life can begin to recover."
+  pf_content.20.a: "Excellent."
+
+  pf_content.100.name: "Tainted Worlds"
+  pf_content.100.desc: "The sensors of the [This.GetName] have detected an abnormally high level of biological matter in the [This.solar_system.GetName] system.\n\nThe source appears to be one of the inner planets in the solar system - a habitable world that is completely overgrown by festering alien biomass."
+  pf_content.100.a: "Curious."
+
+  pf_content.102.name: "Familiar Contamination"
+  pf_content.102.desc: "Scans taken by the [This.GetName] of the biological material covering [event_target:pf_second_infested_world_surveyed.GetName] show near-identical genetic markers to the samples taken in the [event_target:pf_first_hive_star_system_surveyed.GetName] system.\n\nThey appear to be part of a common interstellar ecosystem composed of planetary and spacefaring lifeforms. It is unclear just how far they have spread throughout the cluster."
+  pf_content.102.a: "Alarming."
+  
+  pf_content.111.name: "Geothermal Bounty"
+  pf_content.111.desc: "[This.GetName] is an unusually tectonically active world. This leads to severe earthquakes and volcanic activity, but also drives significant quantities of energetic magma close to the surface.\n\nWith some targeted investments and tactical terraforming efforts, we could clear several of the most promising sites and unlock the potential energy beneath the surface.\n\nOne such storm of unusual size has grown large enough to affect our colony."
+  pf_content.111.a: "We will make the necessary investments."
+  pf_content.111.b: "Not at this time."
+  
+  pf_content.122.name: "Static Skies"
+  pf_content.122.desc: "[This.GetName]'s dry and dusty surface makes it the perfect breeding ground for large dust storms.\n\nWhen winds grow sufficiently powerful, these storms can cover enormous parts of the surface and cause serious issues with machines and electrical equipment."
+  pf_content.122.a: "Concerning."
+
+  pf_content.124.name: "Silent Skies"
+  pf_content.124.desc: "Following the dramatic changes to [This.GetName]'s environment, the dust storms that have plagued our colony with electrical interference are no more.\n\nThe new climate and environment of [This.GetName] lacks the fine particulate and strong winds that caused these devastating storms, leaving the inhabitants of our colony in peace."
+  pf_content.124.a: "Excellent."
+
+  pf_content.131.name: "Blooming Planet"
+  pf_content.131.desc: "The extraordinarily rapid growth of this [This.GetName]'s native flora has proven to be a significant asset to the local farmers. Incorporating native life into our agricultural processes has resulted in periodic episodes of greatly increased yields."
+  pf_content.131.a: "Excellent."
+
+  pf_content.141.name: "Glacial Blizzards "
+  pf_content.141.desc: "The cold climate of [This.GetName] is perfectly suited for the formation of unusually large and severe blizzards. A particularly devastating manifestation has struck our fledgling colony, causing damage and disruption."
+  pf_content.141.a: "Unfortunate."
+
+  pf_content.142.name: "Catastrophic Snowstorms"
+  pf_content.142.desc: "Another massive polar cyclone has struck our colony on [This.GetName]. With major transport lines down and large swathes of the planet experiencing significant snowfall, production has ground to a halt.\n\nSome of the colony's senior administration believe that the intensity of the snowstorms can be alleviated by distributing aerosol particulates in the upper atmosphere to prevent the specific conditions that cause the storms."
+  pf_content.142.a: "Make it so."
+
+  pf_content.143.name: "Icy Winters"
+  pf_content.143.desc: "Another massive polar cyclone has struck our colony on [This.GetName]. Without concerted effort to prevent the formation of these weather events, our colony will continue to periodically experience severe storms."
+  pf_content.143.a: "Understood."
+
+  pf_content.144.name: "Clear Skies"
+  pf_content.144.desc: "Our weather modification efforts on [This.GetName] have finally been completed. Our meteorologists are confident that any future storms, while large, will not come close to the energy required to cause such significant damage to our colony.\n\nAs part of the project, our science team has been able to gather valuable data about high-energy weather patterns and their applications."
+  pf_content.144.a: "Excellent."
+
+  pf_content.200.name: "Natural Treasures"
+  pf_content.200.desc: "The [from.pf_planet_surface] of [from.GetName] contain an alluring natural wonder - §H[from.pf_luxury_resource]§!. With proper cultivation they could have significant commercial value. \n\nThis valuable resource is native only to this planet, but with effort could be grown elsewhere. The potential economic benefits are enormous."
+  pf_content.200.a: "Interesting."
+
+  pf_content.310.name: "Ruins in the Desert"
+  pf_content.310.desc: "An advance party of colonists on [This.GetName] has encountered ruins of alien origin buried beneath the surface in a region of dry highlands during seismic surveys.\n\nThe structures appear to have some scientific purpose, but it remains unclear what exactly they were intended to study, or who their builders were."
+  pf_content.310.a: "We must investigate further."
+  pf_content.310.b: "Search the ruins for any useful technology."
+
+  pf_content.311.name: "Forgotten Studies"
+  pf_content.311.desc: "The exact identity of the makers of the facility encountered on [This.GetName] continues to elude us. However they appear to have been members of a spacefaring confederation active in this region of space some 75,000 years ago.\n\nTheir research facility was established as part of an effort to study one of the native lifeforms of [This.GetName] as candidates for uplifting. It is unclear whether they were ultimately successful, but the pre-sapient species remains abundant to this day."
+  pf_content.311.a: "Remarkable."
+  pf_content.311.a.tt: "§YA random pre-sapient species will be created on [This.GetName]§!"
+
+  pf_content.321.name: "Rad Storms"
+  pf_content.321.desc: "Although the nuclear holocaust that descended upon [This.GetName] is long passed, the intense radiation left behind lingers on in many regions of the world.\n\nSome regions that experience intense weather conditions have experienced high energy storms that constantly churn the radioactive fallout, impeding settlement."
+  pf_content.321.a: "Unfortunate."
+  pf_content.321.b: "And? Harvest the energy of these storms."
+
+  pf_content.322.name: "Dust in the Gears"
+  pf_content.322.desc: "The intense plasma bombardment that scorched [This.GetName] left the planet's surface as little more than tortured silica.\n\nSince our colony's establishment, our settlers have experienced continuous issues as dust storms stir razor sharp fragments of glass and silica into machinery and delicate electronic systems."
+  pf_content.322.a: "Unfortunate"
+
+  pf_content.323.name: "Blooming Wastelands"
+  pf_content.323.desc: "Although the cataclysm that devastated [This.GetName] left little behind in its wake, bit by bit the planets lifeforms have begun to weave new ecosystems together.\n\nAlthough much reduced, life on [This.GetName] seems determined to recover."
+  pf_content.323.a: "Excellent."
+
+  pf_content.330.name: "Under the Mountain"
+  pf_content.330.desc: "Our colonists on [This.GetName] have encountered an extensive network of subterranean caves just beneath the surface.\n\nAlthough poor in minerals and ores, they are large and seismically stable. Several of our colonial settlements have already begun to incorporate the added space into their urban layout."
+  pf_content.330.a: "Excellent."
+  pf_content.330.b: "Expand the network even further."
+
+  pf_content.340.name: "Ashes Under Stone"
+  pf_content.340.desc: "Geologists prospecting on [This.GetName] have discovered an unusual layer of rock buried beneath several geological strata.\n\nIt appears to be built up of layers of decomposed biological matter. An initial catastrophic event seems to have gradually killed off large chunks of the ecosystem over time.\n\nAlthough the evidence of the incident is buried everywhere within rock, the nature of the event itself that struck [This.GetName] appears to be a complete mystery."
+  pf_content.340.a: "Unusual."
+
+  pf_content.341.name: "Scars of the Past"
+  pf_content.341.desc: "Further analysis has helped uncover the background behind [This.GetName]'s layers of biological residue.\n\nApproximately 500,000 years ago [This.GetName] seems to have been struck by a highly intense beam of neutron radiation, killing off almost all higher forms of life.\n\nThe intensity and focus of the beam far exceeds anything natural. The beam and the devastation it caused are almost certainly artificial in nature."
+  pf_content.341.a: "Disconcerting."
+  pf_content.341.b: "Compare the evidence with the expected results from our own Neutron Sweep."
+  pf_content.341.c: "Another potential avenue of research for our weapons systems."
+
+  pf_content.350.name: "Deep Sea Treasures"
+  pf_content.350.desc: "Initial orbital scans of [This.GetName] seem to have missed large deep sea formations of valuable minerals on the ocean floor.\n\nOur colonists have been able to conduct seismic surveys that reveal an abundance of minerals that would be relatively easy to access. Our miners stand to benefit from these rich deposits."
+  pf_content.350.a: "Excellent."
+
+  pf_content.360.name: "The Angry Earth"
+  pf_content.360.desc: "Survey teams from our colony on [This.GetName] have uncovered the caldera of a large and potentially active supervolcano in the southern hemisphere of the planet.\n\nAlthough our readings indicate a full eruption is unlikely, the region has already been noted to have an unusually high level of tectonic activity, impeding our colonization efforts."
+  pf_content.360.a: "Concerning."
+
+  pf_content.401.name: "Deep Space Observation"
+  pf_content.401.desc: "The structure encountered by the [This.GetName] appears to have been an automated listening post constructed nearly 100,000 years ago by an unknown race.\n\nDesigned to monitor the deep space between galaxies for scientific research, it has an extraordinarily sensitive subspace telescope array.\n\nUnfortunately it seems to have suffered a micrometeorite collision 86,000 years ago, disabling its communications array and critically damaging the reactor. The builders appear to have been uninterested in its fate."
+  pf_content.401.a: "A fascinating implementation of subspace technology."
+
+  pf_content.402.name: "Anomalies in the Data."
+  pf_content.402.desc: "Our analysts aboard the [This.GetName] have been looking through the data extracts recovered from the subspace observation station they recently encountered.\n\nThey've highlighted some alarming results. Several thousand years ago, long after the communications systems were damaged, readings indicate an enormous anomaly, consistent with a huge mass entering subspace from deep space.\n\nIf these readings are correct, this impossible anomaly would be heading for our galaxy."
+  pf_content.402.a: "How curious - an instrument error perhaps? Review the logs again."
+
+  pf_content.410.name: "Ancient Ice"
+  pf_content.410.desc: "[From.GetName] was once a lush world. Trace samples recovered by the [This.GetName] prove that even now, some single-celled life remains.\n\nIt looks like spacefaring civilization chose to initiate terraforming processes on on the world, lowering the temperature significantly.\n\nSomething seems to have gone wrong, with the process continuing indefinitely, snuffing out the planets native life and leaving only a few surviving microbial colonies."
+  pf_content.410.a: "Perhaps the planet could be made capable of hosting life again."
+  pf_content.410.b: "A tragic tale of life's fragility in the cosmos."
+
+  pf_content.420.name: "Buried Beneath the Mountain"
+  pf_content.420.desc: "[This.leader.GetName] has made a remarkable discovery. Positioned in the cold mountains of [This.GetName] are sprawling complexes of alien databanks.\n\nFrom what the science team aboard [This.GetName] has been able to decrypt, it seems to be a vast repository of cultural records from a long dead civilization.\n\nLittle detail survives about the makers, but enough of the databanks are intact that we can piece together many of the narratives and cultural works that make up their contents."
+  pf_content.420.a: "Remarkable."
+
+  pf_content.430.name: "Ancient Battlegrounds"
+  pf_content.430.desc: "The primary star of the [This.solar_system.GetName] system is surrounded by enormous clouds of shattered debris - quite clearly artificial in nature.\n\nMany of the planets in the system bear the marks of orbital bombardment or host starship of various designs.\n\nIt seems quite clear that this system was the host of an enormous space battle deep in the past."
+  pf_content.430.a: "Interesting."
+
+  pf_content.440.name: "Aerosol Stations"
+  pf_content.440.desc: "The upper atmosphere of [From.GetName] hosts a number of suspended structures. Their exact composition is unclear, but they seem to have been built to capture and extract trace quantities of exotic gases from the planet's atmosphere.\n\nOur engineering teams are quite confident that with a little bit of time, they can be restored to partial working order."
+  pf_content.440.a: "Let's make use of these facilities."
+  pf_content.440.b: "Dismantle them and examine their construction."
+
+  pf_content.451.name: "Rubble and Dust"
+  pf_content.451.desc: "Buried amongst the desert of [From.GetName] is the rubble of a truly ancient city world. Very little survives intact among the dunes, but the foundations of enormous infrastructure and huge arcologies can still be identified.\n\nSome of the [This.GetName]'s crew have suggested that we could repurpose some of the surviving infrastructure for a colony, but it would require a significant expenditure of resources."
+  pf_content.451.a: "Salvage the ruins. Our colonists can build on them."
+  pf_content.451.b: "We don't have the resources to fully explore them right now."
+
+  pf_content.460.name: "Planetary Laboratory"
+  pf_content.460.desc: "[From.GetName] appears to be the site of a vast evolutionary experiment. The fauna and flora of this world appear to have been deliberately seeded millions of years ago by a precursor civilization.\n\nOver time, the limited number of species have slowly diverged to fill a broader range of niches, but the similarities to their ancestral forms are strikingly clear."
+  pf_content.460.a: "Remarkable"
+
+  pf_content.470.name: "Maritime Culture emerges on [Root.GetName]"
+  pf_content.470.desc: "An curious subculture has developed on the ocean colony of [Root.GetName] in recent years.\n\nA handful of adventurous pioneers have taken to the seas to form floating communities and settlements constructed among the many bays and islands of [Root.GetName]'s coastal waters."
+  pf_content.470.a: "How quaint."
+
+  pf_content.480.name: "A Day at the Races"
+  pf_content.480.desc: "The dry plains of [Root.GetName] have seen a rise in high speed races, often using questionably built vehicles and across courses that are unlikely to be at all safe.\n\nWe could shut this down, but it is profitable and popular amongst locals and crime syndicates alike."
+  pf_content.480.a: "Now this is what I call racing."
+  pf_content.480.b: "Sounds dangerous, shut it down."
+
+  pf_content.490.name: "An Imperial Retreat"
+  pf_content.490.desc: "On a recent state visit to [Root.GetName], a minor member of the ruling family seems to have fallen in love with the planet.\n\nThey've identified a region of spectacular natural beauty to construct a new residence for the Imperial household, but they lack the finances to complete the project alone."
+  pf_content.490.a: "Granted, it will make a valuable asset."
+  pf_content.490.b: "Denied. We have other uses for the land."

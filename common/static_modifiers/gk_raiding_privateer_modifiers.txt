@@ -1,0 +1,14 @@
+# GK Raiding — Privateer Enclave Static Modifiers
+#
+# Fleet upgrade modifiers use vanilla mercenary_fleet_size_upgrade_1 through _5
+# (shared with merc enclaves so ranks carry over on conversion).
+
+# ──────────────────────────────────────────────────────────────────
+# Perk Modifiers (applied to patron country)
+# ──────────────────────────────────────────────────────────────────
+
+# Raider Intelligence — timed (3600 days)
+gk_privateer_raider_intel = {
+	damage_vs_rival_mult = 0.15
+	planet_crime_add = 10
+}

@@ -1,0 +1,232 @@
+decision_pf_climate_enhancements = {
+    owned_planets_only = yes
+    icon = decision_satellite_in_orbit
+
+    enactment_time = 720
+	resources = {
+		category = decisions
+		cost = {
+			energy = 4000
+		}
+	}
+
+    potential = {
+        owner = { has_technology = tech_pf_micro_terraforming}
+        pf_is_world_with_ecosystems = yes
+        NOR = {
+            has_deposit = d_pf_environmental_enhancements_dry
+            has_deposit = d_pf_environmental_enhancements_wet
+            has_deposit = d_pf_environmental_enhancements_cold
+        }
+    }
+
+    allow = {
+        always = yes
+    }
+
+    effect = {
+        if = {
+            limit = { is_dry = yes }
+            add_deposit = d_pf_environmental_enhancements_dry
+        }
+        else_if = {
+            limit = { is_wet = yes }
+            add_deposit = d_pf_environmental_enhancements_wet
+        }
+        else_if = {
+            limit = { is_cold = yes }
+            add_deposit = d_pf_environmental_enhancements_cold
+        }
+    }
+
+    ai_weight = {
+        base = 100
+    }
+}
+
+# Is it worth allowing multiple of these per planet?
+decision_pf_terraform_energy = {
+    owned_planets_only = yes
+    icon = decision_drilling_for_gas
+
+    enactment_time = 720
+	resources = {
+		category = decisions
+		cost = {
+			energy = 2000
+		}
+	}
+
+    potential = {
+        owner = { has_technology = tech_pf_micro_terraforming}
+        pf_is_world_with_ecosystems = yes
+        NOR = {
+            has_deposit = d_pf_geothermal_taps
+            has_deposit = d_pf_exposed_ore_veins
+            has_deposit = d_pf_organised_fields
+        }
+        NOR = {
+            has_planet_flag = pf_micro_terraforming_energy_deposit_queued
+            has_planet_flag = pf_micro_terraforming_minerals_deposit_queued
+            has_planet_flag = pf_micro_terraforming_food_deposit_queued
+        }
+    }
+
+    on_queued = {
+        set_planet_flag = pf_micro_terraforming_energy_deposit_queued
+    }
+
+    on_unqueued = {
+        remove_planet_flag = pf_micro_terraforming_energy_deposit_queued
+    }
+
+    allow = {
+        always = yes
+    }
+
+    effect = {
+        add_deposit = d_pf_geothermal_taps
+    }
+
+    ai_weight = {
+        base = 5
+        modifier = {
+            add = 20
+            has_designation = col_generator
+        }
+        modifier = {
+            add = 50
+            AND = {
+                has_designation = col_generator
+                num_free_districts = {
+                    type = district_generator
+                    value = 0
+                }
+            }
+        }
+    }
+}
+
+decision_pf_terraform_minerals  = {
+    owned_planets_only = yes
+    icon = decision_strip_mining
+
+    enactment_time = 720
+	resources = {
+		category = decisions
+		cost = {
+			energy = 2000
+		}
+	}
+
+    potential = {
+        owner = { has_technology = tech_pf_micro_terraforming}
+        pf_is_world_with_ecosystems = yes
+        NOR = {
+            has_deposit = d_pf_geothermal_taps
+            has_deposit = d_pf_exposed_ore_veins
+            has_deposit = d_pf_organised_fields
+        }
+        NOR = {
+            has_planet_flag = pf_micro_terraforming_energy_deposit_queued
+            has_planet_flag = pf_micro_terraforming_minerals_deposit_queued
+            has_planet_flag = pf_micro_terraforming_food_deposit_queued
+        }
+    }
+
+    on_queued = {
+        set_planet_flag = pf_micro_terraforming_minerals_deposit_queued
+    }
+
+    on_unqueued = {
+        remove_planet_flag = pf_micro_terraforming_minerals_deposit_queued
+    }
+
+    allow = {
+        always = yes
+    }
+
+    effect = {
+        add_deposit = d_pf_exposed_ore_veins
+    }
+
+    ai_weight = {
+        base = 5
+        modifier = {
+            add = 20
+            has_designation = col_mining
+        }
+        modifier = {
+            add = 50
+            AND = {
+                has_designation = col_mining
+                num_free_districts = {
+                    type = district_mining
+                    value = 0
+                }
+            }
+        }
+    }
+}
+
+decision_pf_terraform_food = {
+    owned_planets_only = yes
+    icon = pf_decision_crops
+
+    enactment_time = 720
+	resources = {
+		category = decisions
+		cost = {
+			energy = 2000
+		}
+	}
+
+    potential = {
+        owner = { has_technology = tech_pf_micro_terraforming}
+        pf_is_world_with_ecosystems = yes
+        NOR = {
+            has_deposit = d_pf_geothermal_taps
+            has_deposit = d_pf_exposed_ore_veins
+            has_deposit = d_pf_organised_fields
+        }
+        NOR = {
+            has_planet_flag = pf_micro_terraforming_energy_deposit_queued
+            has_planet_flag = pf_micro_terraforming_minerals_deposit_queued
+            has_planet_flag = pf_micro_terraforming_food_deposit_queued
+        }
+    }
+
+    on_queued = {
+        set_planet_flag = pf_micro_terraforming_food_deposit_queued
+    }
+
+    on_unqueued = {
+        remove_planet_flag = pf_micro_terraforming_food_deposit_queued
+    }
+
+    allow = {
+        always = yes
+    }
+
+    effect = {
+        add_deposit = d_pf_organised_fields
+    }
+
+    ai_weight = {
+        base = 5
+        modifier = {
+            add = 20
+            has_designation = col_farming
+        }
+        modifier = {
+            add = 50
+            AND = {
+                has_designation = col_farming
+                num_free_districts = {
+                    type = district_farming
+                    value = 0
+                }
+            }
+        }
+    }
+}

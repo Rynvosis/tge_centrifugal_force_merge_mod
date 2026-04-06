@@ -1,0 +1,146 @@
+﻿l_english:
+ 
+ ###################
+ # Positive Traits # 12
+ ###################
+ 
+ trait_MST_flexible: "Flexible"
+ trait_MST_flexible_desc: "§LMembers of this species are very flexible in their work-life. Switching to a new job is seen as a minor inconvenience at worst.§!"
+ 
+ trait_MST_toxic: "Toxic"
+ trait_MST_toxic_desc: "§LThis species has evolved to be extremely toxic to most forms of life. Ingesting the flesh of members of this species requires extensive preperation.§!"
+ 
+ trait_MST_fast_maturing: "Fast Maturing"
+ trait_MST_fast_maturing_desc: "§LOffspring of this species finishes its development at an early age.§!"
+ 
+ trait_MST_vocal: "Vocal"
+ trait_MST_vocal_desc: "§LMembers of this species know how to make their opinions loud and clear.§!"
+ 
+ trait_MST_sadistic: "Sadistic"
+ trait_MST_sadistic_desc: "§LThis species experiences intense pleasure when witnessing suffering. As such, members of this species has a natural tendancy for inflicting pain on others.§!"
+ 
+ trait_MST_effective: "Effective"
+ trait_MST_effective_desc: "§LThis species has a natural aptitude for optimization. Even the smallest inconveniences are reduced as much as possible in their quest for effeciancy.§!"
+ 
+ trait_MST_defiant: "Defiant"
+ trait_MST_defiant_desc: "§LNot willing to go down without a fight, members of this species become hardy warriors when under duress.§!"
+ 
+ trait_MST_grotesque: "Grotesque"
+ trait_MST_grotesque_desc: "§LThe physical attributes of this species appear to be distorted, deformed and out of place. Their unnatural appearance can make anyone ill at the merest sight.§!"
+ 
+ trait_MST_stoic: "Unemotional"
+ trait_MST_stoic_desc: "§LDampened emotions enables members of this species to withstand most psychological attacks that would leave lesser species frozen in fear.§!"
+ 
+ trait_MST_low_metabolism: "Low Metabolism"
+ trait_MST_low_metabolism_desc: "§LThis species require very little sustenance, and can go for long stretches of time without eating.§!"
+ 
+ trait_MST_decomposers: "Decomposers"
+ trait_MST_decomposers_desc: "§LThis species ancestors were scavengers that thrived during conflict. Fresh warm bodies are the best place to take root.§!"
+ trait_MST_decomposers_tooltip: "Pop Growth Speed When Purges Are Taking Place: §G+30%§!"
+ 
+ trait_MST_scales: "Hardened Scales"
+ trait_MST_scales_desc: "Scales made of an extraordinarily tough material enables this species to withstand otherwise lethal damage."
+ 
+ #trait_MST_bloom: "Glorious Bloom"
+ #trait_MST_bloom_desc: "Before fully developing, members of this species goes through a long blooming phase which serves as a transition to adulthood."
+ #trait_MST_bloom_tooltip: "Pop Happiness While This Species is Growing: §G+10%§!"
+ 
+ ###################
+ # Negative Traits # 7
+ ###################
+ 
+ #gluttonous
+ trait_MST_ravenous: "Insatiable"
+ trait_MST_ravenous_desc: "§LThis species burns through its calorie reserves at a rate faster than most.§!"
+ 
+ trait_MST_very_ravenous: "Ravenous"
+ trait_MST_very_ravenous_desc: "§LThis species requires more caloric intake than most, and burns through its food reserves at incredible pace.§!"
+ 
+ trait_MST_slow_maturing: "Slow Maturing"
+ trait_MST_slow_maturing_desc: "§LThis species enjoys an incredibly long childhood, which grants them enough time to learn all the outdated survival tactics their ancestors once relied upon.§!"
+ 
+ trait_MST_unambitious: "Unambitious"
+ trait_MST_unambitious_desc: "§LThis species has a primal fear of responsebility and power, which can often result in severe decision paralysis and empty thrones.§!"
+ 
+ trait_MST_sloppy: "Sloppy"
+ trait_MST_sloppy_desc: "§LMembers of this species are extraordinarily bad at performing their job. Oftentimes crucial tasks are left unfinished for days with no one noticing.§!"
+ 
+ trait_MST_weak_immune_system: "Weak Immune System"
+ trait_MST_weak_immune_system_desc: "§LA badly functioning immune system with a tendancy to react at blazingly slow speeds has resulted in a high offspring mortality rate.§!"
+ trait_MST_weak_immune_system_tooltip: "Pop Growth Speed on Non-Ideal Worlds: §R-20%§!"
+ 
+ trait_MST_hedonistic: "Hedonistic"
+ trait_MST_hedonistic_desc: "§LMembers of this species indulges in their most basic desires at every opportunity, finding no reason to delay their entertainment in favor of more productive endevours.§!"
+ 
+ #trait_MST_frail: "Frail"
+ #trait_MST_frail_desc: "§LFragile bones and lacking any natural armor, this species makes for poor soldiers.§!"
+ 
+ #trait_MST_brittle: "Brittle Bones"
+ #trait_MST_brittle_desc: "§LThis species has evolved hollow bones that break easily. While this adaptation is very useful for lowering the mass of the creature, it makes for very delicate soldiers.§!"
+ 
+ #######################
+ # Habitability Traits # 3
+ #######################
+ 
+ trait_MST_cold_blooded: "Cold Blooded"
+ trait_MST_cold_blooded_desc: "§LThe instinct to laze around in the sun is still deeply rooted in this species due to their inability to generate bodily heat on their own.§!\n\n§RRequires§! §YDesert World§! or §YArid World§! §Rhomeworld§!."
+ trait_MST_cold_blooded_tooltip: "Amenities Usage on §YDesert§! and §YArid§! worlds: §G-10%§!\nFood upkeep on §YDesert§! and §YArid§! worlds: §G-10%§!\nAmenities Usage on non-§YDry§! worlds: §R+25%§!\nHabitability on non-§YDry§! worlds: §R-20%§!"
+ 
+ trait_MST_thick_fur: "Thick Fur"
+ trait_MST_thick_fur_desc: "§LThis species has adapted to the freezing cold of their homeworld by developing thick fur that helps them retain heat. This makes them more suited for cold weather, but leaves them ill-suited for warmer climates.§!\n\n§RRequires§! a §YCold§! §Rhomeworld§!."
+ trait_MST_thick_fur_tooltip: "Pop Growth Speed on §YCold§! worlds: §G+10%§!\nAmenities Usage on non-§YCold§! worlds: §R+10%§!\nHabitability on non-§YCold§! worlds: §R-10%§!"
+ 
+ trait_MST_urban: "Urbanist"
+ trait_MST_urban_desc: "Adapted to urban environments, this species thrives in enclosed spaces and vast arrays of neverending arcologies."
+ trait_MST_urban_tooltip: "§YPop Happiness§! and §YEfficiency§! on §YUrban§!, §YArtificial§!, and §YCapital§! worlds: §G+10%§!\n§YEfficiency§! on §YNon-Urban§!, §YNon-Artificial§!, and §YNon-Capital§! worlds: §R-25%§!"
+ 
+ ###########################
+ # Robot Traits (Positive) # 4
+ ###########################
+ 
+ trait_MST_robot_hot_swap: "Hot-Swappable Components"
+ trait_MST_robot_hot_swap_desc: "Most components in this machine can be swapped during operation with no noticeable side-effects."
+ 
+ trait_MST_robot_research_algorithms: "Research Algorithms"
+ trait_MST_robot_research_algorithms_desc: "These robots come pre-loaded with scientific algorithms, powerful enough to let most individual units understand even the most complex of scientific theories."
+ 
+ trait_MST_robot_cubepacked: "Cubepacked"
+ trait_MST_robot_cubepacked_desc: "Foldable limbs and retractable apendages allows for these units to be shipped en masse to wherever the buyer wants them delivered."
+ 
+ trait_MST_robot_hardshelled: "Insulated Chassis"
+ trait_MST_robot_hardshelled_desc: "These robots have been made heatproof, coldproof, waterproof, lightningproof and radiation proof. They will continue to work, even in the worst of conditions."
+ 
+ ###########################
+ # Robot Traits (Negative) # 7
+ ###########################
+ 
+ trait_MST_robot_pre_developed_cortex: "Pre-Developed Personality Matrix"
+ trait_MST_robot_pre_developed_cortex_desc: "These robotic units come straight from the factory with an overly complex personality, complete with preferences, memories and opinions."
+ 
+ trait_MST_robot_pacifist_protocols: "Violence Inhibitors"
+ trait_MST_robot_pacifist_protocols_desc: "Special code inhibits most actions that could be considered potentially harmful for biological organisms."
+ 
+ trait_MST_robot_bitcoinminer: "Crypto Currency Miners"
+ trait_MST_robot_bitcoinminer_desc: "Part of these machines memory units have been dedicated to cryptomining programs, allowing the unit to make credits by using its memory conflux and other personality-creating processors to produce fictional resources."
+ trait_MST_robot_bitcoinminer_tt: "Every $pop_group_unit$ £pop£ §HPops§! working as a slave or better produces 0.1 £trade£ §YTrade§! per month\n    -   Increases $r_energy$ Upkeep by §R+1§!."
+ 
+ #trait_MST_robot_repairbots: ""
+ #trait_MST_robot_repairbots_desc: ""
+ 
+ trait_MST_robot_finecircutry: "Delicate Circutry"
+ trait_MST_robot_finecircutry_desc: "These robots have been designed for a very specific purpose and envitonment. Using them for anything else will cause rapid degredation of its chassis and ultimately its inner workings."
+ 
+ trait_MST_robot_bugriddled: "Error-filled"
+ trait_MST_robot_bugriddled_desc: "The code for these units were seemingly made by mammallians trying to recreate a famous play by another, more evolved mammalian. Safe to say, it isn't very optimized."
+ 
+ trait_MST_robot_harcoded: "Physical Programming"
+ trait_MST_robot_harcoded_desc: "These robots come with bespoke physically-based programming. Moving parts and cogs turning is responsible for thought and personality. As such, any change to their programming is a long and arduous process."
+ 
+ trait_MST_robot_slowneuralnet: "Physical Networking"
+ trait_MST_robot_slowneuralnet_desc: "The unique physical differences between every processor of these robots might ensure unique personalities, but it also makes it cumbersome to copy advanced knowledge from one unit to another. As such, any capacity for complex tasks relies on the training of their internal neural network."
+ 
+ ########################
+ # Vanilla Localization #
+ ########################
+ 
+ mod_planet_pops_food_upkeep_mult: "Pop Food Upkeep"

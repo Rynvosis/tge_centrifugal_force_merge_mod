@@ -1,0 +1,20 @@
+on_game_start_country = {
+	events = {
+		muteGDiversity.01
+	}
+}
+
+on_single_player_save_game_load = {
+	events = {
+		muteGDiversity.01
+	}
+}
+
+on_leader_spawned = {
+	events = {
+		muteGDiversity.100
+		muteGDiversity.101
+		muteGDiversity.102
+		muteGDiversity.103
+	}
+}

@@ -1,0 +1,1086 @@
+namespace = pf_core
+
+# Set mod flag
+event = {
+	id = pf_core.0
+	hide_window = yes
+	is_triggered_only = yes
+	fire_only_once = yes
+	immediate = { set_global_flag = planet_flavour_is_active }
+}
+
+# Add extraterrestrial life modifier
+event = {
+    id = pf_core.10
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+        every_system = {
+            limit = {
+                NOT = {
+                    has_star_flag = home_system
+                }
+                count_system_planet = {
+                    limit = {
+                        pf_is_valid_planet_for_extraplanetary_life = yes
+                    }
+                    count > 1
+                }
+            }
+            every_system_planet = {
+                limit = {
+                    pf_is_valid_planet_for_extraplanetary_life = yes
+                }
+                add_modifier = { modifier = pf_pm_extraplanetary_life }
+            }
+        }
+    }
+}
+
+# Add planetary rings modifier
+event = {
+    id = pf_core.11
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+        every_system = {
+            limit = {
+                any_system_planet = {
+                    has_ring = yes
+                }
+            }
+            every_system_planet = {
+                limit = { has_ring = yes }
+                add_modifier = { modifier = pf_pm_planetary_rings }
+            }
+        }
+    }
+}
+
+# Clear pf modifiers from pre-ftl worlds
+event = {
+    id = pf_core.12
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+        every_country = {
+            limit = {
+                is_country_type = primitive
+            }
+            capital_scope = {
+                remove_modifier = pf_pm_ice_age
+                remove_modifier = pf_pm_floral_world
+                remove_modifier = pf_pm_biocrystals
+                remove_modifier = pf_pm_severe_droughts
+                remove_modifier = pf_pm_overgrown
+                remove_modifier = pf_pm_floating_rocks
+                remove_modifier = pf_pm_thick_atmosphere
+                remove_modifier = pf_pm_thin_atmosphere
+                remove_modifier = pf_pm_irradiated_world
+                remove_modifier = pf_pm_subterranean_cave_systems
+                remove_modifier = pf_pm_dim_world
+                remove_modifier = pf_pm_tidal_surges
+                remove_modifier = pf_pm_fungal_world
+                remove_modifier = pf_pm_extraplanetary_life
+                remove_modifier = pf_pm_megacoral_reefs
+                remove_modifier = pf_pm_bioluminescent_flora
+                remove_modifier = pf_pm_toxic_spores
+                remove_modifier = pf_pm_abundant_parasites
+                remove_modifier = pf_pm_canyon_world
+                remove_modifier = pf_pm_tropical_archipelagos
+                remove_modifier = pf_pm_snowball_world
+                remove_modifier = pf_pm_volcanic_soils
+                remove_modifier = pf_pm_chirping_plains
+                remove_modifier = pf_pm_bone_world
+                remove_modifier = pf_pm_dry_world
+                remove_modifier = pf_pm_swamp_world
+                remove_modifier = pf_pm_aurora_lights
+                if = {
+                    limit = {
+                        solar_system = {
+                            NOT = { has_star_flag = pf_betharian_primitives_system }
+                        }
+                    }
+                    remove_modifier = pf_pm_arboreal_ecosystem
+                }
+                remove_modifier = pf_pm_harsh
+                remove_modifier = pf_pm_abyssal_seas
+                remove_modifier = pf_pm_irregular_orbit
+                remove_modifier = pf_pm_subglacial_seas
+                remove_modifier = pf_pm_equatorial_deserts
+                remove_modifier = pf_pm_ideal_sunshine
+                remove_modifier = pf_pm_harmonious_ecosystems
+                remove_modifier = pf_pm_wild_sandstorms
+                remove_modifier = pf_pm_saline_seas
+                remove_modifier = pf_pm_impenetrable_jungles
+                remove_modifier = pf_pm_fertile_tundras
+                remove_modifier = pf_pm_harsh_badlands
+                remove_modifier = pf_pm_verdant_oases
+                remove_modifier = pf_pm_flash_floods
+                remove_modifier = pf_pm_fertile_silts
+                remove_modifier = pf_pm_axial_tilt
+                remove_modifier = pf_pm_leviathan_oceans
+                remove_modifier = pf_pm_ancient_fossil_strata
+                remove_modifier = pf_pm_delta_world
+                remove_modifier = pf_pm_seed_world
+                remove_modifier = pf_pm_rain_world
+            }
+        }
+    }
+}
+
+# Add holy world deposits
+event = {
+    id = pf_core.13
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+        every_system = {
+            limit = {
+                OR = {
+                    has_star_flag = holy_system_1
+                    has_star_flag = holy_system_2
+                    has_star_flag = holy_system_3
+                    has_star_flag = holy_system_4
+                }
+            }
+            every_system_planet = {
+                limit = { has_planet_flag = holy_world_1 }
+                add_deposit = d_pf_holy_world_monoliths
+            }
+            every_system_planet = {
+                limit = { has_planet_flag = holy_world_2 }
+                add_deposit = d_pf_holy_world_psionic_leylines
+            }
+            every_system_planet = {
+                limit = { has_planet_flag = holy_world_3 }
+                add_deposit = d_pf_holy_world_sacred_groves
+            }
+            every_system_planet = {
+                limit = { has_planet_flag = holy_world_4 }
+                add_deposit = d_pf_holy_world_overgrown_temples
+            }
+        }
+    }
+}
+
+# Terraforming cleanup
+planet_event = {
+    id = pf_core.20
+    hide_window = yes
+    is_triggered_only = yes
+
+    immediate = {
+        # Always change these
+        pf_clear_always_removed_modifiers = yes
+
+        # Changed to a wet world
+        if = {
+            limit = { is_wet = yes }
+            remove_modifier = pf_pm_ice_age
+            remove_modifier = pf_pm_severe_droughts
+            remove_modifier = pf_pm_toxic_spores
+            remove_modifier = pf_pm_canyon_world
+            
+            remove_modifier = pf_pm_snowball_world
+            remove_modifier = pf_pm_abundant_parasites
+            remove_modifier = pf_pm_wild_sandstorms
+            remove_modifier = pf_pm_fertile_tundras
+
+            remove_modifier = pf_pm_verdant_oases
+            remove_modifier = pf_pm_fertile_silts
+            remove_modifier = pf_pm_rain_world
+            remove_modifier = pf_pm_seed_world
+        }
+        # Changed to a dry world
+        if = {
+            limit = { is_dry = yes }
+            remove_modifier = pf_pm_ice_age
+            remove_modifier = pf_pm_biocrystals
+            remove_modifier = pf_pm_floral_world
+            remove_modifier = pf_pm_fungal_world
+
+            remove_modifier = pf_pm_tidal_surges
+            remove_modifier = pf_pm_toxic_spores
+            remove_modifier = pf_pm_snowball_world
+            remove_modifier = pf_pm_megacoral_reefs
+
+            remove_modifier = pf_pm_bioluminescent_flora
+            remove_modifier = pf_pm_abundant_parasites
+            remove_modifier = pf_pm_tropical_archipelagos
+            remove_modifier = pf_pm_volcanic_soils
+
+            remove_modifier = pf_pm_arboreal_ecosystem
+            remove_modifier = pf_pm_abyssal_seas
+            remove_modifier = pf_pm_fertile_tundras
+            remove_modifier = pf_pm_leviathan_oceans
+
+            remove_modifier = pf_pm_deep_sea_mineral_beds
+            remove_modifier = pf_pm_delta_world
+            remove_modifier = pf_pm_seed_world
+            remove_modifier = pf_pm_rain_world
+        }
+
+        # Changed to a cold world
+        if = {
+            limit = { is_cold = yes }
+            remove_modifier = pf_pm_biocrystals
+            remove_modifier = pf_pm_floral_world
+            remove_modifier = pf_pm_tidal_surges
+            remove_modifier = pf_pm_toxic_spores
+
+            remove_modifier = pf_pm_megacoral_reefs
+            remove_modifier = pf_pm_abundant_parasites
+            remove_modifier = pf_pm_tropical_archipelagos
+            remove_modifier = pf_pm_canyon_world
+
+            remove_modifier = pf_pm_severe_droughts
+            remove_modifier = pf_pm_arboreal_ecosystem
+            remove_modifier = pf_pm_wild_sandstorms
+            remove_modifier = pf_pm_verdant_oases
+
+            remove_modifier = pf_pm_fertile_silts
+            remove_modifier = pf_pm_leviathan_oceans
+            remove_modifier = pf_pm_deep_sea_mineral_beds
+
+            if = {
+                limit = { NOT = { is_planet_class = pc_arctic}}
+                remove_modifier = pf_pm_snowball_world
+            }
+
+            remove_modifier = pf_pm_delta_world
+            remove_modifier = pf_pm_seed_world
+            remove_modifier = pf_pm_rain_world
+        }
+    }
+}
+# TODO: This doesnt correctly remove nature modifiers
+# Terraforming to worlds with no / limited biosphere.
+planet_event = {
+    id = pf_core.21
+    hide_window = yes
+    is_triggered_only = yes
+
+    # Remove ALL nature modifiers
+    immediate = {
+        if = {
+            limit = {
+                pf_is_world_with_ecosystems = no
+            }
+            if = {
+                limit = {
+                    # Going "up" a tier so we remove more negative modifiers
+                    OR = {
+                        is_planet_class = pc_city
+                        is_planet_class = pc_machine
+                        is_planet_class = pc_hive
+                        is_planet_class = pc_nanotech
+                        is_artificial = yes
+                    }
+                }
+                # Remove these as it does make sense for tomb worlds to have them, but otherwise should be removed.
+                remove_modifier = pf_pm_irradiated_world
+                remove_modifier = pf_pm_severe_droughts
+                remove_modifier = pf_pm_harsh
+                remove_modifier = pf_pm_wild_sandstorms
+
+                remove_modifier = pf_pm_canyon_world
+
+            }
+            if = {
+                limit = {
+                    # Going "down" a tier, so we remove more positive modifiers
+                    OR = {
+                        is_planet_class = pc_nuked
+                        AND = {
+                            is_colony = no
+                            is_colonizable = no
+                        }
+                    }
+                }
+                remove_modifier = pf_pm_extraplanetary_life
+            }
+
+            # Always remove these no matter what as there is no ecosystem anymore
+            remove_modifier = pf_pm_ice_age
+            remove_modifier = pf_pm_floral_world
+            remove_modifier = pf_pm_biocrystals
+            remove_modifier = pf_pm_overgrown
+
+            remove_modifier = pf_pm_floating_rocks
+            remove_modifier = pf_pm_tidal_surges
+            remove_modifier = pf_pm_fungal_world
+            remove_modifier = pf_pm_megacoral_reefs
+
+            remove_modifier = pf_pm_bioluminescent_flora
+            remove_modifier = pf_pm_toxic_spores
+            remove_modifier = pf_pm_abundant_parasites
+            remove_modifier = pf_pm_tropical_archipelagos
+
+            remove_modifier = pf_pm_snowball_world
+            remove_modifier = pf_pm_volcanic_soils
+            remove_modifier = pf_pm_chirping_plains
+            remove_modifier = pf_pm_bone_world
+
+            remove_modifier = pf_pm_arboreal_ecosystem
+            remove_modifier = pf_pm_abyssal_seas
+            remove_modifier = pf_pm_equatorial_deserts
+            remove_modifier = pf_pm_subglacial_seas
+
+            remove_modifier = pf_pm_harmonious_ecosystems
+            remove_modifier = pf_pm_saline_seas
+            remove_modifier = pf_pm_fertile_tundras
+            remove_modifier = pf_pm_impenetrable_jungles
+
+            remove_modifier = pf_pm_verdant_oases
+            remove_modifier = pf_pm_flash_floods
+            remove_modifier = pf_pm_fertile_silts
+            remove_modifier = pf_pm_leviathan_oceans
+
+            remove_modifier = pf_pm_delta_world
+            remove_modifier = pf_pm_seed_world
+            remove_modifier = pf_pm_rain_world
+        }
+    }
+}
+
+# Multi planet ecosystem handling
+# Doing it seperate since it's a little bit more extra stuff
+planet_event = {
+    id = pf_core.22
+    hide_window = yes
+    is_triggered_only = yes
+
+    immediate = {
+        # Multi planetary ecosystem
+        if = {
+            limit = {
+                NOR = {
+                    is_planet_class = pc_tropical
+                    is_planet_class = pc_gaia
+                }
+            }
+            remove_modifier = pf_pm_multi_planetary_ecosystem
+            # If only one other world has tropical or gaia, we want to remove the modifier from it too as it's no longer multiplanetary.
+            if = {
+                limit = {
+                    solar_system = {
+                        count_system_planet = {
+                            count = 1
+                            limit = {
+                                has_modifier = pf_pm_multi_planetary_ecosystem
+                            }
+                        }
+                    }
+                }
+                solar_system = {
+                    random_system_planet = {
+                        limit = { has_modifier = pf_pm_multi_planetary_ecosystem}
+                        planet_event = { id = pf_content.10 }
+                    }
+                }
+            }
+        }
+    }
+}
+
+# Add dry world modifier effects
+event = {
+    id = pf_core.30
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+        every_system = {
+            limit = {
+                any_system_planet = {
+                    has_modifier = pf_pm_dry_world
+                }
+            }
+            every_system_planet = {
+                limit = { has_modifier = pf_pm_dry_world }
+                set_planet_flag = pf_dry_world
+                set_planet_entity = {
+                    entity = planet_flavour_dry_desert_planet_entity
+                }
+            }
+        }
+    }
+}
+
+# Add swamp world modifier effects
+event = {
+    id = pf_core.31
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+        every_system = {
+            limit = {
+                any_system_planet = {
+                    has_modifier = pf_pm_swamp_world
+                }
+            }
+            every_system_planet = {
+                limit = { has_modifier = pf_pm_swamp_world }
+                set_planet_flag = pf_swamp_world
+                while = {
+                    count = 4
+                    add_deposit = d_noxious_swamp
+                }
+                add_deposit = d_bubbling_swamp
+            }
+        }
+    }
+}
+
+# Add tomb world modifiers
+event = {
+    id = pf_core.40
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+        every_system = {
+            limit = {
+                any_system_planet = {
+                    is_planet_class = pc_nuked
+                }
+                NOR = {
+                    has_star_flag = ratling_system
+                    has_star_flag = superflare_system
+                }
+            }
+            every_system_planet = {
+                limit = {
+                    is_planet_class = pc_nuked
+                    is_colony = no # No modifiers on colony worlds.
+                }
+                # Lets us control for special content worlds
+                switch = {
+                    trigger = has_planet_flag
+                    more_earths_red_refuge_earth = {
+                        add_modifier = { modifier = pf_pm_nuclear_exchange }
+                    }
+                    more_earths_kpg_impact_earth = {
+                        add_modifier = { modifier = pf_pm_asteroid_impact }
+                    }
+
+                    default = {
+                        random_list = {
+                            20 = {}
+                            5 = { add_modifier = { modifier = pf_pm_nuclear_exchange }}
+                            5 = { add_modifier = { modifier = pf_pm_glassed_world }}
+                            5 = { add_modifier = { modifier = pf_pm_asteroid_impact }}
+                            1 = {
+                                add_modifier = { modifier = pf_pm_recent_asteroid_impact }
+                                # 25 years + 50 year random delay.
+                                planet_event = { id = pf_content.20 days = 9000 random = 18000 }
+                            }
+                            5 = {
+                                add_modifier = { modifier = pf_pm_recovering_biosphere }
+                                set_planet_entity = { entity = planet_flavour_recovering_tomb_planet_entity }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        # Special systems
+        every_system = {
+            limit = {
+                has_star_flag = ratling_system
+            }
+            every_system_planet = {
+                limit = {
+                    is_planet_class = pc_nuked
+                }
+                add_modifier = { modifier = pf_pm_junk_world }
+            }
+        }
+    }
+}
+
+# Add glassing modifier on armageddon bombard
+planet_event = {
+	id = pf_core.41
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_orbital_bombardment_stance = armageddon
+		from = {
+			OR = {
+				is_country_type = default
+				is_country_type = fallen_empire
+				is_country_type = awakened_fallen_empire
+			}
+		}
+		habitable_planet = yes
+	}
+
+	immediate = {
+		random_list = {
+            5 = {}
+            5 = {
+                add_modifier = { modifier = pf_pm_glassed_world }
+            }
+        }
+	}
+}
+
+# Add nuclear exchange modifier for pre-ftl nukings
+planet_event = {
+	id = pf_core.42
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_planet_class = pc_nuked
+        OR = {
+            has_planet_flag = pre_ftls_nuked_themselves
+            AND = {
+                exists = owner
+                owner = {
+                    is_primitive = yes
+                }
+            }
+        }
+	}
+
+	immediate = {
+		add_modifier = { modifier = pf_pm_nuclear_exchange }
+	}
+}
+
+# Add Pyorun and Czryni nuclear exchange
+event = {
+    id = pf_core.43
+    hide_window = yes
+    is_triggered_only = yes
+
+    immediate = {
+        random_system = {
+            limit = {
+                any_system_planet = {
+                    OR = {
+                        has_planet_flag = czyrni_planet
+                        has_planet_flag = pyorun_planet
+                    }
+                }
+            }
+            every_system_planet = {
+                limit = {
+                    OR = {
+                        has_planet_flag = czyrni_planet
+                        has_planet_flag = pyorun_planet
+                    }
+                }
+                add_modifier = { modifier = pf_pm_nuclear_exchange }
+            }
+        }
+    }
+}
+
+# Swap micro terraforming environmental enhancement deposits
+planet_event = {
+    id = pf_core.50
+    hide_window = yes
+    is_triggered_only = yes
+
+    trigger = {
+        OR = {
+            has_deposit = d_pf_environmental_enhancements_dry
+            has_deposit = d_pf_environmental_enhancements_wet
+            has_deposit = d_pf_environmental_enhancements_cold
+        }
+    }
+
+    immediate = {
+        if = {
+            limit = {
+                pf_is_world_with_ecosystems = yes
+                is_dry = yes
+            }
+            remove_deposit = d_pf_environmental_enhancements_wet
+            remove_deposit = d_pf_environmental_enhancements_cold
+
+            add_deposit = d_pf_environmental_enhancements_dry
+        }
+
+        if = {
+            limit = {
+                pf_is_world_with_ecosystems = yes
+                is_wet = yes
+            }
+            remove_deposit = d_pf_environmental_enhancements_dry
+            remove_deposit = d_pf_environmental_enhancements_cold
+
+            add_deposit = d_pf_environmental_enhancements_wet
+        }
+
+        if = {
+            limit = {
+                pf_is_world_with_ecosystems = yes
+                is_cold = yes
+            }
+            remove_deposit = d_pf_environmental_enhancements_dry
+            remove_deposit = d_pf_environmental_enhancements_wet
+
+            add_deposit = d_pf_environmental_enhancements_cold
+		}
+	}
+}
+
+# Clear uninhabitable modifiers from invalid systems
+event = {
+    id = pf_core.100
+    hide_window = yes
+    is_triggered_only = yes
+
+    immediate = {
+        every_system = {
+            limit = {
+                OR = {
+                    any_system_planet = { is_colony = yes }
+                    has_owner = yes
+                }
+            }
+            every_system_planet = {
+                remove_modifier = pf_pm_mega_storms
+                remove_modifier = pf_pm_tidal_forces
+                remove_modifier = pf_pm_isotopic_atmosphere
+                remove_modifier = pf_pm_ancient_impact_sites
+                remove_modifier = pf_pm_primordial_world
+                remove_modifier = pf_pm_cryovolcanoes
+                if = {
+                    # Lets us keep Europa with this
+                    limit = { solar_system = { not = { has_star_flag = sol_system} }}
+                    remove_modifier = pf_pm_subsurface_oceans
+                }
+                remove_modifier = pf_pm_hot_gas_giant
+                remove_modifier = pf_pm_metallic_asteroid
+                remove_modifier = pf_pm_asteroid_bombardment
+                remove_modifier = pf_pm_protoplanetary_disk
+            }
+        }
+    }
+}
+
+# Add deposits for gas modifiers
+ship_event = {
+	id = pf_core.101
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		from = {
+			NOT = {
+				has_planet_flag = deposit_added
+			}
+			is_colonizable = no
+			OR = {
+				has_modifier = pf_pm_isotopic_atmosphere
+			}
+			NOR = {
+                has_deposit  = d_exotic_gases_3
+				has_deposit = d_exotic_gases_4
+				has_deposit = d_exotic_gases_5
+			}
+		}
+	}
+
+	immediate = {
+		from = {
+			prevent_anomaly = yes
+			hidden_effect = {
+				from = {
+					if = {
+						limit = {
+							NOT = { has_deposit_for = shipclass_mining_station }
+						}
+						clear_deposits = yes
+					}
+					set_planet_flag = deposit_added
+                    random_list = {
+                        1 = { add_deposit = d_exotic_gases_1 }
+                        1 = { add_deposit = d_exotic_gases_2 }
+                    }
+				}
+			}
+		}
+	}
+}
+
+# Add deposits for motes modifiers
+ship_event = {
+	id = pf_core.102
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		from = {
+			NOT = {
+				has_planet_flag = deposit_added
+			}
+			is_colonizable = no
+			OR = {
+				has_modifier = pf_pm_ancient_impact_sites
+			}
+			NOR = {
+                has_deposit  = d_volatile_motes_3
+				has_deposit = d_volatile_motes_4
+				has_deposit = d_volatile_motes_5
+			}
+		}
+	}
+
+	immediate = {
+		from = {
+			prevent_anomaly = yes
+			hidden_effect = {
+				from = {
+					if = {
+						limit = {
+							NOT = { has_deposit_for = shipclass_mining_station }
+						}
+						clear_deposits = yes
+					}
+					set_planet_flag = deposit_added
+                    random_list = {
+                        1 = { add_deposit = d_volatile_motes_1 }
+                        1 = { add_deposit = d_volatile_motes_2 }
+                    }
+				}
+			}
+		}
+	}
+}
+
+# Add deposits for energy modifiers
+ship_event = {
+	id = pf_core.103
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		from = {
+			NOT = {
+				has_planet_flag = deposit_added
+			}
+			is_colonizable = no
+			OR = {
+				has_modifier = pf_pm_mega_storms
+                has_modifier = pf_pm_tidal_forces
+			}
+			NOR = {
+				has_deposit = d_energy_7
+				has_deposit = d_energy_8
+				has_deposit = d_energy_9
+				has_deposit = d_energy_10
+				has_deposit = d_guardian_dragon_hoard
+			}
+		}
+	}
+
+	immediate = {
+		from = {
+			prevent_anomaly = yes
+			hidden_effect = {
+				from = {
+					if = {
+						limit = {
+							NOT = { has_deposit_for = shipclass_mining_station }
+						}
+						clear_deposits = yes
+					}
+					set_planet_flag = deposit_added
+                    random_list = {
+					    3 = { add_deposit = d_energy_4 }
+					    2 = { add_deposit = d_energy_5 }
+					    1 = { add_deposit = d_energy_6 }
+                    }
+				}
+			}
+		}
+	}
+}
+
+# Apply modifiers to Sol system
+event = {
+    id = pf_core.104
+    hide_window = yes
+    is_triggered_only = yes
+
+    # It's a bit crude the way that we identify planets, but it allows us to avoid overwriting
+    immediate = {
+        # If for some unhinged reason we have 2 Sols, this should still catch it
+        every_system = {
+            limit = { has_star_flag = sol_system }
+            # Mars
+            random_system_planet = {
+                limit = {
+                    AND = {
+                        is_planet_class = pc_barren
+                        OR = {
+                            has_planet_flag = planet_mars
+                            planet_size = 13
+                        }
+                    }
+                }
+                add_deposit = d_pf_olympus_mons
+                # Nuked sol only
+                if = {
+                    limit = { solar_system = { has_star_flag = nuked_sol }}
+                    random_list = {
+                        1 = { add_deposit = d_pf_ruined_mars_colony }
+                        2 = {}
+                    }
+                }
+            }
+            # Jupiter
+            random_system_planet = {
+                limit = {
+                    AND = {
+                        is_planet_class = pc_gas_giant
+                        OR = {
+                            has_planet_flag = jupiter
+                            planet_size = 35
+                        }
+                    }
+                }
+                # Europa
+                random_moon = {
+                    limit = {
+                        AND = {
+                            is_planet_class = pc_frozen
+                            OR = {
+                                has_planet_flag = europa
+                                planet_size = 6
+                            }
+                        }
+                    }
+                    add_modifier = { modifier = pf_pm_subsurface_oceans }
+                    add_deposit = d_society_2
+                }
+            }
+        }
+    }
+}
+
+# Add deposits for society modifiers
+ship_event = {
+	id = pf_core.105
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		from = {
+			NOT = {
+				has_planet_flag = deposit_added
+			}
+			is_colonizable = no
+			OR = {
+				has_modifier = pf_pm_subsurface_oceans
+			}
+			NOR = {
+				has_deposit = d_society_3
+				has_deposit = d_society_4
+				has_deposit = d_society_5
+				has_deposit = d_society_6
+				has_deposit = d_society_7
+				has_deposit = d_society_8
+				has_deposit = d_society_9
+				has_deposit = d_society_10
+				has_deposit = d_society_15
+				has_deposit = d_society_25
+			}
+		}
+	}
+
+	immediate = {
+		from = {
+			prevent_anomaly = yes
+			hidden_effect = {
+				from = {
+					if = {
+						limit = {
+							NOT = { has_deposit_for = shipclass_research_station }
+						}
+						clear_deposits = yes
+					}
+					set_planet_flag = deposit_added
+                    add_deposit = d_society_2
+				}
+			}
+		}
+	}
+}
+
+# Identify Hot Gas Giants
+event = {
+    id = pf_core.106
+    hide_window = yes
+    is_triggered_only = yes
+
+	immediate = {
+        every_system = {
+            limit = {
+                NOR = {
+                    has_star_flag = tiyanki_home_system     # We don't want to boil the Tiyanki
+                    has_star_flag = tiyanki_spawn_system
+                }
+                any_system_planet = {
+                    is_planet_class = pc_gas_giant
+                }
+            }
+            every_system_planet = {
+                limit = { is_planet_class = pc_gas_giant }
+                if = {
+                    limit = {
+                        distance = {
+                            source = system_star
+                            same_solar_system = yes
+							min_distance >= 1
+							max_distance <= 75 # Need to give this value a look, but it seems good.
+                        }
+                    }
+                    add_modifier = { modifier = pf_pm_hot_gas_giant }
+                    random_list = {
+                        2 = {
+                            set_planet_entity = {
+                                entity = planet_flavour_hot_gas_giant_entity_01
+                                atmosphere_color = hsv { 0.05 0.65 1.4 }
+                            }
+                        }
+                        1 = {
+                            set_planet_entity = {
+                                entity = planet_flavour_hot_gas_giant_entity_02
+                                atmosphere_color = hsv { 0.548 0.519 0.9 }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+# Add deposits for alloy modifiers
+ship_event = {
+	id = pf_core.107
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		from = {
+			NOT = {
+				has_planet_flag = deposit_added
+			}
+			is_colonizable = no
+			OR = {
+				has_modifier = pf_pm_metallic_asteroid
+			}
+			NOR = {
+				has_deposit = d_alloys_4
+				has_deposit = d_alloys_5
+				has_deposit = d_alloys_10
+				has_deposit = d_alloys_25
+			}
+		}
+	}
+
+	immediate = {
+		from = {
+			prevent_anomaly = yes
+			hidden_effect = {
+				from = {
+					if = {
+						limit = {
+							NOT = { has_deposit_for = shipclass_mining_station }
+						}
+						clear_deposits = yes
+					}
+					set_planet_flag = deposit_added
+                    random_list = {
+					    1 = { add_deposit = d_alloys_1 }
+					    1 = { add_deposit = d_alloys_2 }
+					    1 = { add_deposit = d_alloys_3 }
+                    }
+				}
+			}
+		}
+	}
+}
+
+# Rare Resource distribution event
+event = {
+	id = pf_core.200
+    hide_window = yes
+    is_triggered_only = yes
+
+    immediate = {
+        # Wet
+        inline_script = {
+            script = planet_flavour/pf_rare_resource_homeworld_spawn
+            MODIFIER = pf_pm_rare_wood_homeworld
+            PLANET_CLASS = pc_tropical
+        }
+        inline_script = {
+            script = planet_flavour/pf_rare_resource_homeworld_spawn
+            MODIFIER = pf_pm_iridescent_pearls_homeworld
+            PLANET_CLASS = pc_ocean
+        }
+        inline_script = {
+            script = planet_flavour/pf_rare_resource_homeworld_spawn
+            MODIFIER = pf_pm_sea_ferns_homeworld
+            PLANET_CLASS = pc_continental
+        }
+
+        # Dry
+        inline_script = {
+            script = planet_flavour/pf_rare_resource_homeworld_spawn
+            MODIFIER = pf_pm_desert_silks_homeworld
+            PLANET_CLASS = pc_desert
+        }
+        inline_script = {
+            script = planet_flavour/pf_rare_resource_homeworld_spawn
+            MODIFIER = pf_pm_rare_spices_homeworld
+            PLANET_CLASS = pc_arid
+        }
+        inline_script = {
+            script = planet_flavour/pf_rare_resource_homeworld_spawn
+            MODIFIER = pf_pm_amberfruit_homeworld
+            PLANET_CLASS = pc_savannah
+        }
+
+        # Cold
+        inline_script = {
+            script = planet_flavour/pf_rare_resource_homeworld_spawn
+            MODIFIER = pf_pm_mountain_flowers_homeworld
+            PLANET_CLASS = pc_alpine
+        }
+        inline_script = {
+            script = planet_flavour/pf_rare_resource_homeworld_spawn
+            MODIFIER = pf_pm_fungal_caves_homeworld
+            PLANET_CLASS = pc_arctic
+        }
+        inline_script = {
+            script = planet_flavour/pf_rare_resource_homeworld_spawn
+            MODIFIER = pf_pm_marsh_roots_homeworld
+            PLANET_CLASS = pc_tundra
+        }
+    }
+}

@@ -1,0 +1,2137 @@
+######################## Mute Extended Species Sets ###########################
+
+### Generic Traits ### Available to all
+ ### Competitive 	Specialists bonus Workforce based on Rivaries
+ trait_mgd_competitive = {
+	cost = 4
+    category = normal
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { "trait_mgd_anxious" }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	tags = { organic positive pop_output }
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_GENERIC
+	}
+	custom_tooltip = trait_mgd_competitive_effects
+	triggered_pop_group_modifier = {
+		potential = {
+			owner = {
+				num_rivals > 0
+			}
+		}
+		pop_cat_specialist_bonus_workforce_mult = 0.05
+		mult = owner.trigger:num_rivals
+	}
+
+	slave_cost = {
+		energy = 750
+	}
+ }
+ ### Militant	
+ trait_mgd_militant = {
+	cost = -1
+	category = normal
+	species_potential_add = {
+		can_add_negative_organic_traits = yes
+	}
+	opposites = { "trait_mgd_peaceful" }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	tags = { organic negative happiness ethic_attraction }
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_GENERIC
+	}
+	custom_tooltip_with_modifiers = trait_mgd_militant_effects
+	modifier = {
+		pop_ethic_militarist_attraction_mult = 0.25
+	}
+	triggered_pop_group_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				NOT = {
+					is_at_war = yes	
+				}
+			}
+		}
+		pop_happiness = -0.10
+	}
+
+	slave_cost = {
+		energy = -500
+	}
+ }
+ ### Peaceful
+ trait_mgd_peaceful = {
+	cost = -1
+	category = normal
+	species_potential_add = {
+		can_add_negative_organic_traits = yes
+	}
+	opposites = { "trait_mgd_militant" }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	tags = { organic negative happiness ethic_attraction }
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_GENERIC
+	}
+	custom_tooltip_with_modifiers = trait_mgd_peaceful_effects
+	modifier = {
+		pop_ethic_pacifist_attraction_mult = 0.25
+	}
+	triggered_pop_group_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_at_war = yes
+			}
+		}
+		pop_happiness = -0.10
+	}
+
+	slave_cost = {
+		energy = -500
+	}
+ }
+ ### Rebellious
+ trait_mgd_rebellious = {
+	cost = -3
+	category = normal
+	species_potential_add = {
+		can_add_negative_organic_traits = yes
+	}
+	opposites = { trait_mgd_patriotic }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	tags = { organic negative ethic_attraction }
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_GENERIC
+	}
+	modifier = {
+		pop_government_ethic_attraction = -0.50
+		pop_criminal_bonus_workforce_mult = 0.50
+	}
+	slave_cost = {
+		energy = -500
+	}
+ }
+ ### Patriotic
+ trait_mgd_patriotic = {
+	cost = 3
+	category = normal
+	species_potential_add = {
+		can_add_negative_organic_traits = yes
+	}
+	opposites = { trait_mgd_rebellious }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	tags = { organic positive ethic_attraction }
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_GENERIC
+	}
+	modifier = {
+		pop_government_ethic_attraction = 0.50
+		pop_soldier_bonus_workforce_mult = 0.25
+	}
+	slave_cost = {
+		energy = -500
+	}
+ }
+ ### Anxious 		Reduced Job Output duing War or Crisis
+ trait_mgd_anxious = {
+	cost = -2
+	category = normal
+	species_potential_add = {
+		can_add_negative_organic_traits = yes
+	}
+	opposites = { "trait_mgd_competitive" }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	tags = { organic negative pop_output }
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_GENERIC
+	}
+	custom_tooltip = trait_mgd_anxious_effects
+	triggered_pop_group_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				OR = {
+					is_at_war = yes
+					has_crisis = yes
+				}
+			}
+		}
+		pop_workforce_mult = -0.1
+	}
+
+	slave_cost = {
+		energy = -500
+	}
+ }
+ ### Territorial	Housing Usage Increased, Better defense armies, happiness scaling off free housing and closed borders
+ trait_mgd_territorial = {
+	cost = 1
+    category = normal
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { "trait_communal" "trait_shelled" "trait_spatial_mastery"  }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	tags = { organic positive housing army happiness drawbacks }
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_GENERIC
+	}
+	modifier = {
+		pop_housing_usage_mult = 0.10
+		army_defense_damage_mult = 0.5
+	}
+	custom_tooltip_with_modifiers = trait_mgd_territorial_effects
+	triggered_pop_group_modifier = {
+		potential = {
+			exists = planet 
+			planet = {
+				free_housing > 0
+			}
+		}
+		pop_happiness = 0.000005
+		mult = planet.trigger:free_housing
+	}
+	triggered_pop_group_modifier = {
+		potential = {
+			owner = {
+				num_closed_borders > 0
+			}
+		}
+		pop_happiness = 0.005
+		mult = owner.trigger:num_closed_borders
+	}
+
+	slave_cost = {
+		energy = 500
+	}
+ }
+ ### Carnivorous	Increased Pop Growth if Livestock on planet + Reduced if not.
+ trait_mgd_carnivorous = {
+	cost = 2
+	category = normal
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		OR = {
+			can_remove_beneficial_genetic_traits = yes
+			can_remove_pop_growth_genetic_traits = yes
+		}
+	}
+	opposites = { "trait_slow_breeders" }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	tags = { organic positive pop_growth upkeep drawbacks }
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_GENERIC
+	}
+	custom_tooltip = trait_mgd_carnivorous_effects
+	triggered_planet_growth_habitability_modifier = {
+		potential = {
+			exists = planet
+			planet = {
+				AND = {
+					NOT = { has_deficit = food }
+					any_owned_pop_group = {
+						AND = {
+							is_livestock = yes
+							species = {
+								is_archetype = BIOLOGICAL
+							}
+						}
+					}
+				}
+			}
+		}
+		logistic_growth_mult = 0.3
+	}
+	triggered_pop_group_modifier = {
+		potential = {
+			exists = planet
+			planet = {
+				NOT = {
+					any_owned_pop_group = {
+						is_livestock = yes
+					}
+				}
+			}
+		}
+		planet_pops_food_upkeep_mult = 0.5
+	}
+
+	slave_cost = {
+		energy = -500
+	}
+ }
+#
+
+### Planetary Traits Set ### Traits are available to biologicals regardless of species class, instead require planet class
+ ### Amphibious				### Tropical: Wet Climate Pop Growth 
+ trait_mgd_amphibious = {
+	cost = 1
+	category = normal
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { "trait_rapid_breeders" "trait_slow_breeders" "trait_humanoid_psychological_infertility" "trait_unplugged_cybernetic_positives_3" "trait_unplugged_cybernetic_positives_2" "trait_unplugged_cybernetic_positives_1" "trait_pathogenic_genes" }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	allowed_planet_classes = { pc_tropical }
+	allowed_planet_classes_override = {
+		hidden_trigger = {
+			can_add_auto_preference_traits = yes
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	tags = { organic positive pop_growth drawbacks }
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_PLANETARY
+	}
+	custom_tooltip = trait_mgd_amphibious_effects
+	triggered_planet_growth_habitability_modifier = {
+		potential = {
+			exists = planet
+			planet = { is_planet_class = pc_tropical }
+		}
+		logistic_growth_mult = 0.05
+	}
+	triggered_planet_growth_habitability_modifier = {
+		potential = {
+			exists = planet
+			planet = { has_climate = climate_wet }
+		}
+		logistic_growth_mult = 0.05
+	}
+	triggered_planet_growth_habitability_modifier = {
+		potential = {
+			exists = planet
+			planet = { NOT = { has_climate = climate_wet } }
+		}
+		logistic_growth_mult = -0.1
+	}
+
+	slave_cost = {
+		energy = 500
+	}
+ }
+ ### Climate Flexibility	### Continental: Adaptive, but situational 
+ trait_mgd_climate_flexibility = {
+	cost = 1
+	category = normal
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { "trait_nonadaptive" "trait_adaptive" "trait_extremely_adaptive" "trait_robust" "trait_adaptive_lithoid" "trait_shelled" "trait_permeable_skin" }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	allowed_planet_classes = { pc_continental }
+	allowed_planet_classes_override = {
+		hidden_trigger = {
+			can_add_auto_preference_traits = yes
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	tags = { organic positive habitability drawbacks }
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_PLANETARY
+	}
+	modifier = {
+		pc_ocean_habitability = 0.1
+		pc_tropical_habitability = 0.1
+		pc_alpine_habitability = 0.1
+		pc_arid_habitability = 0.1
+		pc_arctic_habitability = -0.1
+		pc_desert_habitability = -0.1
+	}
+	slave_cost = {
+		energy = 250
+	}
+ }
+ ### Privateers				### Ocean, Access to unique Leader Traits
+ ### Surefooted 			### Alpine, Housing and Worker Output on Alpine Worlds
+ trait_mgd_surefooted = {
+	cost = 1
+	category = normal
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { "trait_weak" "trait_hollow_bones" "trait_solitary" }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	allowed_planet_classes = { pc_alpine }
+	allowed_planet_classes_override = {
+		hidden_trigger = {
+			can_add_auto_preference_traits = yes
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	tags = { organic positive pop_output housing }
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_PLANETARY
+	}
+	custom_tooltip = trait_mgd_surefooted_effects
+	triggered_pop_group_modifier = {
+		potential = {
+			exists = planet
+			planet = {
+				is_planet_class = pc_alpine
+			}
+		}
+		worker_and_simple_drone_cat_bonus_workforce_mult = 0.025
+		pop_housing_usage_mult = -0.1
+	}
+
+	slave_cost = {
+		energy = 250
+	}
+ }
+# 
+ 
+### Common Traits Set ### Traits are available to Humanoids + one other species class
+ ### Reptillian:	Stoic			
+ ### Necroid:		Lycantrophy
+ ### Aquatic: 		Apex			
+ ### Avian:			Natural Musicians	- good at entertainer jobs
+ trait_mgd_natural_musicians = {
+	cost = 4
+	category = normal
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { "trait_repugnant" "trait_mgd_disfigured" }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { HUM AVI }
+	species_class_override = {
+		hidden_trigger = {
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_COMMON
+	}
+	tags = { organic positive pop_output amenities }
+
+	modifier = {
+		pop_entertainer_bonus_workforce_mult = 0.50
+	}
+
+	slave_cost = {
+		energy = 750
+	}
+ }
+ ### Mammalian:		Kinship	
+ ### Arthropoid:	Cooperation			- good at worker jobs in masses
+ trait_mgd_cooperative = {
+	cost = 2
+	category = normal
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { "trait_weak" "trait_hollow_bones" }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { HUM ART }
+	species_class_override = {
+		hidden_trigger = {
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_COMMON
+	}
+
+	tags = { organic positive pop_output housing }
+
+	custom_tooltip = trait_mgd_cooperative_effects
+	triggered_pop_group_modifier = {
+		worker_and_simple_drone_cat_bonus_workforce_mult = 0.00001
+		mult = planet.value:counter_mgd_cooperative
+	}
+
+	slave_cost = {
+		energy = 1000
+	}
+ }
+ ### Lithoid:		Stubborn			- 
+  trait_mgd_stubborn = {
+	cost = -2
+	category = normal
+	species_potential_add = {
+		can_add_negative_organic_traits = yes
+	}
+	opposites = { "trait_quick_learners" "trait_enigmatic_intelligence" }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { HUM LITHOID }
+	species_class_override = {
+		hidden_trigger = {
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_COMMON
+	}
+
+	tags = { organic negative leader }
+	modifier = {
+		species_leader_exp_gain = -0.20
+	}
+	slave_cost = {
+		energy = -250
+	}
+ }
+ ### Fungoid:		Resourceful
+  trait_mgd_resourceful  = {
+	cost = 1
+	category = normal
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { HUM FUN }
+	species_class_override = {
+		hidden_trigger = {
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_COMMON
+	}
+
+	tags = { organic positive upkeep }
+
+	modifier = {
+		planet_pops_upkeep_mult = -0.10
+	}
+
+	slave_cost = {
+		energy = 250
+	}
+ }		
+ ### Plantoid:		Environmentalists	- Reduced Consumer Goods Upkeep
+ trait_mgd_environmentalists = {
+	cost = 3
+	category = normal
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { "trait_wasteful" "trait_hive_mind" }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { HUM PLANT }
+	species_class_override = {
+		hidden_trigger = {
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_COMMON
+	}
+
+	tags = { organic positive upkeep consumer_goods individual happiness }
+	modifier = {
+		planet_pops_consumer_goods_upkeep_mult = -0.25
+	}
+	custom_tooltip_with_modifiers = trait_mgd_environmentalists_effects
+	triggered_pop_group_modifier = {
+		potential = {
+			exists = planet 
+			planet = {
+				num_uncleared_blockers > 0
+			}
+		}
+		pop_happiness = 0.01
+		mult = planet.trigger:num_uncleared_blockers
+	}
+	slave_cost = {
+		energy = 750
+	}
+ }
+ ### Toxoid:		Profligate
+ ### Molluscoid:	Escapists
+ ### Machine:		Tinkerers
+ trait_mgd_tinkerers = {
+	cost = 2
+	category = normal
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { }
+	allowed_archetypes = { BIOLOGICAL LITHOID MACHINE ROBOT }
+	species_class = { HUM MACHINE ROBOT }
+	species_class_override = {
+		hidden_trigger = {
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_COMMON
+	}
+	tags = { organic positive drawbacks research }
+	modifier = {
+		pop_engineer_bonus_workforce_mult = 0.20
+		pop_roboticist_bonus_workforce_mult = 0.10
+		pop_biologist_workforce_mult = -0.10
+		pop_physicist_workforce_mult = -0.10
+	}
+	slave_cost = {
+		energy = 1000
+	}
+ }
+ ### Psionics: 		Gifted
+ trait_mgd_gifted = {
+	cost = 2
+	category = normal
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { HUM PSIONIC }
+	portrait_override = { psionic_01 psionic_02 psionic_03 psionic_04 psionic_05 psionic_06 psionic_07 psionic_08 psionic_09 psionic_10 psionic_11 psionic_12 }
+	species_class_override = {
+		hidden_trigger = {
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_COMMON
+	}
+	tags = { organic positive leader }
+	modifier = {
+		leader_starting_age_mult = -0.20
+		leader_initial_skill = 1
+	}
+	slave_cost = {
+		energy = 500
+	}
+ }
+#
+
+### Exclusive Traits Set ### Traits are available to exactly one species class
+ ### Aquatic: 		Deep Dweller		
+ ### Arthropoid:	Exoskeleton		
+ ### Molluscoid:	Soft Bodied		
+ ### Reptillian:	Cold Blooded	
+ ### Mammalian:		
+ ### Avian:			Feathered		
+ ### Necroid:		Patchworks		
+ ### Toxoid:		
+ ### Fungoid:		Mycorrhiza		# Symbiosis Effect: Decrease Pop Upkeep up to 20% and increase Habitability up to 50%
+ trait_mgd_fungoid  = {
+	cost = 2
+	category = normal
+	sorting_priority = 20
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { FUN }
+	species_class_override = {
+		hidden_trigger = {
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_EXCLUSIVE
+	}
+
+	tags = { organic positive upkeep drawbacks }
+
+	modifier = {
+		planet_pops_food_upkeep_mult = -0.25
+	}
+
+	resources = {
+		category = planet_pops
+		upkeep = {
+			minerals = 0.25
+		}
+	}
+
+	custom_tooltip = trait_mgd_fungoid_effects
+	triggered_planet_growth_habitability_modifier= {
+		pop_environment_tolerance = 0.05
+		mult = planet.value:counter_mgd_fungoids_symbiosis_effect
+	}
+	
+	triggered_pop_group_modifier = {
+		planet_pops_food_upkeep_mult = -0.25
+		mult = planet.value:counter_mgd_fungoids_symbiosis_effect
+	}
+
+	triggered_pop_group_modifier = {
+		potential = {
+			pop_group_has_trait = trait_plantoid_radiotrophic
+		}
+		planet_pops_energy_upkeep_mult = -0.25
+		mult = planet.value:counter_mgd_fungoids_symbiosis_effect
+	}
+
+	triggered_pop_group_modifier = {
+		potential = {
+			pop_group_has_trait = trait_plantoid_radiotrophic
+		}
+		planet_pops_energy_upkeep_mult = -0.25
+	}
+
+	triggered_pop_group_modifier = {
+		potential = {
+			exists = planet
+		}
+		planet_pops_minerals_upkeep_mult = -0.01
+		mult = planet.trigger:planet_devastation
+	}
+
+	slave_cost = {
+		energy = 500
+	}
+ }		
+ ### Lithoid:		Polymineralic	# Scales off of num of Lithoid and Quasiorganic Traits
+
+ ### Plantoid:		Plantoid		# Symbiosis Effect: Increase Pop Growth up to 20% and increase Habitability up to 50%
+ trait_mgd_plantoid  = {
+	cost = 2
+	category = normal
+	sorting_priority = 20	
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { PLANT }
+	species_class_override = {
+		hidden_trigger = {
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_EXCLUSIVE
+	}
+	tags = { organic positive upkeep drawbacks }
+
+	custom_tooltip = trait_mgd_plantoid_effects
+	triggered_planet_growth_habitability_modifier= {
+		pop_environment_tolerance = 0.05
+		mult = planet.value:counter_mgd_plantoids_symbiosis_effect
+	}
+	
+	triggered_pop_group_modifier = {
+		planet_pops_food_upkeep_mult = -0.25
+		mult = planet.value:counter_mgd_plantoids_symbiosis_effect
+	}
+
+	triggered_pop_group_modifier = {
+		potential = {
+			pop_group_has_trait = trait_plantoid_phototrophic
+		}
+		planet_pops_energy_upkeep_mult = -0.25
+		mult = planet.value:counter_mgd_plantoids_symbiosis_effect
+	}
+
+	triggered_pop_group_modifier = {
+		potential = {
+			NOR = { 
+				pop_group_has_trait = trait_mgd_xerophytic 
+				pop_group_has_trait = trait_mgd_cryophytic
+			}
+			exists = planet
+			planet = {
+				has_climate = wet
+			}
+		}
+		planet_pops_food_upkeep_mult = -0.25
+	}
+
+	triggered_pop_group_modifier = {
+		potential = {
+			NOR = { 
+				pop_group_has_trait = trait_mgd_xerophytic 
+				pop_group_has_trait = trait_mgd_cryophytic
+			}
+			pop_group_has_trait = trait_plantoid_phototrophic
+			exists = planet
+			planet = {
+				has_climate = wet
+			}
+		}
+		planet_pops_energy_upkeep_mult = -0.25
+	}
+
+	slave_cost = {
+		energy = 500
+	}
+ }		
+#
+
+### Sapient Traits Set ### Traits are available to Huamnoids, Mammalian, Avian, Necroids
+ ### Prideful		### Decadent + also reduces Pop Happiness when Vassalized
+ trait_mgd_prideful = {
+	cost = -2
+	category = normal
+	species_possible_add = {
+		can_add_negative_organic_traits = yes
+	}
+	opposites = { "trait_decadent" "trait_hive_mind" "trait_syncretic_proles" }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { HUM MAM AVI NECROID }
+	species_class_override = {
+		hidden_trigger = {
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_SAPIENT
+	}
+	tags = { organic negative happiness individual }
+	modifier = {
+		pop_cat_worker_happiness = -0.15
+		pop_cat_slave_happiness = -0.15
+	}
+
+	custom_tooltip_with_modifiers = trait_mgd_prideful_effects
+	triggered_pop_group_modifier = {
+		potential = {
+			owner = {
+				is_subject = yes
+			}
+		}
+		pop_happiness = -0.1
+	}
+	slave_cost = {
+		energy = 250
+	}
+ }
+ ### Pretentious	### reverse of talented
+ trait_mgd_pretentious = {
+	cost = -2
+	category = normal
+	species_possible_add = {
+		can_add_negative_organic_traits = yes
+	}
+	opposites = { "trait_talented" "trait_nerve_stapled" "trait_syncretic_proles" }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { HUM MAM AVI NECROID }
+	species_class_override = {
+		hidden_trigger = {
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_SAPIENT
+	}
+	tags = { organic negative leader }
+	modifier = {
+		leaders_upkeep_mult = 0.10
+		councilor_skill_add = -1
+	}
+	slave_cost = {
+		energy = 250
+	}
+ }
+ ### Cunning 		### councilor_skill and leaders are cunning
+ trait_mgd_cunning = {
+	cost = 2
+	category = normal
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { HUM MAM AVI NECROID }
+	species_class_override = {
+		hidden_trigger = {
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_SAPIENT
+	}
+	tags = { organic positive leader }
+	custom_tooltip_with_modifiers = trait_mgd_cunning_effects
+	modifier = {
+		pop_political_power = 0.20
+		# council leaders are cunning / have codebreaking and intel gain 
+	}
+	slave_cost = {
+		energy = 500
+	}
+ }
+ ### Diplomatic	### political power + Negotiator Officials
+ trait_mgd_diplomatic = {
+		#eloquent
+	cost = 2
+	category = normal
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { HUM MAM AVI NECROID }
+	species_class_override = {
+		hidden_trigger = {
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_SAPIENT
+	}
+	tags = { organic positive pop_output consumer_goods }
+	custom_tooltip_with_modifiers = trait_mgd_diplomatic_effects
+	modifier = {
+		councilor_skill_add = 1
+		# council leaders are diplomatic / have diplo weight and trust gain 
+	}
+ }
+ ### ambitious
+ trait_mgd_ambitious = {
+	cost = 1
+	category = normal
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { HUM MAM AVI NECROID }
+	species_class_override = {
+		hidden_trigger = {
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_SAPIENT
+	}
+	tags = { organic positive pop_output consumer_goods }
+	modifier = {
+		official_exp_gain = 0.20
+	}
+ }
+ ### disciplined
+ trait_mgd_disciplined = {
+	cost = 1
+	category = normal
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { HUM MAM AVI NECROID }
+	species_class_override = {
+		hidden_trigger = {
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_SAPIENT
+	}
+	tags = { organic positive pop_output consumer_goods }
+	modifier = {
+		commander_exp_gain = 0.20
+	}
+ }
+ ### scholarly
+ trait_mgd_scholarly = {
+	cost = 1
+	category = normal
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { HUM MAM AVI NECROID }
+	species_class_override = {
+		hidden_trigger = {
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_SAPIENT
+	}
+	tags = { organic positive  }
+	modifier = {
+		scientist_exp_gain = 0.20
+	}
+ }
+ ### Artisans			### artisans workforce
+ trait_mgd_natural_artisans = {
+	cost = 2
+	category = normal
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { HUM MAM AVI NECROID }
+	species_class_override = {
+		hidden_trigger = {
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_SAPIENT
+	}
+	tags = { organic positive pop_output consumer_goods }
+	modifier = {
+		artisan_jobs_bonus_workforce_mult = 0.15
+	}
+	slave_cost = {
+		energy = 500
+	}
+ }
+ ### Blacksmiths		### metallurgists workforce
+ trait_mgd_natural_blacksmiths = {
+	cost = 2
+	category = normal
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { HUM MAM AVI NECROID }
+	species_class_override = {
+		hidden_trigger = {
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_SAPIENT
+	}
+	tags = { organic positive pop_output consumer_goods }
+	modifier = {
+		foundry_jobs_bonus_workforce_mult = 0.15
+	}
+	slave_cost = {
+		energy = 500
+	}
+ }
+ ### Cowards			### reduced army morale, + coward leaders
+ trait_mgd_cowards = {
+	cost = -1
+	category = normal
+	species_possible_add = {
+		can_add_negative_organic_traits = yes
+	}
+	opposites = { "trait_talented" "trait_nerve_stapled" "trait_syncretic_proles" }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { HUM MAM AVI NECROID }
+	species_class_override = {
+		hidden_trigger = {
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_SAPIENT
+	}
+	tags = { organic negative leader }
+	custom_tooltip_with_modifiers = trait_mgd_cowards_effects
+	modifier = {
+		army_morale = -0.2
+	}
+	slave_cost = {
+		energy = -250
+	}
+ }
+#
+
+### Marine Traits Set ### Traits are available to Aquatics, Molluscoids, Reptillian and Arthropods 
+#
+
+### Revenant Traits ###		Necroids, Toxoids, Psionic, Infernal
+ ### Cryptobiotic	Hibernation in extreme
+
+ ### Disfigured		Bad at Entertainer Jobs
+  trait_mgd_disfigured = {
+	cost = -3
+	category = normal
+	species_possible_add = {
+		can_add_negative_organic_traits = yes
+	}
+	opposites = { "trait_charismatic" }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { NECROID TOX PSIONIC }
+	portrait_override = { psionic_01 psionic_02 psionic_03 psionic_04 psionic_05 psionic_06 psionic_07 psionic_08 psionic_09 psionic_10 psionic_11 psionic_12 }
+	species_class_override = {
+		hidden_trigger = {
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	tags = { organic negative pop_output amenities }
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_REVENANT
+	}
+	modifier = {
+		pop_entertainer_bonus_workforce_mult = -0.25
+	}
+	ai_weight = {
+		weight = 0
+	}
+	slave_cost = {
+		energy = -500
+	}
+ }
+ ### Insidious		Officials have the Schemer Trait which improves Espionage but reduces Trust and Opinion for councilors
+  trait_mgd_insidious = {		
+	cost = -2
+	category = normal
+	species_possible_add = {
+		can_add_negative_organic_traits = yes
+	}
+	opposites = { "trait_talented" "trait_nerve_stapled" "trait_syncretic_proles" }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { NECROID TOX PSIONIC }
+	portrait_override = { psionic_01 psionic_02 psionic_03 psionic_04 psionic_05 psionic_06 psionic_07 psionic_08 psionic_09 psionic_10 psionic_11 psionic_12 }
+	species_class_override = {
+		hidden_trigger = {
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	tags = { organic negative leader }
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_REVENANT
+	}
+	modifier = {
+		leaders_upkeep_mult = 0.10
+	}
+	custom_tooltip_with_modifiers = trait_mgd_insidious_effects
+	slave_cost = {
+		energy = -250
+	}
+ }
+ ### Gluttony		Food Consumption Debuff
+   trait_mgd_gluttonous = {		
+	cost = -2
+	category = normal
+	species_possible_add = {
+		can_add_negative_organic_traits = yes
+	}
+	opposites = { "trait_mgd_abstinent" "trait_talented" "trait_nerve_stapled" "trait_syncretic_proles" }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { NECROID TOX PSIONIC }
+	portrait_override = { psionic_01 psionic_02 psionic_03 psionic_04 psionic_05 psionic_06 psionic_07 psionic_08 psionic_09 psionic_10 psionic_11 psionic_12 }
+	species_class_override = {
+		hidden_trigger = {
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	tags = { organic negative leader }
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_REVENANT
+	}
+	modifier = {
+		planet_pops_food_upkeep_mult = 0.10
+		planet_pops_minerals_upkeep_mult = 0.10
+		planet_pops_energy_upkeep_mult = 0.10
+	}
+	slave_cost = {
+		energy = -250
+	}
+ }
+ ### Abstinent		
+  trait_mgd_abstinent = {		
+	cost = -1
+	category = normal
+	species_possible_add = {
+		can_add_negative_organic_traits = yes
+	}
+	opposites = { "trait_mgd_gluttonous" "trait_talented" "trait_nerve_stapled" "trait_syncretic_proles" }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { NECROID TOX PSIONIC }
+	portrait_override = { psionic_01 psionic_02 psionic_03 psionic_04 psionic_05 psionic_06 psionic_07 psionic_08 psionic_09 psionic_10 psionic_11 psionic_12 }
+	species_class_override = {
+		hidden_trigger = {
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	tags = { organic negative happiness }
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_REVENANT
+	}
+	modifier = {
+		pop_happiness = -0.05
+		planet_pops_food_upkeep_mult = -0.10
+		planet_pops_minerals_upkeep_mult = -0.10
+		planet_pops_energy_upkeep_mult = -0.10
+	}
+	slave_cost = {
+		energy = -250
+	}
+ } 
+ ### Dysfunctional	Pop Jobs output Debuff scaling off of negative Traits	-2% per negative Trait
+  trait_mgd_dysfunctional = {		
+	cost = -2
+	category = normal
+	species_potential_add = {
+		can_add_negative_organic_traits = yes
+	}
+	opposites = { "trait_talented" "trait_syncretic_proles" }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { NECROID TOX PSIONIC }
+	portrait_override = { psionic_01 psionic_02 psionic_03 psionic_04 psionic_05 psionic_06 psionic_07 psionic_08 psionic_09 psionic_10 psionic_11 psionic_12 }
+	species_class_override = {
+		hidden_trigger = {
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	tags = { organic negative leader }
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_REVENANT
+	}
+	modifier = {
+		negative_leader_traits_species = 1
+	}
+	custom_tooltip_with_modifiers = trait_mgd_dysfunctional_effects
+	triggered_pop_group_modifier = {
+		pop_workforce_mult = -0.025
+		mult = value:count_negative_traits
+	}
+	slave_cost = {
+		energy = -500
+	}
+ }
+ ### Ritualists		Increased Spiritual Attraction, Pop Unity Production based on Ascension Perks
+  trait_mgd_ritualists = {		
+	cost = 3
+	category = normal
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		OR = {
+			can_remove_beneficial_genetic_traits = yes
+			can_remove_vocational_genetic_traits = yes
+		}
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { "trait_quarrelsome" }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { NECROID TOX PSIONIC }
+	portrait_override = { psionic_01 psionic_02 psionic_03 psionic_04 psionic_05 psionic_06 psionic_07 psionic_08 psionic_09 psionic_10 psionic_11 psionic_12 }
+	species_class_override = {
+		hidden_trigger = {
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	tags = { organic positive pop_output unity }
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_REVENANT
+	}
+	modifier = {
+		spiritualist_attraction = 2
+	}
+	custom_tooltip_with_modifiers = trait_mgd_ritualists_effects	
+	resources = {
+		category = planet_pops
+		upkeep = {
+			trigger = {
+				is_slave_or_better = yes
+			}
+			unity = 0.01
+			mult = owner.trigger:num_ascension_perks
+		}
+	}
+	slave_cost = {
+		energy = 1000
+	}
+ }
+ ### Apotheotic		God Complex
+
+ ### >possible alternative name "Thanatophilic" > Also increase efficiency of certain Necroid civics jobs 
+ ### Thanatophilic	Happiness on Relic and Tomb Worlds, Bonus Research on Relic and Tomb Worlds
+  trait_mgd_thanatophilic = {		
+	cost = 1
+	category = normal
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		OR = {
+			can_remove_beneficial_genetic_traits = yes
+			can_remove_vocational_genetic_traits = yes
+		}
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { "trait_quarrelsome" }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { NECROID TOX PSIONIC }
+	species_class_override = {
+		hidden_trigger = {
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	tags = { organic positive pop_output unity }
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_REVENANT
+	}
+	modifier = {
+		pc_relic_habitability = 0.10
+	}
+	custom_tooltip_with_modifiers = trait_mgd_thanatophilic_effects	
+	triggered_pop_group_modifier = {
+		potential = {
+			exists = planet
+			planet = {
+				OR = {
+					is_planet_class = pc_nuked
+					is_planet_class = pc_relic
+				}
+			}
+		}
+		pop_happiness = 0.10
+		researcher_jobs_bonus_workforce_mult = 0.10
+	}
+	slave_cost = {
+		energy = 1000
+	}
+ }
+#
+
+### Blighted Traits ###	Available to Toxoid, Fungoid, Lithoid, Molluscoid
+ ### Nihilists			Reduced Spiritual Attraction, Reduced Amenities and Consumer Goods Upkeep, Pop Unity Cost
+  trait_mgd_nihilists = {
+	cost = 1
+	category = normal
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { "trait_decadent" "trait_hive_mind" "trait_syncretic_proles" }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	forbidden_ethics = {
+		ethic_fanatic_spiritualist
+		ethic_spiritualist
+	}
+	species_class = { TOX FUN LITHOID MOL }
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_BLIGHTED
+	}
+	species_class_override = {
+		hidden_trigger = {
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	tags = { organic negative upkeep amenities consumer_goods }
+	modifier = {
+		spiritualist_attraction = -2
+		pop_amenities_usage_mult = -0.1
+		planet_pops_consumer_goods_upkeep_mult = -0.1
+	}
+	custom_tooltip_with_modifiers = trait_mgd_nihilists_effects
+	resources = {
+		category = planet_pops
+		upkeep = {
+			trigger = {
+				is_slave_or_better = yes
+			}
+			unity = 0.01
+		}
+	}
+	slave_cost = {
+		energy = -250
+	}
+ }
+ ### Addicts			Increased Amenities and Consumer Goods Upkeep when not in Chemical Bliss
+  trait_mgd_addicts = {
+	cost = -4
+	category = normal
+	species_possible_add = {
+		can_add_negative_organic_traits = yes
+	}
+	opposites = { "trait_decadent" "trait_hive_mind" "trait_syncretic_proles" }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { TOX FUN LITHOID MOL }
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_BLIGHTED
+	}
+	species_class_override = {
+		hidden_trigger = {
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	tags = { organic negative upkeep amenities consumer_goods }
+	custom_tooltip = trait_mgd_addicts_effects
+	triggered_pop_group_modifier = {
+		potential = {
+			NOT = {
+				has_living_standard = {
+					type = living_standard_chemical_bliss
+				}
+			}
+		}
+		pop_amenities_usage_mult = 0.25
+		planet_pops_consumer_goods_upkeep_mult = 0.5
+	}
+	slave_cost = {
+		energy = -250
+	}
+ }
+ ### Natural Chemists	
+#
+
+### Quasiorganic Traits ### Traits are available to Plantoids, Lithoids, Machines, Infernals
+ ### Recomposition				
+ ### Corrosive Sap				
+ ### Piezoelectric Cells		Energy upkeep reduced, costs Food for non-Biologicals
+ ### Mountain Sized				Planet Size Based Buffs, costs Minerals for non-Lithoids
+ ### Metallic Growth			Alloy production per Pop, costs Minerals for non-Lithoids
+ ### Crystalline Diet			Minerals Upkeep increase, costs Minerals for non-Lithoids
+#
+
+### Botanic Traits ###
+ ### Saprotrophic
+ trait_mgd_saprotrophic = {
+	cost = 1
+	category = normal
+	sorting_priority = 19
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { trait_mgd_fungoid }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { PLANT FUN }
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_BOTANIC
+	}
+	species_class_override = {
+		hidden_trigger = {
+			OR = {
+				can_add_or_remove_phenotype_traits = yes
+				can_add_transgenic_traits = yes
+			}
+		}
+	}
+	tags = { organic positive }
+
+	modifier = {
+		planet_pops_food_upkeep_mult = -0.25
+	}
+
+	resources = {
+		category = planet_pops
+		upkeep = {
+			minerals = 0.25
+		}
+	}
+
+	custom_tooltip_with_modifiers = trait_mgd_saprotrophic_effects
+	triggered_pop_group_modifier = {
+		potential = {
+			exists = planet
+		}
+		planet_pops_minerals_upkeep_mult = -0.01
+		mult = planet.trigger:planet_devastation
+	}
+
+	slave_cost = {
+		energy = 500
+	}
+ }
+ ### autotrophic		### Symbiosis Effect: 
+ trait_mgd_autotrophic= {
+	cost = 1
+	category = normal
+	sorting_priority = 19
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { trait_mgd_plantoid }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { PLANT FUN }
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_BOTANIC
+	}
+	species_class_override = {
+		hidden_trigger = {
+			OR = {
+				can_add_or_remove_phenotype_traits = yes
+				can_add_transgenic_traits = yes
+			}
+		}
+	}
+	tags = { organic positive }
+
+	custom_tooltip = trait_mgd_autotrophic_effects
+	triggered_pop_group_modifier = {
+		potential = {
+			exists = planet
+			planet = {
+				has_climate = wet
+			}
+		}
+		planet_pops_food_upkeep_mult = -0.25
+	}
+
+	slave_cost = {
+		energy = 500
+	}
+ }
+ ### Succulents
+ trait_mgd_xerophytic = {
+	cost = 1
+	category = normal
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { trait_mgd_cryophytic }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { PLANT FUN }
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_BOTANIC
+	}
+	species_class_override = {
+		hidden_trigger = {
+			OR = {
+				can_add_or_remove_phenotype_traits = yes
+				can_add_transgenic_traits = yes
+			}
+		}
+	}
+	tags = { organic positive }
+	
+	custom_tooltip = trait_mgd_xerophytic_effects
+	triggered_planet_growth_habitability_modifier = {
+		potential = {
+			exists = planet
+			planet = {
+				has_climate = dry
+			}
+		}
+		pop_environment_tolerance = 0.10
+	}
+
+	triggered_planet_growth_habitability_modifier = {
+		potential = {
+			exists = planet
+			planet = {
+				has_climate = cold
+			}
+		}
+		pop_environment_tolerance = -0.20
+	}
+
+	triggered_pop_group_modifier = {
+		potential = {
+			OR = {
+				pop_group_has_trait = trait_mgd_plantoid
+				pop_group_has_trait = trait_mgd_autotrophic
+			}
+			exists = planet
+			planet = {
+				has_climate = dry
+			}
+		}
+		planet_pops_food_upkeep_mult = -0.25
+	}
+
+	triggered_pop_group_modifier = {
+		potential = {
+			pop_group_has_trait = trait_mgd_plantoid
+			pop_group_has_trait = trait_plantoid_phototrophic
+			exists = planet
+			planet = {
+				has_climate = dry
+			}
+		}
+		planet_pops_energy_upkeep_mult = -0.25
+	}
+
+	slave_cost = {
+		energy = 500
+	}
+ }
+ ### Coniferous
+ trait_mgd_cryophytic = {
+	cost = 1
+	category = normal
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { trait_mgd_xerophytic }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { PLANT FUN }
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_BOTANIC
+	}
+	species_class_override = {
+		hidden_trigger = {
+			OR = {
+				can_add_or_remove_phenotype_traits = yes
+				can_add_transgenic_traits = yes
+			}
+		}
+	}
+	tags = { organic positive }
+
+	custom_tooltip = trait_mgd_cryophytic_effects
+	triggered_planet_growth_habitability_modifier = {
+		potential = {
+			exists = planet
+			planet = {
+				has_climate = cold
+			}
+		}
+		pop_environment_tolerance = 0.10
+	}
+
+	triggered_planet_growth_habitability_modifier = {
+		potential = {
+			exists = planet
+			planet = {
+				has_climate = dry
+			}
+		}
+		pop_environment_tolerance = -0.20
+	}
+
+	triggered_pop_group_modifier = {
+		potential = {
+			OR = {
+				pop_group_has_trait = trait_mgd_plantoid
+				pop_group_has_trait = trait_mgd_autotrophic
+			}
+			exists = planet
+			planet = {
+				has_climate = cold
+			}
+		}
+		planet_pops_food_upkeep_mult = -0.25
+	}
+
+	triggered_pop_group_modifier = {
+		potential = {
+			pop_group_has_trait = trait_mgd_plantoid
+			pop_group_has_trait = trait_plantoid_phototrophic
+			exists = planet
+			planet = {
+				has_climate = cold
+			}
+		}
+		planet_pops_energy_upkeep_mult = -0.25
+	}
+
+
+	slave_cost = {
+		energy = 500
+	}
+ }
+ ### Delicate Sprout
+ trait_mgd_delicate_sprout = {
+	cost = -2
+	category = normal
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { PLANT FUN }
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_BOTANIC
+	}
+	species_class_override = {
+		hidden_trigger = {
+			OR = {
+				can_add_or_remove_phenotype_traits = yes
+				can_add_transgenic_traits = yes
+			}
+		}
+	}
+	tags = { organic positive }
+	
+	custom_tooltip = trait_mgd_delicate_sprout_effects
+	triggered_planet_growth_habitability_modifier = {
+		potential = {
+			exists = planet
+			planet = {
+				is_ideal = no
+			}
+		}
+		pop_environment_tolerance = -0.25
+	}
+
+	slave_cost = {
+		energy = -1000
+	}
+ }
+ ### thorned
+ trait_mgd_thorned = {
+	cost = 2
+	category = normal
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { PLANT FUN }
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_BOTANIC
+	}
+	species_class_override = {
+		hidden_trigger = {
+			OR = {
+				can_add_or_remove_phenotype_traits = yes
+				can_add_transgenic_traits = yes
+			}
+		}
+	}
+	tags = { organic positive }
+
+	modifier = {
+		army_defense_damage_mult = 0.25
+		army_damage_mult = 0.25
+	}
+	
+	slave_cost = {
+		energy = 250
+	}
+ }
+ ### lignified
+ trait_mgd_lignified = {
+	cost = 4
+	category = normal
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { PLANT FUN }
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_BOTANIC
+	}
+	species_class_override = {
+		hidden_trigger = {
+			OR = {
+				can_add_or_remove_phenotype_traits = yes
+				can_add_transgenic_traits = yes
+			}
+		}
+	}
+	tags = { organic positive }
+
+	modifier = {
+		leader_lifespan_mult = 0.50
+		army_health = 0.50
+	}
+
+	slave_cost = {
+		energy = 500
+	}
+ }
+ ### sprawling
+ trait_mgd_sprawling = {
+	cost = -2
+	category = normal
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { PLANT FUN }
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_BOTANIC
+	}
+	species_class_override = {
+		hidden_trigger = {
+			OR = {
+				can_add_or_remove_phenotype_traits = yes
+				can_add_transgenic_traits = yes
+			}
+		}
+	}
+	tags = { organic positive }
+
+	modifier = {
+		pop_housing_usage_mult = 0.50
+		army_defense_health_mult = 0.50
+	}
+
+	slave_cost = {
+		energy = -250
+	}
+ }
+ ### lush
+ trait_mgd_lush = {
+	cost = 1
+	category = normal
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { PLANT FUN }
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_BOTANIC
+	}
+	species_class_override = {
+		hidden_trigger = {
+			OR = {
+				can_add_or_remove_phenotype_traits = yes
+				can_add_transgenic_traits = yes
+			}
+		}
+	}
+	tags = { organic positive }
+
+	modifier = {
+		livestock_jobs_bonus_workforce_mult = 1
+	}
+
+	slave_cost = {
+		energy = 500
+	}
+ }
+ ### blooming
+ trait_mgd_blooming = {
+	cost = -2
+	category = normal
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { PLANT FUN }
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_BOTANIC
+	}
+	species_class_override = {
+		hidden_trigger = {
+			OR = {
+				can_add_or_remove_phenotype_traits = yes
+				can_add_transgenic_traits = yes
+			}
+		}
+	}
+	tags = { organic positive }
+	
+	custom_tooltip = trait_mgd_blooming_effects
+	triggered_planet_growth_habitability_modifier = {
+		logistic_growth_mult = -0.01
+		mult = value:counter_mgd_blooming_symbiosis_effect
+	}
+
+	slave_cost = {
+		energy = 500
+	}
+ }
+ ### sporulating
+ trait_mgd_sporulating = {
+	cost = 5
+	category = normal
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { PLANT FUN }
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_BOTANIC
+	}
+	species_class_override = {
+		hidden_trigger = {
+			OR = {
+				can_add_or_remove_phenotype_traits = yes
+				can_add_transgenic_traits = yes
+			}
+		}
+	}
+	tags = { organic positive }
+	modifier = {
+		logistic_growth_mult = 0.25
+		bonus_pop_growth_mult = 0.25
+	}
+
+	slave_cost = {
+		energy = 500
+	}
+ }
+#
+
+### Saurian Traits ###
+ ### Saurian Scales					
+ ### Fragile Eggshells		
+ ### Nesting Instinct		
+ ### Doomed Lineage			Bad Performance in War and Crisis "Their ancestors were plagued by a series of gruesome near-extinction events. They still carry this trauma within them, ever-afraid that the next catastrophe will be their last."
+ ### Tyrannical				Army Morale Damage, Happiness in wars of aggression
+#
+
+### Social Traits ###
+ ### Sociable				
+ ### Parental Care			
+ ### Family Ties
+ ### Pack Leaders		
+#
+
+### Psionic Traits ### Exclusive to Psionics && become cheaper after finishing ascension
+
+### Swarm Traits ###
+ ### Carcinisation
+ ### Pollinators
+  trait_mgd_pollinators = {
+	cost = 1
+	category = normal
+
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	species_class = { ART }
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_SWARM
+	}
+	species_class_override = {
+		hidden_trigger = {
+			OR = {
+				is_gestalt_mgd = yes
+				can_add_or_remove_phenotype_traits = yes
+				can_add_transgenic_traits = yes
+			}
+		}
+	}
+	tags = { organic positive }
+	modifier = {
+		pop_farmer_bonus_workforce_mult = 0.05
+	}
+
+	slave_cost = {
+		energy = 500
+	}
+ }
+#
+
+### Artificial Traits ###
+ ### Horti-engines
+  trait_mgd_horticultural_engines = {
+	cost = 1
+	category = normal
+
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { }
+	allowed_archetypes = { MACHINE }
+	species_class = { MACHINE ROBOT }
+	localized_tags = {
+		SPECIES_TRAIT_MUTEGDIVERSITY_ARTIFICIAL
+	}
+	species_class_override = {
+		hidden_trigger = {
+			OR = {
+				can_add_or_remove_phenotype_traits = yes
+				can_add_transgenic_traits = yes
+			}
+		}
+	}
+	tags = { positive }
+	modifier = {
+		pop_farmer_bonus_workforce_mult = 0.05
+	}
+
+	slave_cost = {
+		energy = 500
+	}
+ }
+#

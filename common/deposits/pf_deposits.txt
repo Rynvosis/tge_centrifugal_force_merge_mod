@@ -1,0 +1,570 @@
+@high = 16
+@med = 8
+@low = 4
+
+@high_rare = 0.5
+@mid_rare = 0.25
+@low_rare = 0.1
+
+@planet_type_bonus = 1.5
+
+d_pf_psionic_fungi = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	icon = d_fungal_forest
+
+	potential = {
+		can_have_habitable_deposits = yes
+	}
+	
+	custom_tooltip = unlocks_zone_pf_psionic_fungi_all_tt
+	planet_modifier = {
+		psionic_pop_bonus_workforce_mult = 0.1
+		district_farming_max_add = 4
+	}
+
+	drop_weight = {
+		weight = @mid_rare
+		modifier = {
+			factor = 2
+			is_planet_class = pc_gaia
+		}
+		modifier = {
+			factor = 500
+			has_modifier = pf_pm_psionic_gaia_world
+		}
+		modifier = {
+			factor = 2
+			has_modifier = living_sea
+		}
+		modifier = {
+			factor = 0
+			AND = {
+				NOT = { is_planet_class = pc_gaia}
+				is_wet = no
+			}
+		}
+		modifier = {
+			factor = 0
+			solar_system = {
+				OR = {
+					has_star_flag = empire_home_system
+					has_star_flag = sol_system
+					has_star_flag = deneb_system
+				}
+			}
+		}
+	}
+}
+
+d_pf_imposing_canyon = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	icon = d_pf_grand_canyon
+
+	potential = {
+		can_have_habitable_deposits = yes
+	}
+
+	# Shouldn't add society, should add something else I think.
+	planet_modifier = {
+		district_mining_max_add = 4
+		planet_miners_society_research_produces_add = 1
+	}
+
+	drop_weight = {
+		weight = 0
+		modifier = {
+			add = @high_rare
+			is_dry = yes
+		}
+		modifier = {
+			factor = 3
+			has_modifier = pf_pm_canyon_world
+		}
+		modifier = {
+			factor = 0
+			solar_system = {
+				OR = {
+					has_star_flag = empire_home_system
+					has_star_flag = sol_system
+					has_star_flag = deneb_system
+				}
+			}
+		}
+	}
+}
+
+d_pf_biomass_infestation = {
+	time = 270
+	icon = d_pf_infestation
+
+	is_for_colonizable = yes
+	category = deposit_cat_blockers
+
+	can_be_cleared = {
+		custom_tooltip = {
+			fail_text = pf_has_not_cleared_infested_world
+			planet = {
+				NOT = { has_modifier = pf_pm_infested_world }
+			}
+		}
+	}
+
+	resources = {
+		category = deposit_blockers_natural
+		cost = {
+			energy = 1000
+		}
+	}
+
+	planet_modifier = {
+		planet_max_districts_add = -4
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_pf_mysterious_ruins = {
+    is_for_colonizable = yes
+	icon = d_ruins_small
+    category = deposit_cat_rare
+
+    planet_modifier = {
+        planet_jobs_society_research_produces_mult = 0.1
+    }
+
+	potential = {
+        always = no
+	}
+
+	drop_weight = { weight = 0 }
+}
+
+d_pf_olympus_mons = {
+    is_for_colonizable = yes
+	icon = d_pf_olympus_mons
+    category = deposit_cat_rare
+
+	potential = {
+        always = no
+	}
+
+	drop_weight = { weight = 0 }
+}
+
+d_pf_ruined_mars_colony = {
+    is_for_colonizable = yes
+	icon = d_pf_drilling_for_gas
+    category = deposit_cat_rare
+
+    planet_modifier = {
+        planet_jobs_society_research_produces_mult = 0.1
+    }
+
+	potential = {
+        always = no
+	}
+
+	drop_weight = { weight = 0 }
+}
+
+d_pf_radstorms = {
+	time = 270
+	icon = d_radioactive_wasteland
+
+	is_for_colonizable = yes
+	category = deposit_cat_blockers
+
+	resources = {
+		category = deposit_blockers_natural
+		cost = {
+			energy = 1000
+		}
+	}
+
+	planet_modifier = {
+		planet_max_districts_add = -2
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_pf_alien_grasslands = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	icon = d_buzzing_plains
+
+	potential = {
+		can_have_habitable_deposits = yes
+	}
+
+	planet_modifier = {
+		planet_farmers_food_produces_add = 1
+		district_farming_max_add = 2
+	}
+
+	drop_weight = {
+		weight = @mid_rare
+		modifier = {
+			factor = 2
+			is_planet_class = pc_gaia
+		}
+		modifier = {
+			factor = 0
+			AND = {
+				NOT = { is_planet_class = pc_gaia}
+				is_wet = no
+			}
+		}
+		modifier = {
+			factor = 0
+			solar_system = {
+				OR = {
+					has_star_flag = empire_home_system
+					has_star_flag = sol_system
+					has_star_flag = deneb_system
+				}
+			}
+		}
+	}
+}
+
+d_pf_habitable_caves = {
+    is_for_colonizable = yes
+	icon = d_ore_rich_caverns
+    category = deposit_cat_rare
+
+    planet_modifier = {
+        planet_max_districts_add = 1
+    }
+
+	potential = {
+        always = no
+	}
+
+	drop_weight = { weight = 0 }
+}
+
+d_pf_habitable_caves_large = {
+    is_for_colonizable = yes
+	icon = d_fungal_caves
+    category = deposit_cat_rare
+
+    planet_modifier = {
+        planet_max_districts_add = 2
+    }
+
+	potential = {
+        always = no
+	}
+
+	drop_weight = { weight = 0 }
+}
+
+d_pf_abandoned_hives = {
+    is_for_colonizable = yes
+	icon = d_pf_underground_hives
+    category = deposit_cat_rare
+
+    planet_modifier = {
+        planet_max_districts_add = 1
+		planet_miners_society_research_produces_add = 1
+    }
+
+	potential = {
+        is_colony = no
+		can_have_habitable_deposits = yes
+	}
+
+	drop_weight = {
+		weight = @low_rare
+		modifier = {
+			factor = 2
+			is_dry = yes
+		}
+		modifier = {
+			factor = 0.5
+			is_planet_class = pc_gaia
+		}
+		modifier = {
+			factor = 0.5
+			is_cold = yes
+		}
+
+		modifier = {
+			factor = 0
+			solar_system = {
+				OR = {
+					has_star_flag = empire_home_system
+					has_star_flag = sol_system
+					has_star_flag = deneb_system
+				}
+			}
+		}
+	}
+}
+
+d_pf_holy_world_monoliths = {
+    is_for_colonizable = yes
+	icon = d_monument
+    category = deposit_cat_rare
+
+	resources = {
+		category = planet_deposits
+		produces = {
+            unity = 20
+		}
+	}
+
+	potential = {
+        always = no
+	}
+
+	drop_weight = { weight = 0 }
+}
+
+d_pf_holy_world_psionic_leylines = {
+    is_for_colonizable = yes
+	icon = d_surreal_visions
+    category = deposit_cat_rare
+
+	resources = {
+		category = planet_deposits
+		produces = {
+            unity = 20
+		}
+	}
+
+	potential = {
+        always = no
+	}
+
+	drop_weight = { weight = 0 }
+}
+
+d_pf_holy_world_sacred_groves = {
+    is_for_colonizable = yes
+	icon = d_pf_arid_groves
+    category = deposit_cat_rare
+
+	resources = {
+		category = planet_deposits
+		produces = {
+            unity = 20
+		}
+	}
+
+	potential = {
+        always = no
+	}
+
+	drop_weight = { weight = 0 }
+}
+
+d_pf_holy_world_overgrown_temples = {
+    is_for_colonizable = yes
+	icon = d_ruins_small
+    category = deposit_cat_rare
+
+	resources = {
+		category = planet_deposits
+		produces = {
+            unity = 20
+		}
+	}
+
+	potential = {
+        always = no
+	}
+
+	drop_weight = { weight = 0 }
+}
+
+d_pf_ancient_databanks = {
+    is_for_colonizable = yes
+	icon = d_glitchy_matrix
+    category = deposit_cat_rare
+
+	resources = {
+		category = planet_deposits
+		produces = {
+			society_research = 20
+            unity = 20
+		}
+	}
+
+	potential = {
+        always = no
+	}
+
+	drop_weight = { weight = 0 }
+}
+
+d_pf_ring_of_debris = {
+	icon = d_ruined_system
+	resources = {
+		category = orbital_mining_deposits
+		produces = {
+			alloys = 3
+		}
+	}
+	station = shipclass_mining_station
+	is_for_colonizable = no
+
+	potential = {
+		always = no
+	}
+
+	habitat_modifier = {
+		district_hab_mining_max_add = 1
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_pf_crashed_starships = {
+	icon = d_crashed_ship
+	resources = {
+		category = orbital_mining_deposits
+		produces = {
+			alloys = 1
+		}
+	}
+	station = shipclass_mining_station
+	is_for_colonizable = no
+
+	potential = {
+		always = no
+	}
+
+	habitat_modifier = {
+		district_hab_mining_max_add = 1
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_pf_preserved_bases = {
+	icon = unused/d_city_ruins
+	resources = {
+		category = orbital_research_deposits
+		produces = {
+			engineering_research = 2
+			society_research = 2
+		}
+	}
+	station = shipclass_research_station
+	is_for_colonizable = no
+
+	potential = {
+		always = no
+	}
+
+	habitat_modifier = {
+		district_hab_science_max_add = 1
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_pf_aerosol_mining_stations = {
+	icon = "d_pf_aerosol_stations"
+	station = shipclass_mining_station
+	is_for_colonizable = no
+
+	resources = {
+		category = orbital_mining_deposits
+		produces = {
+			exotic_gases = 5
+		}
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_pf_unstable_ground = {
+	time = 720
+	icon = d_pf_molten_planet
+
+	is_for_colonizable = yes
+	category = deposit_cat_blockers
+	use_weights_for_blocker_swap_types = no
+
+	resources = {
+		category = deposit_blockers_natural
+		cost = {
+			energy = 3000
+		}
+	}
+
+	blocker_swap_types = {
+		d_pf_geothermal_region
+	}
+
+	planet_modifier = {
+		planet_max_districts_add = -3
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_pf_geothermal_region = {
+    is_for_colonizable = yes
+	icon = d_building_complex
+    category = deposit_cat_rare
+
+    planet_modifier = {
+		district_generator_max_add = 3
+    }
+
+	potential = {
+        always = no
+	}
+
+	drop_weight = { weight = 0 }
+}
+
+d_pf_imperial_palace = {
+    is_for_colonizable = yes
+	icon = d_pf_imperial_palace
+    category = deposit_cat_rare
+
+    planet_modifier = {
+        planet_max_districts_add = -1
+		planet_amenities_add = 600
+    }
+
+	triggered_planet_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_gestalt = no
+            }
+        }
+        job_politician_add = 200
+	}
+
+	potential = {
+        always = no
+	}
+
+	drop_weight = { weight = 0 }
+}

@@ -1,0 +1,58 @@
+bcfd_change_colony_date_range = {
+    set_variable_to_random_value = {
+        which = bcfd_target_days
+        max = $MAX_YEARS$
+        min = $MIN_YEARS$
+    }
+    multiply_variable = {
+        which = bcfd_target_days
+        value = 360
+    }
+    change_colony_foundation_date = bcfd_target_days
+    clear_variable = bcfd_target_days
+}
+
+bcfd_change_colony_date_exact = {
+    set_variable = {
+        which = bcfd_target_days
+        value = $TARGET_YEARS$
+    }
+    multiply_variable = {
+        which = bcfd_target_days
+        value = 360
+    }
+    change_colony_foundation_date = bcfd_target_days
+    clear_variable = bcfd_target_days
+}
+
+# Not perfect - it leaves days, but this should only be used before changing the date again, so it shouldn't matter.
+bcfd_reset_colony_date = {
+    export_trigger_value_to_variable = {
+        variable = bcfd_colony_age
+        trigger = colony_age_years
+    }
+
+    # Without this, we will reset the age to approx the current year
+    subtract_variable = {
+        which = bcfd_colony_age
+        value = trigger:years_passed
+    }
+
+    multiply_variable = {
+        which = bcfd_colony_age
+        value = 360
+    }
+    # Little bit of a buffer, as we cannot overshoot the colony date
+    subtract_variable = {
+        which = bcfd_colony_age
+        value = 360
+    }
+    change_colony_foundation_date = bcfd_colony_age
+    clear_variable = bcfd_colony_age
+}
+
+bcfd_reroll_date = {
+    bcfd_reset_colony_date = yes
+    planet_event = { id = better_colony_dates.1 }
+    planet_event = { id = better_colony_dates.7 } # Catchall that fires after
+}

@@ -1,0 +1,141 @@
+namespace = muteGDiversity
+
+### Sets the mods global flag 
+### on_game_start and on_single_player_save_game_load
+event = {
+	id = muteGDiversity.01	
+	hide_window = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+	}
+
+	immediate = {
+		set_global_flag = has_muteGDiversity
+	}
+}
+
+## On Leader Spawn
+## Set Leader Traits
+
+# Cunning
+country_event = {
+	id = muteGDiversity.100
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		from = { 
+			species = { 
+				has_trait = trait_mgd_cunning
+			}
+		}
+	}
+
+	immediate = {
+		from = {
+			random_list = {
+				3 = { }
+				1 = {
+					add_trait = { 
+						trait = leader_trait_mgd_cunning 
+						consume_selection = no
+						show_message = no
+					}
+				}
+			}
+		}
+	}
+}
+
+# Diplomat
+country_event = {
+	id = muteGDiversity.101
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		from = { 
+			species = { 
+				has_trait = trait_mgd_diplomatic
+			}
+			leader_class = official
+		}
+	}
+
+	immediate = {
+		from = {
+			random_list = {
+				1 = { }
+				1 = {
+					add_trait = { 
+						trait = leader_trait_mgd_diplomat
+						consume_selection = no
+						show_message = no
+					}
+				}
+			}
+		}
+	}
+}
+
+# wary
+country_event = {
+	id = muteGDiversity.102
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		from = { 
+			species = { 
+				has_trait = trait_mgd_cowards
+			}
+		}
+	}
+
+	immediate = {
+		from = {
+			random_list = {
+				3 = { }
+				1 = {
+					add_trait = { 
+						trait = leader_trait_mgd_wary
+						consume_selection = no
+						show_message = no
+					}
+				}
+			}
+		}
+	}
+}
+
+# schemer
+country_event = {
+	id = muteGDiversity.103
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		from = { 
+			species = { 
+				has_trait = trait_mgd_insidious
+			}
+		}
+	}
+
+	immediate = {
+		from = {
+			random_list = {
+				3 = { }
+				1 = {
+					add_trait = { 
+						trait = leader_trait_mgd_schemer
+						consume_selection = no
+						show_message = no
+					}
+				}
+			}
+		}
+	}
+}

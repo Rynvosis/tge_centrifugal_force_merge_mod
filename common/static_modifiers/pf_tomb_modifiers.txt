@@ -1,0 +1,60 @@
+pf_pm_glassed_world = {
+	pop_environment_tolerance = -0.10
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_burning_settlement.dds"
+	icon_frame = 3
+}
+
+pf_pm_nuclear_exchange = {
+	pop_environment_tolerance = -0.10
+	planet_jobs_society_research_produces_mult = 0.10
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_irradiated.dds"
+	icon_frame = 3
+}
+
+pf_pm_recent_asteroid_impact = {
+	pop_environment_tolerance = -0.25
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_asteroid_impacts.dds"
+	icon_frame = 3
+}
+
+pf_pm_asteroid_impact = {
+	pop_environment_tolerance = -0.10
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_asteroid_impacts.dds"
+	icon_frame = 3
+}
+
+pf_pm_recovering_biosphere = {
+	pop_environment_tolerance = 0.10
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_bleak.dds"
+	icon_frame = 1
+}
+
+pf_pm_junk_world = {
+	planet_miners_alloys_produces_add = 0.25
+	planet_miners_consumer_goods_produces_add = 0.25
+	planet_miners_energy_upkeep_add = 0.5
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_trash_rings.dds"
+	icon_frame = 2
+}
+
+pf_pm_ecosystem_reconstitution = {
+	planet_jobs_society_research_produces_mult = 0.10
+	pop_environment_tolerance = 0.05
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_natural_beauty.dds"
+	icon_frame = 1
+}
+
+pf_pm_silica_storms = {
+	planet_building_build_speed_mult = -0.20
+	planet_buildings_upkeep_mult = 0.15
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_strange_sandstorm.dds"
+	icon_frame = 3
+}

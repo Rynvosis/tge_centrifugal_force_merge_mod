@@ -1,0 +1,539 @@
+pf_pm_ice_age = { #I'd like this to spawn some special glaciers too
+	pop_environment_tolerance = -0.05
+	planet_jobs_minerals_produces_mult = 0.10
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_ice_age.dds"
+	icon_frame = 2
+}
+
+pf_pm_floral_world = {
+	pop_happiness = 0.1
+	planet_amenities_add = 500
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_natural_beauty.dds"
+	icon_frame = 1
+}
+
+pf_pm_biocrystals = {
+	planet_jobs_rare_crystals_produces_mult = 0.15
+	planet_farmers_rare_crystals_produces_add = 0.2
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_resonating_crystals.dds"
+	icon_frame = 1
+}
+
+pf_pm_severe_droughts = {
+	pop_environment_tolerance = -0.1
+	planet_jobs_food_produces_mult = -0.15
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_droughts.dds"
+	icon_frame = 3
+}
+
+pf_pm_overgrown = {
+	planet_jobs_society_research_produces_mult = 0.20
+	pop_environment_tolerance = -0.1
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_lush_jungle.dds"
+	icon_frame = 2
+}
+
+pf_pm_floating_rocks = {
+	planet_jobs_physics_research_produces_mult = 0.25
+	planet_physicists_physics_research_produces_add = 1
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_gravity_aftermath_modifier.dds"
+	icon_frame = 1
+}
+
+pf_pm_thick_atmosphere = {
+	planet_jobs_exotic_gases_produces_mult = 0.20
+	planet_jobs_energy_produces_mult = 0.1
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_thick_atmosphere.dds"
+	icon_frame = 1
+}
+
+pf_pm_thin_atmosphere = {
+	pop_environment_tolerance = -0.05
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_bleak.dds"
+	icon_frame = 3
+}
+
+pf_pm_irradiated_world = {
+	pop_environment_tolerance = -0.1
+	planet_technician_energy_produces_add = 1
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_irradiated.dds"
+	icon_frame = 3
+}
+
+pf_pm_subterranean_cave_systems = {
+	planet_max_districts_add = 2
+	planet_orbital_bombardment_damage = -0.25
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_hollow_planet.dds"
+	icon_frame = 1
+}
+
+pf_pm_dim_world = {
+	pop_environment_tolerance = -0.1
+	pop_happiness = -0.1
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_dim_world.dds"
+	icon_frame = 3
+}
+
+pf_pm_tidal_surges = {
+	pop_environment_tolerance = -0.1
+	planet_jobs_energy_produces_mult = 0.05
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_wild_storms.dds"
+	icon_frame = 3
+}
+
+pf_pm_fungal_world = {
+	planet_jobs_society_research_produces_mult = 0.1
+	planet_farmers_society_research_produces_add = 1
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_fungal_world.dds"
+	icon_frame = 1
+}
+
+# This would be a relatively common modifier, especially on higher hab counts, so don't overdo the values
+pf_pm_extraplanetary_life = {
+	planet_jobs_society_research_produces_mult = 0.10
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_extensive_moon_system.dds"
+	icon_frame = 1
+}
+
+# Also a relatively common modifiers
+pf_pm_planetary_rings = {
+	planet_jobs_minerals_produces_mult = 0.10
+	district_mining_max_add = 2
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_asteroid_belt.dds"
+	icon_frame = 1
+}
+
+pf_pm_megacoral_reefs = {
+	planet_jobs_food_produces_mult = 0.10
+	district_farming_max_add = 2
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_coral_ecosystems.dds"
+	icon_frame = 1
+}
+
+pf_pm_bioluminescent_flora = {
+	pop_happiness = 0.1
+	planet_jobs_unity_produces_mult = 0.10
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_lush_jungle.dds"
+	icon_frame = 1
+}
+
+pf_pm_toxic_spores = {
+	pop_environment_tolerance = -0.10
+	logistic_growth_mult = -0.10
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_microscopic_life.dds"
+	icon_frame = 3
+}
+
+pf_pm_abundant_parasites = {
+	pop_environment_tolerance = -0.05
+	pop_happiness = -0.1
+	planet_jobs_food_produces_mult = -0.10
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_nature.dds"
+	icon_frame = 3
+}
+
+pf_pm_canyon_world = {
+	planet_miners_volatile_motes_produces_add = 0.1
+	district_mining_max_add = 2
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_canyons.dds"
+	icon_frame = 1
+}
+
+pf_pm_tropical_archipelagos = {
+	pop_happiness = 0.1
+	planet_jobs_food_produces_mult = 0.15
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_tropical_island.dds"
+	icon_frame = 1
+}
+
+pf_pm_snowball_world = {
+	pop_environment_tolerance = -0.2
+	planet_max_districts_add = -2
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_arctic_planet.dds"
+	icon_frame = 3
+}
+
+pf_pm_volcanic_soils = {
+	planet_jobs_food_produces_mult = 0.3
+	district_farming_max_add = 4
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_volcanic_soils.dds"
+	icon_frame = 1
+}
+
+pf_pm_chirping_plains = {
+	pop_happiness = 0.1
+	planet_jobs_society_research_produces_mult = 0.15
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_animal_wildlife.dds"
+	icon_frame = 1
+}
+
+pf_pm_bone_world = {
+	planet_biologists_society_research_produces_add = 1
+	planet_jobs_society_research_produces_mult = 0.20
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_bone_world.dds"
+	icon_frame = 1
+}
+
+pf_pm_dry_world = {
+	pop_environment_tolerance = -0.3
+	terraforming_cost_mult = 0.75
+	terraform_speed_mult = -0.75
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_desert_world.dds"
+	icon_frame = 3
+}
+
+pf_pm_swamp_world = {
+	pop_environment_tolerance = -0.2
+	planet_jobs_society_research_produces_mult = 0.10
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_swamp_world.dds"
+	icon_frame = 2
+}
+
+pf_pm_aurora_lights = {
+	planet_jobs_unity_produces_mult = 0.10
+	pop_happiness = 0.10
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_aurora_borealis.dds"
+	icon_frame = 1
+}
+
+pf_pm_multi_planetary_ecosystem = {
+	planet_jobs_society_research_produces_mult = 0.50
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_overgrowth.dds"
+	icon_frame = 1
+}
+
+pf_pm_arboreal_ecosystem = {
+	planet_biologists_food_produces_add = 2
+	planet_farmers_society_research_produces_add = 2
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_huge_tree.dds"
+	icon_frame = 1
+}
+
+pf_pm_harsh = {
+	pop_environment_tolerance = -0.20
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_wasteland.dds"
+	icon_frame = 3
+}
+
+pf_pm_abyssal_seas = {
+	planet_jobs_society_research_produces_mult = 0.10
+	planet_anglers_society_research_produces_add = 2
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_abyssal_seas.dds"
+	icon_frame = 1
+}
+
+pf_pm_irregular_orbit = {
+	pop_environment_tolerance = -0.10
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_tidal_locked.dds"
+	icon_frame = 3
+}
+pf_pm_subglacial_seas = {
+	planet_farmers_engineering_research_produces_add = 1
+	planet_anglers_engineering_research_produces_add = 2
+	planet_jobs_food_produces_mult = 0.1
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_ice_age.dds"
+	icon_frame = 1
+}
+
+pf_pm_equatorial_deserts = {
+	pop_environment_tolerance = -0.10
+	planet_max_districts_mult = -0.1
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_desert_world.dds"
+	icon_frame = 3
+}
+
+pf_pm_ideal_sunshine = {
+	pop_environment_tolerance = 0.05
+	pop_happiness = 0.10
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_star.dds"
+	icon_frame = 1
+}
+
+pf_pm_harmonious_ecosystems = {
+	pop_environment_tolerance = 0.05
+	pop_happiness = 0.1
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_nature.dds"
+	icon_frame = 1
+}
+
+pf_pm_wild_sandstorms = {
+	pop_environment_tolerance = -0.10
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_thick_atmosphere.dds"
+	icon_frame = 3
+}
+
+pf_pm_saline_seas = {
+	pop_environment_tolerance = -0.05
+	planet_jobs_food_produces_mult = -0.1
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_arid_planet.dds"
+	icon_frame = 3
+}
+
+pf_pm_impenetrable_jungles = {
+	pop_environment_tolerance = -0.05
+	planet_building_build_speed_mult = -0.25
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_jungle_world.dds"
+	icon_frame = 3
+}
+
+pf_pm_fertile_tundras = {
+	pop_environment_tolerance = 0.05
+	planet_jobs_food_produces_mult = 0.1
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_tundra.dds"
+	icon_frame = 1
+}
+
+pf_pm_harsh_badlands = {
+	pop_environment_tolerance = -0.05
+	planet_jobs_food_produces_mult = -0.1
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_red_deserts.dds"
+	icon_frame = 3
+}
+
+pf_pm_verdant_oases = {
+	pop_environment_tolerance = 0.10
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_oasis.dds"
+	icon_frame = 1
+}
+
+# TODO: add an occasional event to add some devastation and a decision to remove it.
+pf_pm_flash_floods = {
+	pop_environment_tolerance = -0.05
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_river.dds"
+	icon_frame = 3
+}
+
+pf_pm_fertile_silts = {
+	district_farming_max_add = 3
+	planet_jobs_food_produces_mult = 0.1
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_river.dds"
+	icon_frame = 1
+}
+
+pf_pm_psionic_gaia_world = {
+	pop_happiness = 0.1
+	planet_jobs_unity_produces_mult = 0.1
+	psionic_pop_bonus_workforce_mult = 0.1
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_shroud_storm.dds"
+	icon_frame = 1
+}
+
+pf_pm_harsh_static_storms = {
+	planet_jobs_physics_research_produces_mult = -0.30
+	planet_pops_robotics_upkeep_mult = 0.30
+	pop_environment_tolerance = -0.15
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_strange_sandstorm.dds"
+	icon_frame = 3
+}
+
+pf_pm_static_storms = {
+	planet_jobs_physics_research_produces_mult = -0.20
+	planet_pops_robotics_upkeep_mult = 0.20
+	pop_environment_tolerance = -0.1
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_strange_sandstorm.dds"
+	icon_frame = 3
+}
+
+pf_pm_mild_static_storms = {
+	planet_jobs_physics_research_produces_mult = -0.1
+	planet_pops_robotics_upkeep_mult = 0.1
+	pop_environment_tolerance = -0.05
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_strange_sandstorm.dds"
+	icon_frame = 3
+}
+
+pf_pm_hyperbloom = {
+	planet_jobs_food_produces_mult = 0.5
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_cultivated_worldscaping.dds"
+	icon_frame = 1
+}
+
+pf_pm_axial_tilt = {
+	pop_environment_tolerance = -0.05
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_planet_from_space.dds"
+	icon_frame = 3
+}
+
+pf_pm_leviathan_oceans = {
+	planet_jobs_society_research_produces_mult = 0.15
+	planet_anglers_food_produces_add = 1
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_tides.dds"
+	icon_frame = 1
+}
+
+pf_pm_ancient_fossil_strata = {
+	planet_miners_society_research_produces_add = 1
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_seismological_disturbances.dds"
+	icon_frame = 1
+}
+
+pf_pm_betharian_world = {
+	planet_miners_energy_produces_mult = 0.25
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_betharian_world.dds"
+	icon_frame = 1
+}
+
+pf_pm_deep_sea_mineral_beds = {
+	planet_miners_minerals_produces_add = 2
+	planet_miners_energy_upkeep_add = 0.5
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_tides.dds"
+	icon_frame = 1
+}
+
+pf_pm_delta_world = {
+	planet_amenities_mult = 0.1
+	planet_jobs_food_produces_mult = 0.1
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_delta_world.dds"
+	icon_frame = 1
+}
+
+pf_pm_rain_world = {
+	planet_building_build_speed_mult = -0.15
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_planet_from_space.dds"
+	icon_frame = 3
+}
+
+pf_pm_tectonically_inactive = {
+	planet_miners_volatile_motes_produces_add = 0.10
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_carbon_world.dds"
+	icon_frame = 1
+}
+
+pf_pm_seed_world = {
+	pop_environment_tolerance = 0.1
+	planet_biologists_society_research_produces_add = 1
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_animal_wildlife.dds"
+	icon_frame = 1
+}
+
+pf_pm_micro_moons = {
+	planet_jobs_trade_produces_mult = -0.1
+	planet_orbital_bombardment_damage = -0.25
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_asteroid_belt.dds"
+	icon_frame = 2
+}
+
+## ESPM Port
+pf_pm_magnificent_lakes = {
+	pop_happiness = 0.10
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_magnificent_lakes.dds"
+	icon_frame = 1
+}
+
+#TODO: I'd like this to spawn with some humid jungle blockers too
+pf_pm_warm_period = {
+	pop_environment_tolerance = -0.05
+	planet_jobs_food_produces_mult = 0.10
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_lush_jungle.dds"
+	icon_frame = 2
+}
+
+#TODO: Could have a fire storm event
+pf_pm_fire_ecosystems = {
+	pop_environment_tolerance = -0.10
+	planet_jobs_food_produces_mult = 0.10
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_burning_settlement.dds"
+	icon_frame = 2
+}
+
+pf_pm_dry_inlands = {
+	pop_environment_tolerance = -0.05
+	planet_jobs_food_produces_mult = -0.05
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_drylands.dds"
+	icon_frame = 3
+}
+
+pf_pm_algae_seas = {
+	pop_environment_tolerance = -0.05
+	planet_jobs_food_produces_mult = -0.15
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_microscopic_life.dds"
+	icon_frame = 3
+}
+
+pf_pm_underground_rivers = {
+	planet_miners_society_research_produces_add = 1
+	planet_miners_engineering_research_produces_add = 1
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_hollow_planet.dds"
+	icon_frame = 1
+}
+
+pf_pm_alien_megaherds = {
+	planet_jobs_society_research_produces_mult = 0.05
+	planet_jobs_food_produces_mult = 0.05
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_animal_wildlife.dds"
+	icon_frame = 1
+}
+
+pf_pm_alien_mats = {
+	planet_jobs_food_produces_mult = 0.10
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_planet_surface.dds"
+	icon_frame = 1
+}

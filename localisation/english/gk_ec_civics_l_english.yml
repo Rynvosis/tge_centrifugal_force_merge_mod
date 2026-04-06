@@ -1,0 +1,285 @@
+﻿l_english:
+
+  ###
+  # Centralized State
+  ###
+
+  civic_gk_ec_centralized_state: "Centralized State"
+  civic_gk_ec_centralized_state_desc: "This society is extremely centralized, having grown around a single shining core, its capital. Power, people and resources are drawn inwards."
+  GK_EC_CAPITAL_PLANET_EFFECTS_TXT: "£planet£ §YCapital Planet§! Effects"
+  GK_EC_CENTRALIZED_CAPITAL_PLANET_EFFECTS: "$t$$MOD_PLANET_STABILITY_ADD$ §G+20§!\n$t$$MOD_POP_GOVERNMENT_ETHIC_ATTRACTION$ §G+100%§!"
+  civic_gk_ec_centralized_state_effects: "§E$GK_EC_CAPITAL_PLANET_EFFECTS_TXT$§!:\n$t$[politician.GetIcon] [politician.GetName] Jobs scaling with Capital Tier\n$GK_EC_CENTRALIZED_CAPITAL_PLANET_EFFECTS$\n\n§E£planet£ §YNon-Capital Planets§! Effects§!:\n$t$$MOD_PLANET_STABILITY_ADD$ §R-5§!\n$t$$MOD_POP_GOVERNMENT_ETHIC_ATTRACTION$ §R-25%§!"
+  civic_gk_ec_centralized_state_effects_gestalt: "§E$GK_EC_CAPITAL_PLANET_EFFECTS_TXT$§!:\n$t$[coordinator.GetIcon] [coordinator.GetName] Jobs scaling with Capital Tier\n$GK_EC_CENTRALIZED_CAPITAL_PLANET_EFFECTS$\n\n§E£planet£ §YNon-Capital Planets§! Effects§!:\n$t$$MOD_PLANET_STABILITY_ADD$ §R-5§!\n$t$$MOD_POP_GOVERNMENT_ETHIC_ATTRACTION$ §R-25%§!"
+
+  civic_gk_ec_centralized_state_hive: "Centralized Synapse"
+  civic_gk_ec_centralized_state_hive_desc: "This hive mind has evolved a highly centralized neural architecture. All drones are instinctively drawn towards the primary consciousness node."
+
+  civic_gk_ec_centralized_state_machine: "Core Processing Hub"
+  civic_gk_ec_centralized_state_machine_desc: "This machine intelligence is built around a massive central processing unit. All sub-units are designed to return to the core for data synchronization and upgrades."
+
+  civic_gk_ec_centralized_state_megacorp: "Corporate Monolith"
+  civic_gk_ec_centralized_state_megacorp_desc: "This megacorporation is run with absolute efficiency from a single, massive headquarters. All subsidiaries and branch offices report directly to the central board."
+
+  councilor_gk_ec_centralized_state: "Capital Prefect"
+  councilor_gk_ec_centralized_state_female: "$councilor_gk_ec_centralized_state$"
+  councilor_gk_ec_centralized_state_desc: "The $TITLE$ leads the infrastructural development of our capital."
+
+  councilor_gk_ec_centralized_state_corporate: "Head of Headquarters"
+  councilor_gk_ec_centralized_state_corporate_female: "$councilor_gk_ec_centralized_state_corporate$"
+  councilor_gk_ec_centralized_state_corporate_desc: "The $TITLE$ oversees the streamlining of corporate assets into the central headquarters."
+
+  councilor_gk_ec_centralized_state_tt: "- £planet£ §YCapital Planet§! [politician.GetIcon] [politician.GetNamePlural]: §G+25§!$NEW_LINE$§EAdditional Effects when §YGoverning Capital§!:§!$TABBED_NEW_LINE$- £planet£ §YCapital Planet§! [politician.GetIcon] [politician.GetNamePlural]: §G+25§!"
+  
+  ###
+  # Penal Colony
+  ###
+
+  civic_gk_ec_penal_colony_effects: "Start with the §Y$tech_penal_colonies$§! technology."
+  civic_gk_ec_penal_colony: "Penal Colonies"
+  civic_gk_ec_penal_colony_desc: "This society has a long history of exiling its criminals to remote worlds. They have perfected the art of turning incarceration into a productive enterprise."
+  civic_gk_ec_penal_colony_megacorp: "Correctional Profit Centers"
+  civic_gk_ec_penal_colony_megacorp_desc: "This megacorporation views crime not as a social failure, but as an untapped labor market. Their rehabilitation programs are surprisingly profitable."
+
+  councilor_gk_ec_penal_colony: "High Warden"
+  councilor_gk_ec_penal_colony_female: "$councilor_gk_ec_penal_colony$"
+  councilor_gk_ec_penal_colony_desc: "The $TITLE$ oversees the empire's correctional facilities, ensuring that justice is served and quotas are met."
+
+  councilor_gk_ec_penal_colony_megacorp: "Rehabilitation Director"
+  councilor_gk_ec_penal_colony_megacorp_female: "$councilor_gk_ec_penal_colony_megacorp$"
+  councilor_gk_ec_penal_colony_megacorp_desc: "The $TITLE$ manages the corporation's indentured workforce, optimizing the output of those working off their debts to society."
+
+  ###
+  # Resort Worlds
+  ###
+
+  civic_gk_ec_resort_worlds_effects: "Start with the §Y$tech_resort_colonies$§! technology."
+  civic_gk_ec_resort_worlds: "Leisure Society"
+  civic_gk_ec_resort_worlds_desc: "This civilization values leisure and entertainment above all else. They have dedicated entire worlds to the pursuit of pleasure and relaxation."
+  civic_gk_ec_resort_worlds_megacorp: "Hospitality Conglomerate"
+  civic_gk_ec_resort_worlds_megacorp_desc: "This megacorporation is the galaxy's premier provider of luxury and entertainment. Their resort worlds are legendary, attracting tourists from every corner of the galaxy."
+
+  councilor_gk_ec_resort_worlds: "Minister of Leisure"
+  councilor_gk_ec_resort_worlds_female: "$councilor_gk_ec_resort_worlds$"
+  councilor_gk_ec_resort_worlds_desc: "The $TITLE$ is responsible for the happiness and well-being of the populace, ensuring that the party never stops."
+
+  councilor_gk_ec_resort_worlds_megacorp: "Chief Experience Officer"
+  councilor_gk_ec_resort_worlds_megacorp_female: "$councilor_gk_ec_resort_worlds_megacorp$"
+  councilor_gk_ec_resort_worlds_megacorp_desc: "The $TITLE$ curates the ultimate customer experience, maximizing engagement and revenue from the corporation's entertainment assets."
+
+  ###
+  # Pathfinders
+  ###
+
+  civic_gk_ec_pathfinders: "Pathfinders"
+  civic_gk_ec_pathfinders_desc: "This civilization has always looked outward. Their scientists, scouts, and settlers push relentlessly into the unknown, driven by the conviction that the next system holds something worth finding."
+  civic_gk_ec_pathfinders_megacorp: "Prospecting Venture"
+  civic_gk_ec_pathfinders_megacorp_desc: "This corporation was built on the principle that every uncharted system is an untapped market. Their prospecting fleets survey, claim, and monetize the unknown at remarkable speed."
+  civic_gk_ec_pathfinders_hive: "Questing Tendrils"
+  civic_gk_ec_pathfinders_hive_desc: "The hive extends itself ever outward, tendrils of consciousness probing each new system with instinctive curiosity. To cease exploring would be to cease growing."
+  civic_gk_ec_pathfinders_machine: "Exploration Matrix"
+  civic_gk_ec_pathfinders_machine_desc: "This intelligence allocates disproportionate processing cycles to mapping and analyzing unknown space. Every anomaly is a data point; every survey, a step toward total comprehension."
+
+  councilor_gk_ec_pathfinders: "Chief Surveyor"
+  councilor_gk_ec_pathfinders_female: "$councilor_gk_ec_pathfinders$"
+  councilor_gk_ec_pathfinders_desc: "The $TITLE$ coordinates our exploration efforts, ensuring no anomaly goes uninvestigated."
+  councilor_gk_ec_pathfinders_megacorp: "Prospecting Director"
+  councilor_gk_ec_pathfinders_megacorp_female: "$councilor_gk_ec_pathfinders_megacorp$"
+  councilor_gk_ec_pathfinders_megacorp_desc: "The $TITLE$ oversees the corporation's survey fleets and manages the acquisition of new territorial claims."
+
+  ###
+  # Surveillance State
+  ###
+
+  civic_gk_ec_surveillance: "Surveillance State"
+  civic_gk_ec_surveillance_desc: "Every communication is monitored. Every transaction is logged. This society has traded the illusion of privacy for the certainty of information, and the rest of the galaxy has learned to watch what they say."
+  civic_gk_ec_surveillance_megacorp: "Data Brokerage"
+  civic_gk_ec_surveillance_megacorp_desc: "This corporation's real product is not what it sells, but what it knows. Their intelligence apparatus spans the galaxy, harvesting data from every interaction and selling strategic insights to the highest bidder."
+  civic_gk_ec_surveillance_hive: "Omniscient Network"
+  civic_gk_ec_surveillance_hive_desc: "The hive perceives everything. Its sensory network has evolved far beyond what survival demands, extending into the communications and systems of other empires with silent, patient precision."
+
+  councilor_gk_ec_surveillance: "Intelligence Director"
+  councilor_gk_ec_surveillance_female: "$councilor_gk_ec_surveillance$"
+  councilor_gk_ec_surveillance_desc: "The $TITLE$ oversees our intelligence apparatus, applying surveillance techniques to fleet concealment and covert operations."
+  councilor_gk_ec_surveillance_megacorp: "Data Analytics Officer"
+  councilor_gk_ec_surveillance_megacorp_female: "$councilor_gk_ec_surveillance_megacorp$"
+  councilor_gk_ec_surveillance_megacorp_desc: "The $TITLE$ leverages our intelligence networks to develop advanced stealth technologies for corporate assets."
+
+  ###
+  # Paternalism
+  ###
+
+  civic_gk_ec_paternalism_effects: "Forces §YSocial Welfare§! living standard."
+  civic_gk_ec_paternalism: "Paternalism"
+  civic_gk_ec_paternalism_desc: "The state knows best. Citizens are provided for, protected from hardship, and gently guided away from dangerous ideas. It is a comfortable existence, if an unambitious one."
+  civic_gk_ec_paternalism_hive: "Nurturing Overmind"
+  civic_gk_ec_paternalism_hive_desc: "This hive maintains its drones in a state of perfect contentment. Every need is anticipated, every discomfort smoothed away. The collective thrives, though it rarely surprises."
+  civic_gk_ec_paternalism_machine: "Caretaker Protocol"
+  civic_gk_ec_paternalism_machine_desc: "This intelligence prioritizes the maintenance and stability of all units above operational development. Systems are kept in optimal condition, though initiative subroutines are deprioritized."
+
+  councilor_gk_ec_paternalism: "Minister of Social Harmony"
+  councilor_gk_ec_paternalism_female: "$councilor_gk_ec_paternalism$"
+  councilor_gk_ec_paternalism_desc: "The $TITLE$ ensures the population remains content, well-cared-for, and ideologically aligned."
+  ###
+  # Industrial Democracy
+  ###
+
+  civic_gk_ec_industrial_democracy_effects: "Forces §YSocial Welfare§! living standard."
+  civic_gk_ec_industrial_democracy: "Industrial Democracy"
+  civic_gk_ec_industrial_democracy_desc: "Workers in this corporation are not mere employees but stakeholders. Board decisions require labor approval, wages are tied to profits, and the factory floor has a seat at every table."
+
+  councilor_gk_ec_industrial_democracy: "Labor Relations Director"
+  councilor_gk_ec_industrial_democracy_female: "$councilor_gk_ec_industrial_democracy$"
+  councilor_gk_ec_industrial_democracy_desc: "The $TITLE$ channels worker productivity into commercial value, ensuring that every laborer's contribution is reflected in the bottom line."
+
+  ###
+  # Social Democracy
+  ###
+
+  civic_gk_ec_social_democracy_effects: "Forces §YSocial Welfare§! living standard."
+  civic_gk_ec_social_democracy: "Social Democracy"
+  civic_gk_ec_social_democracy_desc: "A robust welfare state underpins this democracy. Public housing, universal services, and generous safety nets ensure that no citizen is left behind, even if progress sometimes moves at the speed of consensus."
+
+  councilor_gk_ec_social_democracy: "Minister of Public Welfare"
+  councilor_gk_ec_social_democracy_female: "$councilor_gk_ec_social_democracy$"
+  councilor_gk_ec_social_democracy_desc: "The $TITLE$ oversees the expansion of public services and social safety nets, fostering steady population growth."
+
+  ###
+  # War Engineers
+  ###
+
+  civic_gk_ec_war_engineers: "War Engineers"
+  civic_gk_ec_war_engineers_desc: "This society channels its brightest minds into the science of destruction. Research labs and weapons foundries share campuses, and military breakthroughs are the measure of national prestige."
+  civic_gk_ec_war_engineers_megacorp: "Arms Conglomerate"
+  civic_gk_ec_war_engineers_megacorp_desc: "This corporation has cornered the market on military research and advanced weapons systems. Their R&D divisions are the envy of the galaxy, and their profit margins reflect it."
+  civic_gk_ec_war_engineers_hive: "Evolved Armaments"
+  civic_gk_ec_war_engineers_hive_desc: "The hive has directed its evolutionary pressure toward combat superiority. Generations of selective adaptation have produced organisms that are living weapons platforms, constantly refined through biological research."
+  civic_gk_ec_war_engineers_machine: "Weapons Research Node"
+  civic_gk_ec_war_engineers_machine_desc: "This intelligence devotes a majority of its processing capacity to weapons research and combat optimization. Every engagement generates data; every analysis yields deadlier designs."
+
+  councilor_gk_ec_war_engineers: "Master Armorer"
+  councilor_gk_ec_war_engineers_female: "$councilor_gk_ec_war_engineers$"
+  councilor_gk_ec_war_engineers_desc: "The $TITLE$ integrates military and research personnel, embedding soldiers into the scientific process."
+  councilor_gk_ec_war_engineers_megacorp: "Arms Director"
+  councilor_gk_ec_war_engineers_megacorp_female: "$councilor_gk_ec_war_engineers_megacorp$"
+  councilor_gk_ec_war_engineers_megacorp_desc: "The $TITLE$ coordinates between the corporation's military contracts and research divisions, ensuring soldiers contribute to ongoing weapons development."
+
+  ###
+  # Ascetic
+  ###
+
+  civic_gk_ec_ascetic: "Austere Society"
+  civic_gk_ec_ascetic_desc: "This civilization has embraced simplicity as a virtue. Its people consume little, maintain what they have, and find contentment in sufficiency rather than abundance."
+  civic_gk_ec_ascetic_megacorp: "Lean Enterprise"
+  civic_gk_ec_ascetic_megacorp_desc: "This corporation has built its entire business model around radical efficiency. Overhead is eliminated ruthlessly, and every credit is stretched to its limit. The margins are thin, but the waste is thinner."
+  civic_gk_ec_ascetic_machine: "Low-Power Mode"
+  civic_gk_ec_ascetic_machine_desc: "This intelligence operates at minimal power consumption, optimizing every process for efficiency over raw throughput. Less energy in, proportionally less out, but the savings compound."
+
+  councilor_gk_ec_ascetic: "Minister of Austerity"
+  councilor_gk_ec_ascetic_female: "$councilor_gk_ec_ascetic$"
+  councilor_gk_ec_ascetic_desc: "The $TITLE$ enforces strict maintenance standards and resource discipline across all imperial infrastructure."
+  councilor_gk_ec_ascetic_megacorp: "Efficiency Auditor"
+  councilor_gk_ec_ascetic_megacorp_female: "$councilor_gk_ec_ascetic_megacorp$"
+  councilor_gk_ec_ascetic_megacorp_desc: "The $TITLE$ reviews every facility for waste and redundancy, ensuring the corporation's infrastructure runs at minimal cost."
+
+  ###
+  # Constitutional Monarchy
+  ###
+
+  civic_gk_ec_constitutional_monarchy_effects: "Spawns a §YConstitutional Monarch§! on game start.\nThe monarch serves as a diplomatic figurehead, boosting galactic community and federation standing."
+  civic_gk_ec_constitutional_monarchy: "Constitutional Monarchy"
+  civic_gk_ec_constitutional_monarchy_desc: "A hereditary sovereign reigns alongside elected institutions. The crown provides continuity and legitimacy while parliament handles the business of governance. Elections still occur, but the monarch endures."
+
+  councilor_gk_ec_constitutional_monarchy: "Royal Chancellor"
+  councilor_gk_ec_constitutional_monarchy_female: "$councilor_gk_ec_constitutional_monarchy$"
+  councilor_gk_ec_constitutional_monarchy_desc: "The $TITLE$ serves as the bridge between the crown and parliament, channeling royal legitimacy into political influence."
+
+  trait_gk_ec_constitutional_monarch: "Constitutional Monarch"
+  trait_gk_ec_constitutional_monarch_desc: "The hereditary sovereign of a constitutional monarchy. While holding no direct political power, the crown carries enormous weight in galactic diplomacy, federation politics, and community affairs."
+  trait_gk_ec_constitutional_monarch_tooltip: "§EGalactic Community:§!\n$t$$MOD_DIPLO_WEIGHT_MULT$ §G+25%§!\n\n§EFederation:§!\n$t$Federation XP §G+0.50§!\n$t$Federation Join Malus §G-10%§!\n$t$Cohesion Ethics Penalty §G-25%§!"
+
+  GK_EC_MONARCH_DESC: "The hereditary sovereign of [Root.GetName]."
+
+  gk_ec_civic.201.name: "Long Live the Crown"
+  gk_ec_civic.201.m.desc: "The king is dead. Long live the king.\n\nA new sovereign has ascended to the throne of [Root.GetName], continuing the unbroken line of hereditary rule."
+  gk_ec_civic.201.f.desc: "The queen is dead. Long live the queen.\n\nA new sovereign has ascended to the throne of [Root.GetName], continuing the unbroken line of hereditary rule."
+  gk_ec_civic.201.n.desc: "The sovereign is dead. Long live the sovereign.\n\nA new monarch has ascended to the throne of [Root.GetName], continuing the unbroken line of hereditary rule."
+  gk_ec_civic.201.a: "The crown endures."
+
+  ###
+  # Parliamentary Monarchy
+  ###
+
+  civic_gk_ec_parliamentary_monarchy: "Parliamentary Monarchy"
+  civic_gk_ec_parliamentary_monarchy_desc: "The crown rules, but parliament governs. Factions hold real power, their debates shape policy, and the educated classes have a voice that cannot be ignored. The result is an empire that benefits from both stability and representation."
+
+  councilor_gk_ec_parliamentary_monarchy: "Speaker of Parliament"
+  councilor_gk_ec_parliamentary_monarchy_female: "$councilor_gk_ec_parliamentary_monarchy$"
+  councilor_gk_ec_parliamentary_monarchy_desc: "The $TITLE$ chairs parliamentary sessions, ensuring that faction interests are heard and translated into productive governance."
+
+  ###
+  # Stratocracy
+  ###
+
+  civic_gk_ec_stratocracy: "Stratocracy"
+  civic_gk_ec_stratocracy_desc: "Military officers govern directly, replacing civilian administrators with commanders whose authority derives from rank and service."
+  civic_gk_ec_stratocracy_effects: "- §YCommander§! governors no longer penalize §YSpecialist§! output\n- §YPolitician§! jobs are replaced by §YStratocrats§! that upkeep §YAlloys§! instead of §YConsumer Goods§! and inherit §YSoldier§! production modifiers"
+
+  councilor_gk_ec_stratocracy: "Supreme Commandant"
+  councilor_gk_ec_stratocracy_female: "$councilor_gk_ec_stratocracy$"
+  councilor_gk_ec_stratocracy_desc: "The $TITLE$ oversees military governance across the empire, ensuring that soldiers serve as the backbone of civic order."
+
+  ## Stratocracy Jobs
+  job_stratocrat: "Stratocrat"
+  job_stratocrat_plural: "Stratocrats"
+  job_stratocrat_desc: "Military officers serving as civic administrators, maintaining order through rank and discipline."
+  job_warlord: "Noble Commander"
+  job_warlord_plural: "Noble Commanders"
+  job_warlord_desc: "Aristocratic officers who govern through both birthright and martial authority."
+  job_templar: "High Templar"
+  job_templar_plural: "High Templars"
+  job_templar_desc: "Holy warriors who enforce divine law through military authority."
+  job_war_scientist: "Military Technocrat"
+  job_war_scientist_plural: "Military Technocrats"
+  job_war_scientist_desc: "Officers who direct both military governance and scientific research."
+  job_quartermaster: "Logistics Commander"
+  job_quartermaster_plural: "Logistics Commanders"
+  job_quartermaster_desc: "Military logistics officers who manage trade and supply alongside civic governance."
+  job_flame_marshal: "Flame Marshal"
+  job_flame_marshal_plural: "Flame Marshals"
+  job_flame_marshal_desc: "Sacred warriors who wield both martial and pyromantic authority."
+
+  ## Stratocracy Modifier Keys
+  mod_civic_gk_ec_stratocracy: "Stratocracy"
+  t:0 "    "
+  tt:0 "        "
+  ttt:0 "            "
+  tttt:0 "                "
+  councilor_gk_ec_stratocracy_effects: "$t$- £amenities£ Produced per 100 $soldier_type_plural_with_icon$: §G+25§!"
+
+  ###
+  # Algocracy
+  ###
+
+  civic_gk_ec_algocracy: "Algocracy"
+  civic_gk_ec_algocracy_desc: "The supreme authority of this empire is a highly sophisticated artificial intelligence who oversees all matters of state, freed from the corruption and inefficiency of organic governments."
+  civic_gk_ec_algocracy_effects: "Replaces your ruler with a powerful §Yrobotic§! leader with the §Y$trait_gk_ec_ai_leader$§! trait:$NEW_LINE$- §G+5%§! $job_politician_plural_with_icon$ output per leader level$NEW_LINE$- §R+10§! £energy£ $energy$ upkeep per leader level"
+
+  councilor_gk_ec_algocracy: "System Administrator"
+  councilor_gk_ec_algocracy_female: "$councilor_gk_ec_algocracy$"
+  councilor_gk_ec_algocracy_desc: "The $TITLE$ is one of the few individuals allowed to change the programming of the central AI."
+
+  GK_EC_NAME_AI_LEADERSHIP: "Central AI"
+  GK_EC_AI_LEADER_DESC: "An artificial intelligence built to oversee the government of the [root.owner.GetName]."
+  GK_EC_AI_LEADER_CATCHPHRASE: "Beep Boop"
+
+  trait_gk_ec_ai_leader: "$GK_EC_NAME_AI_LEADERSHIP$"
+  trait_gk_ec_ai_leader_desc: "An advanced artificial intelligence capable of running the government of an entire nation."
+  trait_gk_ec_ai_leader_tooltip: "The §Ybonus§! and §Yupkeep§! of this trait will grow with the leader's level."
+
+  GK_EC_AI_LEADER_RECRUITED: "AI Ruler currently online and fully operative"
+  GK_EC_AI_LEADER_DISABLED: "AI Ruler permanently shut down"
+
+  mod_job_politician_automated_workforce_mult: "$job_politician_plural_with_icon$ $MOD_PLANET_AUTOMATED_WORKFORCE$"
+
+  gk_ec_civic.401.name: "System Reboot"
+  gk_ec_civic.401.desc: "The central AI has been destroyed, but its backup systems have engaged. A new instance is being initialized."

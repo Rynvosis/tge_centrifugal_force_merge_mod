@@ -1,0 +1,83 @@
+# Gas Giants
+pf_pm_mega_storms = {
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_gas_giant_red.dds"
+	icon_frame = 1
+}
+
+# Moons
+pf_pm_tidal_forces = {
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_chthonian_planet.dds"
+	icon_frame = 1
+}
+
+# Gas Giants
+pf_pm_isotopic_atmosphere = {
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_gas_giant_red.dds"
+	icon_frame = 1
+}
+
+# Barren
+pf_pm_ancient_impact_sites = {
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_unstable_tectonics.dds"
+	icon_frame = 1
+}
+
+# Molten
+pf_pm_primordial_world = {
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_molten_planet.dds"
+	icon_frame = 2
+}
+
+# Frozen + Cold Barren
+pf_pm_cryovolcanoes = {
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_carbon_world.dds"
+	icon_frame = 1
+}
+
+# Frozen
+pf_pm_subsurface_oceans = {
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_abyssal_seas.dds"
+	icon_frame = 1
+}
+
+# Gas Giant
+pf_pm_hot_gas_giant = {
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_gas_giant_red.dds"
+	icon_frame = 1
+}
+
+# Asteroid
+pf_pm_metallic_asteroid = {
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_asteroid.dds"
+	icon_frame = 1
+}
+
+# Molten
+pf_pm_asteroid_bombardment = {
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_asteroid_bombardment.dds"
+	icon_frame = 2
+}
+
+# Stars
+pf_pm_protoplanetary_disk = {
+
+	icon = "gfx/interface/icons/planet_modifiers/pf_pm_protoplanetary_disk.dds"
+	icon_frame = 2
+}
+
+# System Modifier
+pf_pm_protoplanetary_system = {
+	ship_speed_reduction = 0.5
+	ship_disengage_chance_mult = -0.25
+	ship_emergency_ftl_mult = 0.25
+}

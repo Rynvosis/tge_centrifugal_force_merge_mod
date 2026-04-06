@@ -1,0 +1,89 @@
+spriteTypes = {
+    spriteType = {
+		name = "GFX_district_specialization_pf_psionic_fungi_materialist"
+		texturefile = "gfx/interface/icons/districts/district_specialization_icons/district_specialization_pf_psionic_fungus_science.dds"
+	}
+    spriteType = {
+		name = "GFX_district_specialization_pf_psionic_fungi_spiritualist"
+		texturefile = "gfx/interface/icons/districts/district_specialization_icons/district_specialization_pf_psionic_fungus_unity.dds"
+	}
+    spriteType = {
+		name = "GFX_district_specialization_pf_plantations"
+		texturefile = "gfx/interface/icons/districts/district_specialization_icons/district_specialization_pf_plantations.dds"
+	}
+
+	spriteType = {
+		name = "GFX_district_pf_fungal_sanctuaries_bg"
+		textureFile = "gfx/interface/planetview/district_backgrounds/district_farming_bg.dds"
+	}
+
+	spriteType = {
+		name = "GFX_district_pf_fungal_sanctuaries_box_icon_rectangle"
+		texturefile = "gfx/interface/icons/districts/grid_box/district_pf_fungal_sanctuaries_rectangle.dds"
+		effectFile = "gfx/FX/buttonstate_onlydisable.shader"
+		noOfFrames = 3
+		animation = {
+			animationmaskfile = "gfx/interface/icons/districts/grid_box/default_animated_mask.dds"
+			animationtexturefile = "gfx/interface/icons/districts/grid_box/default_animated_texture.dds"
+			animationrotation = 90.0
+			animationlooping = yes
+			animationtime = 2.0
+			animationdelay = 0.0
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "pulsing"      #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+			#animationframes = { 1 2 3 }
+		}
+	}
+
+	spriteType = {
+		name = "GFX_district_pf_fungal_groves_bg"
+		textureFile = "gfx/interface/planetview/district_backgrounds/district_farming_bg.dds"
+	}
+
+	spriteType = {
+		name = "GFX_district_pf_fungal_groves_box_icon_rectangle"
+		texturefile = "gfx/interface/icons/districts/grid_box/district_pf_fungal_groves_rectangle.dds"
+		effectFile = "gfx/FX/buttonstate_onlydisable.shader"
+		noOfFrames = 3
+		animation = {
+			animationmaskfile = "gfx/interface/icons/districts/grid_box/default_animated_mask.dds"
+			animationtexturefile = "gfx/interface/icons/districts/grid_box/default_animated_texture.dds"
+			animationrotation = 90.0
+			animationlooping = yes
+			animationtime = 2.0
+			animationdelay = 0.0
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "pulsing"      #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+			#animationframes = { 1 2 3 }
+		}
+	}
+
+	spriteType = {
+		name = "GFX_district_pf_plantations_bg"
+		textureFile = "gfx/interface/planetview/district_backgrounds/district_farming_bg.dds"
+	}
+
+	spriteType = {
+		name = "GFX_district_pf_plantations_box_icon_rectangle"
+		texturefile = "gfx/interface/icons/districts/grid_box/district_pf_plantations_rectangle.dds"
+		effectFile = "gfx/FX/buttonstate_onlydisable.shader"
+		noOfFrames = 3
+		animation = {
+			animationmaskfile = "gfx/interface/icons/districts/grid_box/default_animated_mask.dds"
+			animationtexturefile = "gfx/interface/icons/districts/grid_box/default_animated_texture.dds"
+			animationrotation = 90.0
+			animationlooping = yes
+			animationtime = 2.0
+			animationdelay = 0.0
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "pulsing"      #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 }
+			#animationframes = { 1 2 3 }
+		}
+	}
+}

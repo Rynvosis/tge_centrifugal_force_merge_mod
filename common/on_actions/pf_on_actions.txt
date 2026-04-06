@@ -1,0 +1,87 @@
+on_game_start = {
+    events = {
+        pf_core.0      # Set mod flag
+        pf_core.10     # Apply extraplanetary life modifier
+        pf_core.11     # Apply planetary rings modifier
+        pf_core.12     # Clear pf modifiers from pre-ftl worlds
+        pf_core.13     # Add holy world deposits
+        pf_core.30     # Apply dry world entity
+        pf_core.31     # Apply swamp world blockers
+        pf_core.40     # Apply tomb world modifiers
+        pf_core.43     # Apply nuclear winter to old foes system
+        pf_misc.110    # Roll to spawn Hive Stars
+        pf_core.200    # Distribute luxury homeworlds
+        pf_core.100    # Clear invalid modifiers from planets
+        pf_core.104    # Add Sol modifiers
+        pf_core.106    # Identify Hot Gas Giants
+    }
+}
+
+on_planet_class_changed = {
+    events = {
+        pf_core.20      # Normal habitable class change
+        pf_core.21      # Limited / No biosphere class changes
+        pf_core.22      # Multi planetary ecosystem class change check
+        pf_core.42      # Apply nuclear winter to pre-ftl nuclear exchanges
+        pf_core.50      # Swap micro terraforming environmental enhancement deposits
+        pf_content.123  # Remove Static Storms
+    }
+}
+
+# This = Planet
+# From = Bombarder
+on_planet_zero_pops = {
+	events = {
+		pf_core.41      # Add glassing modifier on armageddon bombard
+	}
+}
+
+# Triggers event when each country first sends a ship into the system (once per country)
+# Scope = Ship
+# From = System
+# FromFrom = Country
+on_entering_system_first_time = {
+    events = {
+        pf_content.100           # Hive stars first encounter event
+        pf_content.430      # Ancient Battlefield notification event
+    }
+}
+# A ship has surveyed a planet.
+# Scope = Ship
+# From = Planet
+on_survey_planet = {
+	events = {
+        pf_content.101                  # Hive Stars Surveying Event
+        pf_content.200         # Luxury Resources discovered event
+		pf_core.101	                   # Add deposits for gas modifiers
+        pf_core.102	                   # Add deposits for motes modifiers
+        pf_core.103	                   # Add deposits for energy modifiers
+        pf_core.105	                   # Add deposits for society modifiers
+        pf_core.107                     # Add deposits for alloy modifiers
+        pf_content.400                  # Add anomaly for ruined subspace observation post
+        pf_content.450                  # Add anomaly for the desert relic ruins
+    }
+}
+
+# A planet has been colonized.
+# Scope = Planet
+on_colonized = {
+    events = {
+        pf_content.110      # Geothermal taps dice roll event
+        pf_content.120      # Static Sandstorms dice roll event
+        pf_content.130      # Verdant Hyperbloom dice roll event
+    }
+}
+
+on_colony_2_years_old = {
+    events = {
+        pf_content.300      # Colony Event gatekeeper
+        pf_content.320      # Tomb World Colony event gatekeeper
+    }
+}
+
+on_colony_5_years_old = {
+    events = {
+        pf_content.140      # Hyper Blizzards gatekeeper
+    }
+}

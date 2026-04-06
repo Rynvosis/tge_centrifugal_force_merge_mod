@@ -1,0 +1,202 @@
+decision_pf_remove_prethoryn_biomass = {
+    owned_planets_only = yes
+    icon = decision_burning_settlement
+
+    enactment_time = 360
+	resources = {
+		category = decisions
+		cost = {
+			energy = 2000
+		}
+	}
+
+    potential = {
+        has_modifier = pf_pm_infested_world
+    }
+
+    allow = {
+        always = yes
+    }
+
+    effect = {
+        remove_modifier = pf_pm_infested_world
+        hidden_effect = {
+            if = {
+                limit = {
+                    is_planet_class = pc_relic # Assume it still has the old entity
+                }
+                set_planet_entity = {
+                    entity = relic_world_01_entity
+                }
+            }
+        }
+    }
+
+    ai_weight = {
+        base = 100
+    }
+}
+
+decision_pf_clear_impenetrable_jungles = {
+    owned_planets_only = yes
+    icon = pf_decision_jungles
+	
+	enactment_time = 360
+	resources = {
+		category = decisions
+		cost = {
+			energy = 2000
+		}
+	}
+
+    potential = {
+        has_modifier = pf_pm_impenetrable_jungles
+    }
+
+    allow = {
+        always = yes
+    }
+
+    effect = {
+		remove_modifier = pf_pm_impenetrable_jungles
+    }
+
+    ai_weight = {
+        base = 10
+        modifier = {
+            mult = 10
+            owner = {
+                resource_stockpile_compare = {
+                    resource = energy
+                    value >= 5000
+                }
+            }
+        }
+        modifier = {
+            add = 10
+            years_passed > 30
+        }
+		
+        modifier = {
+            add = 100
+            owner = {
+                resource_stockpile_compare = {
+                    resource = energy
+                    value >= 20000
+                }
+            }
+        }
+    }
+}
+
+decision_pf_geothermic_extraction = {
+    owned_planets_only = yes
+    icon = decision_drilling_for_gas
+
+    enactment_time = 360
+	resources = {
+		category = decisions
+		cost = {
+			energy = 2000
+		}
+	}
+
+    potential = {
+        has_planet_flag = pf_geothermic_extraction_decision_allowed
+    }
+
+    allow = {
+        always = yes
+    }
+
+    effect = {
+        add_deposit = d_pf_geothermic_extraction_sites
+        hidden_effect = { remove_planet_flag = pf_geothermic_extraction_decision_allowed }
+    }
+
+    ai_weight = {
+        base = 100
+    }
+}
+
+decision_pf_sandstorm_mitigation = {
+    owned_planets_only = yes
+    icon = decision_arid_planet
+
+    enactment_time = 360
+	resources = {
+		category = decisions
+		cost = {
+			energy = 3000
+		}
+	}
+
+    potential = {
+        has_planet_flag = pf_static_sandstorm_world
+    }
+
+    allow = {
+        always = yes
+    }
+
+    effect = {
+        custom_tooltip = pf_sandstorm_mitigation_tt
+		if = {
+			limit = { has_modifier = pf_pm_harsh_static_storms }
+			remove_modifier = pf_pm_harsh_static_storms
+		}
+		if = {
+			limit = { has_modifier = pf_pm_static_storms }
+			remove_modifier = pf_pm_static_storms
+		}
+		if = {
+			limit = { has_modifier = pf_pm_mild_static_storms }
+			remove_modifier = pf_pm_mild_static_storms
+		}
+        hidden_effect = {
+            set_planet_flag = pf_removed_static_sandstorm_world
+            remove_planet_flag = pf_static_sandstorm_world
+        }
+    }
+
+    ai_weight = {
+        base = 25
+    }
+}
+
+decision_pf_restore_desert_relic_world = {
+    owned_planets_only = yes
+    icon = decision_city_ruins
+
+    enactment_time = 360
+	resources = {
+		category = decisions
+		cost = {
+			minerals = 5000
+            influence = 200
+		}
+	}
+
+    potential = {
+        has_planet_flag = pf_desert_relic_transform_decision_allowed
+        NOR = {
+            is_planet_class = pc_relic
+            is_planet_class = pc_city
+            pf_is_world_with_ecosystems = no
+        }
+    }
+
+    allow = {
+        always = yes
+    }
+
+    effect = {
+        change_pc = pc_relic
+        set_planet_entity = { entity = pf_desert_relic_entity}
+        remove_planet_flag = pf_desert_relic_transform_decision_allowed
+    }
+
+    ai_weight = {
+        base = 100
+    }
+}

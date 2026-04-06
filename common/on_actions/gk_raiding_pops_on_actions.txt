@@ -1,0 +1,57 @@
+# GK Raiding Pops On Actions
+
+# A war is beginning, executed for every country in the war
+# Root = Country
+# From = War
+on_war_beginning = {
+	events = {
+		gk_raiding_pops.400  # Reaping war declaration opinion
+		gk_raiding_pops.605  # Opportunistic raiding authorization dispatch
+	}
+}
+
+# Pop killed by bombardment (raiding stance internally kills+recreates)
+# This = Planet, From = Bombarder country, FromFrom = Fleet
+# local_kill_pop_amount = exact transfer amount
+on_pop_bombed_to_death = {
+	events = {
+		gk_raiding_pops.100  # Track raided pops
+	}
+}
+
+# Pop group abducted by raiding bombardment stance (engine-side)
+# This = Pop Group (already merged onto raider's planet)
+# From = Planet abducted from
+on_pop_group_abducted = {
+	events = {
+		gk_raiding_pops.105  # Redirect to preferred destination
+	}
+}
+
+# Attackers win ground combat (before controller switches)
+# This = Attacking Country
+# From = Defending Country
+# FromFrom = Planet
+on_planet_attackers_win = {
+	events = {
+		gk_raiding_pops.210  # Instant pop raid on conquest
+	}
+}
+
+# Monthly auto-raid on occupied enemy planets
+# This = Country
+on_monthly_pulse_country = {
+	events = {
+		gk_raiding_pops.130
+		gk_raiding_pops.610  # Opportunistic raiding fallback check
+	}
+}
+
+# Yearly pulse for all countries
+# This = Country
+on_yearly_pulse_country = {
+	events = {
+		gk_raiding_pops.110  # Decay raidee raided pops
+		gk_raiding_pops.120  # Cleanup raid trackers and cap flags
+	}
+}

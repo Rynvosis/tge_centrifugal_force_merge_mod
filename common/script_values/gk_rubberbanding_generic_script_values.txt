@@ -1,0 +1,11 @@
+####################################
+# Generic rubberbanding values    #
+####################################
+
+# Generic relative score calculation
+# Parameters: SCORE_VAR, GLOBAL_AVG_VAR
+gkrb_relative_score = {
+	base = 0
+	add = $SCORE_VAR$
+	divide = event_target:global_event_country.$GLOBAL_AVG_VAR$
+}

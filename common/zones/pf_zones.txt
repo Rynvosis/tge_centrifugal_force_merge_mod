@@ -1,0 +1,153 @@
+zone_pf_psionic_fungi_materialist = {
+	icon = GFX_district_specialization_pf_psionic_fungi_materialist
+	base_buildtime = @zone_buildtime
+
+	swap_type = district_pf_fungal_groves
+	swap_type_weight = 5
+
+	potential = { # planet scope
+		has_deposit = d_pf_psionic_fungi
+	}
+
+	unlock = { # planet scope
+		hidden_trigger = {
+			has_deposit = d_pf_psionic_fungi
+			exists = owner
+		}
+		owner = { is_spiritualist = no }
+	}
+
+	resources = {
+		category = planet_zones
+		cost = {
+			minerals = @zone_cost
+		}
+	}
+
+	inline_script = {
+		script = jobs/zone_farmers_add
+		AMOUNT = @scaling_district_2_jobs
+	}
+	inline_script = {
+		script = jobs/zone_biologists_add
+		LARGE_AMOUNT = @scaling_district_2_jobs
+	}
+
+	zone_sets = {
+		food
+	}
+
+	included_building_sets = {
+		farming
+		society
+	}
+
+	planet_modifier = {
+		zone_building_slots_add = 3
+		planet_farmers_society_research_produces_add = 6
+		planet_farmers_food_produces_add = -2
+	}
+
+	ai_priority = 10
+}
+
+zone_pf_psionic_fungi_spiritualist = {
+	icon = GFX_district_specialization_pf_psionic_fungi_spiritualist
+	base_buildtime = @zone_buildtime
+
+	swap_type = district_pf_fungal_sanctuaries
+	swap_type_weight = 5
+
+	potential = { # planet scope
+		has_deposit = d_pf_psionic_fungi
+	}
+
+	unlock = { # planet scope
+		hidden_trigger = {
+			has_deposit = d_pf_psionic_fungi
+			exists = owner
+		}
+		owner = {
+			is_materialist = no
+			is_gestalt = no
+		}
+	}
+
+	resources = {
+		category = planet_zones
+		cost = {
+			minerals = @zone_cost
+		}
+	}
+
+	inline_script = {
+		script = jobs/zone_farmers_add
+		AMOUNT = @scaling_district_1_job
+	}
+
+	zone_sets = {
+		food
+	}
+
+	included_building_sets = {
+		farming
+		unity
+	}
+
+	planet_modifier = {
+		zone_building_slots_add = 3
+		planet_farmers_unity_produces_add = 8
+		planet_farmers_food_produces_add = -2
+	}
+
+	ai_priority = 10
+}
+
+zone_pf_plantations = {
+	icon = GFX_district_specialization_pf_plantations
+	base_buildtime = @zone_buildtime
+
+	swap_type = district_pf_plantations
+	swap_type_weight = 5
+
+	potential = { # planet scope
+		pf_is_luxury_world = yes
+	}
+
+	unlock = { # planet scope
+		hidden_trigger = {
+			pf_is_luxury_world = yes
+			exists = owner
+		}
+	}
+
+	resources = {
+		category = planet_zones
+		cost = {
+			minerals = @zone_cost
+		}
+	}
+
+	inline_script = {
+		script = jobs/zone_farmers_add
+		AMOUNT = @scaling_district_1_job
+	}
+
+	zone_sets = {
+		food
+	}
+
+	included_building_sets = {
+		farming
+		society
+		trade
+	}
+
+	planet_modifier = {
+		zone_building_slots_add = 3
+		planet_farmers_trade_produces_add = 8
+		planet_farmers_food_produces_add = -3
+	}
+
+	ai_priority = 10
+}

@@ -1,0 +1,217 @@
+trait_MST_ravenous = {
+    category = normal
+	cost = -2
+	species_potential_add = {
+		can_add_negative_organic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = {
+		"trait_MST_very_ravenous"
+		"trait_MST_low_metabolism"
+		"trait_infernal"
+	}
+	allowed_archetypes = { BIOLOGICAL }
+	tags = { organic negative upkeep food }
+	icon = "gfx/interface/icons/traits/trait_MST_ravenous.dds"
+	modifier = {
+		planet_pops_food_upkeep_mult = 0.25
+	}
+	slave_cost = {
+		energy = -1000
+	}
+}
+
+trait_MST_very_ravenous = {
+    category = normal
+	cost = -3
+	species_potential_add = {
+		can_add_negative_organic_traits = yes
+	}
+	opposites = {
+		"trait_MST_ravenous"
+		"trait_MST_low_metabolism"
+		"trait_infernal"
+	}
+	allowed_archetypes = { BIOLOGICAL }
+	icon = "gfx/interface/icons/traits/trait_MST_very_ravenous.dds"
+	tags = { organic negative upkeep food }
+	modifier = {
+		planet_pops_food_upkeep_mult = 0.4
+	}
+	slave_cost = {
+		energy = -1500
+	}
+}
+
+trait_MST_slow_maturing = {
+    category = normal
+	cost = -1
+	species_potential_add = {
+		can_add_negative_organic_traits = yes
+	}
+	opposites = { "trait_MST_fast_maturing" }
+	allowed_archetypes = { BIOLOGICAL }
+	icon = "gfx/interface/icons/traits/trait_MST_slow_maturing.dds"
+	tags = { organic negative leader }
+	modifier = {
+		leader_starting_age_mult = 0.75
+	}
+	slave_cost = {
+		energy = -500
+	}
+}
+
+trait_MST_unambitious = {
+    category = normal
+	cost = -1
+	forbidden_ethics = { ethic_gestalt_consciousness }
+	species_potential_add = {
+		can_add_negative_organic_traits = yes
+	}
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	icon = "gfx/interface/icons/traits/trait_MST_unambitious.dds"
+	tags = { organic negative happiness leader individual }
+	modifier = {
+		leaders_upkeep_mult = 0.25
+		pop_cat_ruler_happiness = -0.1
+	}
+	opposites = { "trait_hive_mind" }
+	slave_cost = {
+		energy = 250
+	}
+}
+
+trait_MST_sloppy = {
+    category = normal
+	cost = -3
+	species_potential_add = {
+		can_add_negative_organic_traits = yes
+	}
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	icon = "gfx/interface/icons/traits/trait_MST_sloppy.dds"
+	modifier = {
+		pop_bonus_workforce_mult = -0.1
+	}
+	tags = { organic negative pop_output }
+	opposites = { "trait_MST_effective" }
+	slave_cost = {
+		energy = -500
+	}
+}
+
+trait_MST_weak_immune_system = {
+	cost = -2
+
+	species_potential_add = {
+		can_add_negative_organic_traits = yes
+	}
+
+	allowed_archetypes = { BIOLOGICAL }
+
+	opposites = {
+		"trait_infernal"
+	}
+
+	custom_tooltip_with_modifiers = trait_MST_weak_immune_system_tooltip
+	
+	triggered_planet_growth_habitability_modifier = {
+		potential = {
+			exists = planet
+			planet = { is_ideal = no }
+		}
+		logistic_growth_mult = -0.20
+	}
+	
+	tags = { organic negative pop_growth }
+	
+	assembly_score = {
+		modifier = {
+			subtract = 1
+			from = {
+				is_ideal = no
+			}
+		}
+	}
+	
+	slave_cost = {
+		energy = -250
+	}
+
+	icon = "gfx/interface/icons/traits/trait_MST_weak_immune_system.dds"
+}
+
+trait_MST_hedonistic = {
+    category = normal
+	cost = -1
+	species_potential_add = {
+		can_add_negative_organic_traits = yes
+	}
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	icon = "gfx/interface/icons/traits/trait_MST_hedonistic.dds"
+	modifier = {
+		pop_amenities_usage_mult = 0.1
+	}
+	tags = { organic negative amenities }
+	opposites = { "trait_hive_mind" }
+	slave_cost = {
+		energy = -500
+	}
+}
+
+#trait_MST_frail = {
+#    category = normal
+#	cost = -1
+#	species_potential_add = {
+#		can_add_negative_organic_traits = yes
+#	}
+#	
+#	random_weight = {
+#		AVI = 100
+#		REP = 10
+#		HUM = 2
+#		MAM = 1
+#	}
+#	
+#	allowed_archetypes = { BIOLOGICAL }
+#	icon = "gfx/interface/icons/traits/trait_MST_frail.dds"
+#	modifier = {
+#		army_health = -0.25
+#	}
+#	opposites = {
+#		"trait_MST_scales"
+#		"trait_MST_brittle"
+#	}
+#	slave_cost = {
+#		energy = -500
+#	}
+#}
+#
+#trait_MST_brittle = {
+#    category = normal
+#	cost = -2
+#	species_potential_add = {
+#		can_add_negative_organic_traits = yes
+#	}
+#	
+#	random_weight = {
+#		AVI = 100
+#		REP = 10
+#		HUM = 2
+#		MAM = 1
+#	}
+#	
+#	allowed_archetypes = { BIOLOGICAL }
+#	icon = "gfx/interface/icons/traits/trait_MST_very_frail.dds"
+#	modifier = {
+#		army_health = -0.75
+#	}
+#	opposites = {
+#		"trait_MST_scales"
+#		"trait_MST_frail"
+#	}
+#	slave_cost = {
+#		energy = -1000
+#	}
+#}

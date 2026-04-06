@@ -1,0 +1,15 @@
+####################################
+# Tech Rubberbanding On-Actions
+####################################
+
+on_game_start = {
+	events = {
+		gkrb_tech.1
+	}
+}
+
+on_monthly_pulse = {
+	events = {
+		gkrb_tech.10
+	}
+}

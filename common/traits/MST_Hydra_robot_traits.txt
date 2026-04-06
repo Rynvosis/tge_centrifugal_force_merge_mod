@@ -1,0 +1,288 @@
+trait_MST_robot_hot_swap = {
+	cost = 2
+	category = robotic
+
+	allowed_archetypes = { ROBOT MACHINE }
+	
+	tags = { machine synthetic negative amenities }
+	
+	modifier = {
+		pop_amenities_usage_mult = -0.1
+	}
+	slave_cost = {
+		energy = 750
+	}
+	icon = "gfx/interface/icons/traits/trait_MST_robot_hot_swap.dds"
+	#assembly_score = {
+	#	modifier = {
+	#		add = 1.5
+	#		from = { has_mining_designation = yes }
+	#	}
+	#	modifier = {
+	#		add = 0.5
+	#		from = { has_rural_designation = yes }
+	#	}
+	#}
+}
+
+trait_MST_robot_pre_developed_cortex = {
+	cost = -1
+	category = robotic
+	forbidden_ethics = { ethic_gestalt_consciousness }
+
+	allowed_archetypes = { ROBOT MACHINE }
+
+	tags = { machine synthetic negative pop_growth upkeep individual }
+
+	#assembling_modifier, declining_modifier, growing_modifier are applied to planet when pop is the one assembling/declining/growing
+	assembling_modifier = {
+		planet_pop_assemblers_energy_upkeep_add = 1
+	}
+	species_potential_add = {
+		OR = {
+			can_add_synth_traits = yes
+			owner_is_individual_machine = yes
+		}
+	}
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+			years_passed > 5
+		}
+	}
+	icon = "gfx/interface/icons/traits/trait_MST_robot_predeveloped_cortex.dds"
+}
+
+trait_MST_robot_research_algorithms = {
+	cost = 3
+	category = robotic
+
+	allowed_archetypes = { ROBOT MACHINE }
+	
+	tags = { machine synthetic positive leader }
+	
+	modifier = {
+		scientist_skill_add = 2
+	}
+	slave_cost = {
+		energy = 250
+	}
+	icon = "gfx/interface/icons/traits/trait_MST_robot_research_algorithms.dds"
+}
+
+trait_MST_robot_pacifist_protocols = {
+	cost = -1
+	category = robotic
+
+	allowed_archetypes = { ROBOT MACHINE }
+	
+	tags = { machine synthetic negative leader }
+	
+	modifier = {
+		commander_skill_add = -1
+		pop_soldier_bonus_workforce_mult = -0.1
+	}
+	icon = "gfx/interface/icons/traits/trait_MST_robot_pacifist_protocols.dds"
+}
+
+trait_MST_robot_cubepacked = {
+	cost = 2
+	category = robotic
+
+	allowed_archetypes = { ROBOT MACHINE }
+	
+	tags = { machine synthetic positive migration }
+	
+	modifier = {
+		pop_resettlement_cost_mult = -0.9
+	}
+	
+	#resources = {
+	#	category = planet_pops
+	#	produces = {
+	#		trigger = {
+	#			is_slave_or_better = yes
+	#		}
+	#		trade = 0.1
+	#	}
+	#}
+	
+	icon = "gfx/interface/icons/traits/trait_MST_robot_cubepacked.dds"
+}
+
+trait_MST_robot_bitcoinminer = {
+	cost = -2
+	category = robotic
+
+	forbidden_ethics = { ethic_gestalt_consciousness }
+
+	allowed_archetypes = { ROBOT MACHINE }
+	
+	tags = { machine synthetic negative trade }
+	
+	custom_tooltip = trait_MST_robot_bitcoinminer_tt
+	
+	resources = {
+		category = planet_pops
+		produces = {
+			trigger = {
+				is_slave_or_better = yes
+			}
+			trade = 0.1
+		}
+		upkeep = {
+			trigger = {
+				is_slave_or_better = yes
+			}
+			energy = 1
+		}
+	}
+	
+	icon = "gfx/interface/icons/traits/trait_MST_robot_bitcoinminer.dds"
+}
+
+#trait_MST_robot_repairbots = {
+#	cost = 3
+#	category = robotic
+#
+#	allowed_archetypes = { ROBOT MACHINE }
+#	
+#	tags = { machine synthetic positive pop_output amenities }
+#	
+#	modifier = {
+#		pop_cat_maintenance_drone_bonus_workforce_mult = 1
+#	}
+#	
+#	icon = "gfx/interface/icons/traits/trait_MST_robot_repairbots.dds"
+#}
+
+trait_MST_robot_finecircutry = {
+	cost = -1
+	category = robotic
+
+	allowed_archetypes = { ROBOT MACHINE }
+	
+	tags = { machine synthetic negative pop_output }
+	
+	modifier = {
+		habitability_floor_add = -0.25
+	}
+	
+	icon = "gfx/interface/icons/traits/trait_MST_robot_finecircutry.dds"
+}
+
+trait_MST_robot_hardshelled = {
+	cost = 2
+	category = robotic
+
+	allowed_archetypes = { ROBOT MACHINE }
+	
+	opposites = { "trait_robot_delicate_frames" }
+	
+	tags = { machine synthetic positive habitability }
+	
+	modifier = {
+		habitability_floor_add = 0.25
+	}
+	
+	icon = "gfx/interface/icons/traits/trait_MST_robot_hardshelled.dds"
+}
+
+trait_MST_robot_bugriddled = {
+	cost = -2
+	category = robotic
+
+	allowed_archetypes = { ROBOT MACHINE }
+	
+	tags = { machine synthetic negative leader }
+	
+	opposites = { "trait_robot_inquisitative_axioms" "trait_robot_enhanced_memory" }
+	
+	#custom_tooltip = TRAIT_HUMANOID_JINXED_EFFECT
+	
+	modifier = {
+		negative_leader_traits_species = 3
+	}
+	
+	icon = "gfx/interface/icons/traits/trait_MST_robot_bugriddled.dds"
+}
+
+# trait_MST_robot_harcoded = {
+# 	cost = -3
+# 	category = robotic
+#
+# 	allowed_archetypes = { ROBOT MACHINE }
+#
+# 	tags = { machine synthetic negative }
+#
+# 	opposites = { "trait_robot_inquisitative_axioms" "trait_robot_enhanced_memory" }
+#
+# 	modifier = {
+# 		pop_demotion_time_mult = 2
+# 		pop_promotion_time_mult = 2
+# 	}
+#
+# 	icon = "gfx/interface/icons/traits/trait_MST_robot_hardcoded.dds"
+# }
+
+trait_MST_robot_slowneuralnet = {
+	cost = -1
+	category = robotic
+
+	allowed_archetypes = { ROBOT MACHINE }
+	
+	tags = { machine synthetic negative leader }
+	
+	modifier = {
+		leader_starting_age_mult = 2
+	}
+	
+	icon = "gfx/interface/icons/traits/trait_MST_robot_slowneuralnet.dds"
+}
+
+#trait_MST_robot_no_cooling = {
+#	cost = -1
+#	category = robotic
+#
+#	allowed_archetypes = { ROBOT MACHINE }
+#	
+#	tags = { machine synthetic negative }
+#	
+#	modifier = {
+#		commander_skill_add = -1
+#		pop_soldier_bonus_workforce_mult = -0.1
+#	}
+#	icon = "gfx/interface/icons/traits/trait_MST_robot_pacifist_protocols.dds"
+#}
+
+#trait_MST_robot_overclocked = {
+#	cost = 3
+#	category = robotic
+#
+#	forbidden_ethics = { ethic_gestalt_consciousness }
+#
+#	allowed_archetypes = { ROBOT MACHINE }
+#	
+#	tags = { machine synthetic positive trade }
+#	
+#	custom_tooltip = trait_MST_robot_overclocked_tt
+#	
+#	resources = {
+#		category = planet_pops
+#		produces = {
+#			trigger = {
+#				is_slave_or_better = yes
+#			}
+#			trade = 0.1
+#		}
+#		upkeep = {
+#			trigger = {
+#				is_slave_or_better = yes
+#			}
+#			energy = 1
+#		}
+#	}
+#	
+#	icon = "gfx/interface/icons/traits/trait_MST_robot_bitcoinminer.dds"
+#}

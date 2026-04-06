@@ -1,0 +1,417 @@
+# trait_MST_flexible = {
+# 	cost = 1
+#     category = normal
+# 	species_possible_add = {
+# 		can_add_genetic_traits = yes
+# 	}
+# 	species_possible_remove = {
+# 		can_remove_beneficial_genetic_traits = yes
+# 	}
+# 	species_possible_merge_remove = {
+# 		always = yes
+# 	}
+# 	allowed_archetypes = { BIOLOGICAL LITHOID }
+# 	icon = "gfx/interface/icons/traits/trait_MST_flexible.dds"
+# 	tags = { organic positive }
+# 	modifier = {
+# 		pop_demotion_time_mult = -0.5
+# 		pop_promotion_time_mult = -0.5
+# 	}
+# 	slave_cost = {
+# 		energy = 500
+# 	}
+# 	opposites = {
+# 		"trait_invasive"
+# 	}
+# }
+
+trait_MST_toxic = {
+	cost = 1
+    category = normal
+	species_possible_add = {
+		OR = {
+			can_add_genetic_traits = yes
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	species_possible_remove = {
+		OR = {
+			can_remove_beneficial_genetic_traits = yes
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	icon = "gfx/interface/icons/traits/trait_MST_toxic.dds"
+	modifier = {
+		livestock_jobs_bonus_workforce_mult = -0.75
+		army_damage_mult = 0.25
+	}
+	species_class = { MOL FUN PLANT ART TOX AQUATIC }
+	localized_tags = {
+		SPECIES_TRAIT_MOLLUSCOID
+		SPECIES_TRAIT_FUNGOID
+		SPECIES_TRAIT_PLANTOID
+		SPECIES_TRAIT_ARTHROPOID
+		SPECIES_TRAIT_TOXOID
+		SPECIES_TRAIT_AQUATIC
+	}
+	species_class_override = {
+		hidden_trigger = {
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	tags = { organic positive army plantoid fungoid arthropoid aquatic molluscoid toxoid species }
+	opposites = {
+		"trait_invasive"
+	}
+}
+
+trait_MST_fast_maturing = {
+	cost = 1
+    category = normal
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { "trait_MST_slow_maturing" }
+	tags = { organic positive leader }
+	allowed_archetypes = { BIOLOGICAL }
+	icon = "gfx/interface/icons/traits/trait_MST_fast_maturing.dds"
+	modifier = {
+		leader_starting_age_mult = -0.25
+	}
+	slave_cost = {
+		energy = 500
+	}
+	opposites = {
+		"trait_invasive"
+	}
+}
+
+trait_MST_vocal = {
+	cost = 1
+    category = normal
+	forbidden_ethics = { ethic_gestalt_consciousness }
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	opposites = { "trait_MST_slow_maturing" }
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	icon = "gfx/interface/icons/traits/trait_MST_vocal.dds"
+	tags = { organic positive individual }
+	modifier = {
+		pop_political_power = 0.5
+	}
+	slave_cost = {
+		energy = 250
+	}
+	opposites = {
+		"trait_invasive"
+	}
+}
+
+trait_MST_sadistic = {
+	cost = 1
+    category = normal
+	forbidden_ethics = { ethic_gestalt_consciousness }
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	icon = "gfx/interface/icons/traits/trait_MST_sadistic.dds"
+	tags = { organic positive army }
+	modifier = {
+		army_collateral_damage_mult = 0.25
+	}
+	opposites = {
+		"trait_invasive"
+	}
+	slave_cost = {
+		energy = 500
+	}
+}
+
+trait_MST_effective = {
+	cost = 5
+    category = normal
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	icon = "gfx/interface/icons/traits/trait_MST_effective.dds"
+	tags = { organic positive pop_output }
+	modifier = {
+		pop_bonus_workforce_mult = 0.1
+	}
+	assembly_score = {
+		modifier = {
+			add = 2
+		}
+	}
+	opposites = { "trait_MST_sloppy" "trait_invasive" }
+	slave_cost = {
+		energy = 2000
+	}
+}
+
+trait_MST_defiant = {
+	cost = 1
+    category = normal
+	forbidden_ethics = { ethic_gestalt_consciousness }
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	icon = "gfx/interface/icons/traits/trait_MST_defiant.dds"
+	tags = { organic positive }
+	modifier = {
+		pop_purge_speed = -0.25
+	}
+	opposites = {
+		"trait_invasive"
+	}
+	slave_cost = {
+		energy = 500
+	}
+}
+
+trait_MST_grotesque = {
+	cost = 1
+    category = normal
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	icon = "gfx/interface/icons/traits/trait_mutagenic.dds"
+	tags = { organic positive army }
+	modifier = {
+		army_morale_damage_mult = 1
+	}
+	opposites = {
+		"trait_invasive"
+	}
+	slave_cost = {
+		energy = 500
+	}
+}
+
+trait_MST_stoic = {
+	cost = 2
+    category = normal
+	forbidden_ethics = { ethic_gestalt_consciousness }
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	icon = "gfx/interface/icons/traits/trait_MST_stoic.dds"
+	tags = { organic positive army }
+	modifier = {
+		army_morale_damage_taken_mult = -0.5
+	}
+	opposites = {
+		"trait_invasive"
+	}
+	slave_cost = {
+		energy = 500
+	}
+}
+
+trait_MST_low_metabolism = {
+	cost = 2
+    category = normal
+	species_possible_add = {
+		can_add_genetic_traits = yes
+	}
+	species_possible_remove = {
+		can_remove_beneficial_genetic_traits = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	allowed_archetypes = { BIOLOGICAL }
+	tags = { organic positive upkeep food }
+	icon = "gfx/interface/icons/traits/trait_MST_low_metabolism.dds"
+	modifier = {
+		planet_pops_food_upkeep_mult = -0.2
+	}
+	opposites = {
+		"trait_invasive"
+		"trait_MST_ravenous"
+		"trait_MST_very_ravenous"
+		"trait_infernal"
+	}
+	slave_cost = {
+		energy = 500
+	}
+}
+
+trait_MST_scales = {
+	cost = 1
+    category = normal
+	species_possible_add = {
+		OR = {
+			can_add_genetic_traits = yes
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	species_possible_remove = {
+		OR = {
+			can_remove_beneficial_genetic_traits = yes
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	icon = "gfx/interface/icons/traits/trait_MST_scales.dds"
+	modifier = {
+		army_health = 0.5
+	}
+	opposites = {
+		"trait_invasive"
+	}
+	species_class = { REP ART }
+	localized_tags = {
+		SPECIES_TRAIT_REPTILIAN
+		SPECIES_TRAIT_ARTHROPOID
+	}
+	species_class_override = {
+		hidden_trigger = {
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	tags = { organic positive army reptilian arthropoid species }
+	slave_cost = {
+		energy = 500
+	}
+}
+
+# +30% pop growth speed while purhing is taking place
+trait_MST_decomposers = {
+	cost = 1
+    category = normal
+	species_possible_add = {
+		OR = {
+			can_add_genetic_traits = yes
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	species_possible_remove = {
+		OR = {
+			can_remove_beneficial_genetic_traits = yes
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	icon = "gfx/interface/icons/traits/trait_MST_decomposers.dds"
+	custom_tooltip_with_modifiers = trait_MST_decomposers_tooltip
+	triggered_planet_growth_habitability_modifier = {
+		potential = {
+			exists = planet
+			planet = {
+				has_current_purge = yes
+			}
+		}
+		logistic_growth_mult = 0.3
+	}
+	opposites = {
+		"trait_pathogenic_genes"
+		"trait_rapid_breeders"
+		"trait_slow_breeders"
+		"trait_fertile"
+		"trait_rapid_breeders_lithoid"
+		"trait_vat_grown"
+		"trait_tiyanki"
+		"trait_humanoid_existential_iteroparity"
+		"trait_humanoid_psychological_infertility"
+		"trait_invasive"
+	}
+	species_class = { FUN ART }
+	localized_tags = {
+		SPECIES_TRAIT_FUNGOID
+		SPECIES_TRAIT_ARTHROPOID
+	}
+	species_class_override = {
+		hidden_trigger = {
+			can_add_or_remove_phenotype_traits = yes
+		}
+	}
+	tags = { organic positive pop_growth fungoid arthropoid species }
+	slave_cost = {
+		energy = 500
+	}
+}
+
+#trait_MST_bloom = {
+#	cost = 1
+#   category = normal
+#	forbidden_ethics = { ethic_gestalt_consciousness }
+#	species_possible_add = {
+#		can_add_genetic_traits = yes
+#	}
+#	species_possible_remove = {
+#		can_remove_beneficial_genetic_traits = yes
+#	}
+#	species_possible_merge_remove = {
+#		always = yes
+#	}
+#	potential_crossbreeding_chance = 1.0	# 1.0 = 100% chance of being considered for new traits when forming half-species. does not guarantee the trait will be added if it costs points.
+#	allowed_archetypes = { BIOLOGICAL }
+#	icon = "gfx/interface/icons/traits/trait_MST_bloom.dds"
+#	custom_tooltip_with_modifiers = trait_MST_bloom_tooltip
+#	growing_modifier = {
+#		pop_happiness = 0.1
+#	}
+#	species_class = { PLANT FUN }
+#	slave_cost = {
+#		energy = 500
+#	}
+#}

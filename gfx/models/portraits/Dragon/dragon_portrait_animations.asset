@@ -1,0 +1,14 @@
+animation = {
+	name = "draconic_dragon_idle02_animation"
+	file = "draconic_dragon_idle02.anim"
+}
+
+animation = {
+	name = "draconic_dragon_idle01_animation"
+	file = "draconic_dragon_idle01.anim"
+}
+
+animation = {
+	name = "draconic_dragon_idle03_animation"
+	file = "draconic_dragon_idle03.anim"
+}

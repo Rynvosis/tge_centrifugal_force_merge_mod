@@ -1,0 +1,47 @@
+# Wet
+picture = {
+    trigger = { $PLANET_SCOPE$ = { pf_is_rare_wood_world = yes } }
+    picture = GFX_evt_alien_nature
+}
+
+picture = {
+    trigger = { $PLANET_SCOPE$ = { pf_is_iridescent_pearls_world = yes } }
+    picture = GFX_evt_ocean
+}
+
+picture = {
+    trigger = { $PLANET_SCOPE$ = { pf_is_sea_ferns_world = yes } }
+    picture = GFX_evt_pf_kelp_forest
+}
+
+# Dry
+picture = {
+    trigger = { $PLANET_SCOPE$ = { pf_is_rare_spices_world = yes } }
+    picture = GFX_evt_arid
+}
+
+picture = {
+    trigger = { $PLANET_SCOPE$ = { pf_is_desert_silks_world = yes } }
+    picture = GFX_evt_desert
+}
+
+picture = {
+    trigger = { $PLANET_SCOPE$ = { pf_is_amberfruit_world = yes } }
+    picture = GFX_evt_pf_arid_wetlands
+}
+
+# Cold
+picture = {
+    trigger = { $PLANET_SCOPE$ = { pf_is_mountain_flowers_world = yes } }
+    picture = GFX_evt_pf_alpine_highlands
+}
+
+picture = {
+    trigger = { $PLANET_SCOPE$ = { pf_is_fungal_caves_world = yes } }
+    picture = GFX_evt_pf_glowing_nature
+}
+
+picture = {
+    trigger = { $PLANET_SCOPE$ = { pf_is_marsh_roots_world = yes } }
+    picture = GFX_evt_tundra
+}

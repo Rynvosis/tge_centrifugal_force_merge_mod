@@ -1,0 +1,107 @@
+switch = {
+    trigger = galaxy_size
+
+    # Spawn ~20% of them if it's 200 stars
+    tiny = {
+        random_list = {
+            80 = {}
+            20 = {
+                random_galaxy_planet = {
+                    limit = {
+                        is_colony = no
+                        NOT = { exists = owner }
+                        is_planet_class = $PLANET_CLASS$
+                    }
+                    add_modifier = { modifier = $MODIFIER$ }
+                    set_planet_flag = $MODIFIER$
+                    set_planet_flag = pf_luxury_resource_homeworld
+                }
+            }
+        }
+    }
+
+    # Spawn ~40% of them if it's 400 stars
+    small = {
+        random_list = {
+            60 = {}
+            40 = {
+                random_galaxy_planet = {
+                    limit = {
+                        is_colony = no
+                        NOT = { exists = owner }
+                        is_planet_class = $PLANET_CLASS$
+                    }
+                    add_modifier = { modifier = $MODIFIER$ }
+                    set_planet_flag = $MODIFIER$
+                    set_planet_flag = pf_luxury_resource_homeworld
+                }
+            }
+        }
+    }
+
+    # Spawn ~60% of them if it's 400 stars
+    medium = {
+        random_list = {
+            40 = {}
+            60 = {
+                random_galaxy_planet = {
+                    limit = {
+                        is_colony = no
+                        NOT = { exists = owner }
+                        is_planet_class = $PLANET_CLASS$
+                    }
+                    add_modifier = { modifier = $MODIFIER$ }
+                    set_planet_flag = $MODIFIER$
+                    set_planet_flag = pf_luxury_resource_homeworld
+                }
+            }
+        }
+    }
+
+    # Spawn ~80% of them if it's 800 stars
+    large = {
+        random_list = {
+            20 = {}
+            80 = {
+                random_galaxy_planet = {
+                    limit = {
+                        is_colony = no
+                        NOT = { exists = owner }
+                        is_planet_class = $PLANET_CLASS$
+                    }
+                    add_modifier = { modifier = $MODIFIER$ }
+                    set_planet_flag = $MODIFIER$
+                    set_planet_flag = pf_luxury_resource_homeworld
+                }
+            }
+        }
+    }
+
+    # Spawn everything if it's 1k stars
+    huge = {
+        random_galaxy_planet = {
+            limit = {
+                is_colony = no
+                NOT = { exists = owner }
+                is_planet_class = $PLANET_CLASS$
+            }
+            add_modifier = { modifier = $MODIFIER$ }
+            set_planet_flag = $MODIFIER$
+            set_planet_flag = pf_luxury_resource_homeworld
+        }
+    }
+
+    # Spawn everything if we don't know how big it is
+    default = {
+        random_galaxy_planet = {
+            limit = {
+                is_colony = no
+                NOT = { exists = owner }
+                is_planet_class = $PLANET_CLASS$
+            }
+            add_modifier = { modifier = $MODIFIER$ }
+            set_planet_flag = $MODIFIER$
+            set_planet_flag = pf_luxury_resource_homeworld
+        }
+    }
+}
