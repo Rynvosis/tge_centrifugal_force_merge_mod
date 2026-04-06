@@ -1,0 +1,170 @@
+# Tech adoption weight: 1.5^n where n = number of empires with the tech
+# Each threshold that passes multiplies by 1.5
+
+rp_arc_furnace_adoption_weight = {
+	base = 1
+	modifier = {
+		multiply = 1.5
+		count_country = {
+			limit = {
+				is_country_type = default
+				has_technology = tech_orbital_arc_furnace
+			}
+			count >= 1
+		}
+	}
+	modifier = {
+		multiply = 1.5
+		count_country = {
+			limit = {
+				is_country_type = default
+				has_technology = tech_orbital_arc_furnace
+			}
+			count >= 2
+		}
+	}
+	modifier = {
+		multiply = 1.5
+		count_country = {
+			limit = {
+				is_country_type = default
+				has_technology = tech_orbital_arc_furnace
+			}
+			count >= 3
+		}
+	}
+	modifier = {
+		multiply = 1.5
+		count_country = {
+			limit = {
+				is_country_type = default
+				has_technology = tech_orbital_arc_furnace
+			}
+			count >= 4
+		}
+	}
+	modifier = {
+		multiply = 1.5
+		count_country = {
+			limit = {
+				is_country_type = default
+				has_technology = tech_orbital_arc_furnace
+			}
+			count >= 5
+		}
+	}
+	modifier = {
+		multiply = 1.5
+		count_country = {
+			limit = {
+				is_country_type = default
+				has_technology = tech_orbital_arc_furnace
+			}
+			count >= 6
+		}
+	}
+	modifier = {
+		multiply = 1.5
+		count_country = {
+			limit = {
+				is_country_type = default
+				has_technology = tech_orbital_arc_furnace
+			}
+			count >= 7
+		}
+	}
+	modifier = {
+		multiply = 1.5
+		count_country = {
+			limit = {
+				is_country_type = default
+				has_technology = tech_orbital_arc_furnace
+			}
+			count >= 8
+		}
+	}
+}
+
+rp_dyson_swarm_adoption_weight = {
+	base = 1
+	modifier = {
+		multiply = 1.5
+		count_country = {
+			limit = {
+				is_country_type = default
+				has_technology = tech_dyson_swarm
+			}
+			count >= 1
+		}
+	}
+	modifier = {
+		multiply = 1.5
+		count_country = {
+			limit = {
+				is_country_type = default
+				has_technology = tech_dyson_swarm
+			}
+			count >= 2
+		}
+	}
+	modifier = {
+		multiply = 1.5
+		count_country = {
+			limit = {
+				is_country_type = default
+				has_technology = tech_dyson_swarm
+			}
+			count >= 3
+		}
+	}
+	modifier = {
+		multiply = 1.5
+		count_country = {
+			limit = {
+				is_country_type = default
+				has_technology = tech_dyson_swarm
+			}
+			count >= 4
+		}
+	}
+	modifier = {
+		multiply = 1.5
+		count_country = {
+			limit = {
+				is_country_type = default
+				has_technology = tech_dyson_swarm
+			}
+			count >= 5
+		}
+	}
+	modifier = {
+		multiply = 1.5
+		count_country = {
+			limit = {
+				is_country_type = default
+				has_technology = tech_dyson_swarm
+			}
+			count >= 6
+		}
+	}
+	modifier = {
+		multiply = 1.5
+		count_country = {
+			limit = {
+				is_country_type = default
+				has_technology = tech_dyson_swarm
+			}
+			count >= 7
+		}
+	}
+	modifier = {
+		multiply = 1.5
+		count_country = {
+			limit = {
+				is_country_type = default
+				has_technology = tech_dyson_swarm
+			}
+			count >= 8
+		}
+	}
+}

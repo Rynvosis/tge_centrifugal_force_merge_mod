@@ -1,0 +1,13 @@
+NDiplomacy = {
+	# Remove influence cost for changing vassal contracts
+	AGREEMENT_PROPOSE_INFLUENCE_COST			= 0
+	AGREEMENT_DENY_AS_SUBJECT_INFLUENCE_COST	= 0
+	AGREEMENT_DENY_AS_OVERLORD_INFLUENCE_COST	= 0
+	AGREEMENT_LOYALTY_DELTA_MULT				= 0
+}
+
+NResolution = {
+	# Speed up galactic community timers (halved from vanilla)
+	RESOLUTION_VOTE_TIMER		= 720	# vanilla 1440
+	SENATE_RECESS_TIMER			= 360	# vanilla 720
+}
