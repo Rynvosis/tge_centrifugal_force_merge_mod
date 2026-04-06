@@ -6,7 +6,14 @@
 on_war_beginning = {
 	events = {
 		gk_raiding_pops.400  # Reaping war declaration opinion
-		gk_raiding_pops.605  # Opportunistic raiding authorization dispatch
+	}
+}
+
+# Bombardment tick — prompt opportunistic raiding on first bombardment per target
+# This = Planet, From = Bombarder country, FromFrom = Fleet
+on_planet_bombarded = {
+	events = {
+		gk_raiding_pops.615  # Opportunistic raiding — bombardment trigger
 	}
 }
 

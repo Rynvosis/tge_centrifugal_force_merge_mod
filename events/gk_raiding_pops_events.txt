@@ -1375,6 +1375,64 @@ country_event = {
 	}
 }
 
+# Bombardment dispatch — prompt opportunistic raiding on first bombardment per target
+# This = Planet, From = Bombarder country, FromFrom = Fleet
+planet_event = {
+	id = gk_raiding_pops.615
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		exists = owner
+		from = {
+			gk_can_pop_raid_personally = yes
+			NOT = { has_country_flag = gk_opportunistic_prompted_@prev.owner }
+		}
+		owner = {
+			is_country_type = default
+			NOT = { has_country_flag = gk_opportunistic_raid_authorized_by_@from }
+		}
+		# Not a raiding war (handle bombarder on either side)
+		from = {
+			any_war = {
+				OR = {
+					AND = {
+						is_war_participant = { who = prev side = attackers }
+						is_war_participant = { who = prevprev.owner side = defenders }
+					}
+					AND = {
+						is_war_participant = { who = prev side = defenders }
+						is_war_participant = { who = prevprev.owner side = attackers }
+					}
+				}
+				NOR = {
+					using_war_goal = { type = wg_plunder owner = attacker }
+					using_war_goal = { type = wg_plunder owner = defender }
+					using_war_goal = { type = wg_gk_emancipation owner = attacker }
+					using_war_goal = { type = wg_gk_emancipation owner = defender }
+					using_war_goal = { type = wg_gk_reaping owner = attacker }
+					using_war_goal = { type = wg_gk_reaping owner = defender }
+				}
+			}
+		}
+	}
+
+	immediate = {
+		from = {
+			# Set prompted flag immediately so subsequent bombardment ticks
+			# short-circuit before reaching the expensive any_war evaluation
+			set_timed_country_flag = {
+				flag = gk_opportunistic_prompted_@prev.owner
+				years = 5
+			}
+			country_event = {
+				id = gk_raiding_pops.600
+				scopes = { from = prevprev.owner }
+			}
+		}
+	}
+}
+
 # Monthly fallback — catches mid-war raiding access and save compatibility
 # This = Country
 country_event = {
