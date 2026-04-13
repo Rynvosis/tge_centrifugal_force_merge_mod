@@ -1,0 +1,9 @@
+# Disable secret societies auto-contact at game start
+# Vanilla: shroud.5000 in events/shroud_events.txt
+country_event = {
+	id = shroud.5000
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = { always = no }
+	immediate = {}
+}
