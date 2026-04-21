@@ -1,5 +1,5 @@
 on_game_start = {
 	events = {
-		rp_util.1
+		gk_utils_rp.1
 	}
 }

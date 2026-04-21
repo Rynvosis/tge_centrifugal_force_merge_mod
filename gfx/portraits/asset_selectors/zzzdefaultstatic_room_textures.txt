@@ -7,7 +7,10 @@ room_selector = {
 	# due to how the files/game works, on an error the selection screen window will show the default
 	# BUT if selected the FIRST room of the below list actually shows behind the player/ruler
 	# I don't know why it does this ...
-	default = "no_video_error_room"
+	# TGE-MERGE-MOD PATCH: changed from "no_video_error_room" to "default_room" so that
+	# modded personalities without a room mapping fall back to the standard default
+	# instead of the static error. Catches gk_ec personalities and any other mod additions.
+	default = "default_room"
 	
 	game_setup = {
 		"no_video_static_room"									= { always = yes } 
