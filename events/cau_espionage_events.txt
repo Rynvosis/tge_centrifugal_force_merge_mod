@@ -69,7 +69,24 @@ espionage_operation_event = {
 
 	immediate = { }
 
-	option = { name = GOOD }
+	option = {
+		name = cau_operations.1000.yes
+	}
+	option = {
+		name = cau_operations.1000.no
+		custom_tooltip = cau_operations.1000.no.tt
+		hidden_effect = {
+			set_espionage_operation_flag = operation_canceled_by_gm_check
+		}
+	}
+
+	after = {
+		if = {
+			limit = { has_espionage_operation_flag = operation_canceled_by_gm_check }
+			fire_on_action = { on_action = on_operation_cancelled }
+			destroy_espionage_operation = this
+		}
+	}
 }
 espionage_operation_event = {
 	id = cau_operations.1001
@@ -116,5 +133,31 @@ espionage_operation_event = {
 	}
 	after = {
 		set_espionage_operation_progress_locked = no
+	}
+}
+
+# Drop the Facade confirmation popup. Fired by the cau_drop_the_facade edict.
+# Yes option performs the original edict effect; No option does nothing.
+country_event = {
+	id = cau_operations.50
+	title = cau_drop_facade_confirm.title
+	desc = cau_drop_facade_confirm.desc
+	picture = GFX_evt_galactic_empire
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cau_drop_facade_confirm.yes
+		set_country_flag = dropped_the_facade
+		hidden_effect = {
+			set_ai_personality = became_the_crisis
+		}
+		if = {
+			limit = { has_federation = yes }
+			leave_alliance = { override_requirements = yes }
+		}
+	}
+	option = {
+		name = cau_drop_facade_confirm.no
 	}
 }
